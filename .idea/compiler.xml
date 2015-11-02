@@ -23,10 +23,12 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="binaryga" />
+        <module name="BinaryGA" />
         <module name="MapReduceBinaryGA" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="BinaryGA" target="1.5" />
       <module name="binaryga" target="1.5" />
       <module name="bscproject" target="1.5" />
       <module name="MapReduceBinaryGA" target="1.5" />
