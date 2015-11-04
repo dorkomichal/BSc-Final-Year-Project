@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/BinaryGA/BinaryGA.iml" filepath="$PROJECT_DIR$/BinaryGA/BinaryGA.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MapReduceBinaryGA/MapReduceBinaryGA.iml" filepath="$PROJECT_DIR$/MapReduceBinaryGA/MapReduceBinaryGA.iml" />
-    </modules>
-  </component>
-</project>
