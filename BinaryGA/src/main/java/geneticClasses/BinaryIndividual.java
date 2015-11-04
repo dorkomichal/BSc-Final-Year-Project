@@ -14,9 +14,8 @@ public class BinaryIndividual {
     /**
      * Default size of the chromosome. Can be changed using @setChromosomeLength
      */
-    private static Integer chromosomeLength = 256;
+    private static Integer chromosomeLength = 16;
     private byte[] chromosome;
-
     private int fitness;
 
     private Random random = new Random();
@@ -48,12 +47,16 @@ public class BinaryIndividual {
         return fitness;
     }
 
-    public int lengthOfGenome() {
+    public int lengthOfChromosome() {
         return this.chromosome.length;
     }
 
+    public void setChromosome(byte[] chromosome) {
+        this.chromosome = chromosome;
+    }
+
     public void calculateFitness() {
-        // TODO
+        this.fitness = FitnessCalculator.compareChromosomeAndSolution(chromosome);
     }
 
     public void setFitness(int fitness) {

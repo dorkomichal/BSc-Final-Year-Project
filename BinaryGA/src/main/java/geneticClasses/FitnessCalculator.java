@@ -1,5 +1,7 @@
 package geneticClasses;
 
+import java.util.Arrays;
+
 /**
  * Created by Michal Dorko on 30/10/15.
  * BSc Final Year project
@@ -19,8 +21,12 @@ public class FitnessCalculator {
         FitnessCalculator.problemSolution = new byte[problemSolution.length()];
         int i = 0;
         for (char c : problemSolution.toCharArray()) {
-           FitnessCalculator.problemSolution[i] = (byte) c;
-            i++;
+           if (c == '0') {
+               FitnessCalculator.problemSolution[i] = (byte) 0;
+           } else {
+               FitnessCalculator.problemSolution[i] = (byte) 1;
+           }
+           i++;
         }
     }
 
@@ -31,7 +37,7 @@ public class FitnessCalculator {
         }
     }
 
-    private static Integer compareChromosomeAndSolution(byte[] individualChromosome) {
+    protected static Integer compareChromosomeAndSolution(byte[] individualChromosome) {
         int fitness = 0;
         for(int i = 0; i < individualChromosome.length; i++) {
             if (individualChromosome[i] == problemSolution[i]) {
