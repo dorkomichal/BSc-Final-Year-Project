@@ -24,6 +24,22 @@ public class FitnessCalculator {
         }
     }
 
+    public static void calculateFitnessOfPopulation(Population p) {
+        for(int i = 0; i < p.getSizeOfPopulation(); i++) {
+            BinaryIndividual binaryIndividual = p.getIndividual(i);
+            binaryIndividual.setFitness(compareChromosomeAndSolution(binaryIndividual.getChromosome()));
+        }
+    }
+
+    private static Integer compareChromosomeAndSolution(byte[] individualChromosome) {
+        int fitness = 0;
+        for(int i = 0; i < individualChromosome.length; i++) {
+            if (individualChromosome[i] == problemSolution[i]) {
+                fitness ++;
+            }
+        }
+        return fitness;
+    }
 
 
 }

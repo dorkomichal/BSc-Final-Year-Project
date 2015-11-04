@@ -16,9 +16,10 @@ public class BinaryIndividual {
      */
     private static Integer chromosomeLength = 256;
     private byte[] chromosome;
-    private int fitness;
-    private Random random = new Random();
 
+    private int fitness;
+
+    private Random random = new Random();
     public BinaryIndividual() {
         this.chromosome = new byte[chromosomeLength];
         this.fitness = 0;
@@ -53,6 +54,10 @@ public class BinaryIndividual {
 
     public void calculateFitness() {
         // TODO
+    }
+
+    public void setFitness(int fitness) {
+        this.fitness = fitness;
     }
 
     @Override
