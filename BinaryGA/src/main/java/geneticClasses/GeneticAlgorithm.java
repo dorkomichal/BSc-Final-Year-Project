@@ -1,8 +1,11 @@
 package geneticClasses;
 
+import com.sun.org.apache.bcel.internal.generic.POP;
 import org.apache.commons.lang3.ArrayUtils;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -37,9 +40,36 @@ public class GeneticAlgorithm {
     }
 
     /*
-        TODO Implement Tournament selection and Stochastic Universal Sampling (SUS) selection methods
+        TODO Implement Tournament selection and Stochastic Universal Sampling (SUS) or Boltzmann selection methods
      */
-    public static Population evolution(Population currentPopulation) {
+
+    /**
+     * Evolution method that uses single point crossover method
+     * @param currentPopulation population to be evolved
+     * @return new evolved generation
+     */
+    public static Population evolveWithSinglePoint(Population currentPopulation) {
+        return evolution(currentPopulation, false, 1);
+    }
+
+    /**
+     * Evolution method that uses multi point crossover method
+     * @param currentPopulation population to be evolved
+     * @param numberOfCrossPoints number of crossover points to be used for crossover
+     * @return new evolved generation
+     */
+    public static Population evolveWithMultiPoint(Population currentPopulation, int numberOfCrossPoints) {
+        return evolution(currentPopulation, true, numberOfCrossPoints);
+    }
+
+    /**
+     * Evolution function that evolves population using either single point or multi point crossover method
+     * @param currentPopulation population to be evolved
+     * @param multipoint flag to define whether single point or multi point crossover should be used
+     * @param numberOfCrossPoints number of crossover points if multi point crossover is used
+     * @return new evolved generation
+     */
+    private static Population evolution(Population currentPopulation, boolean multipoint, int numberOfCrossPoints) {
         Population newGeneration = new Population(currentPopulation.getSizeOfPopulation());
         int allocated = 0;
         int numberOfCrossovers = Math.round(currentPopulation.getSizeOfPopulation() * crossoverRate);
@@ -51,7 +81,12 @@ public class GeneticAlgorithm {
             int[] randoms = random.ints(0, currentPopulation.getSizeOfPopulation()).distinct().limit(4).toArray();
             BinaryIndividual parent1 = tournamentSelection(currentPopulation.getIndividual(randoms[0]), currentPopulation.getIndividual(randoms[1]));
             BinaryIndividual parent2 = tournamentSelection(currentPopulation.getIndividual(randoms[2]), currentPopulation.getIndividual(randoms[3]));
-            BinaryIndividual[] offspring = singlePointCrossover(parent1, parent2);
+            BinaryIndividual[] offspring;
+            if (!multipoint) {
+                offspring = singlePointCrossover(parent1, parent2);
+            } else {
+                offspring = multiPointCrossover(parent1, parent2, numberOfCrossPoints);
+            }
             newGeneration.saveBinaryIndividual(offspring[0], allocated);
             newGeneration.saveBinaryIndividual(offspring[1], allocated + 1);
             allocated += 2;
@@ -73,7 +108,7 @@ public class GeneticAlgorithm {
      * @param parent2 Second parent selected for crossover
      * @return Offspring produced during crossover as array of BinaryIndividual
      */
-    public static BinaryIndividual[] singlePointCrossover(BinaryIndividual parent1, BinaryIndividual parent2) {
+    private static BinaryIndividual[] singlePointCrossover(BinaryIndividual parent1, BinaryIndividual parent2) {
         int crossoverPoint = random.nextInt(parent1.lengthOfChromosome());
         byte[] parent1Chromosome = parent1.getChromosome();
         byte[] parent2Chromosome = parent2.getChromosome();
@@ -96,9 +131,41 @@ public class GeneticAlgorithm {
         return new BinaryIndividual[] {child1, child2};
     }
 
-    public static BinaryIndividual[] multipointCrossover(BinaryIndividual parent1, BinaryIndividual parent2, int numberOfPoints) {
-        // TODO
-        return null;
+    private static BinaryIndividual[] multiPointCrossover(BinaryIndividual parent1, BinaryIndividual parent2, int numberOfPoints) {
+        int[] crossoverPoints = random.ints(0, parent1.lengthOfChromosome() - 1).distinct().limit(numberOfPoints).toArray();
+        Arrays.sort(crossoverPoints);
+        List<byte[]> parent1ChromosomeParts = new ArrayList<byte[]>();
+        List<byte[]> parent2ChromosomeParts = new ArrayList<byte[]>();
+        byte[] parent1Chromosome = parent1.getChromosome();
+        byte[] parent2Chromosome = parent2.getChromosome();
+        int prev = 0;
+        for (int i: crossoverPoints) {
+            parent1ChromosomeParts.add(Arrays.copyOfRange(parent1Chromosome, prev, i));
+            parent2ChromosomeParts.add(Arrays.copyOfRange(parent2Chromosome, prev, i));
+            prev = i;
+        }
+        if (prev < parent1Chromosome.length) {
+            parent1ChromosomeParts.add(Arrays.copyOfRange(parent1Chromosome, prev, parent1Chromosome.length));
+            parent2ChromosomeParts.add(Arrays.copyOfRange(parent2Chromosome, prev, parent2Chromosome.length));
+        }
+        byte[] child1Chromosome = parent1ChromosomeParts.get(0);
+        byte[] child2Chromosome = parent2ChromosomeParts.get(0);
+        for(int i = 1; i < parent1ChromosomeParts.size(); i++) {
+            if(i % 2 == 0) {
+                child1Chromosome = ArrayUtils.addAll(child1Chromosome,parent1ChromosomeParts.get(i));
+                child2Chromosome = ArrayUtils.addAll(child2Chromosome, parent2ChromosomeParts.get(i));
+            } else {
+                child1Chromosome = ArrayUtils.addAll(child1Chromosome,parent2ChromosomeParts.get(i));
+                child2Chromosome = ArrayUtils.addAll(child2Chromosome, parent1ChromosomeParts.get(i));
+            }
+        }
+        BinaryIndividual child1 = new BinaryIndividual();
+        child1.setChromosome(child1Chromosome);
+        mutate(child1);
+        BinaryIndividual child2 = new BinaryIndividual();
+        child2.setChromosome(child2Chromosome);
+        mutate(child2);
+        return new BinaryIndividual[]{child1, child2};
     }
 
     /**
@@ -106,7 +173,7 @@ public class GeneticAlgorithm {
      * mutation rate.
      * @param individual the individual which chromosome will undergo mutation
      */
-    public static void mutate(BinaryIndividual individual) {
+    protected static void mutate(BinaryIndividual individual) {
         byte[] chromosome = individual.getChromosome();
         for(int i = 0; i < chromosome.length; i++) {
             if (Math.random() <= mutationRate) {
@@ -125,7 +192,7 @@ public class GeneticAlgorithm {
      * otherwise less fit one is returned (selected)
      * @return BinaryIndividual Winner of the tournament
      */
-    public static BinaryIndividual tournamentSelection(BinaryIndividual competitor1, BinaryIndividual competitor2) {
+    private static BinaryIndividual tournamentSelection(BinaryIndividual competitor1, BinaryIndividual competitor2) {
         double r = Math.random();
         BinaryIndividual fitter = fitterFromTwo(competitor1, competitor2);
         if (r < tournamentParameterK) {

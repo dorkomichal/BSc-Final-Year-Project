@@ -22,7 +22,7 @@ public class ProblemSpecification {
         while (population.getFittestIndividual().getFitness() < solution.length()) {
             System.out.println("Generation number: " + generation);
             System.out.println("Fittest Individual: " + population.getFittestIndividual().getFitness());
-            population = GeneticAlgorithm.evolution(population);
+            population = GeneticAlgorithm.evolveWithMultiPoint(population, 5);
             generation ++;
         }
         System.out.println("Generation number: " + generation);
