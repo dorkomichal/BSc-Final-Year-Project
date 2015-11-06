@@ -17,8 +17,9 @@ public class BinaryIndividual {
     private static Integer chromosomeLength = 16;
     private byte[] chromosome;
     private int fitness;
-
+    private double probabilityOfSelection;
     private Random random = new Random();
+
     public BinaryIndividual() {
         this.chromosome = new byte[chromosomeLength];
         this.fitness = 0;
@@ -30,7 +31,6 @@ public class BinaryIndividual {
             chromosome[i] = gene;
         }
     }
-
     public static void setChromosomeLength(Integer chromosomeLength) {
         BinaryIndividual.chromosomeLength = chromosomeLength;
     }
@@ -61,6 +61,14 @@ public class BinaryIndividual {
 
     public void setFitness(int fitness) {
         this.fitness = fitness;
+    }
+
+    public double getProbabilityOfSelection() {
+        return probabilityOfSelection;
+    }
+
+    public void setProbabilityOfSelection(double probabilityOfSelection) {
+        this.probabilityOfSelection = probabilityOfSelection;
     }
 
     @Override

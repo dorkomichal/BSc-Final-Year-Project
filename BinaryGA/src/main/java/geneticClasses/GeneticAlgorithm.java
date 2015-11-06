@@ -1,6 +1,5 @@
 package geneticClasses;
 
-import com.sun.org.apache.bcel.internal.generic.POP;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ import java.util.Random;
  */
 public class GeneticAlgorithm {
 
-    private static float crossoverRate = 0.7f;
+    private static double crossoverRate = 0.7;
     private static double mutationRate = 0.001;
     private static boolean elitism = true;
     private static double tournamentParameterK = 0.75;
@@ -31,7 +30,7 @@ public class GeneticAlgorithm {
         GeneticAlgorithm.tournamentParameterK = tournamentParameterK;
     }
 
-    public static void setCrossoverRate(float crossoverRate) {
+    public static void setCrossoverRate(double crossoverRate) {
         GeneticAlgorithm.crossoverRate = crossoverRate;
     }
 
@@ -40,26 +39,45 @@ public class GeneticAlgorithm {
     }
 
     /*
-        TODO Implement Tournament selection and Stochastic Universal Sampling (SUS) or Boltzmann selection methods
+        TODO Implement Tournament selection and Stochastic Universal Sampling (SUS) or Roulette Wheel
      */
 
     /**
-     * Evolution method that uses single point crossover method
+     * Evolution method that uses single point crossover method with Tournament Selection method
      * @param currentPopulation population to be evolved
      * @return new evolved generation
      */
-    public static Population evolveWithSinglePoint(Population currentPopulation) {
-        return evolution(currentPopulation, false, 1);
+    public static Population evolveWithSinglePointTournament(Population currentPopulation) {
+        return evolution(currentPopulation, false, 1, true);
     }
 
     /**
-     * Evolution method that uses multi point crossover method
+     * Evolution method that uses multi point crossover method with Tournament Selection method
      * @param currentPopulation population to be evolved
      * @param numberOfCrossPoints number of crossover points to be used for crossover
      * @return new evolved generation
      */
-    public static Population evolveWithMultiPoint(Population currentPopulation, int numberOfCrossPoints) {
-        return evolution(currentPopulation, true, numberOfCrossPoints);
+    public static Population evolveWithMultiPointTournament(Population currentPopulation, int numberOfCrossPoints) {
+        return evolution(currentPopulation, true, numberOfCrossPoints, true);
+    }
+
+    /**
+     * Evolution method that uses single point crossover and Roulette Wheel selection method
+     * @param currentPopulation population to be evolved
+     * @return new generation
+     */
+    public static Population evolveWithSinglePointRoulette(Population currentPopulation) {
+        return evolution(currentPopulation, false, 1, false);
+    }
+
+    /**
+     * Evolution method that uses multiple point crossover and Roulette Wheel selection method
+     * @param currentPopulation population to be evolved
+     * @param numberOfCrossPoints number of crossover points to be used for crossover
+     * @return new evolved generation
+     */
+    public static Population evolveWithMultiPointRoulette(Population currentPopulation, int numberOfCrossPoints) {
+        return evolution(currentPopulation, true, numberOfCrossPoints, false);
     }
 
     /**
@@ -69,27 +87,40 @@ public class GeneticAlgorithm {
      * @param numberOfCrossPoints number of crossover points if multi point crossover is used
      * @return new evolved generation
      */
-    private static Population evolution(Population currentPopulation, boolean multipoint, int numberOfCrossPoints) {
+    private static Population evolution(Population currentPopulation, boolean multipoint, int numberOfCrossPoints, boolean tournament) {
         Population newGeneration = new Population(currentPopulation.getSizeOfPopulation());
         int allocated = 0;
-        int numberOfCrossovers = Math.round(currentPopulation.getSizeOfPopulation() * crossoverRate);
+        boolean firstRound = true;
         if (elitism) {
             newGeneration.saveBinaryIndividual(currentPopulation.getFittestIndividual(), 0);
             allocated = 1;
         }
-        for (int i = allocated; i < numberOfCrossovers; i += 2) {
-            int[] randoms = random.ints(0, currentPopulation.getSizeOfPopulation()).distinct().limit(4).toArray();
-            BinaryIndividual parent1 = tournamentSelection(currentPopulation.getIndividual(randoms[0]), currentPopulation.getIndividual(randoms[1]));
-            BinaryIndividual parent2 = tournamentSelection(currentPopulation.getIndividual(randoms[2]), currentPopulation.getIndividual(randoms[3]));
-            BinaryIndividual[] offspring;
-            if (!multipoint) {
-                offspring = singlePointCrossover(parent1, parent2);
+        for (int i = allocated; i < currentPopulation.getSizeOfPopulation() -1; i += 2) {
+            BinaryIndividual parent1;
+            BinaryIndividual parent2;
+            if (tournament) {
+                int[] randoms = random.ints(0, currentPopulation.getSizeOfPopulation()).distinct().limit(4).toArray();
+                parent1 = tournamentSelection(currentPopulation.getIndividual(randoms[0]), currentPopulation.getIndividual(randoms[1]));
+                parent2 = tournamentSelection(currentPopulation.getIndividual(randoms[2]), currentPopulation.getIndividual(randoms[3]));
             } else {
-                offspring = multiPointCrossover(parent1, parent2, numberOfCrossPoints);
+                parent1 = rwsSelection(currentPopulation, firstRound);
+                parent2 = rwsSelection(currentPopulation, firstRound);
+                firstRound = false;
+            }
+            BinaryIndividual[] offspring;
+            if (Math.random() <= crossoverRate) {
+                if (!multipoint) {
+                    offspring = singlePointCrossover(parent1, parent2);
+                } else {
+                    offspring = multiPointCrossover(parent1, parent2, numberOfCrossPoints);
+                }
+            } else {
+                offspring = new BinaryIndividual[]{parent1, parent2};
             }
             newGeneration.saveBinaryIndividual(offspring[0], allocated);
             newGeneration.saveBinaryIndividual(offspring[1], allocated + 1);
             allocated += 2;
+
         }
         for (int j = allocated; j < newGeneration.getSizeOfPopulation(); j++) {
             int randomNumber = random.nextInt(currentPopulation.getSizeOfPopulation());
@@ -221,12 +252,27 @@ public class GeneticAlgorithm {
     }
 
     /**
-     * Stochastic Universal Sampling (SUS) selection method for selecting parent
+     * Roulette Wheel Selection (RWS) selection method for selecting parent
      * @return BinaryIndividual parent
      */
-    public static BinaryIndividual susSelection() {
-        // TODO
-        return null;
+    public static BinaryIndividual rwsSelection(Population population, boolean firstRound) {
+        if (firstRound) {
+            population.calculateSumOfFitnesses();
+            for (int i = 0; i < population.getSizeOfPopulation(); i++) {
+                BinaryIndividual individual = population.getIndividual(i);
+                double probability = individual.getFitness() / population.getSumOfFitnesses();
+                individual.setProbabilityOfSelection(probability);
+            }
+        }
+        double sum = 0.0;
+        double r = random.nextDouble();
+        for (int i = 0; i < population.getSizeOfPopulation(); i++){
+            sum += population.getIndividual(i).getProbabilityOfSelection();
+            if (sum > r) {
+                return population.getIndividual(i);
+            }
+        }
+        return population.getFittestIndividual();
     }
 
 }

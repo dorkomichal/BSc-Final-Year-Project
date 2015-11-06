@@ -10,8 +10,9 @@ package geneticClasses;
 public class Population {
 
     private BinaryIndividual[] binaryIndividuals;
-
     private int sizeOfPopulation;
+    private int sumOfFitnesses;
+
 
     public Population(int sizeOfPopulation) {
         this.sizeOfPopulation = sizeOfPopulation;
@@ -52,6 +53,16 @@ public class Population {
             fittestIndividual = binaryIndividuals[0];
         }
         return  fittestIndividual;
+    }
+
+    public int getSumOfFitnesses() {
+        return sumOfFitnesses;
+    }
+
+    public void calculateSumOfFitnesses() {
+        for (BinaryIndividual bi: binaryIndividuals) {
+            this.sumOfFitnesses += bi.getFitness();
+        }
     }
 
 }
