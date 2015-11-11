@@ -25,7 +25,8 @@
 ## Plugin-specific files:
 # IntelliJ
 /out/
-/target/
+#Maven
+*/target/*
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 # JIRA plugin
