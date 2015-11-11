@@ -38,10 +38,6 @@ public class GeneticAlgorithm {
         GeneticAlgorithm.mutationRate = mutationRate;
     }
 
-    /*
-        TODO Implement Tournament selection and Stochastic Universal Sampling (SUS) or Roulette Wheel
-     */
-
     /**
      * Evolution method that uses single point crossover method with Tournament Selection method
      * @param currentPopulation population to be evolved

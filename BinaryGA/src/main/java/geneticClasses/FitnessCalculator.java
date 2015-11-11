@@ -12,9 +12,11 @@ import java.util.Arrays;
 public class FitnessCalculator {
 
     private static byte[] problemSolution;
+    private static int lengthOfSolution;
 
     public static void setProblemSolution(byte[] problemSolution) {
         FitnessCalculator.problemSolution = problemSolution;
+        FitnessCalculator.lengthOfSolution = problemSolution.length;
     }
 
     public static void setProblemSolution(String problemSolution) {
@@ -28,6 +30,10 @@ public class FitnessCalculator {
            }
            i++;
         }
+    }
+
+    public static int getLengthOfSolution() {
+        return lengthOfSolution;
     }
 
     public static void calculateFitnessOfPopulation(Population p) {
