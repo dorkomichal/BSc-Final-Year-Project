@@ -1,0 +1,10 @@
+main/MapReduceBinaryGAMain.class
+mapreduce/Mapper.class
+geneticClasses/BinaryIndividualMapReduce.class
+mapreduce/Reducer.class
+geneticClasses/CrossoverPair.class
+geneticClasses/Population.class
+mapreduce/Driver.class
+geneticClasses/FitnessCalculator.class
+mapreduce/GlobalFile.class
+geneticClasses/GeneticAlgorithmMapReduce.class

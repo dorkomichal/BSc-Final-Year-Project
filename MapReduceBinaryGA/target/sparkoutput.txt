@@ -1,0 +1,17 @@
+Generation 1
+Population with Fitness 50
+Selected individuals 50
+Population size 94
+Generation 2
+Population with Fitness 94
+Selected individuals 94
+Population size 186
+Generation 3
+Population with Fitness 186
+Selected individuals 186
+Population size 370
+Generation 4
+Population with Fitness 370
+Selected individuals 370
+Population size 666
+Generation 5
