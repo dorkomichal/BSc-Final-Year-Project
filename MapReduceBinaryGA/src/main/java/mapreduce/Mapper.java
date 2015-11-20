@@ -72,6 +72,6 @@ public class Mapper implements Serializable {
         return eliteInd.collect().get(0);
     }
 
-    
+
 
 }
