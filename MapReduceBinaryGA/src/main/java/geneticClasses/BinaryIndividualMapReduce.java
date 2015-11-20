@@ -1,5 +1,7 @@
 package geneticClasses;
 
+import mapreduce.GlobalFile;
+
 import java.io.Serializable;
 import java.util.Random;
 
@@ -20,10 +22,19 @@ public class BinaryIndividualMapReduce implements Serializable {
     private int fitness;
     private double probabilityOfSelection;
     private Random random = new Random();
+    private CrossoverPair crossoverPair;
 
     public BinaryIndividualMapReduce() {
         this.chromosome = new byte[chromosomeLength];
         this.fitness = 0;
+    }
+
+    public CrossoverPair getCrossoverPair() {
+        return crossoverPair;
+    }
+
+    public void setCrossoverPair(CrossoverPair crossoverPair) {
+        this.crossoverPair = crossoverPair;
     }
 
     public void generateRandomIndividual() {
@@ -58,6 +69,7 @@ public class BinaryIndividualMapReduce implements Serializable {
 
     public Integer calculateFitness() {
         this.fitness = FitnessCalculator.compareChromosomeAndSolution(chromosome);
+        GlobalFile.submitFitness(this.fitness);
         return fitness;
     }
 

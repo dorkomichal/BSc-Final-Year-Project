@@ -1,16 +1,12 @@
 package mapreduce;
 
 import geneticClasses.BinaryIndividualMapReduce;
+import geneticClasses.CrossoverPair;
 import geneticClasses.GeneticAlgorithmMapReduce;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
-import scala.Tuple2;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Random;
 
 /**
  * Created by Michal Dorko on 09/11/15.
@@ -32,16 +28,42 @@ public class Reducer implements Serializable {
         }
     }
 
-    public void reduceCrossover(JavaRDD<BinaryIndividualMapReduce> selectedIndividuals) {
+    /**
+     * This reduce crossover function is in fact implemented by another map function however due to
+     * conventions I have categorised it as reduce step because we reduce pairs into new offspring
+     * yielding new generation
+     * @param selectedIndividuals RDD of crossover pairs
+     * @param multipoint boolean value indicating whether to apply single point or multi point crossover
+     * @param numberOfCrossPoints number of crossover points if multipoint crossover is selected
+     * @return new generations as RDD
+     */
+    public JavaRDD<BinaryIndividualMapReduce> reduceCrossover(JavaRDD<CrossoverPair> selectedIndividuals, boolean multipoint, int numberOfCrossPoints) {
         GlobalFile.createNewPopulation((int) selectedIndividuals.count());
-        selectedIndividuals.reduce((ind1, ind2) -> singlePointCrossover(ind1, ind2));
+        JavaRDD<BinaryIndividualMapReduce> newGen;
+        if (multipoint) {
+             newGen = selectedIndividuals.map(crossoverPair -> multiPointCrossover(crossoverPair, numberOfCrossPoints));
+        } else {
+             newGen = selectedIndividuals.map(crossoverPair -> singlePointCrossover(crossoverPair));
+        }
+        return newGen;
     }
 
-    public BinaryIndividualMapReduce singlePointCrossover(BinaryIndividualMapReduce bimr1, BinaryIndividualMapReduce bimr2) {
-        BinaryIndividualMapReduce[] newIndividuals = GeneticAlgorithmMapReduce.singlePointCrossover(bimr1, bimr2);
-        GlobalFile.addIndividual(newIndividuals[0]);
-        GlobalFile.addIndividual(newIndividuals[1]);
-        return newIndividuals[0];
+    private BinaryIndividualMapReduce singlePointCrossover(CrossoverPair pair) {
+        if(pair.getEliteIndividual() != null) {
+            return pair.getEliteIndividual();
+        } else {
+            BinaryIndividualMapReduce newIndividual = GeneticAlgorithmMapReduce.singlePointCrossover(pair.getParent1(), pair.getParent2());
+            return newIndividual;
+        }
+    }
+
+    private BinaryIndividualMapReduce multiPointCrossover(CrossoverPair pair, int numberOfPoints) {
+        if(pair.getEliteIndividual() != null) {
+            return pair.getEliteIndividual();
+        } else {
+            BinaryIndividualMapReduce newIndividual = GeneticAlgorithmMapReduce.multiPointCrossover(pair.getParent1(), pair.getParent2(), numberOfPoints);
+            return newIndividual;
+        }
     }
 
 }

@@ -143,9 +143,9 @@ public class GeneticAlgorithmMapReduce {
      * (chromosomes)
      * @param parent1 First parent selected for crossover
      * @param parent2 Second parent selected for crossover
-     * @return Offspring produced during crossover as array of BinaryIndividualMapReduce
+     * @return fitter individual from two new individuals
      */
-    public static BinaryIndividualMapReduce[] singlePointCrossover(BinaryIndividualMapReduce parent1, BinaryIndividualMapReduce parent2) {
+    public static BinaryIndividualMapReduce singlePointCrossover(BinaryIndividualMapReduce parent1, BinaryIndividualMapReduce parent2) {
         int crossoverPoint = random.nextInt(parent1.lengthOfChromosome());
         byte[] parent1Chromosome = parent1.getChromosome();
         byte[] parent2Chromosome = parent2.getChromosome();
@@ -165,7 +165,7 @@ public class GeneticAlgorithmMapReduce {
         mutate(child2);
         child2.calculateFitness();
 
-        return new BinaryIndividualMapReduce[] {child1, child2};
+        return fitterFromTwo(child1, child2) ;
     }
 
     /**
@@ -174,9 +174,9 @@ public class GeneticAlgorithmMapReduce {
      * @param parent1 First parent selected for crossover
      * @param parent2 Second parent selected for crossover
      * @param numberOfPoints number of crossover points
-     * @return two new individuals
+     * @return fitter individual from two new individuals
      */
-    public static BinaryIndividualMapReduce[] multiPointCrossover(BinaryIndividualMapReduce parent1, BinaryIndividualMapReduce parent2, int numberOfPoints) {
+    public static BinaryIndividualMapReduce multiPointCrossover(BinaryIndividualMapReduce parent1, BinaryIndividualMapReduce parent2, int numberOfPoints) {
         int[] crossoverPoints = random.ints(0, parent1.lengthOfChromosome() - 1).distinct().limit(numberOfPoints).toArray();
         Arrays.sort(crossoverPoints);
         List<byte[]> parent1ChromosomeParts = new ArrayList<byte[]>();
@@ -210,7 +210,7 @@ public class GeneticAlgorithmMapReduce {
         BinaryIndividualMapReduce child2 = new BinaryIndividualMapReduce();
         child2.setChromosome(child2Chromosome);
         mutate(child2);
-        return new BinaryIndividualMapReduce[]{child1, child2};
+        return fitterFromTwo(child1, child2);
     }
 
     /**

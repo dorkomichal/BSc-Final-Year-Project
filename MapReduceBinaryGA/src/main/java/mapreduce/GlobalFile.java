@@ -5,6 +5,7 @@ import geneticClasses.Population;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by Michal Dorko on 09/11/15.
@@ -18,11 +19,31 @@ public class GlobalFile {
     private static Population newGeneration;
     private static List<BinaryIndividualMapReduce> binaryIndividualMapReduces;
     private static int maxFitness;
+    private static int currentMaxFitness;
     private static boolean solutionFound;
 
 
+    public static int getCurrentMaxFitness() {
+        return currentMaxFitness;
+    }
+
+    public synchronized static void submitFitness(int currentMaxFitness) {
+        if (currentMaxFitness >= GlobalFile.currentMaxFitness) {
+            GlobalFile.currentMaxFitness = currentMaxFitness;
+        }
+    }
+
+    public static void resetCurrentMax() {
+        GlobalFile.currentMaxFitness = 0;
+    }
+
     public static boolean isSolutionFound() {
         return solutionFound;
+    }
+
+
+    public static void setBinaryIndividualMapReduces(List<BinaryIndividualMapReduce> binaryIndividualMapReduces) {
+        GlobalFile.binaryIndividualMapReduces = binaryIndividualMapReduces;
     }
 
     public static void setSolutionFound(boolean solutionFound) {
@@ -43,7 +64,7 @@ public class GlobalFile {
     }
 
     public static Population getNewGeneration() {
-        newGeneration.setBinaryIndividualMapReduces((BinaryIndividualMapReduce[]) binaryIndividualMapReduces.toArray());
+        newGeneration.setBinaryIndividualMapReduces(binaryIndividualMapReduces.toArray(new BinaryIndividualMapReduce[binaryIndividualMapReduces.size()]));
         return newGeneration;
     }
 
@@ -61,6 +82,10 @@ public class GlobalFile {
 
     public static List<BinaryIndividualMapReduce> getBinaryIndividualMapReduces() {
         return binaryIndividualMapReduces;
+    }
+
+    public static int sizeOfGeneration() {
+        return GlobalFile.binaryIndividualMapReduces.size();
     }
 
 }

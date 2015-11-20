@@ -1,6 +1,7 @@
 package main;
 
 import geneticClasses.BinaryIndividualMapReduce;
+import geneticClasses.CrossoverPair;
 import geneticClasses.FitnessCalculator;
 import mapreduce.Driver;
 import mapreduce.GlobalFile;
@@ -20,8 +21,9 @@ public class MapReduceBinaryGAMain {
 
     public static void main(String[] args) {
         Driver driver = Driver.getDriver();
+        String solution = "011011100000110011110101010111010";
+        BinaryIndividualMapReduce.setChromosomeLength(solution.length());
         driver.initializePopulation(50);
-        String solution = "0110111000001100";
         FitnessCalculator.setProblemSolution(solution);
         Mapper mapper = Mapper.getMapper();
         Reducer reducer = Reducer.getReducer();
@@ -30,19 +32,25 @@ public class MapReduceBinaryGAMain {
 
         JavaRDD<BinaryIndividualMapReduce> parallelizedPopulation = driver.getPopulationParallelized();
 
-        while (!GlobalFile.isSolutionFound()) {
+        while (true) {
             System.out.println("Generation " + generationCounter);
             JavaPairRDD<BinaryIndividualMapReduce, Integer> populationWithFitness = mapper.mapCalculateFitness(parallelizedPopulation);
-            System.out.println("Population with Fitness " + populationWithFitness.count());
-            JavaRDD<BinaryIndividualMapReduce> selectedIndividuals = mapper.mapSelection(populationWithFitness);
-            System.out.println("Selected individuals " + selectedIndividuals.count());
-            reducer.reduceCrossover(selectedIndividuals);
+            if (GlobalFile.isSolutionFound()) {
+                break;
+            }
+            BinaryIndividualMapReduce elite = mapper.getElite(populationWithFitness);
+            JavaRDD<CrossoverPair> selectedIndividuals = mapper.mapSelection(populationWithFitness, elite);
+            JavaRDD<BinaryIndividualMapReduce> newGeneration = reducer.reduceCrossover(selectedIndividuals, true, 3);
+            GlobalFile.setBinaryIndividualMapReduces(newGeneration.collect());
             parallelizedPopulation = driver.getJsc().parallelize(GlobalFile.getBinaryIndividualMapReduces());
             generationCounter++;
-            System.out.println("Population size " + GlobalFile.getBinaryIndividualMapReduces().size());
+           /* for (BinaryIndividualMapReduce bi : newGeneration.collect()) {
+                System.out.println("New Gen individual " + bi.toString());
+            }*/
+            System.out.println("Fittest Individual " + GlobalFile.getCurrentMaxFitness());
+            GlobalFile.resetCurrentMax();
         }
 
-        System.out.println("Generation " + generationCounter);
         System.out.println("Solution Found " + GlobalFile.getNewGeneration().getFittestIndividual().toString());
     }
 }
