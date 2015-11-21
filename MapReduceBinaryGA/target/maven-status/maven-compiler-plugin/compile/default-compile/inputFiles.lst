@@ -1,0 +1,11 @@
+/home/miso/bscproject/MapReduceBinaryGA/src/main/java/geneticClasses/Population.java
+/home/miso/bscproject/MapReduceBinaryGA/src/main/java/mapreduce/GlobalFile.java
+/home/miso/bscproject/MapReduceBinaryGA/src/main/java/mapreduce/Mapper.java
+/home/miso/bscproject/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java
+/home/miso/bscproject/MapReduceBinaryGA/src/main/java/geneticClasses/GeneticAlgorithmMapReduce.java
+/home/miso/bscproject/MapReduceBinaryGA/src/main/java/geneticClasses/FitnessCalculator.java
+/home/miso/bscproject/MapReduceBinaryGA/src/main/java/geneticClasses/BinaryIndividualMapReduce.java
+/home/miso/bscproject/MapReduceBinaryGA/src/main/java/mapreduce/Reducer.java
+/home/miso/bscproject/MapReduceBinaryGA/src/main/java/geneticClasses/CrossoverPair.java
+/home/miso/bscproject/MapReduceBinaryGA/src/main/java/mapreduce/Driver.java
+/home/miso/bscproject/MapReduceBinaryGA/src/main/java/geneticClasses/SelectionMethod.java

@@ -3,6 +3,7 @@ package mapreduce;
 import geneticClasses.BinaryIndividualMapReduce;
 import geneticClasses.CrossoverPair;
 import geneticClasses.GeneticAlgorithmMapReduce;
+import geneticClasses.SelectionMethod;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import scala.Tuple2;
@@ -36,9 +37,18 @@ public class Mapper implements Serializable {
         return populationWithFitness;
     }
 
-    public JavaRDD<CrossoverPair> mapSelection(JavaPairRDD<BinaryIndividualMapReduce, Integer> populationWithFitness, BinaryIndividualMapReduce elite) {
+    public JavaRDD<CrossoverPair> mapSelection(JavaPairRDD<BinaryIndividualMapReduce, Integer> populationWithFitness, BinaryIndividualMapReduce elite, SelectionMethod method) {
         List<BinaryIndividualMapReduce> keys = populationWithFitness.keys().collect();
-        JavaRDD<CrossoverPair> selectedIndividuals = populationWithFitness.map(bi -> tournamentSelection(keys));
+        JavaRDD<CrossoverPair> selectedIndividuals;
+        if(method.equals(SelectionMethod.rouletteWheel)) {
+            System.out.println("RWS");
+            System.out.println("Sum of fitness: " + GlobalFile.getSumOfFitnesses());
+            GeneticAlgorithmMapReduce.rwsSelectionProbabilityCalculation(keys, GlobalFile.getSumOfFitnesses());
+            selectedIndividuals = populationWithFitness.map(bi -> rwsSelection(keys));
+        } else {
+            System.out.println("Tournament");
+            selectedIndividuals = populationWithFitness.map(bi -> tournamentSelection(keys));
+        }
         if (GeneticAlgorithmMapReduce.isElitism() && elite != null) {
             List<CrossoverPair> first = new ArrayList<>();
             List<CrossoverPair> eliteList = new ArrayList<>();
@@ -72,6 +82,13 @@ public class Mapper implements Serializable {
         return eliteInd.collect().get(0);
     }
 
-
+    public CrossoverPair rwsSelection(List<BinaryIndividualMapReduce> population) {
+        BinaryIndividualMapReduce parent1 = GeneticAlgorithmMapReduce.rwsSelection(population);
+        BinaryIndividualMapReduce parent2 = GeneticAlgorithmMapReduce.rwsSelection(population);
+        CrossoverPair pair = new CrossoverPair();
+        pair.setParent1(parent1);
+        pair.setParent2(parent2);
+        return pair;
+    }
 
 }

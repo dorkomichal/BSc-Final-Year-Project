@@ -1,6 +1,7 @@
 package mapreduce;
 
 import geneticClasses.BinaryIndividualMapReduce;
+import geneticClasses.FitnessCalculator;
 import geneticClasses.Population;
 
 import java.util.ArrayList;
@@ -63,9 +64,18 @@ public class GlobalFile {
         binaryIndividualMapReduces = new ArrayList<>();
     }
 
-    public static Population getNewGeneration() {
+    public static void assignNewGenerationToPopulation() {
         newGeneration.setBinaryIndividualMapReduces(binaryIndividualMapReduces.toArray(new BinaryIndividualMapReduce[binaryIndividualMapReduces.size()]));
+        FitnessCalculator.calculateFitnessOfPopulation(newGeneration);
+    }
+
+    public static Population getNewGeneration() {
         return newGeneration;
+    }
+
+    public static int getSumOfFitnesses() {
+        newGeneration.calculateSumOfFitnesses();
+        return newGeneration.getSumOfFitnesses();
     }
 
     public static void clearListOfIndividuals() {
@@ -74,10 +84,6 @@ public class GlobalFile {
 
     public static void setPopulation(Population p) {
         GlobalFile.newGeneration = p;
-    }
-
-    public static boolean addIndividual(BinaryIndividualMapReduce binaryIndividualMapReduce) {
-        return binaryIndividualMapReduces.add(binaryIndividualMapReduce);
     }
 
     public static List<BinaryIndividualMapReduce> getBinaryIndividualMapReduces() {

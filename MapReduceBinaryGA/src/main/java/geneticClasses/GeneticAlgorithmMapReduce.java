@@ -46,97 +46,6 @@ public class GeneticAlgorithmMapReduce {
         GeneticAlgorithmMapReduce.mutationRate = mutationRate;
     }
 
-   /* *//**
-     * Evolution method that uses single point crossover method with Tournament Selection method
-     * @param currentPopulation population to be evolved
-     * @return new evolved generation
-     *//*
-    public static Population evolveWithSinglePointTournament(Population currentPopulation) {
-        return evolution(currentPopulation, false, 1, true);
-    }
-
-
-    *//**
-     * Evolution method that uses multi point crossover method with Tournament Selection method
-     * @param currentPopulation population to be evolved
-     * @param numberOfCrossPoints number of crossover points to be used for crossover
-     * @return new evolved generation
-     *//*
-    public static Population evolveWithMultiPointTournament(Population currentPopulation, int numberOfCrossPoints) {
-        return evolution(currentPopulation, true, numberOfCrossPoints, true);
-    }
-
-    *//**
-     * Evolution method that uses single point crossover and Roulette Wheel selection method
-     * @param currentPopulation population to be evolved
-     * @return new generation
-     *//*
-    public static Population evolveWithSinglePointRoulette(Population currentPopulation) {
-        return evolution(currentPopulation, false, 1, false);
-    }
-
-    *//**
-     * Evolution method that uses multiple point crossover and Roulette Wheel selection method
-     * @param currentPopulation population to be evolved
-     * @param numberOfCrossPoints number of crossover points to be used for crossover
-     * @return new evolved generation
-     *//*
-    public static Population evolveWithMultiPointRoulette(Population currentPopulation, int numberOfCrossPoints) {
-        return evolution(currentPopulation, true, numberOfCrossPoints, false);
-    }
-
-    *//**
-     * Evolution function that evolves population using either single point or multi point crossover method
-     * @param currentPopulation population to be evolved
-     * @param multipoint flag to define whether single point or multi point crossover should be used
-     * @param numberOfCrossPoints number of crossover points if multi point crossover is used
-     * @return new evolved generation
-     *//*
-    private static Population evolution(Population currentPopulation, boolean multipoint, int numberOfCrossPoints, boolean tournament) {
-        Population newGeneration = new Population(currentPopulation.getSizeOfPopulation());
-        int allocated = 0;
-        boolean firstRound = true;
-        if (elitism) {
-            newGeneration.saveBinaryIndividual(currentPopulation.getFittestIndividual(), 0);
-            allocated = 1;
-        }
-        for (int i = allocated; i < currentPopulation.getSizeOfPopulation() -1; i += 2) {
-            BinaryIndividualMapReduce parent1;
-            BinaryIndividualMapReduce parent2;
-            if (tournament) {
-                int[] randoms = random.ints(0, currentPopulation.getSizeOfPopulation()).distinct().limit(4).toArray();
-                parent1 = tournamentSelection(currentPopulation.getIndividual(randoms[0]), currentPopulation.getIndividual(randoms[1]));
-                parent2 = tournamentSelection(currentPopulation.getIndividual(randoms[2]), currentPopulation.getIndividual(randoms[3]));
-            } else {
-                parent1 = rwsSelection(currentPopulation, firstRound);
-                parent2 = rwsSelection(currentPopulation, firstRound);
-                firstRound = false;
-            }
-            BinaryIndividualMapReduce[] offspring;
-            if (Math.random() <= crossoverRate) {
-                if (!multipoint) {
-                    offspring = singlePointCrossover(parent1, parent2);
-                } else {
-                    offspring = multiPointCrossover(parent1, parent2, numberOfCrossPoints);
-                }
-            } else {
-                offspring = new BinaryIndividualMapReduce[]{parent1, parent2};
-            }
-            newGeneration.saveBinaryIndividual(offspring[0], allocated);
-            newGeneration.saveBinaryIndividual(offspring[1], allocated + 1);
-            allocated += 2;
-
-        }
-        for (int j = allocated; j < newGeneration.getSizeOfPopulation(); j++) {
-            int randomNumber = random.nextInt(currentPopulation.getSizeOfPopulation());
-            newGeneration.saveBinaryIndividual(currentPopulation.getIndividual(randomNumber), allocated);
-            allocated ++;
-        }
-        FitnessCalculator.calculateFitnessOfPopulation(newGeneration);
-        return newGeneration;
-    }
-    */
-
     /**
      * Single point crossover is crossover where random single point is generated and chromosomes are split in two
      * parts producing two head and two tails sections. The two tail sections are then swapped to produce new individuals
@@ -269,23 +178,23 @@ public class GeneticAlgorithmMapReduce {
      * Roulette Wheel Selection (RWS) selection method for selecting parent
      * @return BinaryIndividualMapReduce parent
      */
-    public static BinaryIndividualMapReduce rwsSelection(BinaryIndividualMapReduce[] population, double sumOfFitnesses, boolean firstRound) {
-        if (firstRound) {
-            for (int i = 0; i < population.length; i++) {
-                BinaryIndividualMapReduce individual = population[i];
-                double probability = individual.getFitness() / sumOfFitnesses;
-                individual.setProbabilityOfSelection(probability);
-            }
-        }
+    public static BinaryIndividualMapReduce rwsSelection(List<BinaryIndividualMapReduce> population) {
         double sum = 0.0;
         double r = random.nextDouble();
-        for (int i = 0; i < population.length; i++){
-            sum += population[i].getProbabilityOfSelection();
+        for (BinaryIndividualMapReduce bi : population){
+            sum += bi.getProbabilityOfSelection();
             if (sum > r) {
-                return population[i];
+                return bi;
             }
         }
-        return population[0];
+        return population.get(0);
+    }
+
+    public static void rwsSelectionProbabilityCalculation(List<BinaryIndividualMapReduce> population, double sumOfFitnesses) {
+        for (BinaryIndividualMapReduce bi : population) {
+            double probability = bi.getFitness() / sumOfFitnesses;
+            bi.setProbabilityOfSelection(probability);
+        }
     }
 
 }
