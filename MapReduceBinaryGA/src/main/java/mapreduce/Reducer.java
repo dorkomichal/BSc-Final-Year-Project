@@ -2,8 +2,7 @@ package mapreduce;
 
 import geneticClasses.BinaryIndividualMapReduce;
 import geneticClasses.CrossoverPair;
-import geneticClasses.GeneticAlgorithmMapReduce;
-import org.apache.spark.api.java.JavaPairRDD;
+import geneticClasses.GeneticOperationsMapReduce;
 import org.apache.spark.api.java.JavaRDD;
 
 import java.io.Serializable;
@@ -52,7 +51,7 @@ public class Reducer implements Serializable {
         if(pair.getEliteIndividual() != null) {
             return pair.getEliteIndividual();
         } else {
-            BinaryIndividualMapReduce newIndividual = GeneticAlgorithmMapReduce.singlePointCrossover(pair.getParent1(), pair.getParent2());
+            BinaryIndividualMapReduce newIndividual = GeneticOperationsMapReduce.singlePointCrossover(pair.getParent1(), pair.getParent2());
             return newIndividual;
         }
     }
@@ -61,7 +60,7 @@ public class Reducer implements Serializable {
         if(pair.getEliteIndividual() != null) {
             return pair.getEliteIndividual();
         } else {
-            BinaryIndividualMapReduce newIndividual = GeneticAlgorithmMapReduce.multiPointCrossover(pair.getParent1(), pair.getParent2(), numberOfPoints);
+            BinaryIndividualMapReduce newIndividual = GeneticOperationsMapReduce.multiPointCrossover(pair.getParent1(), pair.getParent2(), numberOfPoints);
             return newIndividual;
         }
     }

@@ -21,6 +21,7 @@ public class GlobalFile {
     private static List<BinaryIndividualMapReduce> binaryIndividualMapReduces;
     private static int maxFitness;
     private static int currentMaxFitness;
+    private static int maxNotChanged = 0;
     private static boolean solutionFound;
 
 
@@ -33,6 +34,16 @@ public class GlobalFile {
             GlobalFile.currentMaxFitness = currentMaxFitness;
         }
     }
+
+    public static int getMaxNotChanged() {
+        return maxNotChanged;
+    }
+
+    public static void incrementMaxNotChanged() {
+        maxNotChanged ++;
+    }
+
+    public static void resetMaxNotChanged() { maxNotChanged = 0;}
 
     public static void resetCurrentMax() {
         GlobalFile.currentMaxFitness = 0;

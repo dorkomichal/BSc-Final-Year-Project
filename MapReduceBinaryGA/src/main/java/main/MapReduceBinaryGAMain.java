@@ -1,15 +1,14 @@
 package main;
 
-import geneticClasses.BinaryIndividualMapReduce;
-import geneticClasses.CrossoverPair;
-import geneticClasses.FitnessCalculator;
-import geneticClasses.SelectionMethod;
+import geneticClasses.*;
 import mapreduce.Driver;
 import mapreduce.GlobalFile;
 import mapreduce.Mapper;
 import mapreduce.Reducer;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
+
+import java.util.Arrays;
 
 /**
  * Created by Michal Dorko on 11/11/15.
@@ -21,29 +20,47 @@ import org.apache.spark.api.java.JavaRDD;
 public class MapReduceBinaryGAMain {
 
     public static void main(String[] args) {
-        String solution = "011011100000110010011110101011001";
-        FitnessCalculator.setProblemSolution(solution);
+        FitnessFunction function = new FitnessFunction() {
+            @Override
+            public int calculateFitness(byte[] chromosome) {
+                int fitness;
+                String stringChromosome = getStringFromByteArray(chromosome);
+                int threshold = 1000;
+                int a = Integer.parseInt(stringChromosome.substring(0, 16), 2);
+                int b = Integer.parseInt(stringChromosome.substring(16, stringChromosome.length()), 2);
+                double calculation = Math.sqrt(a*5) + b;
+                if (calculation >= threshold) {
+                    return 0;
+                } else {
+                    return (int) Math.round(calculation);
+                }
+            }
+        };
+        FitnessCalculator.setFitnessFunction(function);
+        int variableLength = 16;
+        int numberOfVariables = 2;
         Driver driver = Driver.getDriver();
-        BinaryIndividualMapReduce.setChromosomeLength(solution.length());
+        BinaryIndividualMapReduce.setChromosomeLength(numberOfVariables * 16);
         driver.initializePopulation(50);
         Mapper mapper = Mapper.getMapper();
         Reducer reducer = Reducer.getReducer();
         int generationCounter = 1;
-        GlobalFile.setMaxFitness(solution.length());
+        GlobalFile.setMaxFitness(990);
 
         JavaRDD<BinaryIndividualMapReduce> parallelizedPopulation = driver.getPopulationParallelized();
 
         while (true) {
             System.out.println("Generation " + generationCounter);
             JavaPairRDD<BinaryIndividualMapReduce, Integer> populationWithFitness = mapper.mapCalculateFitness(parallelizedPopulation);
-            if (GlobalFile.isSolutionFound()) {
-                break;
+            if (GlobalFile.isSolutionFound() || GlobalFile.getMaxNotChanged() > 30) {
+                break; //if soulution is found or generation has converged to max and didn't change for some generations
             }
+            GlobalFile.resetMaxNotChanged();
             BinaryIndividualMapReduce elite = mapper.getElite(populationWithFitness);
             JavaRDD<CrossoverPair> selectedIndividuals = mapper.mapSelection(populationWithFitness, elite, SelectionMethod.tournament);
             JavaRDD<BinaryIndividualMapReduce> newGeneration = reducer.reduceCrossover(selectedIndividuals, true, 2);
             GlobalFile.setBinaryIndividualMapReduces(newGeneration.collect());
-            parallelizedPopulation = driver.getJsc().parallelize(GlobalFile.getBinaryIndividualMapReduces());
+            parallelizedPopulation = driver.paralleliseData(GlobalFile.getBinaryIndividualMapReduces());
             generationCounter++;
 
             System.out.println("Fittest Individual " + GlobalFile.getCurrentMaxFitness());
@@ -54,6 +71,20 @@ public class MapReduceBinaryGAMain {
             GlobalFile.assignNewGenerationToPopulation();
         }
 
-        System.out.println("Solution Found " + GlobalFile.getNewGeneration().getFittestIndividual().toString());
+        System.out.println("Solution Found: ");
+        String solution = GlobalFile.getNewGeneration().getFittestIndividual().toString();
+        int a = Integer.parseInt(solution.substring(0, variableLength), 2);
+        int b = Integer.parseInt(solution.substring(variableLength, solution.length()), 2);
+        System.out.println("Variable a = " + a);
+        System.out.println("Variable b = " + b);
+
+    }
+
+    public static String getStringFromByteArray(byte[] chromosome) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < chromosome.length; i++) {
+            stringBuilder.append(chromosome[i]);
+        }
+        return stringBuilder.toString();
     }
 }

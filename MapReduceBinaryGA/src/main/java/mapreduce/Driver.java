@@ -8,6 +8,7 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Michal Dorko on 09/11/15.
@@ -34,8 +35,8 @@ public class Driver {
         }
     }
 
-    public JavaSparkContext getJsc() {
-        return jsc;
+    public JavaRDD paralleliseData(List data) {
+        return jsc.parallelize(data);
     }
 
     public JavaRDD<BinaryIndividualMapReduce> getPopulationParallelized() {

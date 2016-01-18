@@ -1,46 +1,33 @@
 package geneticClasses;
 
+import org.apache.commons.lang3.RandomStringUtils;
+
 import java.util.Random;
 
 /**
- * Created by Michal Dorko on 30/10/15.
+ * Created by Michal Dorko on 18/01/16.
  * BSc Final Year project
  * King's College London
  * Map-Reduce library for Genetic Algorithms
  * Licensed under the Academic Free License version 3.0
  */
-public class BinaryIndividual {
+public class StringIndividual implements Individual {
 
-    /**
-     * Default size of the chromosome. Can be changed using @setChromosomeLength
-     */
     private static Integer chromosomeLength = 16;
-    private byte[] chromosome;
+    private String[] chromosome;
     private int fitness;
     private double probabilityOfSelection;
-    private Random random = new Random();
 
-    public BinaryIndividual() {
-        this.chromosome = new byte[chromosomeLength];
-        this.fitness = 0;
-    }
-
-    public void generateRandomIndividual() {
-        for(int i = 0; i < chromosome.length; i++) {
-            byte gene = (byte) (random.nextBoolean() ? 1 : 0);
-            chromosome[i] = gene;
-        }
-    }
     public static void setChromosomeLength(Integer chromosomeLength) {
-        BinaryIndividual.chromosomeLength = chromosomeLength;
+        StringIndividual.chromosomeLength = chromosomeLength;
     }
 
-    public byte[] getChromosome() {
+    public String[] getChromosome() {
         return chromosome;
     }
 
-    public void setGene(byte gene, int index) {
-        this.chromosome[index] = gene;
+    public void setGene(Object gene, int index) {
+        this.chromosome[index] = (String) gene;
     }
 
     public int getFitness() {
@@ -48,19 +35,23 @@ public class BinaryIndividual {
     }
 
     public int lengthOfChromosome() {
-        return this.chromosome.length;
+        return chromosomeLength;
     }
 
-    public void setChromosome(byte[] chromosome) {
-        this.chromosome = chromosome;
+    public void setChromosome(Object[] chromosome) {
+        this.chromosome = (String[]) chromosome;
     }
 
     public void calculateFitness() {
-        this.fitness = FitnessCalculator.compareChromosomeAndSolution(chromosome);
+        FitnessCalculator.compareChromosomeAndSolution(chromosome);
     }
 
     public void setFitness(int fitness) {
         this.fitness = fitness;
+    }
+
+    public void generateRandomIndividual() {
+        chromosome = RandomStringUtils.random(chromosomeLength).split("");
     }
 
     public double getProbabilityOfSelection() {

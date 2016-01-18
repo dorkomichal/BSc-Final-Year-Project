@@ -14,7 +14,7 @@ import java.util.Random;
  * Map-Reduce library for Genetic Algorithms
  * Licensed under the Academic Free License version 3.0
  */
-public class GeneticAlgorithmMapReduce {
+public final class GeneticOperationsMapReduce {
 
     private static double crossoverRate = 0.7;
     private static double mutationRate = 0.001;
@@ -23,7 +23,7 @@ public class GeneticAlgorithmMapReduce {
     private static Random random = new Random();
 
     public static void setElitism(boolean elitism) {
-        GeneticAlgorithmMapReduce.elitism = elitism;
+        GeneticOperationsMapReduce.elitism = elitism;
     }
 
     public static double getCrossoverRate() {
@@ -35,15 +35,15 @@ public class GeneticAlgorithmMapReduce {
     }
 
     public static void setTournamentParameterK(double tournamentParameterK) {
-        GeneticAlgorithmMapReduce.tournamentParameterK = tournamentParameterK;
+        GeneticOperationsMapReduce.tournamentParameterK = tournamentParameterK;
     }
 
     public static void setCrossoverRate(double crossoverRate) {
-        GeneticAlgorithmMapReduce.crossoverRate = crossoverRate;
+        GeneticOperationsMapReduce.crossoverRate = crossoverRate;
     }
 
     public static void setMutationRate(double mutationRate) {
-        GeneticAlgorithmMapReduce.mutationRate = mutationRate;
+        GeneticOperationsMapReduce.mutationRate = mutationRate;
     }
 
     /**
@@ -88,8 +88,8 @@ public class GeneticAlgorithmMapReduce {
     public static BinaryIndividualMapReduce multiPointCrossover(BinaryIndividualMapReduce parent1, BinaryIndividualMapReduce parent2, int numberOfPoints) {
         int[] crossoverPoints = random.ints(0, parent1.lengthOfChromosome() - 1).distinct().limit(numberOfPoints).toArray();
         Arrays.sort(crossoverPoints);
-        List<byte[]> parent1ChromosomeParts = new ArrayList<byte[]>();
-        List<byte[]> parent2ChromosomeParts = new ArrayList<byte[]>();
+        List<byte[]> parent1ChromosomeParts = new ArrayList<>();
+        List<byte[]> parent2ChromosomeParts = new ArrayList<>();
         byte[] parent1Chromosome = parent1.getChromosome();
         byte[] parent2Chromosome = parent2.getChromosome();
         int prev = 0;

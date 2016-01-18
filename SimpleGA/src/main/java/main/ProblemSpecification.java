@@ -18,9 +18,9 @@ public class ProblemSpecification {
     public static void main(String[] args) throws IOException {
 
         Population population = new Population(100);
-        population.initializePopulation();
+        population.initializePopulationString();
         String solution = "0110111000001100";
-        FitnessCalculator.setProblemSolution(solution);
+        FitnessCalculator.setProblemSolutionByte(solution);
         FitnessCalculator.calculateFitnessOfPopulation(population);
 
        int generation = 1;

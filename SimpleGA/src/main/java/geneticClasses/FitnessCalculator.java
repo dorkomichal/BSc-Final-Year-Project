@@ -11,16 +11,16 @@ import java.util.Arrays;
  */
 public class FitnessCalculator {
 
-    private static byte[] problemSolution;
+    private static Object[] problemSolution;
     private static int lengthOfSolution;
 
-    public static void setProblemSolution(byte[] problemSolution) {
+    public static void setProblemSolutionByte(Byte[] problemSolution) {
         FitnessCalculator.problemSolution = problemSolution;
         FitnessCalculator.lengthOfSolution = problemSolution.length;
     }
 
-    public static void setProblemSolution(String problemSolution) {
-        FitnessCalculator.problemSolution = new byte[problemSolution.length()];
+    public static void setProblemSolutionByte(String problemSolution) {
+        FitnessCalculator.problemSolution = new Byte[problemSolution.length()];
         int i = 0;
         for (char c : problemSolution.toCharArray()) {
            if (c == '0') {
@@ -32,18 +32,25 @@ public class FitnessCalculator {
         }
     }
 
+    public static void setProblemSolutionString(String problemSolution) {
+        FitnessCalculator.problemSolution = new Byte[problemSolution.length()];
+        for(int i = 0; i < problemSolution.length(); i++) {
+            FitnessCalculator.problemSolution[i] = problemSolution.substring(i, i+1);
+        }
+    }
+
     public static int getLengthOfSolution() {
         return lengthOfSolution;
     }
 
     public static void calculateFitnessOfPopulation(Population p) {
         for(int i = 0; i < p.getSizeOfPopulation(); i++) {
-            BinaryIndividual binaryIndividual = p.getIndividual(i);
-            binaryIndividual.setFitness(compareChromosomeAndSolution(binaryIndividual.getChromosome()));
+            Individual individual = p.getIndividual(i);
+            individual.setFitness(compareChromosomeAndSolution((Byte[])individual.getChromosome()));
         }
     }
 
-    protected static Integer compareChromosomeAndSolution(byte[] individualChromosome) {
+    protected static Integer compareChromosomeAndSolution(Object[] individualChromosome) {
         int fitness = 0;
         for(int i = 0; i < individualChromosome.length; i++) {
             if (individualChromosome[i] == problemSolution[i]) {

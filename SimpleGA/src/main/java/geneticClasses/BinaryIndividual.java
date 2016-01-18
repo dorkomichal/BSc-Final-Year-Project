@@ -1,8 +1,5 @@
 package geneticClasses;
 
-import mapreduce.GlobalFile;
-
-import java.io.Serializable;
 import java.util.Random;
 
 /**
@@ -12,29 +9,20 @@ import java.util.Random;
  * Map-Reduce library for Genetic Algorithms
  * Licensed under the Academic Free License version 3.0
  */
-public class BinaryIndividualMapReduce implements Serializable {
+public class BinaryIndividual implements Individual {
 
     /**
      * Default size of the chromosome. Can be changed using @setChromosomeLength
      */
     private static Integer chromosomeLength = 16;
-    private byte[] chromosome;
+    private Byte[] chromosome;
     private int fitness;
     private double probabilityOfSelection;
     private Random random = new Random();
-    private CrossoverPair crossoverPair;
 
-    public BinaryIndividualMapReduce() {
-        this.chromosome = new byte[chromosomeLength];
+    public BinaryIndividual() {
+        this.chromosome = new Byte[chromosomeLength];
         this.fitness = 0;
-    }
-
-    public CrossoverPair getCrossoverPair() {
-        return crossoverPair;
-    }
-
-    public void setCrossoverPair(CrossoverPair crossoverPair) {
-        this.crossoverPair = crossoverPair;
     }
 
     public void generateRandomIndividual() {
@@ -44,15 +32,15 @@ public class BinaryIndividualMapReduce implements Serializable {
         }
     }
     public static void setChromosomeLength(Integer chromosomeLength) {
-        BinaryIndividualMapReduce.chromosomeLength = chromosomeLength;
+        BinaryIndividual.chromosomeLength = chromosomeLength;
     }
 
-    public byte[] getChromosome() {
+    public Byte[] getChromosome() {
         return chromosome;
     }
 
-    public void setGene(byte gene, int index) {
-        this.chromosome[index] = gene;
+    public void setGene(Object gene, int index) {
+        this.chromosome[index] = (Byte) gene;
     }
 
     public int getFitness() {
@@ -63,14 +51,12 @@ public class BinaryIndividualMapReduce implements Serializable {
         return this.chromosome.length;
     }
 
-    public void setChromosome(byte[] chromosome) {
-        this.chromosome = chromosome;
+    public void setChromosome(Object[] chromosome) {
+        this.chromosome = (Byte[]) chromosome;
     }
 
-    public Integer calculateFitness() {
-        this.fitness = FitnessCalculator.calculateFitness(chromosome);
-        GlobalFile.submitFitness(this.fitness);
-        return fitness;
+    public void calculateFitness() {
+        this.fitness = FitnessCalculator.compareChromosomeAndSolution(chromosome);
     }
 
     public void setFitness(int fitness) {

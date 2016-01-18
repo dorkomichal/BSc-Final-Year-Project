@@ -9,48 +9,56 @@ package geneticClasses;
  */
 public class Population {
 
-    private BinaryIndividual[] binaryIndividuals;
+    private Individual[] individuals;
     private int sizeOfPopulation;
     private int sumOfFitnesses;
 
 
     public Population(int sizeOfPopulation) {
         this.sizeOfPopulation = sizeOfPopulation;
-        binaryIndividuals = new BinaryIndividual[this.sizeOfPopulation];
+        individuals = new BinaryIndividual[this.sizeOfPopulation];
     }
 
-    public void initializePopulation() {
+    public void initializePopulationBinary() {
         for(int i = 0; i < sizeOfPopulation; i++) {
             BinaryIndividual individual = new BinaryIndividual();
             individual.generateRandomIndividual();
-            this.binaryIndividuals[i] = individual;
+            this.individuals[i] = individual;
         }
     }
 
-    public BinaryIndividual getIndividual(int index) {
-        return binaryIndividuals[index];
+    public void initializePopulationString() {
+        for(int i = 0; i < sizeOfPopulation; i++) {
+            StringIndividual individual = new StringIndividual();
+            individual.generateRandomIndividual();
+            this.individuals[i] = individual;
+        }
+    }
+
+    public Individual getIndividual(int index) {
+        return individuals[index];
     }
 
     public int getSizeOfPopulation() {
         return sizeOfPopulation;
     }
 
-    public void saveBinaryIndividual(BinaryIndividual binaryIndividual, int index) {
-        this.binaryIndividuals[index] = binaryIndividual;
+    public void saveIndividual(Individual individual, int index) {
+        this.individuals[index] = individual;
     }
 
-    public BinaryIndividual getFittestIndividual() {
-        BinaryIndividual fittestIndividual = null;
+    public Individual getFittestIndividual() {
+        Individual fittestIndividual = null;
         int maxFitness = 0;
-        for (BinaryIndividual bi : binaryIndividuals) {
-            if (bi.getFitness() > maxFitness) {
-                fittestIndividual = bi;
-                maxFitness = bi.getFitness();
+        for (Individual i : individuals) {
+            if (i.getFitness() > maxFitness) {
+                fittestIndividual = i;
+                maxFitness = i.getFitness();
             }
         }
         // If whole population has fitness 0 then return first individual
         if (fittestIndividual == null) {
-            fittestIndividual = binaryIndividuals[0];
+            fittestIndividual = individuals[0];
         }
         return  fittestIndividual;
     }
@@ -60,7 +68,7 @@ public class Population {
     }
 
     public void calculateSumOfFitnesses() {
-        for (BinaryIndividual bi: binaryIndividuals) {
+        for (Individual bi: individuals) {
             this.sumOfFitnesses += bi.getFitness();
         }
     }
