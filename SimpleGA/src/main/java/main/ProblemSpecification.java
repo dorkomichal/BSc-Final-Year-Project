@@ -18,8 +18,9 @@ public class ProblemSpecification {
     public static void main(String[] args) throws IOException {
 
         Population population = new Population(100);
-        population.initializePopulationString();
-        String solution = "0110111000001100";
+        population.initializePopulationBinary();
+        //String solution = "HAYJDKEELNWBFGHW";
+        String solution = "0111001010100111";
         FitnessCalculator.setProblemSolutionByte(solution);
         FitnessCalculator.calculateFitnessOfPopulation(population);
 
@@ -27,7 +28,7 @@ public class ProblemSpecification {
        while (population.getFittestIndividual().getFitness() < solution.length()) {
             System.out.println("Generation number: " + generation);
             System.out.println("Fittest Individual: " + population.getFittestIndividual().getFitness());
-            population = GeneticAlgorithm.evolveWithMultiPointTournament(population, 3);
+            population = GeneticAlgorithm.evolveWithSinglePointTournament(population);
             generation ++;
         }
         System.out.println("Generation number: " + generation);

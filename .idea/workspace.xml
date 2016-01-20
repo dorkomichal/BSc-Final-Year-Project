@@ -2,27 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b212d496-b186-40bb-b151-bcf7918a9e05" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/FitnessFunction.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/Individual.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/StringIndividual.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BinaryGA/binaryga.iml" afterPath="$PROJECT_DIR$/SimpleGA/simplega.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BinaryGA/pom.xml" afterPath="$PROJECT_DIR$/SimpleGA/pom.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BinaryGA/src/main/java/geneticClasses/BinaryIndividual.java" afterPath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/BinaryIndividual.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BinaryGA/src/main/java/geneticClasses/FitnessCalculator.java" afterPath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/FitnessCalculator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BinaryGA/src/main/java/geneticClasses/GeneticAlgorithm.java" afterPath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/GeneticAlgorithm.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BinaryGA/src/main/java/geneticClasses/Population.java" afterPath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/Population.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BinaryGA/src/main/java/main/ProblemSpecification.java" afterPath="$PROJECT_DIR$/SimpleGA/src/main/java/main/ProblemSpecification.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/GeneticAlgorithmMapReduce.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/GeneticOperationsMapReduce.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/BinaryIndividualMapReduce.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/BinaryIndividualMapReduce.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/FitnessCalculator.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/FitnessCalculator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Driver.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Driver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/GlobalFile.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/GlobalFile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Mapper.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Mapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Reducer.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Reducer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleGA/simplega.iml" afterPath="$PROJECT_DIR$/SimpleGA/simplega.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/BinaryIndividual.java" afterPath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/BinaryIndividual.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/FitnessCalculator.java" afterPath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/FitnessCalculator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/GeneticAlgorithm.java" afterPath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/GeneticAlgorithm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/Population.java" afterPath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/Population.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/StringIndividual.java" afterPath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/StringIndividual.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleGA/src/main/java/main/ProblemSpecification.java" afterPath="$PROJECT_DIR$/SimpleGA/src/main/java/main/ProblemSpecification.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="mapreducega.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,6 +18,7 @@
     <ignored path="$PROJECT_DIR$/MapReduceBinaryGA/target/" />
     <ignored path="$PROJECT_DIR$/BinaryGA/target/" />
     <ignored path=".idea/dataSources.local.xml" />
+    <ignored path="$PROJECT_DIR$/SimpleGA/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,17 +43,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Mapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Mapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,8 +54,11 @@
         <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/BinaryIndividual.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-              <folding />
+              <caret line="69" column="74" selection-start-line="69" selection-start-column="74" selection-end-line="69" selection-end-column="74" />
+              <folding>
+                <element signature="e#1434#1435#0" expanded="true" />
+                <element signature="e#1487#1488#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -83,21 +67,32 @@
         <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/GeneticAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="255" column="18" selection-start-line="255" selection-start-column="18" selection-end-line="255" selection-end-column="18" />
+              <caret line="228" column="17" selection-start-line="228" selection-start-column="17" selection-end-line="228" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Population.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Population.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/Population.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4390244">
-              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+            <state vertical-scroll-proportion="-2.1538463">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
-                <element signature="e#1321#1322#0" expanded="true" />
-                <element signature="e#1373#1374#0" expanded="true" />
+                <element signature="e#1168#1169#0" expanded="true" />
+                <element signature="e#1208#1209#0" expanded="true" />
+                <element signature="e#1247#1248#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -107,7 +102,35 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="45" column="65" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="65" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#806#807#0" expanded="false" />
+                <element signature="e#846#847#0" expanded="false" />
+                <element signature="e#1109#1110#0" expanded="false" />
+                <element signature="e#1145#1146#0" expanded="false" />
+                <element signature="e#1196#1197#0" expanded="false" />
+                <element signature="e#1228#1229#0" expanded="false" />
+                <element signature="e#1339#1340#0" expanded="false" />
+                <element signature="e#1387#1388#0" expanded="false" />
+                <element signature="e#1434#1435#0" expanded="false" />
+                <element signature="e#1470#1471#0" expanded="false" />
+                <element signature="e#1735#1736#0" expanded="false" />
+                <element signature="e#1791#1792#0" expanded="false" />
+                <element signature="e#1832#1833#0" expanded="false" />
+                <element signature="e#1865#1866#0" expanded="false" />
+                <element signature="e#1921#1922#0" expanded="false" />
+                <element signature="e#1971#1972#0" expanded="false" />
+                <element signature="e#2502#2503#0" expanded="false" />
+                <element signature="e#2538#2539#0" expanded="false" />
+                <element signature="e#2739#2740#0" expanded="false" />
+                <element signature="e#2789#2790#0" expanded="false" />
+                <element signature="e#2843#2844#0" expanded="false" />
+                <element signature="e#2887#2888#0" expanded="false" />
+                <element signature="e#2972#2973#0" expanded="false" />
+                <element signature="e#3021#3022#0" expanded="false" />
+                <element signature="e#3065#3066#0" expanded="false" />
+                <element signature="e#3132#3133#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -126,17 +149,17 @@
         <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/FitnessCalculator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="73" selection-start-line="34" selection-start-column="73" selection-end-line="34" selection-end-column="73" />
+              <caret line="66" column="66" selection-start-line="66" selection-start-column="66" selection-end-line="66" selection-end-column="66" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProblemSpecification.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProblemSpecification.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/main/ProblemSpecification.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.34146342">
+              <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -146,27 +169,15 @@
         <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/StringIndividual.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+              <caret line="45" column="71" selection-start-line="45" selection-start-column="71" selection-end-line="45" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#686#687#0" expanded="true" />
                 <element signature="e#719#720#0" expanded="true" />
-                <element signature="e#770#771#0" expanded="true" />
-                <element signature="e#824#825#0" expanded="true" />
-                <element signature="e#855#856#0" expanded="true" />
-                <element signature="e#885#886#0" expanded="true" />
-                <element signature="e#924#925#0" expanded="true" />
-                <element signature="e#963#964#0" expanded="true" />
-                <element signature="e#1017#1018#0" expanded="true" />
-                <element signature="e#1072#1073#0" expanded="true" />
                 <element signature="e#1110#1111#0" expanded="true" />
-                <element signature="e#1184#1185#0" expanded="true" />
-                <element signature="e#1227#1228#0" expanded="true" />
-                <element signature="e#1265#1266#0" expanded="true" />
-                <element signature="e#1311#1312#0" expanded="true" />
-                <element signature="e#1392#1393#0" expanded="true" />
-                <element signature="e#1441#1442#0" expanded="true" />
-                <element signature="e#1486#1487#0" expanded="true" />
+                <element signature="e#1190#1191#0" expanded="true" />
+                <element signature="e#1233#1234#0" expanded="true" />
+                <element signature="e#1271#1272#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -203,7 +214,6 @@
         <option value="$PROJECT_DIR$/BinaryGA/src/main/java/geneticClasses/GeneticAlgorithm.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Initializer.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/BinaryIndividual.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/CrossoverPair.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/BinaryIndividualMapReduce.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Reducer.java" />
@@ -217,14 +227,15 @@
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/FitnessCalculator.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Mapper.java" />
         <option value="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/Individual.java" />
-        <option value="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/BinaryIndividual.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/GlobalFile.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java" />
+        <option value="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/Population.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/GeneticAlgorithm.java" />
         <option value="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/FitnessCalculator.java" />
-        <option value="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/Population.java" />
-        <option value="$PROJECT_DIR$/SimpleGA/src/main/java/main/ProblemSpecification.java" />
         <option value="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/StringIndividual.java" />
+        <option value="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/BinaryIndividual.java" />
+        <option value="$PROJECT_DIR$/SimpleGA/src/main/java/main/ProblemSpecification.java" />
       </list>
     </option>
   </component>
@@ -310,6 +321,8 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -588,8 +601,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -626,6 +637,26 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="simplega" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="MapReduceBinaryGAMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="main.MapReduceBinaryGAMain" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="mapreducebinaryga" />
       <envs />
       <method />
     </configuration>
@@ -949,6 +980,18 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -1106,12 +1149,14 @@
       <envs />
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.ProblemSpecification" />
+      <item index="1" class="java.lang.String" itemvalue="Application.MapReduceBinaryGAMain" />
     </list>
     <recent_temporary>
-      <list size="1">
+      <list size="2">
         <item index="0" class="java.lang.String" itemvalue="Application.ProblemSpecification" />
+        <item index="1" class="java.lang.String" itemvalue="Application.MapReduceBinaryGAMain" />
       </list>
     </recent_temporary>
   </component>
@@ -1163,11 +1208,15 @@
       <workItem from="1449227314755" duration="9648000" />
       <workItem from="1449254356084" duration="1384000" />
       <workItem from="1453120540079" duration="14100000" />
+      <workItem from="1453137770035" duration="441000" />
+      <workItem from="1453213847322" duration="1330000" />
+      <workItem from="1453295493581" duration="250000" />
+      <workItem from="1453295796687" duration="3165000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139166000" />
+    <option name="totallyTimeSpent" value="144352000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1188,14 +1237,13 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21818182" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23333333" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29032257" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29032257" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19318181" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1206,6 +1254,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1246,7 +1295,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1458,13 +1507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1476,16 +1518,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
-          <folding>
-            <element signature="e#960#961#0" expanded="false" />
-            <element signature="e#1009#1010#0" expanded="false" />
-            <element signature="e#1049#1050#0" expanded="false" />
-            <element signature="e#1088#1089#0" expanded="false" />
-            <element signature="e#1334#1335#0" expanded="false" />
-            <element signature="e#1390#1391#0" expanded="false" />
-            <element signature="e#2226#2227#0" expanded="false" />
-            <element signature="e#2263#2264#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1493,9 +1525,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="96" selection-start-line="35" selection-start-column="96" selection-end-line="35" selection-end-column="96" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1503,18 +1532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="e#517#518#0" expanded="false" />
-            <element signature="e#555#556#0" expanded="false" />
-            <element signature="e#743#744#0" expanded="false" />
-            <element signature="e#773#774#0" expanded="false" />
-            <element signature="e#838#839#0" expanded="false" />
-            <element signature="e#876#877#0" expanded="false" />
-            <element signature="e#929#930#0" expanded="false" />
-            <element signature="e#959#960#0" expanded="false" />
-            <element signature="e#1024#1025#0" expanded="false" />
-            <element signature="e#1062#1063#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1522,7 +1539,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1530,7 +1546,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1538,10 +1553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="15" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
-          <folding>
-            <element signature="e#1089#1090#0" expanded="false" />
-            <element signature="e#1133#1134#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1549,7 +1560,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="95" column="1" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1557,7 +1567,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.304878">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1565,7 +1574,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1573,7 +1581,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1581,7 +1588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1589,7 +1595,35 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="65" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="65" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#806#807#0" expanded="false" />
+            <element signature="e#846#847#0" expanded="false" />
+            <element signature="e#1109#1110#0" expanded="false" />
+            <element signature="e#1145#1146#0" expanded="false" />
+            <element signature="e#1196#1197#0" expanded="false" />
+            <element signature="e#1228#1229#0" expanded="false" />
+            <element signature="e#1339#1340#0" expanded="false" />
+            <element signature="e#1387#1388#0" expanded="false" />
+            <element signature="e#1434#1435#0" expanded="false" />
+            <element signature="e#1470#1471#0" expanded="false" />
+            <element signature="e#1735#1736#0" expanded="false" />
+            <element signature="e#1791#1792#0" expanded="false" />
+            <element signature="e#1832#1833#0" expanded="false" />
+            <element signature="e#1865#1866#0" expanded="false" />
+            <element signature="e#1921#1922#0" expanded="false" />
+            <element signature="e#1971#1972#0" expanded="false" />
+            <element signature="e#2502#2503#0" expanded="false" />
+            <element signature="e#2538#2539#0" expanded="false" />
+            <element signature="e#2739#2740#0" expanded="false" />
+            <element signature="e#2789#2790#0" expanded="false" />
+            <element signature="e#2843#2844#0" expanded="false" />
+            <element signature="e#2887#2888#0" expanded="false" />
+            <element signature="e#2972#2973#0" expanded="false" />
+            <element signature="e#3021#3022#0" expanded="false" />
+            <element signature="e#3065#3066#0" expanded="false" />
+            <element signature="e#3132#3133#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1597,66 +1631,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/GeneticAlgorithm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="255" column="18" selection-start-line="255" selection-start-column="18" selection-end-line="255" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/FitnessCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="73" selection-start-line="34" selection-start-column="73" selection-end-line="34" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/main/ProblemSpecification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/BinaryIndividual.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/StringIndividual.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#686#687#0" expanded="true" />
-            <element signature="e#719#720#0" expanded="true" />
-            <element signature="e#770#771#0" expanded="true" />
-            <element signature="e#824#825#0" expanded="true" />
-            <element signature="e#855#856#0" expanded="true" />
-            <element signature="e#885#886#0" expanded="true" />
-            <element signature="e#924#925#0" expanded="true" />
-            <element signature="e#963#964#0" expanded="true" />
-            <element signature="e#1017#1018#0" expanded="true" />
-            <element signature="e#1072#1073#0" expanded="true" />
-            <element signature="e#1110#1111#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1227#1228#0" expanded="true" />
-            <element signature="e#1265#1266#0" expanded="true" />
-            <element signature="e#1311#1312#0" expanded="true" />
-            <element signature="e#1392#1393#0" expanded="true" />
-            <element signature="e#1441#1442#0" expanded="true" />
-            <element signature="e#1486#1487#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/Population.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.1538463">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#1168#1169#0" expanded="true" />
+            <element signature="e#1208#1209#0" expanded="true" />
+            <element signature="e#1247#1248#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1669,14 +1665,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/Population.java">
+    <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/GeneticAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4390244">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="228" column="17" selection-start-line="228" selection-start-column="17" selection-end-line="228" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/FitnessCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="66" column="66" selection-start-line="66" selection-start-column="66" selection-end-line="66" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/StringIndividual.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="71" selection-start-line="45" selection-start-column="71" selection-end-line="45" selection-end-column="71" />
           <folding>
-            <element signature="e#1321#1322#0" expanded="true" />
-            <element signature="e#1373#1374#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#686#687#0" expanded="true" />
+            <element signature="e#719#720#0" expanded="true" />
+            <element signature="e#1110#1111#0" expanded="true" />
+            <element signature="e#1190#1191#0" expanded="true" />
+            <element signature="e#1233#1234#0" expanded="true" />
+            <element signature="e#1271#1272#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/BinaryIndividual.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="69" column="74" selection-start-line="69" selection-start-column="74" selection-end-line="69" selection-end-column="74" />
+          <folding>
+            <element signature="e#1434#1435#0" expanded="true" />
+            <element signature="e#1487#1488#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleGA/src/main/java/main/ProblemSpecification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34146342">
+          <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>

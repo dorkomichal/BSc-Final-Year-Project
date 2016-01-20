@@ -43,7 +43,7 @@ public class StringIndividual implements Individual {
     }
 
     public void calculateFitness() {
-        FitnessCalculator.compareChromosomeAndSolution(chromosome);
+        FitnessCalculator.compareChromosomeAndSolution(chromosome, this);
     }
 
     public void setFitness(int fitness) {
@@ -51,7 +51,7 @@ public class StringIndividual implements Individual {
     }
 
     public void generateRandomIndividual() {
-        chromosome = RandomStringUtils.random(chromosomeLength).split("");
+        chromosome = RandomStringUtils.randomAlphabetic(chromosomeLength).toUpperCase().split("");
     }
 
     public double getProbabilityOfSelection() {

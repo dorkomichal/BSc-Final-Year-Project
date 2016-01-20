@@ -33,7 +33,7 @@ public class FitnessCalculator {
     }
 
     public static void setProblemSolutionString(String problemSolution) {
-        FitnessCalculator.problemSolution = new Byte[problemSolution.length()];
+        FitnessCalculator.problemSolution = new String[problemSolution.length()];
         for(int i = 0; i < problemSolution.length(); i++) {
             FitnessCalculator.problemSolution[i] = problemSolution.substring(i, i+1);
         }
@@ -46,15 +46,27 @@ public class FitnessCalculator {
     public static void calculateFitnessOfPopulation(Population p) {
         for(int i = 0; i < p.getSizeOfPopulation(); i++) {
             Individual individual = p.getIndividual(i);
-            individual.setFitness(compareChromosomeAndSolution((Byte[])individual.getChromosome()));
+            if (individual instanceof BinaryIndividual) {
+                individual.setFitness(compareChromosomeAndSolution((Byte[]) individual.getChromosome(), individual));
+            } else {
+                individual.setFitness(compareChromosomeAndSolution((String[]) individual.getChromosome(), individual));
+            }
         }
     }
 
-    protected static Integer compareChromosomeAndSolution(Object[] individualChromosome) {
+    protected static Integer compareChromosomeAndSolution(Object[] individualChromosome, Individual individual) {
         int fitness = 0;
-        for(int i = 0; i < individualChromosome.length; i++) {
-            if (individualChromosome[i] == problemSolution[i]) {
-                fitness ++;
+        if (individual instanceof StringIndividual) {
+            for (int i = 0; i < individualChromosome.length; i++) {
+                if (individualChromosome[i].equals(problemSolution[i])) {
+                    fitness++;
+                }
+            }
+        } else {
+            for (int i = 0; i < individualChromosome.length; i++) {
+                if (individualChromosome[i] == problemSolution[i]) {
+                    fitness++;
+                }
             }
         }
         return fitness;

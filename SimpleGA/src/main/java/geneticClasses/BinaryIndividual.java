@@ -56,7 +56,7 @@ public class BinaryIndividual implements Individual {
     }
 
     public void calculateFitness() {
-        this.fitness = FitnessCalculator.compareChromosomeAndSolution(chromosome);
+        this.fitness = FitnessCalculator.compareChromosomeAndSolution(chromosome, this);
     }
 
     public void setFitness(int fitness) {

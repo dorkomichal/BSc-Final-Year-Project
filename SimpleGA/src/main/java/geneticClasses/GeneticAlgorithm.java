@@ -1,6 +1,7 @@
 package geneticClasses;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -146,11 +147,18 @@ public class GeneticAlgorithm {
         Object[] parent2ChromosomePart1 = Arrays.copyOfRange(parent2Chromosome, 0, crossoverPoint);
         Object[] parent2ChromosomePart2 = Arrays.copyOfRange(parent2Chromosome, crossoverPoint, parent2Chromosome.length);
 
-        Individual child1 = new BinaryIndividual();
+        Individual child1;
+        Individual child2;
+        if (parent1 instanceof BinaryIndividual) {
+            child1 = new BinaryIndividual();
+            child2 = new BinaryIndividual();
+        } else {
+            child1 = new StringIndividual();
+            child2 = new StringIndividual();
+        }
         child1.setChromosome(ArrayUtils.addAll(parent1ChromosomePart1, parent2ChromosomePart2));
         mutate(child1);
         child1.calculateFitness();
-        Individual child2 = new BinaryIndividual();
         child2.setChromosome(ArrayUtils.addAll(parent2ChromosomePart1, parent1ChromosomePart2));
         mutate(child2);
         child2.calculateFitness();
@@ -186,13 +194,21 @@ public class GeneticAlgorithm {
                 child2Chromosome = ArrayUtils.addAll(child2Chromosome, parent1ChromosomeParts.get(i));
             }
         }
-        Individual child1 = new BinaryIndividual();
-        child1.setChromosome(child1Chromosome);
-        mutate(child1);
-        Individual child2 = new BinaryIndividual();
-        child2.setChromosome(child2Chromosome);
-        mutate(child2);
-        return new Individual[]{child1, child2};
+        Individual child1;
+        Individual child2;
+        if (parent1 instanceof BinaryIndividual) {
+            child1 = new BinaryIndividual();
+            child2 = new BinaryIndividual();
+        } else {
+            child1 = new StringIndividual();
+            child2 = new StringIndividual();
+        }
+            child1.setChromosome(child1Chromosome);
+            child2.setChromosome(child2Chromosome);
+            mutate(child1);
+            mutate(child2);
+            return new Individual[]{child1, child2};
+
     }
 
     /**
@@ -210,6 +226,13 @@ public class GeneticAlgorithm {
                     } else {
                         individual.setGene((byte) 1, i);
                     }
+                }
+            }
+        } else {
+            String[] chromosome = (String[]) individual.getChromosome();
+            for (int i = 0; i < chromosome.length; i++) {
+                if (Math.random() <= mutationRate) {
+                    individual.setGene(RandomStringUtils.randomAlphabetic(1).toUpperCase(), i);
                 }
             }
         }
