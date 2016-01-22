@@ -7,6 +7,10 @@ import mapreduce.Mapper;
 import mapreduce.Reducer;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.util.SystemClock;
+import problemsdesc.Satisfiability;
+
+import java.util.Arrays;
 
 /**
  * Created by Michal Dorko on 11/11/15.
@@ -21,7 +25,6 @@ public class MapReduceBinaryGAMain {
         FitnessFunction function = new FitnessFunction() {
             @Override
             public int calculateFitness(Object[] chromosome, IndividualMapReduce individual) {
-                int fitness;
                 String stringChromosome = getStringFromByteArray((Byte[])chromosome);
                 int threshold = 1000;
                 int a = Integer.parseInt(stringChromosome.substring(0, 16), 2);
@@ -34,23 +37,24 @@ public class MapReduceBinaryGAMain {
                 }
             }
         };
-        FitnessCalculator.setFitnessFunction(function);
+        Satisfiability sat = new Satisfiability(86, 20);
+        FitnessCalculator.setFitnessFunction(sat);
         int variableLength = 16;
         int numberOfVariables = 2;
         Driver driver = Driver.getDriver();
-        BinaryIndividualMapReduce.setChromosomeLength(numberOfVariables * 16);
-        driver.initializePopulation(50, IndividualType.Binary);
+        BinaryIndividualMapReduce.setChromosomeLength(20);
+        driver.initializePopulation(10, IndividualType.Binary);
         Mapper mapper = Mapper.getMapper();
         Reducer reducer = Reducer.getReducer();
         int generationCounter = 1;
-        GlobalFile.setMaxFitness(990);
+        GlobalFile.setMaxFitness(86);
 
         JavaRDD<IndividualMapReduce> parallelizedPopulation = driver.getPopulationParallelized();
 
         while (true) {
             System.out.println("Generation " + generationCounter);
             JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness = mapper.mapCalculateFitness(parallelizedPopulation);
-            if (GlobalFile.isSolutionFound() || GlobalFile.getMaxNotChanged() > 30) {
+            if (GlobalFile.isSolutionFound()) {
                 break; //if soulution is found or generation has converged to max and didn't change for some generations
             }
             GlobalFile.resetMaxNotChanged();
@@ -69,12 +73,22 @@ public class MapReduceBinaryGAMain {
             GlobalFile.assignNewGenerationToPopulation();
         }
 
-        System.out.println("Solution Found: ");
+       /* System.out.println("Solution Found: ");
         String solution = GlobalFile.getNewGeneration().getFittestIndividual().toString();
         int a = Integer.parseInt(solution.substring(0, variableLength), 2);
         int b = Integer.parseInt(solution.substring(variableLength, solution.length()), 2);
         System.out.println("Variable a = " + a);
         System.out.println("Variable b = " + b);
+        */
+        System.out.println("Solution Found: ");
+        System.out.println("Problem: \n");
+        for (String[] s: sat.getExpressionString()) {
+            System.out.println(Arrays.toString(s));
+        }
+        String solution = GlobalFile.getNewGeneration().getFittestIndividual().toString();
+        for (int i = 0; i < solution.length(); i++) {
+            System.out.println("P" + i + " = " + solution.substring(i,i+1));
+        }
 
     }
 

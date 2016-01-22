@@ -23,7 +23,7 @@ public final class FitnessCalculator {
     }
 
     public static Integer calculateFitness(Object[] individualChromosome, IndividualMapReduce individualMapReduce) {
-        int fitness = 0;
+        int fitness;
         fitness = fitnessFunction.calculateFitness(individualChromosome, individualMapReduce);
         return fitness;
     }
