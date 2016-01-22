@@ -13,8 +13,8 @@ public final class FitnessCalculator {
 
     public static void calculateFitnessOfPopulation(Population p) {
         for(int i = 0; i < p.getSizeOfPopulation(); i++) {
-            BinaryIndividualMapReduce binaryIndividualMapReduce = p.getIndividual(i);
-            binaryIndividualMapReduce.setFitness(calculateFitness(binaryIndividualMapReduce.getChromosome()));
+            IndividualMapReduce individualMapReduce = p.getIndividual(i);
+            individualMapReduce.setFitness(calculateFitness(individualMapReduce.getChromosome(), individualMapReduce));
         }
     }
 
@@ -22,9 +22,9 @@ public final class FitnessCalculator {
         FitnessCalculator.fitnessFunction = fitnessFunction;
     }
 
-    public static Integer calculateFitness(byte[] individualChromosome) {
+    public static Integer calculateFitness(Object[] individualChromosome, IndividualMapReduce individualMapReduce) {
         int fitness = 0;
-        fitness = fitnessFunction.calculateFitness(individualChromosome);
+        fitness = fitnessFunction.calculateFitness(individualChromosome, individualMapReduce);
         return fitness;
     }
 

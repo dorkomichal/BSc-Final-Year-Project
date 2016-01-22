@@ -1,9 +1,6 @@
 package mapreduce;
 
-import geneticClasses.BinaryIndividualMapReduce;
-import geneticClasses.CrossoverPair;
-import geneticClasses.GeneticOperationsMapReduce;
-import geneticClasses.SelectionMethod;
+import geneticClasses.*;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import scala.Tuple2;
@@ -28,8 +25,8 @@ public class Mapper implements Serializable {
         return mapper;
     }
 
-    public JavaPairRDD<BinaryIndividualMapReduce, Integer> mapCalculateFitness(JavaRDD<BinaryIndividualMapReduce> parallelizedPopulation) {
-        JavaPairRDD<BinaryIndividualMapReduce, Integer> populationWithFitness = parallelizedPopulation.mapToPair(bi -> new Tuple2<BinaryIndividualMapReduce, Integer>(bi, bi.calculateFitness()));
+    public JavaPairRDD<IndividualMapReduce, Integer> mapCalculateFitness(JavaRDD<IndividualMapReduce> parallelizedPopulation) {
+        JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness = parallelizedPopulation.mapToPair(ind -> new Tuple2<IndividualMapReduce, Integer>(ind, ind.calculateFitness()));
         JavaRDD<Integer> terminate = populationWithFitness.values().filter(v -> (v >= GlobalFile.getMaxFitness()));
         if (!terminate.isEmpty()) {
             GlobalFile.setSolutionFound(true);
@@ -39,17 +36,17 @@ public class Mapper implements Serializable {
         return populationWithFitness;
     }
 
-    public JavaRDD<CrossoverPair> mapSelection(JavaPairRDD<BinaryIndividualMapReduce, Integer> populationWithFitness, BinaryIndividualMapReduce elite, SelectionMethod method) {
-        List<BinaryIndividualMapReduce> keys = populationWithFitness.keys().collect();
+    public JavaRDD<CrossoverPair> mapSelection(JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness, IndividualMapReduce elite, SelectionMethod method) {
+        List<IndividualMapReduce> keys = populationWithFitness.keys().collect();
         JavaRDD<CrossoverPair> selectedIndividuals;
         if(method.equals(SelectionMethod.rouletteWheel)) {
             System.out.println("RWS");
             System.out.println("Sum of fitness: " + GlobalFile.getSumOfFitnesses());
             GeneticOperationsMapReduce.rwsSelectionProbabilityCalculation(keys, GlobalFile.getSumOfFitnesses());
-            selectedIndividuals = populationWithFitness.map(bi -> rwsSelection(keys));
+            selectedIndividuals = populationWithFitness.map(ind -> rwsSelection(keys));
         } else {
             System.out.println("Tournament");
-            selectedIndividuals = populationWithFitness.map(bi -> tournamentSelection(keys));
+            selectedIndividuals = populationWithFitness.map(ind -> tournamentSelection(keys));
         }
         if (GeneticOperationsMapReduce.isElitism() && elite != null) {
             List<CrossoverPair> first = new ArrayList<>();
@@ -67,26 +64,26 @@ public class Mapper implements Serializable {
         }
     }
 
-    private CrossoverPair tournamentSelection(List<BinaryIndividualMapReduce> population) {
+    private CrossoverPair tournamentSelection(List<IndividualMapReduce> population) {
             int[] randoms = new Random().ints(0, population.size()).distinct().limit(4).toArray();
             CrossoverPair crossoverPair = new CrossoverPair();
-            BinaryIndividualMapReduce firstParent = GeneticOperationsMapReduce.tournamentSelection(population.get(randoms[0]), population.get(randoms[1]));
+            IndividualMapReduce firstParent = GeneticOperationsMapReduce.tournamentSelection(population.get(randoms[0]), population.get(randoms[1]));
             firstParent.setCrossoverPair(crossoverPair);
             crossoverPair.setParent1(firstParent);
-            BinaryIndividualMapReduce secondParent = GeneticOperationsMapReduce.tournamentSelection(population.get(randoms[2]), population.get(randoms[3]));
+            IndividualMapReduce secondParent = GeneticOperationsMapReduce.tournamentSelection(population.get(randoms[2]), population.get(randoms[3]));
             secondParent.setCrossoverPair(crossoverPair);
             crossoverPair.setParent2(secondParent);
             return crossoverPair;
         }
 
-    public BinaryIndividualMapReduce getElite(JavaPairRDD<BinaryIndividualMapReduce, Integer> populationWithFitness) {
-        JavaRDD<BinaryIndividualMapReduce> eliteInd = populationWithFitness.keys().filter(bi -> (bi.getFitness() == GlobalFile.getCurrentMaxFitness()));
+    public IndividualMapReduce getElite(JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness) {
+        JavaRDD<IndividualMapReduce> eliteInd = populationWithFitness.keys().filter(bi -> (bi.getFitness() == GlobalFile.getCurrentMaxFitness()));
         return eliteInd.collect().get(0);
     }
 
-    private CrossoverPair rwsSelection(List<BinaryIndividualMapReduce> population) {
-        BinaryIndividualMapReduce parent1 = GeneticOperationsMapReduce.rwsSelection(population);
-        BinaryIndividualMapReduce parent2 = GeneticOperationsMapReduce.rwsSelection(population);
+    private CrossoverPair rwsSelection(List<IndividualMapReduce> population) {
+        IndividualMapReduce parent1 = GeneticOperationsMapReduce.rwsSelection(population);
+        IndividualMapReduce parent2 = GeneticOperationsMapReduce.rwsSelection(population);
         CrossoverPair pair = new CrossoverPair();
         pair.setParent1(parent1);
         pair.setParent2(parent2);

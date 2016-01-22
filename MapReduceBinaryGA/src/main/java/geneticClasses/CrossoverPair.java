@@ -11,31 +11,31 @@ import java.io.Serializable;
  */
 public class CrossoverPair implements Serializable {
 
-    private BinaryIndividualMapReduce parent1;
-    private BinaryIndividualMapReduce parent2;
-    private BinaryIndividualMapReduce eliteIndividual;
+    private IndividualMapReduce parent1;
+    private IndividualMapReduce parent2;
+    private IndividualMapReduce eliteIndividual;
 
-    public BinaryIndividualMapReduce getEliteIndividual() {
+    public IndividualMapReduce getEliteIndividual() {
         return eliteIndividual;
     }
 
-    public void setEliteIndividual(BinaryIndividualMapReduce eliteIndividual) {
+    public void setEliteIndividual(IndividualMapReduce eliteIndividual) {
         this.eliteIndividual = eliteIndividual;
     }
 
-    public BinaryIndividualMapReduce getParent1() {
+    public IndividualMapReduce getParent1() {
         return parent1;
     }
 
-    public void setParent1(BinaryIndividualMapReduce parent1) {
+    public void setParent1(IndividualMapReduce parent1) {
         this.parent1 = parent1;
     }
 
-    public BinaryIndividualMapReduce getParent2() {
+    public IndividualMapReduce getParent2() {
         return parent2;
     }
 
-    public void setParent2(BinaryIndividualMapReduce parent2) {
+    public void setParent2(IndividualMapReduce parent2) {
         this.parent2 = parent2;
     }
 

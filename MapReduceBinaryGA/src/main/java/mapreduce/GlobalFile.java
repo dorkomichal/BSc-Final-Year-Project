@@ -2,11 +2,11 @@ package mapreduce;
 
 import geneticClasses.BinaryIndividualMapReduce;
 import geneticClasses.FitnessCalculator;
+import geneticClasses.IndividualMapReduce;
 import geneticClasses.Population;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by Michal Dorko on 09/11/15.
@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class GlobalFile {
 
     private static Population newGeneration;
-    private static List<BinaryIndividualMapReduce> binaryIndividualMapReduces;
+    private static List<IndividualMapReduce> individualMapReduces;
     private static int maxFitness;
     private static int currentMaxFitness;
     private static int maxNotChanged = 0;
@@ -54,8 +54,8 @@ public class GlobalFile {
     }
 
 
-    public static void setBinaryIndividualMapReduces(List<BinaryIndividualMapReduce> binaryIndividualMapReduces) {
-        GlobalFile.binaryIndividualMapReduces = binaryIndividualMapReduces;
+    public static void setIndividualMapReduces(List<IndividualMapReduce> individualMapReduces) {
+        GlobalFile.individualMapReduces = individualMapReduces;
     }
 
     public static void setSolutionFound(boolean solutionFound) {
@@ -72,11 +72,11 @@ public class GlobalFile {
 
     public static void createNewPopulation(int sizeOfPopulation) {
         newGeneration = new Population(sizeOfPopulation);
-        binaryIndividualMapReduces = new ArrayList<>();
+        individualMapReduces = new ArrayList<>();
     }
 
     public static void assignNewGenerationToPopulation() {
-        newGeneration.setBinaryIndividualMapReduces(binaryIndividualMapReduces.toArray(new BinaryIndividualMapReduce[binaryIndividualMapReduces.size()]));
+        newGeneration.setIndividualMapReduces(individualMapReduces.toArray(new IndividualMapReduce[individualMapReduces.size()]));
         FitnessCalculator.calculateFitnessOfPopulation(newGeneration);
     }
 
@@ -90,19 +90,19 @@ public class GlobalFile {
     }
 
     public static void clearListOfIndividuals() {
-        binaryIndividualMapReduces.clear();
+        individualMapReduces.clear();
     }
 
     public static void setPopulation(Population p) {
         GlobalFile.newGeneration = p;
     }
 
-    public static List<BinaryIndividualMapReduce> getBinaryIndividualMapReduces() {
-        return binaryIndividualMapReduces;
+    public static List<IndividualMapReduce> getIndividualMapReduces() {
+        return individualMapReduces;
     }
 
     public static int sizeOfGeneration() {
-        return GlobalFile.binaryIndividualMapReduces.size();
+        return GlobalFile.individualMapReduces.size();
     }
 
 }

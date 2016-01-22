@@ -1,8 +1,6 @@
 package mapreduce;
 
-import geneticClasses.BinaryIndividualMapReduce;
-import geneticClasses.FitnessCalculator;
-import geneticClasses.Population;
+import geneticClasses.*;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
@@ -22,7 +20,7 @@ public class Driver {
     public static Driver driver;
     private static SparkConf conf;
     private static JavaSparkContext jsc;
-    private JavaRDD<BinaryIndividualMapReduce> populationParallelized;
+    private JavaRDD<IndividualMapReduce> populationParallelized;
 
     public static Driver getDriver() {
         if (driver != null) {
@@ -39,16 +37,21 @@ public class Driver {
         return jsc.parallelize(data);
     }
 
-    public JavaRDD<BinaryIndividualMapReduce> getPopulationParallelized() {
+    public JavaRDD<IndividualMapReduce> getPopulationParallelized() {
         return populationParallelized;
     }
 
-    public void initializePopulation(int sizeOfPopulation) {
+    public void initializePopulation(int sizeOfPopulation, IndividualType type) {
         Population population = new Population(sizeOfPopulation);
-        population.initializePopulation();
+        if (type.equals(IndividualType.Binary)) {
+            population.initializePopulationBinary();
+        } else {
+            population.initializePopulationString();
+        }
         FitnessCalculator.calculateFitnessOfPopulation(population);
         GlobalFile.setPopulation(population);
-        populationParallelized = jsc.parallelize(Arrays.asList(population.getBinaryIndividualMapReduces()));
+        List data = Arrays.asList(population.getIndividualMapReduces());
+        populationParallelized = jsc.parallelize(data);
     }
 
 }

@@ -9,49 +9,57 @@ package geneticClasses;
  */
 public class Population {
 
-    private BinaryIndividualMapReduce[] binaryIndividualMapReduces;
+    private IndividualMapReduce[] individualMapReduces;
     private int sizeOfPopulation;
     private int sumOfFitnesses;
 
     public Population(int sizeOfPopulation) {
         this.sizeOfPopulation = sizeOfPopulation;
-        binaryIndividualMapReduces = new BinaryIndividualMapReduce[this.sizeOfPopulation];
+        individualMapReduces = new IndividualMapReduce[this.sizeOfPopulation];
     }
 
 
-    public void initializePopulation() {
+    public void initializePopulationBinary() {
         for (int i = 0; i < sizeOfPopulation; i++) {
             BinaryIndividualMapReduce individual = new BinaryIndividualMapReduce();
             individual.generateRandomIndividual();
-            this.binaryIndividualMapReduces[i] = individual;
+            this.individualMapReduces[i] = individual;
         }
     }
 
-    public BinaryIndividualMapReduce[] getBinaryIndividualMapReduces() {
-        return binaryIndividualMapReduces;
+    public void initializePopulationString() {
+        for(int i = 0; i < sizeOfPopulation; i++) {
+            StringIndividualMapReduce individual = new StringIndividualMapReduce();
+            individual.generateRandomIndividual();
+            this.individualMapReduces[i] = individual;
+        }
+    }
+
+    public IndividualMapReduce[] getIndividualMapReduces() {
+        return individualMapReduces;
     }
 
     public int getSizeOfPopulation() {
         return sizeOfPopulation;
     }
 
-    public void setBinaryIndividualMapReduces(BinaryIndividualMapReduce[] binaryIndividualMapReduces) {
-        this.binaryIndividualMapReduces = binaryIndividualMapReduces;
+    public void setIndividualMapReduces(IndividualMapReduce[] individualMapReduces) {
+        this.individualMapReduces = individualMapReduces;
     }
 
-    public BinaryIndividualMapReduce getIndividual(int index) {
-        return binaryIndividualMapReduces[index];
+    public IndividualMapReduce getIndividual(int index) {
+        return individualMapReduces[index];
     }
 
 
-    public void saveBinaryIndividual(BinaryIndividualMapReduce binaryIndividualMapReduce, int index) {
-        this.binaryIndividualMapReduces[index] = binaryIndividualMapReduce;
+    public void saveIndividual(IndividualMapReduce individualMapReduce, int index) {
+        this.individualMapReduces[index] = individualMapReduce;
     }
 
-    public BinaryIndividualMapReduce getFittestIndividual() {
-        BinaryIndividualMapReduce fittestIndividual = null;
+    public IndividualMapReduce getFittestIndividual() {
+        IndividualMapReduce fittestIndividual = null;
         int maxFitness = 0;
-        for (BinaryIndividualMapReduce bi : binaryIndividualMapReduces) {
+        for (IndividualMapReduce bi : individualMapReduces) {
             if (bi.getFitness() > maxFitness) {
                 fittestIndividual = bi;
                 maxFitness = bi.getFitness();
@@ -59,7 +67,7 @@ public class Population {
         }
         // If whole population has fitness 0 then return first individual
         if (fittestIndividual == null) {
-            fittestIndividual = binaryIndividualMapReduces[0];
+            fittestIndividual = individualMapReduces[0];
         }
         return fittestIndividual;
     }
@@ -69,7 +77,7 @@ public class Population {
     }
 
     public void calculateSumOfFitnesses() {
-        for (BinaryIndividualMapReduce bi : binaryIndividualMapReduces) {
+        for (IndividualMapReduce bi : individualMapReduces) {
             this.sumOfFitnesses += bi.getFitness();
         }
     }

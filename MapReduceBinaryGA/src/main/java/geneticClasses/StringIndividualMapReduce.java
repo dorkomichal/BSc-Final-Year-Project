@@ -1,86 +1,92 @@
 package geneticClasses;
 
 import mapreduce.GlobalFile;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import java.io.Serializable;
-import java.util.Random;
 
 /**
- * Created by Michal Dorko on 30/10/15.
+ * Created by Michal Dorko on 20/01/16.
  * BSc Final Year project
  * King's College London
  * Map-Reduce library for Genetic Algorithms
  * Licensed under the Academic Free License version 3.0
  */
-public class BinaryIndividualMapReduce implements Serializable, IndividualMapReduce {
+public class StringIndividualMapReduce implements Serializable, IndividualMapReduce {
 
-    /**
-     * Default size of the chromosome. Can be changed using @setChromosomeLength
-     */
     private static Integer chromosomeLength = 16;
-    private Byte[] chromosome;
+    private String[] chromosome;
     private int fitness;
     private double probabilityOfSelection;
-    private Random random = new Random();
     private CrossoverPair crossoverPair;
 
-    public BinaryIndividualMapReduce() {
-        this.chromosome = new Byte[chromosomeLength];
+    public StringIndividualMapReduce() {
+        this.chromosome = new String[chromosomeLength];
         this.fitness = 0;
     }
 
-    public CrossoverPair getCrossoverPair() {
-        return crossoverPair;
+    public static void setChromosomeLength(Integer chromosomeLength) {
+        StringIndividualMapReduce.chromosomeLength = chromosomeLength;
     }
 
+    @Override
+    public CrossoverPair getCrossoverPair() {
+        return this.crossoverPair;
+    }
+
+    @Override
     public void setCrossoverPair(CrossoverPair crossoverPair) {
         this.crossoverPair = crossoverPair;
     }
 
+    @Override
     public void generateRandomIndividual() {
-        for(int i = 0; i < chromosome.length; i++) {
-            byte gene = (byte) (random.nextBoolean() ? 1 : 0);
-            chromosome[i] = gene;
-        }
-    }
-    public static void setChromosomeLength(Integer chromosomeLength) {
-        BinaryIndividualMapReduce.chromosomeLength = chromosomeLength;
+        this.chromosome = RandomStringUtils.randomAlphabetic(chromosomeLength).toUpperCase().split("");
     }
 
-    public Byte[] getChromosome() {
-        return chromosome;
+    @Override
+    public Object[] getChromosome() {
+        return this.chromosome;
     }
 
+    @Override
     public void setGene(Object gene, int index) {
-        this.chromosome[index] = (Byte) gene;
+        this.chromosome[index] = (String) gene;
     }
 
+    @Override
     public int getFitness() {
-        return fitness;
+        return this.fitness;
     }
 
+    @Override
     public int lengthOfChromosome() {
-        return this.chromosome.length;
+        return chromosomeLength;
     }
 
+    @Override
     public void setChromosome(Object[] chromosome) {
-        this.chromosome = (Byte[]) chromosome;
+        this.chromosome = (String[]) chromosome;
     }
 
+    @Override
     public Integer calculateFitness() {
         this.fitness = FitnessCalculator.calculateFitness(chromosome, this);
         GlobalFile.submitFitness(this.fitness);
         return fitness;
     }
 
+    @Override
     public void setFitness(int fitness) {
         this.fitness = fitness;
     }
 
+    @Override
     public double getProbabilityOfSelection() {
-        return probabilityOfSelection;
+        return this.probabilityOfSelection;
     }
 
+    @Override
     public void setProbabilityOfSelection(double probabilityOfSelection) {
         this.probabilityOfSelection = probabilityOfSelection;
     }

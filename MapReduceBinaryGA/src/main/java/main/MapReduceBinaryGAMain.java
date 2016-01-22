@@ -8,8 +8,6 @@ import mapreduce.Reducer;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 
-import java.util.Arrays;
-
 /**
  * Created by Michal Dorko on 11/11/15.
  * BSc Final Year project
@@ -22,9 +20,9 @@ public class MapReduceBinaryGAMain {
     public static void main(String[] args) {
         FitnessFunction function = new FitnessFunction() {
             @Override
-            public int calculateFitness(byte[] chromosome) {
+            public int calculateFitness(Object[] chromosome, IndividualMapReduce individual) {
                 int fitness;
-                String stringChromosome = getStringFromByteArray(chromosome);
+                String stringChromosome = getStringFromByteArray((Byte[])chromosome);
                 int threshold = 1000;
                 int a = Integer.parseInt(stringChromosome.substring(0, 16), 2);
                 int b = Integer.parseInt(stringChromosome.substring(16, stringChromosome.length()), 2);
@@ -41,26 +39,26 @@ public class MapReduceBinaryGAMain {
         int numberOfVariables = 2;
         Driver driver = Driver.getDriver();
         BinaryIndividualMapReduce.setChromosomeLength(numberOfVariables * 16);
-        driver.initializePopulation(50);
+        driver.initializePopulation(50, IndividualType.Binary);
         Mapper mapper = Mapper.getMapper();
         Reducer reducer = Reducer.getReducer();
         int generationCounter = 1;
         GlobalFile.setMaxFitness(990);
 
-        JavaRDD<BinaryIndividualMapReduce> parallelizedPopulation = driver.getPopulationParallelized();
+        JavaRDD<IndividualMapReduce> parallelizedPopulation = driver.getPopulationParallelized();
 
         while (true) {
             System.out.println("Generation " + generationCounter);
-            JavaPairRDD<BinaryIndividualMapReduce, Integer> populationWithFitness = mapper.mapCalculateFitness(parallelizedPopulation);
+            JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness = mapper.mapCalculateFitness(parallelizedPopulation);
             if (GlobalFile.isSolutionFound() || GlobalFile.getMaxNotChanged() > 30) {
                 break; //if soulution is found or generation has converged to max and didn't change for some generations
             }
             GlobalFile.resetMaxNotChanged();
-            BinaryIndividualMapReduce elite = mapper.getElite(populationWithFitness);
+            IndividualMapReduce elite = mapper.getElite(populationWithFitness);
             JavaRDD<CrossoverPair> selectedIndividuals = mapper.mapSelection(populationWithFitness, elite, SelectionMethod.tournament);
-            JavaRDD<BinaryIndividualMapReduce> newGeneration = reducer.reduceCrossover(selectedIndividuals, true, 2);
-            GlobalFile.setBinaryIndividualMapReduces(newGeneration.collect());
-            parallelizedPopulation = driver.paralleliseData(GlobalFile.getBinaryIndividualMapReduces());
+            JavaRDD<IndividualMapReduce> newGeneration = reducer.reduceCrossover(selectedIndividuals, true, 2);
+            GlobalFile.setIndividualMapReduces(newGeneration.collect());
+            parallelizedPopulation = driver.paralleliseData(GlobalFile.getIndividualMapReduces());
             generationCounter++;
 
             System.out.println("Fittest Individual " + GlobalFile.getCurrentMaxFitness());
@@ -80,7 +78,7 @@ public class MapReduceBinaryGAMain {
 
     }
 
-    public static String getStringFromByteArray(byte[] chromosome) {
+    public static String getStringFromByteArray(Byte[] chromosome) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < chromosome.length; i++) {
             stringBuilder.append(chromosome[i]);
