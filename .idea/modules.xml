@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/gvgai-master/gvgai-master.iml" filepath="$PROJECT_DIR$/gvgai-master/gvgai-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/MapReduceBinaryGA/mapreducebinaryga.iml" filepath="$PROJECT_DIR$/MapReduceBinaryGA/mapreducebinaryga.iml" />
       <module fileurl="file://$PROJECT_DIR$/mapreducega.iml" filepath="$PROJECT_DIR$/mapreducega.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SimpleGA/simplega.iml" filepath="$PROJECT_DIR$/SimpleGA/simplega.iml" />
     </modules>
   </component>
 </project>

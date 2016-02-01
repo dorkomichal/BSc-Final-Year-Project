@@ -27,13 +27,18 @@ public class Population {
         }
     }
 
-    public void initializePopulationString() {
+    public void initializePopulationString(String[] source) {
         for(int i = 0; i < sizeOfPopulation; i++) {
             StringIndividualMapReduce individual = new StringIndividualMapReduce();
-            individual.generateRandomIndividual();
+            if (source == null) {
+                individual.generateRandomIndividual();
+            } else {
+                individual.generateRandomIndividual(source);
+            }
             this.individualMapReduces[i] = individual;
         }
     }
+
 
     public IndividualMapReduce[] getIndividualMapReduces() {
         return individualMapReduces;

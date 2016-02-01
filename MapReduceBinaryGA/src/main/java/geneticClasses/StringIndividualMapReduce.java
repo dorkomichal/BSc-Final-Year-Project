@@ -4,6 +4,7 @@ import mapreduce.GlobalFile;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.io.Serializable;
+import java.util.Random;
 
 /**
  * Created by Michal Dorko on 20/01/16.
@@ -42,6 +43,16 @@ public class StringIndividualMapReduce implements Serializable, IndividualMapRed
     @Override
     public void generateRandomIndividual() {
         this.chromosome = RandomStringUtils.randomAlphabetic(chromosomeLength).toUpperCase().split("");
+    }
+
+    @Override
+    public void generateRandomIndividual(Object[] source) {
+        this.chromosome = new String[chromosomeLength];
+        Random random = new Random();
+        for (int i = 0; i < chromosomeLength; i++) {
+            int ran = random.nextInt(chromosomeLength);
+            this.chromosome[i] = (String) source[ran];
+        }
     }
 
     @Override

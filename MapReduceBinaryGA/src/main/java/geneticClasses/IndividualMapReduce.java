@@ -28,6 +28,11 @@ public interface IndividualMapReduce<E> extends Serializable {
     void generateRandomIndividual();
 
     /**
+     * Generates random individual using supplied elements as source
+     * @param source custom elements used to generate random individual
+     */
+    void generateRandomIndividual(Object[] source);
+    /**
      * Getter method for chromosome
      * @return chromosome
      */

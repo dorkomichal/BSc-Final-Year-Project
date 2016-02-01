@@ -9,8 +9,8 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>SimpleGA</module>
         <module>MapReduceBinaryGA</module>
+        <module>gvgai-master</module>
     </modules>
 
     <dependencies>
