@@ -19,6 +19,7 @@ public class GlobalFile {
 
     private static Population newGeneration;
     private static List<IndividualMapReduce> individualMapReduces;
+    private static IndividualMapReduce fittestIndividual;
     private static int maxFitness;
     private static int currentMaxFitness;
     private static int maxNotChanged = 0;
@@ -33,6 +34,14 @@ public class GlobalFile {
         if (currentMaxFitness >= GlobalFile.currentMaxFitness) {
             GlobalFile.currentMaxFitness = currentMaxFitness;
         }
+    }
+
+    public static IndividualMapReduce getFittestIndividual() {
+        return fittestIndividual;
+    }
+
+    public static void setFittestIndividual(IndividualMapReduce fittestIndividual) {
+        GlobalFile.fittestIndividual = fittestIndividual;
     }
 
     public static int getMaxNotChanged() {

@@ -1,5 +1,6 @@
 package main;
 
+import core.ArcadeMachine;
 import geneticClasses.*;
 import mapreduce.Driver;
 import mapreduce.GlobalFile;
@@ -7,10 +8,10 @@ import mapreduce.Mapper;
 import mapreduce.Reducer;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
-import org.apache.spark.util.SystemClock;
-import problemsdesc.Satisfiability;
+import sat.Satisfiability;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * Created by Michal Dorko on 11/11/15.
@@ -22,7 +23,7 @@ import java.util.Arrays;
 public class MapReduceBinaryGAMain {
 
     public static void main(String[] args) {
-        FitnessFunction function = new FitnessFunction() {
+       /* FitnessFunction function = new FitnessFunction() {
             @Override
             public int calculateFitness(Object[] chromosome, IndividualMapReduce individual) {
                 String stringChromosome = getStringFromByteArray((Byte[])chromosome);
@@ -39,11 +40,9 @@ public class MapReduceBinaryGAMain {
         };
         Satisfiability sat = new Satisfiability(86, 20);
         FitnessCalculator.setFitnessFunction(sat);
-        int variableLength = 16;
-        int numberOfVariables = 2;
         Driver driver = Driver.getDriver();
         BinaryIndividualMapReduce.setChromosomeLength(20);
-        driver.initializePopulation(10, IndividualType.Binary);
+        driver.initializePopulation(10, IndividualType.Binary, null);
         Mapper mapper = Mapper.getMapper();
         Reducer reducer = Reducer.getReducer();
         int generationCounter = 1;
@@ -73,13 +72,7 @@ public class MapReduceBinaryGAMain {
             GlobalFile.assignNewGenerationToPopulation();
         }
 
-       /* System.out.println("Solution Found: ");
-        String solution = GlobalFile.getNewGeneration().getFittestIndividual().toString();
-        int a = Integer.parseInt(solution.substring(0, variableLength), 2);
-        int b = Integer.parseInt(solution.substring(variableLength, solution.length()), 2);
-        System.out.println("Variable a = " + a);
-        System.out.println("Variable b = " + b);
-        */
+
         System.out.println("Solution Found: ");
         System.out.println("Problem: \n");
         for (String[] s: sat.getExpressionString()) {
@@ -89,7 +82,52 @@ public class MapReduceBinaryGAMain {
         for (int i = 0; i < solution.length(); i++) {
             System.out.println("P" + i + " = " + solution.substring(i,i+1));
         }
+        */
 
+        String gamesPath = "examples/gridphysics/";
+        String games[] = new String[]{};
+        String generateLevelPath = "examples/generatedLevels/";
+
+        //Training Set 1 (2015; CIG 2014)
+        games = new String[]{"aliens", "boulderdash", "butterflies", "chase", "frogs",
+                "missilecommand", "portals", "sokoban", "survivezombies", "zelda"};
+
+        //Training Set 2 (2015; Validation CIG 2014)
+        //games = new String[]{"camelRace", "digdug", "firestorms", "infection", "firecaster",
+        //      "overload", "pacman", "seaquest", "whackamole", "eggomania"};
+
+        //Training Set 3 (2015)
+        //games = new String[]{"bait", "boloadventures", "brainman", "chipschallenge",  "modality",
+        //                              "painter", "realportals", "realsokoban", "thecitadel", "zenpuzzle"};
+
+        //Training Set 4 (Validation GECCO 2015, Test CIG 2014)
+        //games = new String[]{"roguelike", "surround", "catapults", "plants", "plaqueattack",
+        //        "jaws", "labyrinth", "boulderchase", "escape", "lemmings"};
+
+
+        //Training Set 5 (Validation CIG 2015, Test GECCO 2015)
+        //games = new String[]{ "solarfox", "defender", "enemycitadel", "crossfire", "lasers",
+        //                               "sheriff", "chopper", "superman", "waitforbreakfast", "cakybaky"};
+
+        //Training Set 6 (Validation CEEC 2015)
+        //games = new String[]{"lasers2", "hungrybirds" ,"cookmepasta", "factorymanager", "raceBet2",
+        //        "intersection", "blacksmoke", "iceandfire", "gymkhana", "tercio"};
+
+        boolean visuals = false;
+        String recordActionsFile = null; //where to record the actions executed. null if not to save.
+        int seed = new Random().nextInt();
+
+        //Game and level to play
+        int gameIdx = 7;
+        int levelIdx = 0; //level names from 0 to 4 (game_lvlN.txt).
+        String game = gamesPath + games[gameIdx] + ".txt";
+        String level1 = gamesPath + games[gameIdx] + "_lvl" + levelIdx +".txt";
+
+        String recordLevelFile = generateLevelPath +"geneticLevelGenerator/" + games[gameIdx] + "_lvl0.txt";
+
+        String gameAgent = "gameproblem.GameAgent";
+
+        ArcadeMachine.runOneGame(game, level1, visuals, gameAgent, recordActionsFile, seed);
     }
 
     public static String getStringFromByteArray(Byte[] chromosome) {

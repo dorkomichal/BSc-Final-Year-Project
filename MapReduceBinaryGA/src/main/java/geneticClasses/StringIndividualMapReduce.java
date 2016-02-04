@@ -20,10 +20,15 @@ public class StringIndividualMapReduce implements Serializable, IndividualMapRed
     private int fitness;
     private double probabilityOfSelection;
     private CrossoverPair crossoverPair;
+    private String[] source;
 
     public StringIndividualMapReduce() {
         this.chromosome = new String[chromosomeLength];
         this.fitness = 0;
+    }
+
+    public String[] getSource() {
+        return source;
     }
 
     public static void setChromosomeLength(Integer chromosomeLength) {
@@ -47,6 +52,7 @@ public class StringIndividualMapReduce implements Serializable, IndividualMapRed
 
     @Override
     public void generateRandomIndividual(Object[] source) {
+        this.source = (String[]) source;
         this.chromosome = new String[chromosomeLength];
         Random random = new Random();
         for (int i = 0; i < chromosomeLength; i++) {

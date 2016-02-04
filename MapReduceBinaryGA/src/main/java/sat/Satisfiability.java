@@ -1,4 +1,4 @@
-package problemsdesc;
+package sat;
 
 import geneticClasses.FitnessFunction;
 import geneticClasses.IndividualMapReduce;

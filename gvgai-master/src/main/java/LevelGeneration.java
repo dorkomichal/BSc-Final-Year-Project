@@ -1,7 +1,7 @@
 import core.ArcadeMachine;
 
 public class LevelGeneration {
-	public static void main(String[] args){
+	/*public static void main(String[] args){
 		String levelGenerator = "levelGenerators.geneticLevelGenerator.LevelGenerator";
 		int numberOfLevels = 2;
 		
@@ -17,5 +17,5 @@ public class LevelGeneration {
 		        ArcadeMachine.generateOneLevel(game, levelGenerator, recordLevelFile);
 			}
 		}
-    }
+    }*/
 }

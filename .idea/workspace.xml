@@ -2,27 +2,160 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b212d496-b186-40bb-b151-bcf7918a9e05" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/problemsdesc/GameAgent.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Pacman/pacman.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Pacman/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/BinaryIndividual.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/FitnessCalculator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/GeneticAlgorithm.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/Individual.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/Population.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SimpleGA/src/main/java/geneticClasses/StringIndividual.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SimpleGA/src/main/java/main/ProblemSpecification.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameFitness.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/LevelGeneration.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/Test.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/Heuristics/SimpleStateHeuristic.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/Heuristics/StateHeuristic.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/Heuristics/WinScoreHeuristic.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/Tester/Agent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/Tester/SingleMCTSPlayer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/Tester/SingleTreeNode.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/doNothing/Agent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/human/Agent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/olets/Agent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/olets/SingleMCTSPlayer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/olets/SingleTreeNode.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/replayer/Agent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/sampleFlatMCTS/Agent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/sampleFlatMCTS/TreeNode.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/sampleGA/Agent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/sampleMCTS/Agent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/sampleMCTS/SingleMCTSPlayer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/sampleMCTS/SingleTreeNode.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/sampleOLMCTS/Agent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/sampleOLMCTS/SingleMCTSPlayer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/sampleOLMCTS/SingleTreeNode.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/sampleRandom/Agent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/controllers/sampleonesteplookahead/Agent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/ArcadeMachine.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/Node.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/SpriteGroup.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/VGDLFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/VGDLParser.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/VGDLRegistry.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/VGDLSprite.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/VGDLViewer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/competition/AgentExecutor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/competition/CompetitionParameters.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/content/Content.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/content/GameContent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/content/InteractionContent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/content/MappingContent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/content/SpriteContent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/content/TerminationContent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/game/BasicGame.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/game/Event.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/game/ForwardModel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/game/Game.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/game/GameDescription.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/game/Observation.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/game/StateObservation.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/generator/AbstractLevelGenerator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/player/AbstractPlayer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/termination/MultiSpriteCounter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/termination/SpriteCounter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/termination/Termination.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/core/termination/Timeout.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/levelGenerators/constraints/AbstractConstraint.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/levelGenerators/constraints/AvatarNumberConstraint.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/levelGenerators/constraints/CombinedConstraints.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/levelGenerators/constraints/CoverPercentageConstraint.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/levelGenerators/constraints/DeathConstraint.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/levelGenerators/constraints/GoalConstraint.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/levelGenerators/constraints/SolutionLengthConstraint.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/levelGenerators/constraints/SpriteNumberConstraint.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/levelGenerators/constructiveLevelGenerator/LevelCoverData.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/levelGenerators/constructiveLevelGenerator/LevelData.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/levelGenerators/constructiveLevelGenerator/LevelGenerator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/levelGenerators/geneticLevelGenerator/Chromosome.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/levelGenerators/geneticLevelGenerator/LevelGenerator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/levelGenerators/geneticLevelGenerator/SharedData.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/levelGenerators/randomLevelGenerator/LevelGenerator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/Types.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/avatar/FlakAvatar.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/avatar/HorizontalAvatar.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/avatar/MovingAvatar.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/avatar/oriented/MissileAvatar.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/avatar/oriented/OngoingAvatar.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/avatar/oriented/OrientedAvatar.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/avatar/oriented/ShootAvatar.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/Effect.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/binary/AttractGaze.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/binary/BounceForward.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/binary/CollectResource.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/binary/KillIfFromAbove.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/binary/KillIfOtherHasMore.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/binary/PullWithIt.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/binary/TeleportToExit.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/binary/TransformToSingleton.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/binary/WallStop.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/unary/ChangeResource.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/unary/CloneSprite.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/unary/FlipDirection.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/unary/KillIfHasLess.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/unary/KillIfHasMore.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/unary/KillSprite.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/unary/ReverseDirection.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/unary/SpawnIfHasLess.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/unary/SpawnIfHasMore.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/unary/StepBack.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/unary/TransformTo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/unary/TurnAround.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/unary/UndoAll.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/effects/unary/WrapAround.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/physics/ContinuousPhysics.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/physics/GravityPhysics.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/physics/GridPhysics.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/physics/NoFrictionPhysics.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/physics/Physics.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/Conveyor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/Door.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/Flicker.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/Immovable.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/OrientedFlicker.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/Passive.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/Resource.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/ResourcePack.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/Spreader.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/missile/ErraticMissile.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/missile/Missile.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/missile/RandomMissile.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/missile/Walker.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/missile/WalkerJumper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/npc/AlternateChaser.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/npc/Chaser.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/npc/Fleeing.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/npc/RandomAltChaser.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/npc/RandomInertial.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/npc/RandomNPC.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/producer/Bomber.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/producer/Portal.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/producer/RandomBomber.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/producer/SpawnPoint.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/ontology/sprites/producer/SpriteProducer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/tools/ElapsedCpuTimer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/tools/GameAnalyzer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/tools/IO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/tools/JEasyFrame.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/tools/KeyHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/tools/KeyInput.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/tools/KeyPulse.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/tools/LevelMapping.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/tools/Pair.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/tools/StatSummary.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/tools/StepController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/tools/Utils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/tools/Vector2d.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gvgai-master/src/tools/WindowInput.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/problemsdesc/GameAgent.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameAgent.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/problemsdesc/Satisfiability.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/sat/Satisfiability.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/mapreducebinaryga.iml" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/mapreducebinaryga.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/pom.xml" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/BinaryIndividualMapReduce.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/BinaryIndividualMapReduce.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/IndividualMapReduce.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/IndividualMapReduce.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/Population.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/Population.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/GeneticOperationsMapReduce.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/GeneticOperationsMapReduce.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/StringIndividualMapReduce.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/StringIndividualMapReduce.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Driver.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Driver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/GlobalFile.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/GlobalFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gvgai-master/gvgai-master.iml" afterPath="$PROJECT_DIR$/gvgai-master/gvgai-master.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="mapreducega.iws" />
@@ -55,70 +188,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="GameAgent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/problemsdesc/GameAgent.java">
+        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameAgent.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+              <caret line="71" column="25" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#536#537#0" expanded="true" />
-                <element signature="e#597#598#0" expanded="true" />
-                <element signature="e#1540#1541#0" expanded="true" />
-                <element signature="e#1567#1568#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StringIndividualMapReduce.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/StringIndividualMapReduce.java">
+      <file leaf-file-name="GlobalFile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/GlobalFile.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="54" column="9" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Population.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/Population.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
+              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
               <folding>
-                <element signature="e#1380#1381#0" expanded="true" />
-                <element signature="e#1423#1424#0" expanded="true" />
+                <element signature="e#1168#1169#0" expanded="true" />
+                <element signature="e#1208#1209#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Driver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44067797">
-              <caret line="43" column="88" selection-start-line="43" selection-start-column="88" selection-end-line="43" selection-end-column="88" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IndividualMapReduce.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/IndividualMapReduce.java">
+      <file leaf-file-name="GameFitness.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameFitness.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BinaryIndividualMapReduce.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/BinaryIndividualMapReduce.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
-              <folding />
+              <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#646#647#0" expanded="true" />
+                <element signature="e#684#685#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,37 +230,37 @@
         <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+              <caret line="129" column="92" selection-start-line="129" selection-start-column="92" selection-end-line="129" selection-end-column="92" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Types.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gvgai-master/src/ontology/Types.java">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+              <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gvgai-master/src/Test.java">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state vertical-scroll-proportion="1.8264248">
+              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArcadeMachine.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gvgai-master/src/core/ArcadeMachine.java">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gvgai-master/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="513" column="5" selection-start-line="513" selection-start-column="5" selection-end-line="513" selection-end-column="5" />
+            <state vertical-scroll-proportion="-10.0">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -207,27 +310,31 @@
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/Individual.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/FitnessFunction.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/CrossoverPair.java" />
-        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/GlobalFile.java" />
-        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/GeneticOperationsMapReduce.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Mapper.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Reducer.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/IndividualType.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/FitnessCalculator.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/problemsdesc/Satisfiability.java" />
-        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java" />
         <option value="$PROJECT_DIR$/pac/pom.xml" />
         <option value="$PROJECT_DIR$/Pacman/pom.xml" />
         <option value="$PROJECT_DIR$/Pacman/src/pacman/MsPacInterface.java" />
         <option value="$USER_HOME$/gvgai/gvgai-master/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/gvgai-master/pom.xml" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/pom.xml" />
-        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/problemsdesc/GameAgent.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/IndividualMapReduce.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/BinaryIndividualMapReduce.java" />
-        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/StringIndividualMapReduce.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/Population.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Driver.java" />
+        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/problemsdesc/GameAgent.java" />
+        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/StringIndividualMapReduce.java" />
+        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/GeneticOperationsMapReduce.java" />
+        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/GlobalFile.java" />
+        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameFitness.java" />
+        <option value="$PROJECT_DIR$/gvgai-master/src/LevelGeneration.java" />
+        <option value="$PROJECT_DIR$/gvgai-master/src/Test.java" />
+        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameAgent.java" />
+        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -255,6 +362,24 @@
           <option name="myItemId" value="" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="mapreducega" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="mapreducega" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
       </PATH>
       <PATH>
         <PATH_ELEMENT>
@@ -280,12 +405,36 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
         </PATH_ELEMENT>
       </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="gvgai-master" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="gvgai-master" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="24" />
+    <option name="y" value="-4" />
     <option name="width" value="1366" />
-    <option name="height" value="744" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -411,7 +560,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="problemsdesc" />
+              <option name="myItemId" value="sat" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -515,6 +664,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="MapReduceBinaryGA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproblem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapreducega" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bscproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="gvgai-master" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -536,129 +715,19 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mapreducega" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bscproject" />
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gvgai-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ontology" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapreducega" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bscproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gvgai-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapreducega" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bscproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gvgai-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapreducega" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bscproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gvgai-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sampleGA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapreducega" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bscproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gvgai-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Heuristics" />
+              <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -669,7 +738,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
@@ -1191,6 +1260,19 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="executeSpecs" factoryName="Gauge Execution">
+      <setting name="environment" value="" />
+      <setting name="specsToExecute" value="" />
+      <setting name="tags" value="" />
+      <setting name="parallelNodes" value="" />
+      <setting name="execInParallel" value="false" />
+      <setting name="programParameters" value="" />
+      <setting name="workingDirectory" value="" />
+      <setting name="moduleName" value="" />
+      <envMap />
+      <setting name="rowsRange" value="" />
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -1301,12 +1383,14 @@
       <workItem from="1454079782892" duration="2657000" />
       <workItem from="1454332446890" duration="39000" />
       <workItem from="1454332513088" duration="3771000" />
-      <workItem from="1454336308344" duration="2438000" />
+      <workItem from="1454336308344" duration="2760000" />
+      <workItem from="1454588867729" duration="10618000" />
+      <workItem from="1454602507891" duration="342000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182854000" />
+    <option name="totallyTimeSpent" value="194136000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1318,16 +1402,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1366" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27272728" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27727273" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29032257" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19318181" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1336,15 +1421,14 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29032257" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1395,65 +1479,13 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/problemsdesc/GameAgent.java">
+    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameAgent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#536#537#0" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#1540#1541#0" expanded="true" />
-            <element signature="e#1567#1568#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gvgai-master/src/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gvgai-master/src/core/ArcadeMachine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="513" column="5" selection-start-line="513" selection-start-column="5" selection-end-line="513" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gvgai-master/src/controllers/sampleGA/Agent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="29" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gvgai-master/src/controllers/Heuristics/StateHeuristic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gvgai-master/src/controllers/Heuristics/WinScoreHeuristic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1493,7 +1525,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="43" column="92" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="92" />
-          <folding />
+          <folding>
+            <element signature="e#832#833#0" expanded="true" />
+            <element signature="e#861#862#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1501,7 +1536,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-          <folding />
+          <folding>
+            <element signature="e#1380#1381#0" expanded="false" />
+            <element signature="e#1423#1424#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1584,24 +1622,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/GlobalFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Mapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/problemsdesc/Satisfiability.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="65" selection-start-line="60" selection-start-column="65" selection-end-line="60" selection-end-column="65" />
         </state>
       </provider>
     </entry>
@@ -1620,13 +1644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/GeneticOperationsMapReduce.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.1355932">
-          <caret line="98" column="124" selection-start-line="98" selection-start-column="8" selection-end-line="98" selection-end-column="124" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/FitnessCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1642,14 +1659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gvgai-master/build.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="22.041666">
@@ -1658,124 +1667,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gvgai-master/src/LevelGeneration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gvgai-master/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gvgai-master/src/controllers/Heuristics/StateHeuristic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gvgai-master/src/controllers/Heuristics/WinScoreHeuristic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gvgai-master/src/controllers/sampleGA/Agent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="29" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gvgai-master/src/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gvgai-master/src/core/ArcadeMachine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="513" column="5" selection-start-line="513" selection-start-column="5" selection-end-line="513" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gvgai-master/src/ontology/Types.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/problemsdesc/GameAgent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#536#537#0" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#1540#1541#0" expanded="true" />
-            <element signature="e#1567#1568#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gvgai-master/README.md">
+      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
-        <state />
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor vertical-scroll-proportion="0.19699812">
             <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-            <folding />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/IndividualMapReduce.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1787,29 +1693,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/StringIndividualMapReduce.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="9" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/Population.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
           <folding>
-            <element signature="e#1380#1381#0" expanded="true" />
-            <element signature="e#1423#1424#0" expanded="true" />
+            <element signature="e#1380#1381#0" expanded="false" />
+            <element signature="e#1423#1424#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44067797">
+        <state vertical-scroll-proportion="0.0">
           <caret line="43" column="88" selection-start-line="43" selection-start-column="88" selection-end-line="43" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/StringIndividualMapReduce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="54" selection-start-line="58" selection-start-column="12" selection-end-line="59" selection-end-column="54" />
+          <folding>
+            <element signature="e#832#833#0" expanded="true" />
+            <element signature="e#861#862#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/IndividualMapReduce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.050847456">
+          <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/GeneticOperationsMapReduce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="175" column="21" selection-start-line="175" selection-start-column="21" selection-end-line="175" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/sat/Satisfiability.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="65" selection-start-line="60" selection-start-column="65" selection-end-line="60" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/GlobalFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+          <folding>
+            <element signature="e#1168#1169#0" expanded="true" />
+            <element signature="e#1208#1209#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameFitness.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#646#647#0" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="71" column="25" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="129" column="92" selection-start-line="129" selection-start-column="92" selection-end-line="129" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gvgai-master/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8264248">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding />
         </state>
       </provider>

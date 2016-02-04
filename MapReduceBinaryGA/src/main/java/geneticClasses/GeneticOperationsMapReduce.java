@@ -162,10 +162,18 @@ public final class GeneticOperationsMapReduce {
                 }
             }
         } else {
+            StringIndividualMapReduce ind = (StringIndividualMapReduce) individual;
+            String[] source = ind.getSource();
             String[] chromosome = (String[]) individual.getChromosome();
+            int chromosomeLength = individual.lengthOfChromosome();
             for (int i = 0; i < chromosome.length; i++) {
                 if(Math.random() <= mutationRate) {
-                    individual.setGene(RandomStringUtils.randomAlphabetic(1).toUpperCase(), i);
+                    if(source != null) {
+                        int ran = random.nextInt(chromosomeLength);
+                        individual.setGene(source[ran],i);
+                    } else {
+                        individual.setGene(RandomStringUtils.randomAlphabetic(1).toUpperCase(), i);
+                    }
                 }
             }
         }
