@@ -1,7 +1,6 @@
 package tools;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -27,7 +26,8 @@ public class IO
     {
         ArrayList<String> lines = new ArrayList<String>();
         try{
-            BufferedReader in = new BufferedReader(new FileReader(filename));
+            InputStream filestream = Thread.currentThread().getContextClassLoader().getResourceAsStream(filename);
+            BufferedReader in = new BufferedReader(new InputStreamReader(filestream));
             String line = null;
             while ((line = in.readLine()) != null) {
                 lines.add(line);
