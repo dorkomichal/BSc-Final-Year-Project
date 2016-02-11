@@ -28,11 +28,11 @@ public class GameAgent extends AbstractPlayer {
     List<Types.ACTIONS> optimisedActions;
     StateObservation stateObs;
     int pointer = 0;
+    boolean runga = false;
 
-    public GameAgent(StateObservation stateObs) {
+    public GameAgent(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
         encodeActions(stateObs.getAvailableActions());
         this.stateObs = stateObs;
-
     }
 
 
@@ -60,8 +60,13 @@ public class GameAgent extends AbstractPlayer {
 
     @Override
     public Types.ACTIONS act(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
-        if(optimisedActions == null) {
-            this.optimisedActions = runGA(stateObs);
+        if(optimisedActions == null && runga) {
+            this.optimisedActions = new ArrayList<>();
+           /* while(!stateObs.isGameOver()) {
+                this.optimisedActions.addAll(runGA(stateObs));
+            }*/
+            this.optimisedActions.addAll(runGA(stateObs));
+            this.runga = false;
         }
         Types.ACTIONS oneAction = optimisedActions.get(pointer);
         pointer++;
@@ -78,8 +83,8 @@ public class GameAgent extends AbstractPlayer {
         gameFitness.updateObservation(stateObs);
         FitnessCalculator.setFitnessFunction(gameFitness);
         Driver driver = Driver.getDriver();
-        BinaryIndividualMapReduce.setChromosomeLength(20);
-        driver.initializePopulation(100, IndividualType.String, stringEncodedActions.toArray(new String[stringEncodedActions.size()]));
+        BinaryIndividualMapReduce.setChromosomeLength(30);
+        driver.initializePopulation(50, IndividualType.String, stringEncodedActions.toArray(new String[stringEncodedActions.size()]));
         Mapper mapper = Mapper.getMapper();
         Reducer reducer = Reducer.getReducer();
         int generationCounter = 1;
@@ -91,24 +96,28 @@ public class GameAgent extends AbstractPlayer {
             System.out.println("Generation " + generationCounter);
             JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness = mapper.mapCalculateFitness(parallelizedPopulation);
 
-            GlobalFile.resetMaxNotChanged();
             IndividualMapReduce elite = mapper.getElite(populationWithFitness);
             JavaRDD<CrossoverPair> selectedIndividuals = mapper.mapSelection(populationWithFitness, elite, SelectionMethod.tournament);
+            System.out.println("Size of selected individuals: " + selectedIndividuals.count());
             newGeneration = reducer.reduceCrossover(selectedIndividuals, true, 2);
 
-            parallelizedPopulation = driver.paralleliseData(GlobalFile.getIndividualMapReduces());
+            //GlobalFile.setIndividualMapReduces(newGeneration.collect());
+            //parallelizedPopulation = driver.paralleliseData(GlobalFile.getIndividualMapReduces());
+            parallelizedPopulation = newGeneration;
             generationCounter++;
 
             System.out.println("Fittest Individual " + GlobalFile.getCurrentMaxFitness());
             //Important step for RWS selection is to reset max fitness of current generation
             //and assign new generation of the individuals to the population in order to calculate
             //aggregate fitness of the population necessary for RWS selection method
-            if (GlobalFile.isSolutionFound() || generationCounter >= 100) {
-                GlobalFile.setFittestIndividual(newGeneration.filter(ind -> ind.getFitness() >= GlobalFile.getMaxFitness()).collect().get(0));
+            if (GlobalFile.isSolutionFound() || generationCounter >= 20) {
+                GlobalFile.setFittestIndividual(newGeneration.filter(ind -> ind.getFitness() >= GlobalFile.getCurrentMaxFitness() || ind.getFitness() >= GlobalFile.getMaxFitness()).collect().get(0));
                 break; //if soulution is found or generation has converged to max and didn't change for some generations
             }
             GlobalFile.resetCurrentMax();
+            GlobalFile.resetMaxNotChanged();
         }
+        System.out.println(GlobalFile.getFittestIndividual().toString());
         return GameFitness.actionDecoder((String[]) GlobalFile.getFittestIndividual().getChromosome());
     }
 }

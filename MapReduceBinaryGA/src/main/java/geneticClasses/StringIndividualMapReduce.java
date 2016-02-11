@@ -56,7 +56,7 @@ public class StringIndividualMapReduce implements Serializable, IndividualMapRed
         this.chromosome = new String[chromosomeLength];
         Random random = new Random();
         for (int i = 0; i < chromosomeLength; i++) {
-            int ran = random.nextInt(chromosomeLength);
+            int ran = random.nextInt(source.length);
             this.chromosome[i] = (String) source[ran];
         }
     }

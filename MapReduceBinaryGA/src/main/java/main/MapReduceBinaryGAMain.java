@@ -118,7 +118,7 @@ public class MapReduceBinaryGAMain {
         int seed = new Random().nextInt();
 
         //Game and level to play
-        int gameIdx = 7;
+        int gameIdx = 0;
         int levelIdx = 0; //level names from 0 to 4 (game_lvlN.txt).
         String game = gamesPath + games[gameIdx] + ".txt";
         String level1 = gamesPath + games[gameIdx] + "_lvl" + levelIdx +".txt";

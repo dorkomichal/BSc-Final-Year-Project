@@ -229,11 +229,10 @@ public final class GeneticOperationsMapReduce {
         return population.get(0);
     }
 
-    public static void rwsSelectionProbabilityCalculation(List<IndividualMapReduce> population, double sumOfFitnesses) {
-        for (IndividualMapReduce i : population) {
-            double probability = i.getFitness() / sumOfFitnesses;
-            i.setProbabilityOfSelection(probability);
-        }
+    public static IndividualMapReduce rwsSelectionProbabilityCalculation(IndividualMapReduce ind, double sumOfFitnesses) {
+            double probability = ind.getFitness() / sumOfFitnesses;
+            ind.setProbabilityOfSelection(probability);
+            return ind;
     }
 
 }

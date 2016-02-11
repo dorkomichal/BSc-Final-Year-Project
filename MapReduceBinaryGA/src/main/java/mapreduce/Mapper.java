@@ -1,6 +1,7 @@
 package mapreduce;
 
 import geneticClasses.*;
+import org.apache.log4j.net.SyslogAppender;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import scala.Tuple2;
@@ -37,28 +38,26 @@ public class Mapper implements Serializable {
     }
 
     public JavaRDD<CrossoverPair> mapSelection(JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness, IndividualMapReduce elite, SelectionMethod method) {
-        List<IndividualMapReduce> keys = populationWithFitness.keys().collect();
+        JavaRDD<IndividualMapReduce> keys = populationWithFitness.keys();
         JavaRDD<CrossoverPair> selectedIndividuals;
         if(method.equals(SelectionMethod.rouletteWheel)) {
             System.out.println("RWS");
             System.out.println("Sum of fitness: " + GlobalFile.getSumOfFitnesses());
-            GeneticOperationsMapReduce.rwsSelectionProbabilityCalculation(keys, GlobalFile.getSumOfFitnesses());
-            selectedIndividuals = populationWithFitness.map(ind -> rwsSelection(keys));
+            JavaRDD<IndividualMapReduce> populationWithProbability = keys.map(bi -> GeneticOperationsMapReduce.rwsSelectionProbabilityCalculation(bi, GlobalFile.getSumOfFitnesses()));
+            List<IndividualMapReduce> population = populationWithProbability.collect();
+            selectedIndividuals = populationWithFitness.map(ind -> rwsSelection(population));
         } else {
             System.out.println("Tournament");
-            selectedIndividuals = populationWithFitness.map(ind -> tournamentSelection(keys));
+            List<IndividualMapReduce> population = keys.collect();
+            selectedIndividuals = populationWithFitness.map(ind -> tournamentSelection(population));
         }
         if (GeneticOperationsMapReduce.isElitism() && elite != null) {
-            List<CrossoverPair> first = new ArrayList<>();
             List<CrossoverPair> eliteList = new ArrayList<>();
             CrossoverPair elitePair = new CrossoverPair();
             elitePair.setEliteIndividual(elite);
-            first.add(selectedIndividuals.first());
             eliteList.add(elitePair);
             JavaRDD<CrossoverPair> eliterdd = Driver.getDriver().paralleliseData(eliteList);
-            JavaRDD<CrossoverPair> replace = Driver.getDriver().paralleliseData(first);
-
-            return selectedIndividuals.subtract(replace).union(eliterdd);
+            return selectedIndividuals.union(eliterdd);
         } else {
             return  selectedIndividuals;
         }
@@ -77,8 +76,20 @@ public class Mapper implements Serializable {
         }
 
     public IndividualMapReduce getElite(JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness) {
-        JavaRDD<IndividualMapReduce> eliteInd = populationWithFitness.keys().filter(bi -> (bi.getFitness() == GlobalFile.getCurrentMaxFitness()));
-        return eliteInd.collect().get(0);
+        int currentMaxFitness = GlobalFile.getCurrentMaxFitness();
+        JavaRDD<IndividualMapReduce> eliteInd = populationWithFitness.keys().filter(bi -> bi.getFitness() >= currentMaxFitness);
+        /*
+         * Strange behaviour observed for next block of code. Sometimes the first if statement
+         * returned false (RDD is not empty) however during the execution of else statement
+         * runtime error occurred that collection was in fact empty. Therefore I collect RDD
+         * first and check on driver size of the list
+         */
+        List<IndividualMapReduce> elites = eliteInd.take(1);
+        if(elites.isEmpty()) {
+           return null;
+        } else {
+            return elites.get(0);
+        }
     }
 
     private CrossoverPair rwsSelection(List<IndividualMapReduce> population) {
