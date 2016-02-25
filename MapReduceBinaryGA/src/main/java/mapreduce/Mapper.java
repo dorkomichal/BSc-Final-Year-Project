@@ -77,18 +77,18 @@ public class Mapper implements Serializable {
 
     public IndividualMapReduce getElite(JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness) {
         int currentMaxFitness = GlobalFile.getCurrentMaxFitness();
-        JavaRDD<IndividualMapReduce> eliteInd = populationWithFitness.keys().filter(bi -> bi.getFitness() >= currentMaxFitness);
+        JavaPairRDD<IndividualMapReduce, Integer> eliteInd = populationWithFitness.filter(pair -> pair._2() >= currentMaxFitness);
         /*
          * Strange behaviour observed for next block of code. Sometimes the first if statement
          * returned false (RDD is not empty) however during the execution of else statement
          * runtime error occurred that collection was in fact empty. Therefore I collect RDD
          * first and check on driver size of the list
          */
-        List<IndividualMapReduce> elites = eliteInd.take(1);
+        List<Tuple2<IndividualMapReduce,Integer>> elites = eliteInd.take(1);
         if(elites.isEmpty()) {
            return null;
         } else {
-            return elites.get(0);
+            return elites.get(0)._1();
         }
     }
 

@@ -10,6 +10,7 @@ import mapreduce.Reducer;
 import ontology.Types;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
+import scala.Tuple2;
 import tools.ElapsedCpuTimer;
 
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class GameAgent extends AbstractPlayer {
     List<Types.ACTIONS> optimisedActions;
     StateObservation stateObs;
     int pointer = 0;
-    boolean runga = false;
+    boolean runga = true;
 
     public GameAgent(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
         encodeActions(stateObs.getAvailableActions());
@@ -110,8 +111,10 @@ public class GameAgent extends AbstractPlayer {
             //Important step for RWS selection is to reset max fitness of current generation
             //and assign new generation of the individuals to the population in order to calculate
             //aggregate fitness of the population necessary for RWS selection method
-            if (GlobalFile.isSolutionFound() || generationCounter >= 20) {
-                GlobalFile.setFittestIndividual(newGeneration.filter(ind -> ind.getFitness() >= GlobalFile.getCurrentMaxFitness() || ind.getFitness() >= GlobalFile.getMaxFitness()).collect().get(0));
+            if (GlobalFile.isSolutionFound() || generationCounter >= 10) {
+                JavaPairRDD<Integer, IndividualMapReduce> finalGereration = newGeneration.mapToPair(bi -> new Tuple2<Integer, IndividualMapReduce>(bi.getFitness(),bi)).sortByKey(false);
+                IndividualMapReduce fittestInd = finalGereration.first()._2;
+                GlobalFile.setFittestIndividual(fittestInd);
                 break; //if soulution is found or generation has converged to max and didn't change for some generations
             }
             GlobalFile.resetCurrentMax();
