@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class Driver {
 
-    public static Driver driver;
+    private static Driver driver;
     private static SparkConf conf;
     private static JavaSparkContext jsc;
     private JavaRDD<IndividualMapReduce> populationParallelized;

@@ -3,6 +3,7 @@ package gameproblem;
 import core.game.StateObservation;
 import core.player.AbstractPlayer;
 import geneticClasses.*;
+import main.GARunner;
 import mapreduce.Driver;
 import mapreduce.GlobalFile;
 import mapreduce.Mapper;
@@ -82,45 +83,16 @@ public class GameAgent extends AbstractPlayer {
     private List<Types.ACTIONS> runGA(StateObservation stateObs) {
         GameFitness gameFitness = new GameFitness();
         gameFitness.updateObservation(stateObs);
-        FitnessCalculator.setFitnessFunction(gameFitness);
-        Driver driver = Driver.getDriver();
-        BinaryIndividualMapReduce.setChromosomeLength(30);
-        driver.initializePopulation(50, IndividualType.String, stringEncodedActions.toArray(new String[stringEncodedActions.size()]));
-        Mapper mapper = Mapper.getMapper();
-        Reducer reducer = Reducer.getReducer();
-        int generationCounter = 1;
-        GlobalFile.setMaxFitness(10000);
-
-        JavaRDD<IndividualMapReduce> parallelizedPopulation = driver.getPopulationParallelized();
-        JavaRDD<IndividualMapReduce> newGeneration;
-        while (true) {
-            System.out.println("Generation " + generationCounter);
-            JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness = mapper.mapCalculateFitness(parallelizedPopulation);
-
-            IndividualMapReduce elite = mapper.getElite(populationWithFitness);
-            JavaRDD<CrossoverPair> selectedIndividuals = mapper.mapSelection(populationWithFitness, elite, SelectionMethod.tournament);
-            System.out.println("Size of selected individuals: " + selectedIndividuals.count());
-            newGeneration = reducer.reduceCrossover(selectedIndividuals, true, 2);
-
-            //GlobalFile.setIndividualMapReduces(newGeneration.collect());
-            //parallelizedPopulation = driver.paralleliseData(GlobalFile.getIndividualMapReduces());
-            parallelizedPopulation = newGeneration;
-            generationCounter++;
-
-            System.out.println("Fittest Individual " + GlobalFile.getCurrentMaxFitness());
-            //Important step for RWS selection is to reset max fitness of current generation
-            //and assign new generation of the individuals to the population in order to calculate
-            //aggregate fitness of the population necessary for RWS selection method
-            if (GlobalFile.isSolutionFound() || generationCounter >= 10) {
-                JavaPairRDD<Integer, IndividualMapReduce> finalGereration = newGeneration.mapToPair(bi -> new Tuple2<Integer, IndividualMapReduce>(bi.getFitness(),bi)).sortByKey(false);
-                IndividualMapReduce fittestInd = finalGereration.first()._2;
-                GlobalFile.setFittestIndividual(fittestInd);
-                break; //if soulution is found or generation has converged to max and didn't change for some generations
-            }
-            GlobalFile.resetCurrentMax();
-            GlobalFile.resetMaxNotChanged();
-        }
-        System.out.println(GlobalFile.getFittestIndividual().toString());
-        return GameFitness.actionDecoder((String[]) GlobalFile.getFittestIndividual().getChromosome());
+        String[] source = stringEncodedActions.toArray(new String[stringEncodedActions.size()]);
+        int chromosomeLength = 30;
+        int populationSize = 50;
+        int maxFitness = 1000;
+        int maxGeneration = 10;
+        SelectionMethod method = SelectionMethod.tournament;
+        boolean multipoint = true;
+        int numberOfMultipoints = 2;
+        GARunner gaRunner = GARunner.getGARunner(gameFitness, source, chromosomeLength, populationSize, maxFitness, maxGeneration, method, multipoint, numberOfMultipoints);
+        String[] solution = (String[]) gaRunner.runGA();
+        return GameFitness.actionDecoder(solution);
     }
 }
