@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b212d496-b186-40bb-b151-bcf7918a9e05" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/GARunner.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameAgent.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameAgent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Driver.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Driver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/GARunner.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/GARunner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gvgai-master/src/main/assembly/src.xml" afterPath="$PROJECT_DIR$/gvgai-master/src/main/assembly/src.xml" />
     </list>
     <ignored path="mapreducega.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,12 +41,8 @@
         <entry file="file://$PROJECT_DIR$/gvgai-master/src/main/java/core/ArcadeMachine.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="105" column="55" selection-start-line="105" selection-start-column="55" selection-end-line="105" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#32317#32318#0" expanded="false" />
-                <element signature="e#32350#32351#0" expanded="false" />
-              </folding>
+              <caret line="105" column="31" selection-start-line="105" selection-start-column="31" selection-end-line="105" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -54,79 +51,27 @@
         <entry file="file://$PROJECT_DIR$/gvgai-master/src/main/java/core/game/Game.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="941" column="26" selection-start-line="941" selection-start-column="16" selection-end-line="941" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#42569#42570#0" expanded="false" />
-                <element signature="e#42606#42607#0" expanded="false" />
-                <element signature="e#44788#44789#0" expanded="false" />
-                <element signature="e#44825#44826#0" expanded="false" />
-                <element signature="e#45055#45056#0" expanded="false" />
-                <element signature="e#45095#45096#0" expanded="false" />
-                <element signature="e#45275#45276#0" expanded="false" />
-                <element signature="e#45314#45315#0" expanded="false" />
-                <element signature="e#45633#45634#0" expanded="false" />
-                <element signature="e#45667#45668#0" expanded="false" />
-                <element signature="e#45883#45884#0" expanded="false" />
-                <element signature="e#45926#45927#0" expanded="false" />
-                <element signature="e#46116#46117#0" expanded="false" />
-                <element signature="e#46151#46152#0" expanded="false" />
-                <element signature="e#46452#46453#0" expanded="false" />
-                <element signature="e#46503#46504#0" expanded="false" />
-                <element signature="e#46739#46740#0" expanded="false" />
-                <element signature="e#46790#46791#0" expanded="false" />
-                <element signature="e#47696#47697#0" expanded="false" />
-                <element signature="e#47756#47757#0" expanded="false" />
-                <element signature="e#47901#47902#0" expanded="false" />
-                <element signature="e#47954#47955#0" expanded="false" />
-                <element signature="e#48098#48099#0" expanded="false" />
-                <element signature="e#48127#48128#0" expanded="false" />
-                <element signature="e#50007#50008#0" expanded="false" />
-                <element signature="e#50053#50054#0" expanded="false" />
-                <element signature="e#50336#50337#0" expanded="false" />
-                <element signature="e#50377#50378#0" expanded="false" />
-                <element signature="e#50459#50460#0" expanded="false" />
-                <element signature="e#50501#50502#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CompetitionParameters.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gvgai-master/src/main/java/core/competition/CompetitionParameters.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+              <caret line="911" column="21" selection-start-line="911" selection-start-column="21" selection-end-line="911" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameAgent.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameAgent.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameAgent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4512195">
-              <caret line="89" column="31" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="94" column="30" selection-start-line="94" selection-start-column="30" selection-end-line="94" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GeneticOperationsMapReduce.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/GeneticOperationsMapReduce.java">
+      <file leaf-file-name="GameFitness.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameFitness.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Reducer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Reducer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.63559324">
+              <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -136,27 +81,47 @@
         <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="116" column="50" selection-start-line="116" selection-start-column="50" selection-end-line="116" selection-end-column="50" />
+              <caret line="134" column="53" selection-start-line="134" selection-start-column="53" selection-end-line="134" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Mapper.java">
+      <file leaf-file-name="Population.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/Population.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="83" column="60" selection-start-line="83" selection-start-column="60" selection-end-line="83" selection-end-column="60" />
+              <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Driver.java">
+      <file leaf-file-name="StringIndividualMapReduce.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/StringIndividualMapReduce.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndividualMapReduce.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/IndividualMapReduce.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BinaryIndividualMapReduce.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/BinaryIndividualMapReduce.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -166,7 +131,7 @@
         <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/GARunner.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+              <caret line="95" column="72" selection-start-line="95" selection-start-column="72" selection-end-line="95" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2140#2141#0" expanded="true" />
@@ -248,21 +213,21 @@
         <option value="$PROJECT_DIR$/gvgai-master/src/Test.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/assembly/assembly.xml" />
-        <option value="$PROJECT_DIR$/gvgai-master/src/main/assembly/src.xml" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/pom.xml" />
         <option value="$PROJECT_DIR$/gvgai-master/pom.xml" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/assembly/src.xml" />
         <option value="$PROJECT_DIR$/gvgai-master/src/main/java/tools/IO.java" />
-        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/StringIndividualMapReduce.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/GeneticOperationsMapReduce.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/CrossoverPair.java" />
-        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/GlobalFile.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Mapper.java" />
         <option value="$PROJECT_DIR$/gvgai-master/src/main/java/core/competition/CompetitionParameters.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Driver.java" />
-        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameAgent.java" />
+        <option value="$PROJECT_DIR$/gvgai-master/src/main/assembly/src.xml" />
+        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/StringIndividualMapReduce.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/GARunner.java" />
+        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameAgent.java" />
+        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java" />
       </list>
     </option>
   </component>
@@ -1516,12 +1481,12 @@
       <workItem from="1456237508172" duration="1721000" />
       <workItem from="1456420311834" duration="156000" />
       <workItem from="1456420530724" duration="4461000" />
-      <workItem from="1457006383966" duration="2368000" />
+      <workItem from="1457006383966" duration="9290000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="240470000" />
+    <option name="totallyTimeSpent" value="247392000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1543,7 +1508,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30227274" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29032257" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29032257" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19318181" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1661,27 +1626,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="72" column="23" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#899#900#0" expanded="false" />
-            <element signature="e#935#936#0" expanded="false" />
-            <element signature="e#1000#1001#0" expanded="false" />
-            <element signature="e#1050#1051#0" expanded="false" />
-            <element signature="e#1689#1690#0" expanded="false" />
-            <element signature="e#1722#1723#0" expanded="false" />
-            <element signature="e#1773#1774#0" expanded="false" />
-            <element signature="e#1825#1826#0" expanded="false" />
-            <element signature="e#1856#1857#0" expanded="false" />
-            <element signature="e#1886#1887#0" expanded="false" />
-            <element signature="e#1925#1926#0" expanded="false" />
-            <element signature="e#1970#1971#0" expanded="false" />
-            <element signature="e#2024#2025#0" expanded="false" />
-            <element signature="e#2077#2078#0" expanded="false" />
-            <element signature="e#2316#2317#0" expanded="false" />
-            <element signature="e#2354#2355#0" expanded="false" />
-            <element signature="e#2403#2404#0" expanded="false" />
-            <element signature="e#2448#2449#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1689,29 +1634,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="43" column="92" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="92" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#832#833#0" expanded="false" />
-            <element signature="e#861#862#0" expanded="false" />
-            <element signature="e#1071#1072#0" expanded="false" />
-            <element signature="e#1112#1113#0" expanded="false" />
-            <element signature="e#1191#1192#0" expanded="false" />
-            <element signature="e#1241#1242#0" expanded="false" />
-            <element signature="e#1851#1852#0" expanded="false" />
-            <element signature="e#1889#1890#0" expanded="false" />
-            <element signature="e#1954#1955#0" expanded="false" />
-            <element signature="e#2008#2009#0" expanded="false" />
-            <element signature="e#2053#2054#0" expanded="false" />
-            <element signature="e#2088#2089#0" expanded="false" />
-            <element signature="e#2141#2142#0" expanded="false" />
-            <element signature="e#2180#2181#0" expanded="false" />
-            <element signature="e#2248#2249#0" expanded="false" />
-            <element signature="e#2303#2304#0" expanded="false" />
-            <element signature="e#2570#2571#0" expanded="false" />
-            <element signature="e#2608#2609#0" expanded="false" />
-            <element signature="e#2671#2672#0" expanded="false" />
-            <element signature="e#2721#2722#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1826,13 +1749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/IndividualMapReduce.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.050847456">
-          <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/sat/Satisfiability.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1852,13 +1768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="83" column="35" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gvgai-master/src/main/assembly/src.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1893,13 +1802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameFitness.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="12" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/FitnessCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1923,64 +1825,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/BinaryIndividualMapReduce.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#899#900#0" expanded="false" />
-            <element signature="e#935#936#0" expanded="false" />
-            <element signature="e#1000#1001#0" expanded="false" />
-            <element signature="e#1050#1051#0" expanded="false" />
-            <element signature="e#1689#1690#0" expanded="false" />
-            <element signature="e#1722#1723#0" expanded="false" />
-            <element signature="e#1773#1774#0" expanded="false" />
-            <element signature="e#1825#1826#0" expanded="false" />
-            <element signature="e#1856#1857#0" expanded="false" />
-            <element signature="e#1886#1887#0" expanded="false" />
-            <element signature="e#1925#1926#0" expanded="false" />
-            <element signature="e#1970#1971#0" expanded="false" />
-            <element signature="e#2024#2025#0" expanded="false" />
-            <element signature="e#2077#2078#0" expanded="false" />
-            <element signature="e#2316#2317#0" expanded="false" />
-            <element signature="e#2354#2355#0" expanded="false" />
-            <element signature="e#2403#2404#0" expanded="false" />
-            <element signature="e#2448#2449#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/StringIndividualMapReduce.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="23" selection-start-line="92" selection-start-column="23" selection-end-line="92" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#832#833#0" expanded="false" />
-            <element signature="e#861#862#0" expanded="false" />
-            <element signature="e#1071#1072#0" expanded="false" />
-            <element signature="e#1112#1113#0" expanded="false" />
-            <element signature="e#1191#1192#0" expanded="false" />
-            <element signature="e#1241#1242#0" expanded="false" />
-            <element signature="e#1851#1852#0" expanded="false" />
-            <element signature="e#1889#1890#0" expanded="false" />
-            <element signature="e#1954#1955#0" expanded="false" />
-            <element signature="e#2008#2009#0" expanded="false" />
-            <element signature="e#2053#2054#0" expanded="false" />
-            <element signature="e#2088#2089#0" expanded="false" />
-            <element signature="e#2141#2142#0" expanded="false" />
-            <element signature="e#2180#2181#0" expanded="false" />
-            <element signature="e#2248#2249#0" expanded="false" />
-            <element signature="e#2303#2304#0" expanded="false" />
-            <element signature="e#2570#2571#0" expanded="false" />
-            <element signature="e#2608#2609#0" expanded="false" />
-            <element signature="e#2671#2672#0" expanded="false" />
-            <element signature="e#2721#2722#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gvgai-master/actionsFile_aliens_lvl0.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1992,6 +1836,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="67" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1999,14 +1846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/Population.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -2027,58 +1866,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gvgai-master/src/main/java/core/ArcadeMachine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="105" column="55" selection-start-line="105" selection-start-column="55" selection-end-line="105" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#32317#32318#0" expanded="false" />
-            <element signature="e#32350#32351#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gvgai-master/src/main/java/core/game/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="941" column="26" selection-start-line="941" selection-start-column="16" selection-end-line="941" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#42569#42570#0" expanded="false" />
-            <element signature="e#42606#42607#0" expanded="false" />
-            <element signature="e#44788#44789#0" expanded="false" />
-            <element signature="e#44825#44826#0" expanded="false" />
-            <element signature="e#45055#45056#0" expanded="false" />
-            <element signature="e#45095#45096#0" expanded="false" />
-            <element signature="e#45275#45276#0" expanded="false" />
-            <element signature="e#45314#45315#0" expanded="false" />
-            <element signature="e#45633#45634#0" expanded="false" />
-            <element signature="e#45667#45668#0" expanded="false" />
-            <element signature="e#45883#45884#0" expanded="false" />
-            <element signature="e#45926#45927#0" expanded="false" />
-            <element signature="e#46116#46117#0" expanded="false" />
-            <element signature="e#46151#46152#0" expanded="false" />
-            <element signature="e#46452#46453#0" expanded="false" />
-            <element signature="e#46503#46504#0" expanded="false" />
-            <element signature="e#46739#46740#0" expanded="false" />
-            <element signature="e#46790#46791#0" expanded="false" />
-            <element signature="e#47696#47697#0" expanded="false" />
-            <element signature="e#47756#47757#0" expanded="false" />
-            <element signature="e#47901#47902#0" expanded="false" />
-            <element signature="e#47954#47955#0" expanded="false" />
-            <element signature="e#48098#48099#0" expanded="false" />
-            <element signature="e#48127#48128#0" expanded="false" />
-            <element signature="e#50007#50008#0" expanded="false" />
-            <element signature="e#50053#50054#0" expanded="false" />
-            <element signature="e#50336#50337#0" expanded="false" />
-            <element signature="e#50377#50378#0" expanded="false" />
-            <element signature="e#50459#50460#0" expanded="false" />
-            <element signature="e#50501#50502#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gvgai-master/src/main/java/core/competition/CompetitionParameters.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2095,6 +1882,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gvgai-master/src/main/assembly/src.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.958333">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2103,10 +1898,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java">
+    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/Population.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="116" column="50" selection-start-line="116" selection-start-column="50" selection-end-line="116" selection-end-column="50" />
+          <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/BinaryIndividualMapReduce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/StringIndividualMapReduce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/IndividualMapReduce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -2114,7 +1933,7 @@
     <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/GARunner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <caret line="95" column="72" selection-start-line="95" selection-start-column="72" selection-end-line="95" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2140#2141#0" expanded="true" />
@@ -2137,10 +1956,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gvgai-master/src/main/java/core/ArcadeMachine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="105" column="31" selection-start-line="105" selection-start-column="31" selection-end-line="105" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gvgai-master/src/main/java/core/game/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="911" column="21" selection-start-line="911" selection-start-column="21" selection-end-line="911" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="134" column="53" selection-start-line="134" selection-start-column="53" selection-end-line="134" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameAgent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4512195">
-          <caret line="89" column="31" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="30" selection-start-line="94" selection-start-column="30" selection-end-line="94" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameFitness.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63559324">
+          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
           <folding />
         </state>
       </provider>

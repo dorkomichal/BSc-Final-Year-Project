@@ -93,6 +93,7 @@ public class GARunner {
         FitnessCalculator.setFitnessFunction(fitnessFunction);
         Driver driver = Driver.getDriver();
         BinaryIndividualMapReduce.setChromosomeLength(chromosomeLength); //30
+        StringIndividualMapReduce.setChromosomeLength(chromosomeLength);
         driver.initializePopulation(populationSize, IndividualType.String, source); //50
         Mapper mapper = Mapper.getMapper();
         Reducer reducer = Reducer.getReducer();

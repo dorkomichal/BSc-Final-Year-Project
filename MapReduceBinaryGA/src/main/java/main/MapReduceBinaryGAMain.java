@@ -113,7 +113,7 @@ public class MapReduceBinaryGAMain {
         //games = new String[]{"lasers2", "hungrybirds" ,"cookmepasta", "factorymanager", "raceBet2",
         //        "intersection", "blacksmoke", "iceandfire", "gymkhana", "tercio"};
 
-        boolean visuals = false;
+        boolean visuals = true;
         String recordActionsFile = "./actions.txt"; //where to record the actions executed. null if not to save.
         int seed = new Random().nextInt();
 
@@ -137,4 +137,5 @@ public class MapReduceBinaryGAMain {
         }
         return stringBuilder.toString();
     }
+
 }

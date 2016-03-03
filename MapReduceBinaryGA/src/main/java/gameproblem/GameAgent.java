@@ -31,10 +31,12 @@ public class GameAgent extends AbstractPlayer {
     StateObservation stateObs;
     int pointer = 0;
     boolean runga = true;
+    static boolean gameLost;
 
     public GameAgent(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
         encodeActions(stateObs.getAvailableActions());
         this.stateObs = stateObs;
+        gameLost = false;
     }
 
 
@@ -76,6 +78,11 @@ public class GameAgent extends AbstractPlayer {
             pointer = 0;
             this.optimisedActions = runGA(stateObs);
         }
+        StateObservation stateCopy = stateObs.copy();
+        stateCopy.advance(oneAction);
+        if(stateCopy.isGameOver() && stateCopy.getGameWinner() == Types.WINNER.PLAYER_LOSES) {
+            gameLost = true;
+        }
         return oneAction;
     }
 
@@ -84,12 +91,12 @@ public class GameAgent extends AbstractPlayer {
         GameFitness gameFitness = new GameFitness();
         gameFitness.updateObservation(stateObs);
         String[] source = stringEncodedActions.toArray(new String[stringEncodedActions.size()]);
-        int chromosomeLength = 30;
+        int chromosomeLength = 16;
         int populationSize = 50;
         int maxFitness = 1000;
         int maxGeneration = 10;
         SelectionMethod method = SelectionMethod.tournament;
-        boolean multipoint = true;
+        boolean multipoint = false;
         int numberOfMultipoints = 2;
         GARunner gaRunner = GARunner.getGARunner(gameFitness, source, chromosomeLength, populationSize, maxFitness, maxGeneration, method, multipoint, numberOfMultipoints);
         String[] solution = (String[]) gaRunner.runGA();

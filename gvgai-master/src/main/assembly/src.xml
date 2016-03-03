@@ -19,5 +19,9 @@
             <directory>examples</directory>
             <outputDirectory>examples</outputDirectory>
         </fileSet>
+        <fileSet>
+            <directory>sprites</directory>
+            <outputDirectory>sprites</outputDirectory>
+        </fileSet>
     </fileSets>
 </assembly>
