@@ -8,6 +8,7 @@ import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Random;
@@ -35,7 +36,7 @@ import tools.Vector2d;
  * Time: 10:59
  * This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
-public abstract class VGDLSprite {
+public abstract class VGDLSprite implements Serializable {
 
     /**
      * Name of this sprite.
@@ -172,7 +173,7 @@ public abstract class VGDLSprite {
     /**
      * Image of this sprite.
      */
-    public Image image;
+    public transient Image image;
 
     /**
      * String that represents the image in VGDL.
@@ -291,6 +292,7 @@ public abstract class VGDLSprite {
 
         VGDLFactory factory = VGDLFactory.GetInstance();
         factory.parseParameters(content,this);
+
 
         //post-process. Some sprites may need to do something interesting (i.e. SpawnPoint) once their
         // parameters have been defined.

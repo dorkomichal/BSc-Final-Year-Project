@@ -15,13 +15,17 @@ import java.util.List;
  * Map-Reduce library for Genetic Algorithms
  * Licensed under the Academic Free License version 3.0
  */
-public class GameFitness implements FitnessFunction {
+public class GameFitness implements FitnessFunction, Cloneable {
 
     private StateObservation observation;
     private final int winner = 10000;
     private final int looser = -10000;
 
     public void updateObservation(StateObservation obs) {
+        this.observation = obs;
+    }
+
+    public GameFitness(StateObservation obs) {
         this.observation = obs;
     }
 

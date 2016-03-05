@@ -1,8 +1,7 @@
 package core.game;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Rectangle;
+import java.awt.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -13,6 +12,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
@@ -34,6 +34,7 @@ import ontology.Types;
 import ontology.avatar.MovingAvatar;
 import ontology.effects.Effect;
 import ontology.sprites.Resource;
+import org.slf4j.LoggerFactory;
 import tools.IO;
 import tools.JEasyFrame;
 import tools.KeyHandler;
@@ -50,7 +51,7 @@ import tools.WindowInput;
  * Time: 13:42
  * This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
-public abstract class Game
+public abstract class Game implements Serializable
 {
 
     /**
@@ -252,6 +253,20 @@ public abstract class Game
      */
     protected int nextSpriteID;
 
+    public VGDLFactory getVgdlFactory() {
+        return vgdlFactory;
+    }
+
+    private VGDLFactory vgdlFactory;
+
+    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(Game.class);
+
+    public VGDLRegistry getVgdlRegistry() {
+        return vgdlRegistry;
+    }
+
+    private VGDLRegistry vgdlRegistry;
+
     /**
      * Default constructor.
      */
@@ -270,18 +285,27 @@ public abstract class Game
         disqualified = false;
         num_sprites = 0;
         nextSpriteID = 0;
-
+        this.vgdlFactory = new VGDLFactory();
+        this.vgdlRegistry = VGDLRegistry.GetInstance();
         loadDefaultConstr();
     }
 
+    /**
+     * Added method by Michael to allow serializing
+     */
+
+    public void setVGDLCopies(VGDLFactory fac, VGDLRegistry reg) {
+        this.vgdlFactory = fac;
+        this.vgdlRegistry = reg;
+    }
     /**
      * Loads the constructor information for default objects (walls, avatar).
      */
     private void loadDefaultConstr()
     {
         //If more elements are added here, initSprites() must be modified accordingly!
-        VGDLRegistry.GetInstance().registerSprite("wall");
-        VGDLRegistry.GetInstance().registerSprite("avatar");
+        vgdlRegistry.registerSprite("wall");
+        vgdlRegistry.registerSprite("avatar");
     }
 
 
@@ -298,8 +322,8 @@ public abstract class Game
         spriteOrder = new int[spOrder.size()];
 
         //We need here the default 2 sprites:
-        avatarId = VGDLRegistry.GetInstance().getRegisteredSpriteValue("avatar");
-        wallId = VGDLRegistry.GetInstance().getRegisteredSpriteValue("wall");
+        avatarId = vgdlRegistry.getRegisteredSpriteValue("avatar");
+        wallId = vgdlRegistry.getRegisteredSpriteValue("wall");
 
         //1. "avatar" ALWAYS at the end of the array.
         spriteOrder[spriteOrder.length-1] = avatarId;
@@ -315,14 +339,14 @@ public abstract class Game
         }
 
         //Singletons
-        singletons = new boolean[VGDLRegistry.GetInstance().numSpriteTypes()];
+        singletons = new boolean[vgdlRegistry.numSpriteTypes()];
         for(Integer intId : sings)
         {
             singletons[intId] = true;
         }
 
         //Constructors, as many as number of sprite types, so they are accessed by its id:
-        classConst = new Content[VGDLRegistry.GetInstance().numSpriteTypes()];
+        classConst = new Content[vgdlRegistry.numSpriteTypes()];
 
         //By default, we have 2 constructors:
         Content wallConst = new SpriteContent("wall", "Immovable");
@@ -343,7 +367,7 @@ public abstract class Game
             String refClass = entry.getValue().referenceClass;
             if(refClass != null && refClass.equals("Resource"))
             {
-                VGDLSprite resourceTest = VGDLFactory.GetInstance().
+                VGDLSprite resourceTest = vgdlFactory.
                         createSprite(entry.getValue(), new Vector2d(0,0), new Dimension(1,1));
                 resources.add((Resource)resourceTest);
             }
@@ -438,7 +462,7 @@ public abstract class Game
     		}
     		
     		if(isLeafNode(current)){
-    			result.add(VGDLRegistry.GetInstance().getRegisteredSpriteKey(current));
+    			result.add(vgdlRegistry.getRegisteredSpriteKey(current));
     		}
     		else{
     			SpriteContent sc = (SpriteContent)classConst[current];
@@ -493,7 +517,7 @@ public abstract class Game
     	data.name = sc.identifier;
     	data.type = sc.referenceClass;
     	
-    	VGDLSprite sprite = VGDLFactory.GetInstance().createSprite(sc, new Vector2d(), new Dimension(1, 1));
+    	VGDLSprite sprite = vgdlFactory.createSprite(sc, new Vector2d(), new Dimension(1, 1));
     	switch(getSpriteCategory(sprite)){
     	case Types.TYPE_NPC:
     		data.isNPC = true;
@@ -514,7 +538,7 @@ public abstract class Game
     	
     	ArrayList<String> dependentSprites = sprite.getDependentSprites();
     	for(String s:dependentSprites){
-    		ArrayList<String> expandedSprites = expandNonLeafNode(VGDLRegistry.GetInstance().getRegisteredSpriteValue(s));
+    		ArrayList<String> expandedSprites = expandNonLeafNode(vgdlRegistry.getRegisteredSpriteValue(s));
     		data.sprites.addAll(expandedSprites);
     	}
     	
@@ -543,9 +567,9 @@ public abstract class Game
      * @return a temproary avatar sprite
      */
     public VGDLSprite getTempAvatar(SpriteData sprite){
-    	avatarId = VGDLRegistry.GetInstance().getRegisteredSpriteValue(sprite.name);
+    	avatarId = vgdlRegistry.getRegisteredSpriteValue(sprite.name);
     	if(((SpriteContent)classConst[avatarId]).referenceClass != null){
-    		VGDLSprite result = VGDLFactory.GetInstance().createSprite((SpriteContent) classConst[avatarId], 
+    		VGDLSprite result = vgdlFactory.createSprite((SpriteContent) classConst[avatarId], 
     				new Vector2d(), new Dimension(1, 1));
     		if(result != null){
     			return result;
@@ -573,7 +597,7 @@ public abstract class Game
     		
     		ArrayList<String> sprites = tr.getTerminationSprites();
     		for(String s:sprites){
-    			int itype = VGDLRegistry.GetInstance().getRegisteredSpriteValue(s);
+    			int itype = vgdlRegistry.getRegisteredSpriteValue(s);
     			if(isLeafNode(itype)){
     				td.sprites.add(s);
     			}
@@ -688,8 +712,8 @@ public abstract class Game
      */
     protected void parseParameters(GameContent content)
     {
-        VGDLFactory factory = VGDLFactory.GetInstance();
-        Class refClass = VGDLFactory.registeredGames.get(content.referenceClass);
+        VGDLFactory factory = vgdlFactory;
+        Class refClass = vgdlFactory.registeredGames.get(content.referenceClass);
         //System.out.inn("refClass" + refClass.toString());
         if (!this.getClass().equals(refClass)) {
             System.out.println("Error: Game subclass instance not the same as content.referenceClass" +
@@ -1265,6 +1289,7 @@ public abstract class Game
      */
     public VGDLSprite addSprite(int itype, Vector2d position)
     {
+        //System.out.println("Size of classConst: " + classConst.length);
         return this.addSprite((SpriteContent) classConst[itype], position, itype);
     }
 
@@ -1276,9 +1301,12 @@ public abstract class Game
      */
     public VGDLSprite addSprite(SpriteContent content, Vector2d position, int itype)
     {
+        if(content == null) {
+            LOG.info("Content is null");
+        }
         if(num_sprites > MAX_SPRITES)
         {
-            System.out.println("Sprite limit reached");
+            LOG.info("Sprite limit reached");
             return null;
         }
 
@@ -1298,9 +1326,11 @@ public abstract class Game
         //Only create the sprite if there is not any other sprite that blocks it.
         if(!anyother)
         {
-            VGDLSprite newSprite = VGDLFactory.GetInstance().createSprite(
+            VGDLSprite newSprite = vgdlFactory.createSprite(
                     content , position, new Dimension(block_size, block_size));
-
+            if(newSprite == null) {
+                LOG.info("New Sprite is null");
+            }
             //Assign its types and add it to the collection of sprites.
             newSprite.itypes = (ArrayList<Integer>) content.itypes.clone();
             this.addSprite(newSprite, itype);
@@ -1545,7 +1575,7 @@ public abstract class Game
     /**
      * Class for helping collision detection.
      */
-    protected class Bucket
+    protected class Bucket implements Serializable
     {
         ArrayList<VGDLSprite> allSprites;
         TreeMap<Integer, ArrayList<VGDLSprite>> spriteLists;

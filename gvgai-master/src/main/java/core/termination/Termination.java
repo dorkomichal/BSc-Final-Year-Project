@@ -1,5 +1,6 @@
 package core.termination;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import core.VGDLFactory;
@@ -14,7 +15,7 @@ import ontology.Types;
  * Time: 18:47
  * This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
-public abstract class Termination {
+public abstract class Termination implements Serializable {
 
     public boolean win;
     public int limit;

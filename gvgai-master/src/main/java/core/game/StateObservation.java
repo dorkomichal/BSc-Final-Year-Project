@@ -1,12 +1,15 @@
 package core.game;
 
 import java.awt.Dimension;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
+import core.VGDLFactory;
+import core.VGDLRegistry;
 import ontology.Types;
 import tools.Vector2d;
 
@@ -17,7 +20,7 @@ import tools.Vector2d;
  * Time: 15:37
  * This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
-public class StateObservation {
+public class StateObservation implements Serializable{
     /**
      * This is the model of the game, used to apply an action and
      * get to the next state. This model MUST be private.
@@ -415,6 +418,12 @@ public class StateObservation {
         return model.getFromAvatarSpPositions(reference);
     }
 
+    /**
+     * Michael's method to set copies of the static objects so they can be serialized
+     */
+    public void setVGDLCopies(VGDLFactory factory, VGDLRegistry registry) {
+        this.model.setVGDLCopies(factory, registry);
+    }
     /**
      * Compares if this and the received StateObservation state are equivalent.
      * DEBUG ONLY METHOD.

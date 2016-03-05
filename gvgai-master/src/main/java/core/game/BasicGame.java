@@ -112,8 +112,8 @@ public class BasicGame extends Game {
      */
     protected void parseParameters(GameContent content)
     {
-        VGDLFactory factory = VGDLFactory.GetInstance();
-        Class refClass = VGDLFactory.registeredGames.get(content.referenceClass);
+        VGDLFactory factory = getVgdlFactory();
+        Class refClass = factory.registeredGames.get(content.referenceClass);
         //System.out.println("refClass" + refClass.toString());
         if (!this.getClass().equals(refClass)) {
             System.out.println("Error: Game subclass instance not the same as content.referenceClass" +
@@ -135,7 +135,7 @@ public class BasicGame extends Game {
         //We might have more than one sprite in the same position.
         for(String objectType : keys)
         {
-            int itype = VGDLRegistry.GetInstance().getRegisteredSpriteValue(objectType);
+            int itype = getVgdlRegistry().getRegisteredSpriteValue(objectType);
             addSprite(itype, position);
         }
     }

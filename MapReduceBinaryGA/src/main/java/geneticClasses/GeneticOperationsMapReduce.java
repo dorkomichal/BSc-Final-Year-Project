@@ -3,6 +3,7 @@ package geneticClasses;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,36 +16,48 @@ import java.util.Random;
  * Map-Reduce library for Genetic Algorithms
  * Licensed under the Academic Free License version 3.0
  */
-public final class GeneticOperationsMapReduce {
+public final class GeneticOperationsMapReduce implements Serializable {
 
-    private static double crossoverRate = 0.7;
-    private static double mutationRate = 0.001;
-    private static boolean elitism = true;
-    private static double tournamentParameterK = 0.75;
-    private static Random random = new Random();
+    private double crossoverRate = 0.7;
 
-    public static void setElitism(boolean elitism) {
-        GeneticOperationsMapReduce.elitism = elitism;
+    public GeneticOperationsMapReduce(FitnessCalculator fc, Integer chromosomeLength, double tournamentParameterK, boolean elitism, double mutationRate, double crossoverRate) {
+        this.fc = fc;
+        this.chromosomeLength = chromosomeLength;
+        this.tournamentParameterK = tournamentParameterK;
+        this.elitism = elitism;
+        this.mutationRate = mutationRate;
+        this.crossoverRate = crossoverRate;
     }
 
-    public static double getCrossoverRate() {
+    private double mutationRate = 0.001;
+    private boolean elitism = true;
+    private double tournamentParameterK = 0.75;
+    private Random random = new Random();
+    private FitnessCalculator fc;
+    private Integer chromosomeLength;
+
+    public void setElitism(boolean elitism) {
+        this.elitism = elitism;
+    }
+
+    public double getCrossoverRate() {
         return crossoverRate;
     }
 
-    public static boolean isElitism() {
+    public boolean isElitism() {
         return elitism;
     }
 
-    public static void setTournamentParameterK(double tournamentParameterK) {
-        GeneticOperationsMapReduce.tournamentParameterK = tournamentParameterK;
+    public void setTournamentParameterK(double tournamentParameterK) {
+        this.tournamentParameterK = tournamentParameterK;
     }
 
-    public static void setCrossoverRate(double crossoverRate) {
-        GeneticOperationsMapReduce.crossoverRate = crossoverRate;
+    public void setCrossoverRate(double crossoverRate) {
+        this.crossoverRate = crossoverRate;
     }
 
-    public static void setMutationRate(double mutationRate) {
-        GeneticOperationsMapReduce.mutationRate = mutationRate;
+    public void setMutationRate(double mutationRate) {
+        this.mutationRate = mutationRate;
     }
 
     /**
@@ -55,7 +68,7 @@ public final class GeneticOperationsMapReduce {
      * @param parent2 Second parent selected for crossover
      * @return fitter individual from two new individuals
      */
-    public static IndividualMapReduce singlePointCrossover(IndividualMapReduce parent1, IndividualMapReduce parent2) {
+    public IndividualMapReduce singlePointCrossover(IndividualMapReduce parent1, IndividualMapReduce parent2) {
         int crossoverPoint = random.nextInt(parent1.lengthOfChromosome());
         Object[] parent1Chromosome = parent1.getChromosome();
         Object[] parent2Chromosome = parent2.getChromosome();
@@ -69,11 +82,11 @@ public final class GeneticOperationsMapReduce {
         IndividualMapReduce child1;
         IndividualMapReduce child2;
         if (parent1 instanceof BinaryIndividualMapReduce) {
-            child1 = new BinaryIndividualMapReduce();
-            child2 = new BinaryIndividualMapReduce();
+            child1 = new BinaryIndividualMapReduce(fc, chromosomeLength);
+            child2 = new BinaryIndividualMapReduce(fc, chromosomeLength);
         } else {
-            child1 = new StringIndividualMapReduce();
-            child2 = new StringIndividualMapReduce();
+            child1 = new StringIndividualMapReduce(fc, chromosomeLength);
+            child2 = new StringIndividualMapReduce(fc, chromosomeLength);
         }
 
         child1.setChromosome(ArrayUtils.addAll(parent1ChromosomePart1, parent2ChromosomePart2));
@@ -95,7 +108,7 @@ public final class GeneticOperationsMapReduce {
      * @param numberOfPoints number of crossover points
      * @return fitter individual from two new individuals
      */
-    public static IndividualMapReduce multiPointCrossover(IndividualMapReduce parent1, IndividualMapReduce parent2, int numberOfPoints) {
+    public IndividualMapReduce multiPointCrossover(IndividualMapReduce parent1, IndividualMapReduce parent2, int numberOfPoints) {
         int[] crossoverPoints = random.ints(0, parent1.lengthOfChromosome() - 1).distinct().limit(numberOfPoints).toArray();
         Arrays.sort(crossoverPoints);
         List<Object[]> parent1ChromosomeParts = new ArrayList<>();
@@ -126,11 +139,11 @@ public final class GeneticOperationsMapReduce {
         IndividualMapReduce child1;
         IndividualMapReduce child2;
         if (parent1 instanceof BinaryIndividualMapReduce) {
-            child1 = new BinaryIndividualMapReduce();
-            child2 = new BinaryIndividualMapReduce();
+            child1 = new BinaryIndividualMapReduce(fc, chromosomeLength);
+            child2 = new BinaryIndividualMapReduce(fc, chromosomeLength);
         } else {
-            child1 = new StringIndividualMapReduce();
-            child2 = new StringIndividualMapReduce();
+            child1 = new StringIndividualMapReduce(fc, chromosomeLength);
+            child2 = new StringIndividualMapReduce(fc, chromosomeLength);
         }
 
         child1.setChromosome(child1Chromosome);
@@ -149,7 +162,7 @@ public final class GeneticOperationsMapReduce {
      * mutation rate.
      * @param individual the individual which chromosome will undergo mutation
      */
-    protected static void mutate(IndividualMapReduce individual) {
+    protected void mutate(IndividualMapReduce individual) {
         if (individual instanceof BinaryIndividualMapReduce) {
             Byte[] chromosome = (Byte[]) individual.getChromosome();
             for (int i = 0; i < chromosome.length; i++) {
@@ -185,7 +198,7 @@ public final class GeneticOperationsMapReduce {
      * otherwise less fit one is returned (selected)
      * @return IndividualMapReduce Winner of the tournament
      */
-    public static IndividualMapReduce tournamentSelection(IndividualMapReduce competitor1, IndividualMapReduce competitor2) {
+    public IndividualMapReduce tournamentSelection(IndividualMapReduce competitor1, IndividualMapReduce competitor2) {
         double r = Math.random();
         IndividualMapReduce fitter = fitterFromTwo(competitor1, competitor2);
         if (r < tournamentParameterK) {
@@ -217,7 +230,7 @@ public final class GeneticOperationsMapReduce {
      * Roulette Wheel Selection (RWS) selection method for selecting parent
      * @return IndividualMapReduce parent
      */
-    public static IndividualMapReduce rwsSelection(List<IndividualMapReduce> population) {
+    public IndividualMapReduce rwsSelection(List<IndividualMapReduce> population) {
         double sum = 0.0;
         double r = random.nextDouble();
         for (IndividualMapReduce bi : population){

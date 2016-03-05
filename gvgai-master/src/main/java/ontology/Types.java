@@ -2,6 +2,7 @@ package ontology;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.io.Serializable;
 
 import tools.Vector2d;
 
@@ -12,7 +13,7 @@ import tools.Vector2d;
  * Time: 11:05
  * This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
-public class Types {
+public class Types implements Serializable {
     public static final int PHYSICS_NONE = -1;
     public static final int PHYSICS_GRID = 0;
     public static final int PHYSICS_CONT = 1;

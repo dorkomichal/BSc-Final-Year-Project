@@ -24,12 +24,18 @@ public class GARunner {
     private int chromosomeLength;
     private int populationSize;
     private int maxFitness;
+    private boolean elitism = true;
+    private double tournamentParamK = 0.75;
 
+    private double mutation = 0.01;
+    private double crossoverRate = 0.7;
     private int maxGeneration;
 
     private SelectionMethod selectionMethod;
     private boolean multipointCrossover;
     private int numberOfCrossoverPoints;
+    private GeneticOperationsMapReduce geneticOperations;
+
     private GARunner(FitnessFunction f, String[] source, int chromosomeLength, int popSize, int maxFit, int maxGen,
                      SelectionMethod selMeth, boolean multiCross, int numberCrossPoints) {
         this.fitnessFunction = f;
@@ -51,6 +57,26 @@ public class GARunner {
             garunner = new GARunner(f, source, chromosomeLength, popSize, maxFit, maxGen, selMeth, multiCross, numberCrossPoints);
             return garunner;
         }
+    }
+
+    public void setMutation(double mutation) {
+        this.mutation = mutation;
+    }
+
+    public void setCrossoverRate(double crossoverRate) {
+        this.crossoverRate = crossoverRate;
+    }
+
+    public void setTournamentParamK(double tournamentParamK) {
+        this.tournamentParamK = tournamentParamK;
+    }
+
+    public void setElitism(boolean elitism) {
+        this.elitism = elitism;
+    }
+
+    public void setGeneticOperations(GeneticOperationsMapReduce geneticOperations) {
+        this.geneticOperations = geneticOperations;
     }
 
     public void setNumberOfCrossoverPoints(int numberOfCrossoverPoints) {
@@ -90,15 +116,14 @@ public class GARunner {
     }
 
     public Object[] runGA() {
-        FitnessCalculator.setFitnessFunction(fitnessFunction);
         Driver driver = Driver.getDriver();
-        BinaryIndividualMapReduce.setChromosomeLength(chromosomeLength); //30
-        StringIndividualMapReduce.setChromosomeLength(chromosomeLength);
-        driver.initializePopulation(populationSize, IndividualType.String, source); //50
+        FitnessCalculator fitnessCalculator = new FitnessCalculator(fitnessFunction);
+        driver.initializePopulation(fitnessCalculator, chromosomeLength, populationSize, IndividualType.String, source); //50
         Mapper mapper = Mapper.getMapper();
         Reducer reducer = Reducer.getReducer();
         int generationCounter = 1;
         GlobalFile.setMaxFitness(maxFitness); //1000
+        geneticOperations = new GeneticOperationsMapReduce(fitnessCalculator, chromosomeLength, tournamentParamK, elitism, mutation, crossoverRate);
 
         JavaRDD<IndividualMapReduce> parallelizedPopulation = driver.getPopulationParallelized();
         JavaRDD<IndividualMapReduce> newGeneration;
@@ -107,9 +132,9 @@ public class GARunner {
             JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness = mapper.mapCalculateFitness(parallelizedPopulation);
 
             IndividualMapReduce elite = mapper.getElite(populationWithFitness);
-            JavaRDD<CrossoverPair> selectedIndividuals = mapper.mapSelection(populationWithFitness, elite, selectionMethod);
+            JavaRDD<CrossoverPair> selectedIndividuals = mapper.mapSelection(populationWithFitness, elite, selectionMethod, geneticOperations);
             System.out.println("Size of selected individuals: " + selectedIndividuals.count());
-            newGeneration = reducer.reduceCrossover(selectedIndividuals, multipointCrossover, numberOfCrossoverPoints);
+            newGeneration = reducer.reduceCrossover(selectedIndividuals, multipointCrossover, numberOfCrossoverPoints, geneticOperations);
 
             //GlobalFile.setIndividualMapReduces(newGeneration.collect());
             //parallelizedPopulation = driver.paralleliseData(GlobalFile.getIndividualMapReduces());

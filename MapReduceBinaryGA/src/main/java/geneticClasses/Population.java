@@ -19,17 +19,18 @@ public class Population {
     }
 
 
-    public void initializePopulationBinary() {
+    public void initializePopulationBinary(FitnessCalculator fc, Integer chromosomeLength) {
         for (int i = 0; i < sizeOfPopulation; i++) {
-            BinaryIndividualMapReduce individual = new BinaryIndividualMapReduce();
+            BinaryIndividualMapReduce individual = new BinaryIndividualMapReduce(fc, chromosomeLength);
             individual.generateRandomIndividual();
             this.individualMapReduces[i] = individual;
         }
     }
 
-    public void initializePopulationString(String[] source) {
+
+    public void initializePopulationString(FitnessCalculator fc, Integer chromosomeLength, String[] source) {
         for(int i = 0; i < sizeOfPopulation; i++) {
-            StringIndividualMapReduce individual = new StringIndividualMapReduce();
+            StringIndividualMapReduce individual = new StringIndividualMapReduce(fc, chromosomeLength);
             if (source == null) {
                 individual.generateRandomIndividual();
             } else {

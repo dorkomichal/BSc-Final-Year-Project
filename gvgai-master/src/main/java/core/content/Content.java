@@ -1,5 +1,6 @@
 package core.content;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
@@ -9,7 +10,7 @@ import java.util.HashMap;
  * Time: 14:08
  * This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
-public abstract class Content
+public abstract class Content implements Serializable
 {
     /**
      * Original line with the content, in VGDL format.

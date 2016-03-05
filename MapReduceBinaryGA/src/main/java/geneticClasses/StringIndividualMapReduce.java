@@ -15,24 +15,27 @@ import java.util.Random;
  */
 public class StringIndividualMapReduce implements Serializable, IndividualMapReduce {
 
-    private static Integer chromosomeLength = 16;
+    private Integer chromosomeLength = 16;
     private String[] chromosome;
     private int fitness;
     private double probabilityOfSelection;
     private CrossoverPair crossoverPair;
     private String[] source;
+    private FitnessCalculator fitnessCalculator;
 
-    public StringIndividualMapReduce() {
+    public StringIndividualMapReduce(FitnessCalculator fc, Integer chromosomeLength) {
+        this.chromosomeLength = chromosomeLength;
         this.chromosome = new String[chromosomeLength];
         this.fitness = 0;
+        this.fitnessCalculator = fc;
     }
 
     public String[] getSource() {
         return source;
     }
 
-    public static void setChromosomeLength(Integer chromosomeLength) {
-        StringIndividualMapReduce.chromosomeLength = chromosomeLength;
+    public void setChromosomeLength(Integer chromosomeLength) {
+        this.chromosomeLength = chromosomeLength;
     }
 
     @Override
@@ -88,8 +91,7 @@ public class StringIndividualMapReduce implements Serializable, IndividualMapRed
 
     @Override
     public Integer calculateFitness() {
-        this.fitness = FitnessCalculator.calculateFitness(chromosome, this);
-        GlobalFile.submitFitness(this.fitness);
+        this.fitness = fitnessCalculator.calculateFitness(chromosome, this);
         return fitness;
     }
 

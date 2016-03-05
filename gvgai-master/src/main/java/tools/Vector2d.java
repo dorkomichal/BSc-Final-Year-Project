@@ -1,12 +1,14 @@
 package tools;
 
+import java.io.Serializable;
+
 /**
  * This class represents a vector, or a position, in the map.
  * PTSP-Competition
  * Created by Diego Perez, University of Essex.
  * Date: 19/12/11
  */
-public class Vector2d
+public class Vector2d implements Serializable
 {
     /**
      * X-coordinate of the vector.

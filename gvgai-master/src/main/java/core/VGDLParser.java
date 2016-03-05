@@ -172,8 +172,8 @@ public class VGDLParser
     private void parseSpriteSet(ArrayList<Node> elements)
     {
         //We need these 2 here:
-        spriteOrderTmp.add(VGDLRegistry.GetInstance().getRegisteredSpriteValue("wall"));
-        spriteOrderTmp.add(VGDLRegistry.GetInstance().getRegisteredSpriteValue("avatar"));
+        spriteOrderTmp.add(game.getVgdlRegistry().getRegisteredSpriteValue("wall")); // VGDLRegistry.GetInstance()
+        spriteOrderTmp.add(game.getVgdlRegistry().getRegisteredSpriteValue("avatar"));
 
         _parseSprites(elements, null, new HashMap<String, String>(), new ArrayList<String>());
 
@@ -205,7 +205,7 @@ public class VGDLParser
             types.add(identifier);
 
             //Register this entry.
-            Integer intId = VGDLRegistry.GetInstance().registerSprite(identifier);
+            Integer intId = game.getVgdlRegistry().registerSprite(identifier); //VGDLRegistry.GetInstance()
             constructors.put(intId, sc); //Ad the constructor for these objects.
 
             //Assign types and subtypes.
@@ -291,11 +291,11 @@ public class VGDLParser
             InteractionContent ic = (InteractionContent)n.content;
             if(ic.is_definition) // === contains ">"
             {
-                Effect ef = VGDLFactory.GetInstance().createEffect(ic);
+                Effect ef = game.getVgdlFactory().createEffect(ic); //VGDLFactory.GetInstance()
 
                 //Get the identifiers of both sprites taking part in the effect
-                int obj1 = VGDLRegistry.GetInstance().getRegisteredSpriteValue(ic.object1);
-                int obj2 = VGDLRegistry.GetInstance().getRegisteredSpriteValue(ic.object2);
+                int obj1 = game.getVgdlRegistry().getRegisteredSpriteValue(ic.object1); //VGDLRegistry.GetInstance()
+                int obj2 = game.getVgdlRegistry().getRegisteredSpriteValue(ic.object2);
                 if(obj1 != -1 && obj2 != -1)
                 {
                     Pair newPair = new Pair(obj1,obj2);
@@ -356,7 +356,7 @@ public class VGDLParser
         for(Node n : elements)
         {
             TerminationContent tc = (TerminationContent)n.content;
-            Termination ter = VGDLFactory.GetInstance().createTermination(tc);
+            Termination ter = game.getVgdlFactory().createTermination(tc); //VGDLFactory.GetInstance()
             game.getTerminations().add(ter);
         }
 

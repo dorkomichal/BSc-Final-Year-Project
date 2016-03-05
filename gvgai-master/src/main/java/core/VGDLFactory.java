@@ -1,8 +1,10 @@
 package core;
 
 import java.awt.Dimension;
+import java.io.Serializable;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import core.content.Content;
@@ -73,6 +75,8 @@ import ontology.sprites.producer.Portal;
 import ontology.sprites.producer.RandomBomber;
 import ontology.sprites.producer.SpawnPoint;
 import ontology.sprites.producer.SpriteProducer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import tools.Vector2d;
 
 /**
@@ -82,7 +86,7 @@ import tools.Vector2d;
  * Time: 15:33
  * This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
-public class VGDLFactory
+public class VGDLFactory implements Serializable, Cloneable
 {
 
     /**
@@ -158,27 +162,31 @@ public class VGDLFactory
     /**
      * Cache for registered games.
      */
-    public static HashMap<String, Class> registeredGames;
+    public HashMap<String, Class> registeredGames;
 
     /**
      * Cache for registered sprites.
      */
-    public static HashMap<String, Class> registeredSprites;
+    public HashMap<String, Class> registeredSprites;
 
     /**
      * Cache for registered effects.
      */
-    public static HashMap<String, Class> registeredEffects;
+    public HashMap<String, Class> registeredEffects;
 
     /**
      * Cache for registered effects.
      */
-    public static HashMap<String, Class> registeredTerminations;
+    public HashMap<String, Class> registeredTerminations;
 
     /**
      * Default private constructor of this singleton.
      */
-    private VGDLFactory(){}
+    public VGDLFactory(){
+        init();
+    }
+
+    private static final Logger LOG = LoggerFactory.getLogger(VGDLFactory.class);
 
     /**
      * Initializes the maps for caching classes.
@@ -219,6 +227,11 @@ public class VGDLFactory
         return factory;
     }
 
+    public static VGDLFactory getNewCopy() {
+        return new VGDLFactory();
+    }
+
+
     /**
      * Creates a game, receiving a GameContent object
      * @param content potential parameters for the class.
@@ -234,11 +247,11 @@ public class VGDLFactory
         }catch (NoSuchMethodException e)
         {
             e.printStackTrace();
-            System.out.println("Error creating game of class " + content.referenceClass);
+            LOG.info("Error creating game of class " + content.referenceClass);
         }catch (Exception e)
         {
             e.printStackTrace();
-            System.out.println("Error creating game of class " + content.referenceClass);
+            LOG.info("Error creating game of class " + content.referenceClass);
         }
 
         return null;
@@ -253,6 +266,11 @@ public class VGDLFactory
      */
     public VGDLSprite createSprite(SpriteContent content, Vector2d position, Dimension dim)
     {
+        if (registeredSprites == null) {
+            LOG.info("registeredSprites is null");
+        } else if (registeredSprites.size() == 0) {
+            LOG.info("registredSprites is empty");
+        }
         try{
             Class spriteClass = registeredSprites.get(content.referenceClass);
             Constructor spriteConstructor = spriteClass.getConstructor
@@ -261,12 +279,12 @@ public class VGDLFactory
 
         }catch (NoSuchMethodException e)
         {
-            e.printStackTrace();
-            System.out.println("Error creating sprite " + content.identifier + " of class " + content.referenceClass);
+            LOG.info("Error :" + Arrays.toString(e.getStackTrace()));
+            LOG.info("Error creating sprite " + content.identifier + " of class " + content.referenceClass);
         }catch (Exception e)
         {
-            e.printStackTrace();
-            System.out.println("Error creating sprite " + content.identifier + " of class " + content.referenceClass);
+            LOG.info("Error :" + Arrays.toString(e.getStackTrace()));
+            LOG.info("Error creating sprite " + content.identifier + " of class " + content.referenceClass);
         }
 
         return null;

@@ -1,5 +1,6 @@
 package tools;
 
+import java.io.Serializable;
 import java.util.Map;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Map;
  * Time: 17:07
  * This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
-public class Pair implements Map.Entry<Integer, Integer>, Comparable{
+public class Pair implements Map.Entry<Integer, Integer>, Comparable, Serializable{
 
     public Integer first;
     public Integer second;

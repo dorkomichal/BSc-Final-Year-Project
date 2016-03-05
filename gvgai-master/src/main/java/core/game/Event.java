@@ -2,10 +2,12 @@ package core.game;
 
 import tools.Vector2d;
 
+import java.io.Serializable;
+
 /**
  * Created by diego on 24/03/14.
  */
-public class Event implements Comparable<Event>
+public class Event implements Comparable<Event>, Serializable
 {
     /**
      * Game step when the event happened.

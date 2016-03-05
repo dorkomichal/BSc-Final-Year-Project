@@ -2,10 +2,12 @@ package core.game;
 
 import tools.Vector2d;
 
+import java.io.Serializable;
+
 /**
  * Created by Diego on 19/03/14.
  */
-public class Observation implements Comparable<Observation>
+public class Observation implements Comparable<Observation>, Serializable
 {
 
     /**

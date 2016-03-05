@@ -8,6 +8,8 @@ import core.VGDLSprite;
 import core.content.SpriteContent;
 import core.game.Game;
 import ontology.Types;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import tools.Utils;
 import tools.Vector2d;
 
@@ -29,7 +31,7 @@ public class FlakAvatar extends HorizontalAvatar
     public int ammoId;
     public int minAmmo; //-1 if not used. minimum amount of ammo needed for shooting.
     public int ammoCost; //1 if not used. amount of ammo to subtract after shooting once.
-
+    private static final Logger LOG = LoggerFactory.getLogger(FlakAvatar.class);
 
     public FlakAvatar(){}
 

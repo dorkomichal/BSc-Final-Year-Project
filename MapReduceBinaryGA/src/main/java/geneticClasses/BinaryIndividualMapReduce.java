@@ -17,16 +17,19 @@ public class BinaryIndividualMapReduce implements Serializable, IndividualMapRed
     /**
      * Default size of the chromosome. Can be changed using @setChromosomeLength
      */
-    private static Integer chromosomeLength = 16;
+    private Integer chromosomeLength = 16;
     private Byte[] chromosome;
     private int fitness;
     private double probabilityOfSelection;
     private Random random = new Random();
     private CrossoverPair crossoverPair;
+    private FitnessCalculator fitnessCalculator;
 
-    public BinaryIndividualMapReduce() {
+    public BinaryIndividualMapReduce(FitnessCalculator fc, Integer chromosomeLength) {
+        this.chromosomeLength = chromosomeLength;
         this.chromosome = new Byte[chromosomeLength];
         this.fitness = 0;
+        this.fitnessCalculator = fc;
     }
 
     public CrossoverPair getCrossoverPair() {
@@ -52,8 +55,8 @@ public class BinaryIndividualMapReduce implements Serializable, IndividualMapRed
         }
     }
 
-    public static void setChromosomeLength(Integer chromosomeLength) {
-        BinaryIndividualMapReduce.chromosomeLength = chromosomeLength;
+    public void setChromosomeLength(Integer chromosomeLength) {
+        this.chromosomeLength = chromosomeLength;
     }
 
     public Byte[] getChromosome() {
@@ -77,8 +80,7 @@ public class BinaryIndividualMapReduce implements Serializable, IndividualMapRed
     }
 
     public Integer calculateFitness() {
-        this.fitness = FitnessCalculator.calculateFitness(chromosome, this);
-        GlobalFile.submitFitness(this.fitness);
+        this.fitness = fitnessCalculator.calculateFitness(chromosome, this);
         return fitness;
     }
 

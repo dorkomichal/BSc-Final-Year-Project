@@ -1,5 +1,6 @@
 package core;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
@@ -10,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * identified with an unique id. All sprites in the SpriteGroup are of the same
  * type.
  */
-public class SpriteGroup
+public class SpriteGroup implements Serializable
 {
     /**
      * Type of sprite this class holds a collection of.

@@ -30,10 +30,8 @@ public class GlobalFile {
         return currentMaxFitness;
     }
 
-    public synchronized static void submitFitness(int currentMaxFitness) {
-        if (currentMaxFitness >= GlobalFile.currentMaxFitness) {
-            GlobalFile.currentMaxFitness = currentMaxFitness;
-        }
+    public static void submitMaxFitness(int fitness) {
+        currentMaxFitness = fitness;
     }
 
     public static IndividualMapReduce getFittestIndividual() {
@@ -82,11 +80,6 @@ public class GlobalFile {
     public static void createNewPopulation(int sizeOfPopulation) {
         newGeneration = new Population(sizeOfPopulation);
         individualMapReduces = new ArrayList<>();
-    }
-
-    public static void assignNewGenerationToPopulation() {
-        newGeneration.setIndividualMapReduces(individualMapReduces.toArray(new IndividualMapReduce[individualMapReduces.size()]));
-        FitnessCalculator.calculateFitnessOfPopulation(newGeneration);
     }
 
     public static Population getNewGeneration() {

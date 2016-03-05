@@ -36,31 +36,31 @@ public class Reducer implements Serializable {
      * @param numberOfCrossPoints number of crossover points if multipoint crossover is selected
      * @return new generations as RDD
      */
-    public JavaRDD<IndividualMapReduce> reduceCrossover(JavaRDD<CrossoverPair> selectedIndividuals, boolean multipoint, int numberOfCrossPoints) {
+    public JavaRDD<IndividualMapReduce> reduceCrossover(JavaRDD<CrossoverPair> selectedIndividuals, boolean multipoint, int numberOfCrossPoints, GeneticOperationsMapReduce geneticOperations) {
         GlobalFile.createNewPopulation((int) selectedIndividuals.count());
         JavaRDD<IndividualMapReduce> newGen;
         if (multipoint) {
-             newGen = selectedIndividuals.map(crossoverPair -> multiPointCrossover(crossoverPair, numberOfCrossPoints));
+             newGen = selectedIndividuals.map(crossoverPair -> multiPointCrossover(crossoverPair, numberOfCrossPoints, geneticOperations));
         } else {
-             newGen = selectedIndividuals.map(crossoverPair -> singlePointCrossover(crossoverPair));
+             newGen = selectedIndividuals.map(crossoverPair -> singlePointCrossover(crossoverPair, geneticOperations));
         }
         return newGen;
     }
 
-    private IndividualMapReduce singlePointCrossover(CrossoverPair pair) {
+    private IndividualMapReduce singlePointCrossover(CrossoverPair pair, GeneticOperationsMapReduce geneticOperations) {
         if(pair.getEliteIndividual() != null) {
             return pair.getEliteIndividual();
         } else {
-            IndividualMapReduce newIndividual = GeneticOperationsMapReduce.singlePointCrossover(pair.getParent1(), pair.getParent2());
+            IndividualMapReduce newIndividual = geneticOperations.singlePointCrossover(pair.getParent1(), pair.getParent2());
             return newIndividual;
         }
     }
 
-    private IndividualMapReduce multiPointCrossover(CrossoverPair pair, int numberOfPoints) {
+    private IndividualMapReduce multiPointCrossover(CrossoverPair pair, int numberOfPoints, GeneticOperationsMapReduce geneticOperations) {
         if(pair.getEliteIndividual() != null) {
             return pair.getEliteIndividual();
         } else {
-            IndividualMapReduce newIndividual = GeneticOperationsMapReduce.multiPointCrossover(pair.getParent1(), pair.getParent2(), numberOfPoints);
+            IndividualMapReduce newIndividual = geneticOperations.multiPointCrossover(pair.getParent1(), pair.getParent2(), numberOfPoints);
             return newIndividual;
         }
     }

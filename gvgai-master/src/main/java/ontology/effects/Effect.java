@@ -1,5 +1,6 @@
 package ontology.effects;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import core.VGDLFactory;
@@ -14,7 +15,7 @@ import core.game.Game;
  * Time: 15:20
  * This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
-public abstract class Effect
+public abstract class Effect implements Serializable
 {
     public boolean is_kill_effect = false;
 

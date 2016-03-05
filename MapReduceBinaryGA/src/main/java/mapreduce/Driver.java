@@ -41,21 +41,17 @@ public class Driver {
         return populationParallelized;
     }
 
-    public void initializePopulation(int sizeOfPopulation, IndividualType type, String[] source) {
+    public void initializePopulation(FitnessCalculator fc, Integer chromosomeLength, int sizeOfPopulation, IndividualType type, String[] source) {
         Population population = new Population(sizeOfPopulation);
         if (type.equals(IndividualType.Binary)) {
-            population.initializePopulationBinary();
+            population.initializePopulationBinary(fc, chromosomeLength);
         } else {
-            population.initializePopulationString(source);
+            population.initializePopulationString(fc, chromosomeLength, source);
         }
-        FitnessCalculator.calculateFitnessOfPopulation(population);
+        fc.calculateFitnessOfPopulation(population);
         GlobalFile.setPopulation(population);
         List data = Arrays.asList(population.getIndividualMapReduces());
         populationParallelized = jsc.parallelize(data);
-    }
-
-    public void createIslands(int numberOfIslands) {
-        populationParallelized.repartition(numberOfIslands);
     }
 
 }

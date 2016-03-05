@@ -1,5 +1,7 @@
 package gameproblem;
 
+import core.VGDLFactory;
+import core.VGDLRegistry;
 import core.game.StateObservation;
 import core.player.AbstractPlayer;
 import geneticClasses.*;
@@ -28,14 +30,11 @@ public class GameAgent extends AbstractPlayer {
 
     List<String> stringEncodedActions;
     List<Types.ACTIONS> optimisedActions;
-    StateObservation stateObs;
     int pointer = 0;
-    boolean runga = true;
     static boolean gameLost;
 
     public GameAgent(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
         encodeActions(stateObs.getAvailableActions());
-        this.stateObs = stateObs;
         gameLost = false;
     }
 
@@ -64,13 +63,9 @@ public class GameAgent extends AbstractPlayer {
 
     @Override
     public Types.ACTIONS act(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
-        if(optimisedActions == null && runga) {
+        if(optimisedActions == null) {
             this.optimisedActions = new ArrayList<>();
-           /* while(!stateObs.isGameOver()) {
-                this.optimisedActions.addAll(runGA(stateObs));
-            }*/
             this.optimisedActions.addAll(runGA(stateObs));
-            this.runga = false;
         }
         Types.ACTIONS oneAction = optimisedActions.get(pointer);
         pointer++;
@@ -88,13 +83,14 @@ public class GameAgent extends AbstractPlayer {
 
 
     private List<Types.ACTIONS> runGA(StateObservation stateObs) {
-        GameFitness gameFitness = new GameFitness();
-        gameFitness.updateObservation(stateObs);
+        StateObservation copy = stateObs.copy();
+        copy.setVGDLCopies(VGDLFactory.getNewCopy(), VGDLRegistry.getCopy());
+        GameFitness gameFitness = new GameFitness(copy);
         String[] source = stringEncodedActions.toArray(new String[stringEncodedActions.size()]);
-        int chromosomeLength = 16;
-        int populationSize = 50;
+        int chromosomeLength = 50;
+        int populationSize = 100;
         int maxFitness = 1000;
-        int maxGeneration = 10;
+        int maxGeneration = 200;
         SelectionMethod method = SelectionMethod.tournament;
         boolean multipoint = false;
         int numberOfMultipoints = 2;

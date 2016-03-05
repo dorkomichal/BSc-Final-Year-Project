@@ -1,5 +1,6 @@
 package core;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -11,12 +12,20 @@ import java.util.TreeMap;
  * Time: 12:22
  * This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
-public class VGDLRegistry
+public class VGDLRegistry implements Serializable
 {
     /**
      * Singleton instance of this class.
      */
     private static VGDLRegistry registry;
+
+    public TreeMap<String, Integer> getSprite_mapping() {
+        return sprite_mapping;
+    }
+
+    public void setSprite_mapping(TreeMap<String, Integer> sprite_mapping) {
+        this.sprite_mapping = sprite_mapping;
+    }
 
     /**
      * Maps strings to int. Strings are VGDL identifiers for SPRITE TYPES,
@@ -51,6 +60,12 @@ public class VGDLRegistry
         return registry;
     }
 
+    public static VGDLRegistry getCopy() {
+        VGDLRegistry registryCopy = new VGDLRegistry();
+        registryCopy.init();
+        registryCopy.setSprite_mapping((TreeMap<String, Integer>)VGDLRegistry.GetInstance().getSprite_mapping().clone());
+        return registryCopy;
+    }
     /**
      * Register a new sprite string.
      * @param key key in the hashmap.

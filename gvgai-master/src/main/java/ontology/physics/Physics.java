@@ -1,6 +1,7 @@
 package ontology.physics;
 
 import java.awt.Rectangle;
+import java.io.Serializable;
 
 import core.VGDLSprite;
 import ontology.Types;
@@ -13,7 +14,7 @@ import tools.Vector2d;
  * Time: 11:21
  * This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
-public interface Physics
+public interface Physics extends Serializable
 {
     public Types.MOVEMENT passiveMovement(VGDLSprite sprite);
     public Types.MOVEMENT activeMovement(VGDLSprite sprite, Vector2d action, double speed);
