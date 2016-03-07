@@ -23,13 +23,11 @@ public class BinaryIndividualMapReduce implements Serializable, IndividualMapRed
     private double probabilityOfSelection;
     private Random random = new Random();
     private CrossoverPair crossoverPair;
-    private FitnessCalculator fitnessCalculator;
 
-    public BinaryIndividualMapReduce(FitnessCalculator fc, Integer chromosomeLength) {
+    public BinaryIndividualMapReduce(Integer chromosomeLength) {
         this.chromosomeLength = chromosomeLength;
         this.chromosome = new Byte[chromosomeLength];
         this.fitness = 0;
-        this.fitnessCalculator = fc;
     }
 
     public CrossoverPair getCrossoverPair() {
@@ -79,7 +77,7 @@ public class BinaryIndividualMapReduce implements Serializable, IndividualMapRed
         this.chromosome = (Byte[]) chromosome;
     }
 
-    public Integer calculateFitness() {
+    public Integer calculateFitness(FitnessCalculator fitnessCalculator) {
         this.fitness = fitnessCalculator.calculateFitness(chromosome, this);
         return fitness;
     }

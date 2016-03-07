@@ -6,11 +6,14 @@ import mapreduce.Driver;
 import mapreduce.GlobalFile;
 import mapreduce.Mapper;
 import mapreduce.Reducer;
+import ontology.Types;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import sat.Satisfiability;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -22,6 +25,8 @@ import java.util.Random;
  */
 public class MapReduceBinaryGAMain {
 
+    public static List<Types.ACTIONS> actionSequence;
+
     public static void main(String[] args) {
 
         String gamesPath = "examples/gridphysics/";
@@ -29,12 +34,12 @@ public class MapReduceBinaryGAMain {
         String generateLevelPath = "examples/generatedLevels/";
 
         //Training Set 1 (2015; CIG 2014)
-        games = new String[]{"aliens", "boulderdash", "butterflies", "chase", "frogs",
-                "missilecommand", "portals", "sokoban", "survivezombies", "zelda"};
+      //  games = new String[]{"aliens", "boulderdash", "butterflies", "chase", "frogs",
+      //          "missilecommand", "portals", "sokoban", "survivezombies", "zelda"}; // aliens, frogs, zombies, zelda have spawning sprites which causes error
 
         //Training Set 2 (2015; Validation CIG 2014)
-        //games = new String[]{"camelRace", "digdug", "firestorms", "infection", "firecaster",
-        //      "overload", "pacman", "seaquest", "whackamole", "eggomania"};
+        games = new String[]{"camelRace", "digdug", "firestorms", "infection", "firecaster",
+              "overload", "pacman", "seaquest", "whackamole", "eggomania"};
 
         //Training Set 3 (2015)
         //games = new String[]{"bait", "boloadventures", "brainman", "chipschallenge",  "modality",
@@ -58,16 +63,19 @@ public class MapReduceBinaryGAMain {
         int seed = new Random().nextInt();
 
         //Game and level to play
-        int gameIdx = 7;
-        int levelIdx = 1; //level names from 0 to 4 (game_lvlN.txt).
+        int gameIdx = 6;
+        int levelIdx = 0; //level names from 0 to 4 (game_lvlN.txt).
         String game = gamesPath + games[gameIdx] + ".txt";
         String level1 = gamesPath + games[gameIdx] + "_lvl" + levelIdx +".txt";
 
         String recordLevelFile = generateLevelPath +"geneticLevelGenerator/" + games[gameIdx] + "_lvl0.txt";
 
         String gameAgent = "gameproblem.GameAgent";
-
+        actionSequence = new ArrayList<>();
         ArcadeMachine.runOneGame(game, level1, visuals, gameAgent, recordActionsFile, seed);
+        for(Types.ACTIONS action : actionSequence) {
+            System.out.println(action + "\n");
+        }
     }
 
     public static String getStringFromByteArray(Byte[] chromosome) {
@@ -76,6 +84,10 @@ public class MapReduceBinaryGAMain {
             stringBuilder.append(chromosome[i]);
         }
         return stringBuilder.toString();
+    }
+
+    public static void addActionSequence(List<Types.ACTIONS> actions) {
+        actionSequence.addAll(actions);
     }
 
 }

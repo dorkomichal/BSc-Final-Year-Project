@@ -82,20 +82,20 @@ public final class GeneticOperationsMapReduce implements Serializable {
         IndividualMapReduce child1;
         IndividualMapReduce child2;
         if (parent1 instanceof BinaryIndividualMapReduce) {
-            child1 = new BinaryIndividualMapReduce(fc, chromosomeLength);
-            child2 = new BinaryIndividualMapReduce(fc, chromosomeLength);
+            child1 = new BinaryIndividualMapReduce(chromosomeLength);
+            child2 = new BinaryIndividualMapReduce(chromosomeLength);
         } else {
-            child1 = new StringIndividualMapReduce(fc, chromosomeLength);
-            child2 = new StringIndividualMapReduce(fc, chromosomeLength);
+            child1 = new StringIndividualMapReduce(chromosomeLength);
+            child2 = new StringIndividualMapReduce(chromosomeLength);
         }
 
         child1.setChromosome(ArrayUtils.addAll(parent1ChromosomePart1, parent2ChromosomePart2));
         mutate(child1);
-        child1.calculateFitness();
+        child1.calculateFitness(fc);
 
         child2.setChromosome(ArrayUtils.addAll(parent2ChromosomePart1, parent1ChromosomePart2));
         mutate(child2);
-        child2.calculateFitness();
+        child2.calculateFitness(fc);
 
         return fitterFromTwo(child1, child2) ;
     }
@@ -139,20 +139,20 @@ public final class GeneticOperationsMapReduce implements Serializable {
         IndividualMapReduce child1;
         IndividualMapReduce child2;
         if (parent1 instanceof BinaryIndividualMapReduce) {
-            child1 = new BinaryIndividualMapReduce(fc, chromosomeLength);
-            child2 = new BinaryIndividualMapReduce(fc, chromosomeLength);
+            child1 = new BinaryIndividualMapReduce(chromosomeLength);
+            child2 = new BinaryIndividualMapReduce(chromosomeLength);
         } else {
-            child1 = new StringIndividualMapReduce(fc, chromosomeLength);
-            child2 = new StringIndividualMapReduce(fc, chromosomeLength);
+            child1 = new StringIndividualMapReduce(chromosomeLength);
+            child2 = new StringIndividualMapReduce(chromosomeLength);
         }
 
         child1.setChromosome(child1Chromosome);
         mutate(child1);
-        child1.calculateFitness();
+        child1.calculateFitness(fc);
 
         child2.setChromosome(child2Chromosome);
         mutate(child2);
-        child2.calculateFitness();
+        child2.calculateFitness(fc);
 
         return fitterFromTwo(child1, child2) ;
     }

@@ -67,7 +67,7 @@ public interface IndividualMapReduce<E> extends Serializable {
      * Calculates fitness of this individual and returns it
      * @return fitness of the individual
      */
-    Integer calculateFitness();
+    Integer calculateFitness(FitnessCalculator fitnessCalculator);
 
     /**
      * Setter for fitness

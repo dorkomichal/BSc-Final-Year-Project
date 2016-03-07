@@ -21,13 +21,11 @@ public class StringIndividualMapReduce implements Serializable, IndividualMapRed
     private double probabilityOfSelection;
     private CrossoverPair crossoverPair;
     private String[] source;
-    private FitnessCalculator fitnessCalculator;
 
-    public StringIndividualMapReduce(FitnessCalculator fc, Integer chromosomeLength) {
+    public StringIndividualMapReduce(Integer chromosomeLength) {
         this.chromosomeLength = chromosomeLength;
         this.chromosome = new String[chromosomeLength];
         this.fitness = 0;
-        this.fitnessCalculator = fc;
     }
 
     public String[] getSource() {
@@ -90,7 +88,7 @@ public class StringIndividualMapReduce implements Serializable, IndividualMapRed
     }
 
     @Override
-    public Integer calculateFitness() {
+    public Integer calculateFitness(FitnessCalculator fitnessCalculator) {
         this.fitness = fitnessCalculator.calculateFitness(chromosome, this);
         return fitness;
     }

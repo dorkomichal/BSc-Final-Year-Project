@@ -26,8 +26,8 @@ public class Mapper implements Serializable {
         return mapper;
     }
 
-    public JavaPairRDD<IndividualMapReduce, Integer> mapCalculateFitness(JavaRDD<IndividualMapReduce> parallelizedPopulation) {
-        JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness = parallelizedPopulation.mapToPair(ind -> new Tuple2<IndividualMapReduce, Integer>(ind, ind.calculateFitness()));
+    public JavaPairRDD<IndividualMapReduce, Integer> mapCalculateFitness(JavaRDD<IndividualMapReduce> parallelizedPopulation, FitnessCalculator fitnessCalculator) {
+        JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness = parallelizedPopulation.mapToPair(ind -> new Tuple2<IndividualMapReduce, Integer>(ind, ind.calculateFitness(fitnessCalculator)));
         int currentMaxFitness = populationWithFitness.values().reduce((a,b) -> Math.max(a,b));
         GlobalFile.submitMaxFitness(currentMaxFitness);
         int maxFitness = GlobalFile.getMaxFitness();
@@ -60,7 +60,11 @@ public class Mapper implements Serializable {
             elitePair.setEliteIndividual(elite);
             eliteList.add(elitePair);
             JavaRDD<CrossoverPair> eliterdd = Driver.getDriver().paralleliseData(eliteList);
-            return selectedIndividuals.union(eliterdd);
+            CrossoverPair replace = selectedIndividuals.first();
+            List<CrossoverPair> replacement = new ArrayList<>();
+            replacement.add(replace);
+            JavaRDD<CrossoverPair> replaceRdd = Driver.getDriver().paralleliseData(replacement);
+            return selectedIndividuals.subtract(replaceRdd).union(eliterdd);
         } else {
             return  selectedIndividuals;
         }

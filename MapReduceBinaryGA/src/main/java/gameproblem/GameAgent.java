@@ -6,6 +6,7 @@ import core.game.StateObservation;
 import core.player.AbstractPlayer;
 import geneticClasses.*;
 import main.GARunner;
+import main.MapReduceBinaryGAMain;
 import mapreduce.Driver;
 import mapreduce.GlobalFile;
 import mapreduce.Mapper;
@@ -73,6 +74,7 @@ public class GameAgent extends AbstractPlayer {
             pointer = 0;
             this.optimisedActions = runGA(stateObs);
         }
+        MapReduceBinaryGAMain.addActionSequence(optimisedActions);
         StateObservation stateCopy = stateObs.copy();
         stateCopy.advance(oneAction);
         if(stateCopy.isGameOver() && stateCopy.getGameWinner() == Types.WINNER.PLAYER_LOSES) {
@@ -87,10 +89,10 @@ public class GameAgent extends AbstractPlayer {
         copy.setVGDLCopies(VGDLFactory.getNewCopy(), VGDLRegistry.getCopy());
         GameFitness gameFitness = new GameFitness(copy);
         String[] source = stringEncodedActions.toArray(new String[stringEncodedActions.size()]);
-        int chromosomeLength = 50;
-        int populationSize = 100;
+        int chromosomeLength = 25;
+        int populationSize = 75;
         int maxFitness = 1000;
-        int maxGeneration = 200;
+        int maxGeneration = 20; //20 generations max when sending to google cloud
         SelectionMethod method = SelectionMethod.tournament;
         boolean multipoint = false;
         int numberOfMultipoints = 2;

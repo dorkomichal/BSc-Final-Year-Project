@@ -129,15 +129,13 @@ public class GARunner {
         JavaRDD<IndividualMapReduce> newGeneration;
         while (true) {
             System.out.println("Generation " + generationCounter);
-            JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness = mapper.mapCalculateFitness(parallelizedPopulation);
+            JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness = mapper.mapCalculateFitness(parallelizedPopulation, fitnessCalculator);
 
             IndividualMapReduce elite = mapper.getElite(populationWithFitness);
             JavaRDD<CrossoverPair> selectedIndividuals = mapper.mapSelection(populationWithFitness, elite, selectionMethod, geneticOperations);
-            System.out.println("Size of selected individuals: " + selectedIndividuals.count());
+            //System.out.println("Size of selected individuals: " + selectedIndividuals.count());
             newGeneration = reducer.reduceCrossover(selectedIndividuals, multipointCrossover, numberOfCrossoverPoints, geneticOperations);
-
-            //GlobalFile.setIndividualMapReduces(newGeneration.collect());
-            //parallelizedPopulation = driver.paralleliseData(GlobalFile.getIndividualMapReduces());
+            
             parallelizedPopulation = newGeneration;
             generationCounter++;
 
