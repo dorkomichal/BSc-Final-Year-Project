@@ -135,10 +135,9 @@ public class GARunner {
             JavaRDD<CrossoverPair> selectedIndividuals = mapper.mapSelection(populationWithFitness, elite, selectionMethod, geneticOperations);
             //System.out.println("Size of selected individuals: " + selectedIndividuals.count());
             newGeneration = reducer.reduceCrossover(selectedIndividuals, multipointCrossover, numberOfCrossoverPoints, geneticOperations);
-            
-            parallelizedPopulation = newGeneration;
-            generationCounter++;
 
+            parallelizedPopulation = newGeneration;
+            
             System.out.println("Fittest Individual " + GlobalFile.getCurrentMaxFitness());
             //Important step for RWS selection is to reset max fitness of current generation
             //and assign new generation of the individuals to the population in order to calculate
@@ -149,6 +148,7 @@ public class GARunner {
                 GlobalFile.setFittestIndividual(fittestInd);
                 break; //if soulution is found or generation has converged to max and didn't change for some generations
             }
+            generationCounter++;
             GlobalFile.resetCurrentMax();
             GlobalFile.resetMaxNotChanged();
         }

@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b212d496-b186-40bb-b151-bcf7918a9e05" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameAgent.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/gameproblem/GameAgent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/BinaryIndividualMapReduce.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/BinaryIndividualMapReduce.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/GeneticOperationsMapReduce.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/GeneticOperationsMapReduce.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/IndividualMapReduce.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/IndividualMapReduce.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/Population.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/Population.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/StringIndividualMapReduce.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/StringIndividualMapReduce.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/GARunner.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/GARunner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/MapReduceBinaryGAMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Driver.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Driver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Mapper.java" afterPath="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Mapper.java" />
     </list>
     <ignored path="mapreducega.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,8 +56,8 @@
       <file leaf-file-name="GARunner.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/GARunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3898305">
-              <caret line="137" column="12" selection-start-line="137" selection-start-column="12" selection-end-line="137" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.44067797">
+              <caret line="139" column="12" selection-start-line="139" selection-start-column="12" selection-end-line="139" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -1683,12 +1673,12 @@
       <workItem from="1457187087715" duration="14727000" />
       <workItem from="1457298474000" duration="2287000" />
       <workItem from="1457352300055" duration="23000" />
-      <workItem from="1457352412909" duration="4834000" />
+      <workItem from="1457352412909" duration="5446000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="310649000" />
+    <option name="totallyTimeSpent" value="311261000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2198,8 +2188,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/main/GARunner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3898305">
-          <caret line="137" column="12" selection-start-line="137" selection-start-column="12" selection-end-line="137" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.44067797">
+          <caret line="139" column="12" selection-start-line="139" selection-start-column="12" selection-end-line="139" selection-end-column="12" />
           <folding />
         </state>
       </provider>
