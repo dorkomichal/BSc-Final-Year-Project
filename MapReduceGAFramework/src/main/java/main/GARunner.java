@@ -137,7 +137,7 @@ public class GARunner {
             newGeneration = reducer.reduceCrossover(selectedIndividuals, multipointCrossover, numberOfCrossoverPoints, geneticOperations);
 
             parallelizedPopulation = newGeneration;
-            
+
             System.out.println("Fittest Individual " + GlobalFile.getCurrentMaxFitness());
             //Important step for RWS selection is to reset max fitness of current generation
             //and assign new generation of the individuals to the population in order to calculate

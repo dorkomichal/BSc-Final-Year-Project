@@ -1,18 +1,9 @@
 package main;
 
 import core.ArcadeMachine;
-import geneticClasses.*;
-import mapreduce.Driver;
-import mapreduce.GlobalFile;
-import mapreduce.Mapper;
-import mapreduce.Reducer;
 import ontology.Types;
-import org.apache.spark.api.java.JavaPairRDD;
-import org.apache.spark.api.java.JavaRDD;
-import sat.Satisfiability;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 

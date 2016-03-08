@@ -31,12 +31,30 @@
         <processorPath useClasspath="true" />
         <module name="gvgai-master" />
       </profile>
+      <profile default="false" name="Annotation profile for examplegvgai" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="examplegvgai" />
+      </profile>
+      <profile default="false" name="Annotation profile for MapReduceGAFramework" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="MapReduceGAFramework" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="binaryga" target="1.8" />
+      <module name="bscproject" target="1.8" />
+      <module name="examplegvgai" target="1.8" />
       <module name="gvgai-master" target="1.8" />
       <module name="mapreducebinaryga" target="1.8" />
       <module name="mapreducega" target="1.8" />
+      <module name="mapreducegaframework" target="1.8" />
+      <module name="MapReduceGAFramework" target="1.8" />
       <module name="Pacman" target="1.8" />
       <module name="pacman" target="1.8" />
       <module name="simplega" target="1.8" />

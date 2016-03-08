@@ -12,9 +12,6 @@ import mapreduce.GlobalFile;
 import mapreduce.Mapper;
 import mapreduce.Reducer;
 import ontology.Types;
-import org.apache.spark.api.java.JavaPairRDD;
-import org.apache.spark.api.java.JavaRDD;
-import scala.Tuple2;
 import tools.ElapsedCpuTimer;
 
 import java.util.ArrayList;
@@ -90,7 +87,7 @@ public class GameAgent extends AbstractPlayer {
         GameFitness gameFitness = new GameFitness(copy);
         String[] source = stringEncodedActions.toArray(new String[stringEncodedActions.size()]);
         int chromosomeLength = 25;
-        int populationSize = 75;
+        int populationSize = 50;
         int maxFitness = 1000;
         int maxGeneration = 20; //20 generations max when sending to google cloud
         SelectionMethod method = SelectionMethod.tournament;
