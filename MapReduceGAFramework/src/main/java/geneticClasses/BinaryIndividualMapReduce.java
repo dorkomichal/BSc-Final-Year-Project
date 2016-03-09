@@ -47,10 +47,7 @@ public class BinaryIndividualMapReduce implements Serializable, IndividualMapRed
 
     @Override
     public void generateRandomIndividual(Object[] source) {
-        for(int i = 0; i < chromosome.length; i++) {
-            byte gene = (byte) (random.nextBoolean() ? 1 : 0);
-            chromosome[i] = gene;
-        }
+        this.generateRandomIndividual();
     }
 
     public void setChromosomeLength(Integer chromosomeLength) {

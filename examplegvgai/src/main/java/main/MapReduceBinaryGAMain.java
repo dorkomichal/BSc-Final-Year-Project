@@ -64,8 +64,9 @@ public class MapReduceBinaryGAMain {
         String gameAgent = "gameproblem.GameAgent";
         actionSequence = new ArrayList<>();
         ArcadeMachine.runOneGame(game, level1, visuals, gameAgent, recordActionsFile, seed);
+        System.out.println("Seed: " + seed);
         for(Types.ACTIONS action : actionSequence) {
-            System.out.println(action + "\n");
+            System.out.println(action);
         }
     }
 

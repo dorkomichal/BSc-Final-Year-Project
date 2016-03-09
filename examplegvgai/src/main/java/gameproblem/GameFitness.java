@@ -33,7 +33,6 @@ public class GameFitness implements FitnessFunction, Cloneable {
     public int calculateFitness(Object[] chromosome, IndividualMapReduce individualMapReduce) {
         List<Types.ACTIONS> decodedActions = actionDecoder((String[])chromosome);
         StateObservation stateCopy = observation.copy();
-        int score = 0;
         for (Types.ACTIONS action: decodedActions) {
             stateCopy.advance(action);
             if(stateCopy.isGameOver()) {
@@ -44,9 +43,8 @@ public class GameFitness implements FitnessFunction, Cloneable {
                     return winner;
                 }
             }
-            score += stateCopy.getGameScore();
         }
-        return score;
+        return (int) stateCopy.getGameScore();
     }
 
     public static List<Types.ACTIONS> actionDecoder(String[] chromosome) {

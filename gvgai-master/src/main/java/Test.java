@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Random;
 
 import core.ArcadeMachine;
@@ -11,7 +15,7 @@ import core.ArcadeMachine;
  */
 public class Test
 {
-/*
+
     public static void main(String[] args)
     {
         //Available controllers:
@@ -22,6 +26,7 @@ public class Test
         String sampleOLMCTSController = "controllers.sampleOLMCTS.Agent";
         String sampleGAController = "controllers.sampleGA.Agent";
         String tester = "controllers.Tester.Agent";
+        String fromFile = "controllers.ReplayFromFile";
 
         //Available Generators
         String randomLevelGenerator = "levelGenerators.randomLevelGenerator.LevelGenerator";
@@ -34,12 +39,12 @@ public class Test
         String generateLevelPath = "examples/generatedLevels/";
 
         //Training Set 1 (2015; CIG 2014)
-        games = new String[]{"aliens", "boulderdash", "butterflies", "chase", "frogs",
-                "missilecommand", "portals", "sokoban", "survivezombies", "zelda"};
+       // games = new String[]{"aliens", "boulderdash", "butterflies", "chase", "frogs",
+       //         "missilecommand", "portals", "sokoban", "survivezombies", "zelda"};
 
         //Training Set 2 (2015; Validation CIG 2014)
-        //games = new String[]{"camelRace", "digdug", "firestorms", "infection", "firecaster",
-        //      "overload", "pacman", "seaquest", "whackamole", "eggomania"};
+        games = new String[]{"camelRace", "digdug", "firestorms", "infection", "firecaster",
+              "overload", "pacman", "seaquest", "whackamole", "eggomania"};
 
         //Training Set 3 (2015)
         //games = new String[]{"bait", "boloadventures", "brainman", "chipschallenge",  "modality",
@@ -60,12 +65,23 @@ public class Test
 
 
         //Other settings
+        String actionFile = "./pacmanactions.txt";
+        int seed = 0;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(actionFile));
+
+            //First line should be the sampleRandom seed.
+            seed = Integer.parseInt(br.readLine());
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         boolean visuals = true;
         String recordActionsFile = null; //where to record the actions executed. null if not to save.
-        int seed = new Random().nextInt();
+
 
         //Game and level to play
-        int gameIdx = 7;
+        int gameIdx = 6;
         int levelIdx = 0; //level names from 0 to 4 (game_lvlN.txt).
         String game = gamesPath + games[gameIdx] + ".txt";
         String level1 = gamesPath + games[gameIdx] + "_lvl" + levelIdx +".txt";
@@ -73,14 +89,14 @@ public class Test
         String recordLevelFile = generateLevelPath +"geneticLevelGenerator/" + games[gameIdx] + "_lvl0.txt";
 
         // 1. This starts a game, in a level, played by a human.
-        ArcadeMachine.playOneGame(game, level1, recordActionsFile, seed);
+        //ArcadeMachine.playOneGame(game, level1, recordActionsFile, seed);
         
         // 2. This plays a game in a level by the controller.
-       // ArcadeMachine.runOneGame(game, level1, visuals, sampleMCTSController, recordActionsFile, seed);
+        ArcadeMachine.runOneGame(game, level1, visuals, fromFile, recordActionsFile, seed);
         //ArcadeMachine.runOneGame(game, level1, visuals, tester, recordActionsFile, seed);
 
         // 3. This replays a game from an action file previously recorded
-        //String readActionsFile = "actionsFile_aliens_lvl0.txt";  //This example is for
+        //String readActionsFile = "./actionsFile_aliens_lvl0.txt";  //This example is for
         //ArcadeMachine.replayGame(game, level1, visuals, readActionsFile);
 
         // 4. This plays a single game, in N levels, M times :
@@ -98,7 +114,7 @@ public class Test
         //}
         
         //6. This plays N games, in the first L levels, M times each. Actions to file optional (set saveActions to true).
-        int N = 10, L = 1, M = 5;
+     /*   int N = 10, L = 1, M = 5;
         boolean saveActions = false;
         String[] levels = new String[L];
         String[] actionFiles = new String[L*M];
@@ -112,6 +128,6 @@ public class Test
                     actionFiles[actionIdx++] = "actions_game_" + i + "_level_" + j + "_" + k + ".txt";
             }
             ArcadeMachine.runGames(game, levels, M, kNearestNeighbour, saveActions? actionFiles:null);
-        }
-    }*/
+        }*/
+    }
 }

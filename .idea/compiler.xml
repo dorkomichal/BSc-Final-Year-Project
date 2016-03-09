@@ -45,11 +45,19 @@
         <processorPath useClasspath="true" />
         <module name="MapReduceGAFramework" />
       </profile>
+      <profile default="false" name="Annotation profile for exampletravellingsalesman" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="exampletravellingsalesman" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="binaryga" target="1.8" />
       <module name="bscproject" target="1.8" />
       <module name="examplegvgai" target="1.8" />
+      <module name="exampletravellingsalesman" target="1.8" />
       <module name="gvgai-master" target="1.8" />
       <module name="mapreducebinaryga" target="1.8" />
       <module name="mapreducega" target="1.8" />

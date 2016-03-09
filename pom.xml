@@ -12,6 +12,7 @@
         <module>MapReduceGAFramework</module>
         <module>gvgai-master</module>
         <module>examplegvgai</module>
+        <module>exampletravellingsalesman</module>
     </modules>
 
     <dependencies>

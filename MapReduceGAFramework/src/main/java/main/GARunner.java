@@ -36,6 +36,8 @@ public class GARunner {
     private int numberOfCrossoverPoints;
     private GeneticOperationsMapReduce geneticOperations;
 
+    private GARunner(){}
+
     private GARunner(FitnessFunction f, String[] source, int chromosomeLength, int popSize, int maxFit, int maxGen,
                      SelectionMethod selMeth, boolean multiCross, int numberCrossPoints) {
         this.fitnessFunction = f;
@@ -49,6 +51,20 @@ public class GARunner {
         this.numberOfCrossoverPoints = numberCrossPoints;
     }
 
+    /**
+     * Method that creates and returns singleton object of GARunner. Mutation rate, crossover rate and
+     * tournament k parameter can be set using respective setter methods on the singleton.
+     * @param f Fitness Function used to evaluate population
+     * @param source set of allowed characters when creating Individual with String chromosome
+     * @param chromosomeLength length of the chromosome of each individual
+     * @param popSize size of the initial population
+     * @param maxFit fitness value that terminates algorithm when any Individual meets this fitness
+     * @param maxGen maximum number of generations/iterations before algorithm terminates
+     * @param selMeth selection method to be used
+     * @param multiCross false if single point crossover true if multipoint crossover method should be used
+     * @param numberCrossPoints if multipoint crossover method is used specifies number of the crossover points
+     * @return singleton GARunner object
+     */
     public static GARunner getGARunner(FitnessFunction f, String[] source, int chromosomeLength, int popSize, int maxFit, int maxGen,
                                        SelectionMethod selMeth, boolean multiCross, int numberCrossPoints) {
         if (garunner != null) {

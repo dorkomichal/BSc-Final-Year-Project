@@ -86,10 +86,10 @@ public class GameAgent extends AbstractPlayer {
         copy.setVGDLCopies(VGDLFactory.getNewCopy(), VGDLRegistry.getCopy());
         GameFitness gameFitness = new GameFitness(copy);
         String[] source = stringEncodedActions.toArray(new String[stringEncodedActions.size()]);
-        int chromosomeLength = 25;
-        int populationSize = 50;
+        int chromosomeLength = 10;
+        int populationSize = 100;
         int maxFitness = 1000;
-        int maxGeneration = 20; //20 generations max when sending to google cloud
+        int maxGeneration = 100;
         SelectionMethod method = SelectionMethod.tournament;
         boolean multipoint = false;
         int numberOfMultipoints = 2;

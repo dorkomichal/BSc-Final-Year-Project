@@ -1,0 +1,4 @@
+with open('myfile','w+') as file:
+    for line in file:
+        if line.strip():
+            file.write(line)

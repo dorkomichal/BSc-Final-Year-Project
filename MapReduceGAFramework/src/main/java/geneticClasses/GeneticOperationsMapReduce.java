@@ -84,17 +84,19 @@ public final class GeneticOperationsMapReduce implements Serializable {
         if (parent1 instanceof BinaryIndividualMapReduce) {
             child1 = new BinaryIndividualMapReduce(chromosomeLength);
             child2 = new BinaryIndividualMapReduce(chromosomeLength);
-        } else {
+        } else if (parent1 instanceof StringIndividualMapReduce) {
             child1 = new StringIndividualMapReduce(chromosomeLength);
             child2 = new StringIndividualMapReduce(chromosomeLength);
+        } else {
+            child1 = new IntPermutationIndividualMapReduce(chromosomeLength);
+            child2 = new IntPermutationIndividualMapReduce(chromosomeLength);
         }
 
         child1.setChromosome(ArrayUtils.addAll(parent1ChromosomePart1, parent2ChromosomePart2));
-        mutate(child1);
-        child1.calculateFitness(fc);
-
         child2.setChromosome(ArrayUtils.addAll(parent2ChromosomePart1, parent1ChromosomePart2));
+        mutate(child1);
         mutate(child2);
+        child1.calculateFitness(fc);
         child2.calculateFitness(fc);
 
         return fitterFromTwo(child1, child2) ;
@@ -141,17 +143,19 @@ public final class GeneticOperationsMapReduce implements Serializable {
         if (parent1 instanceof BinaryIndividualMapReduce) {
             child1 = new BinaryIndividualMapReduce(chromosomeLength);
             child2 = new BinaryIndividualMapReduce(chromosomeLength);
-        } else {
+        } else if (parent1 instanceof StringIndividualMapReduce) {
             child1 = new StringIndividualMapReduce(chromosomeLength);
             child2 = new StringIndividualMapReduce(chromosomeLength);
+        } else {
+            child1 = new IntPermutationIndividualMapReduce(chromosomeLength);
+            child2 = new IntPermutationIndividualMapReduce(chromosomeLength);
         }
 
         child1.setChromosome(child1Chromosome);
-        mutate(child1);
-        child1.calculateFitness(fc);
-
         child2.setChromosome(child2Chromosome);
+        mutate(child1);
         mutate(child2);
+        child1.calculateFitness(fc);
         child2.calculateFitness(fc);
 
         return fitterFromTwo(child1, child2) ;
@@ -174,7 +178,7 @@ public final class GeneticOperationsMapReduce implements Serializable {
                     }
                 }
             }
-        } else {
+        } else if (individual instanceof  StringIndividualMapReduce) {
             StringIndividualMapReduce ind = (StringIndividualMapReduce) individual;
             String[] source = ind.getSource();
             String[] chromosome = (String[]) individual.getChromosome();
@@ -189,6 +193,42 @@ public final class GeneticOperationsMapReduce implements Serializable {
                     }
                 }
             }
+        } else {
+            Integer[] chromosome = (Integer[]) individual.getChromosome();
+            for (int i = 0; i < chromosome.length; i++) {
+                if(Math.random() <= mutationRate) {
+                    /*
+                     * Swap genes within chromosome as we are doing permutations
+                     */
+                    int pos2 = random.nextInt(chromosome.length);
+                    Integer genePos2 = chromosome[pos2];
+                    individual.setGene(pos2, chromosome[i]);
+                    individual.setGene(i, genePos2);
+                }
+            }
+        }
+    }
+
+    private void swapDuplicates(List<Integer> parent1Chromosome, List<Integer> parent2Chromosome) {
+        List<Integer> duplicateIndexParent1 = new ArrayList<>();
+        List<Integer> duplicateIndexParent2 = new ArrayList<>();
+        for(int i = 0; i < parent1Chromosome.size(); i++) {
+            for (int j = i; j < parent1Chromosome.size(); j++) {
+                if (parent1Chromosome.get(i).equals(parent1Chromosome.get(j))) {
+                    duplicateIndexParent1.add(i);
+                }
+                if (parent2Chromosome.get(i).equals(parent2Chromosome.get(j))) {
+                    duplicateIndexParent2.add(i);
+                }
+            }
+        }
+        for (int i = 0; i < duplicateIndexParent1.size(); i++) {
+            int duplicateIndexP1 = duplicateIndexParent1.get(i);
+            int duplicateIndexP2 = duplicateIndexParent2.get(i);
+            Integer swap1 = parent1Chromosome.get(duplicateIndexP1);
+            Integer swap2 = parent2Chromosome.get(duplicateIndexP2);
+            parent1Chromosome.set(duplicateIndexP1, swap2);
+            parent2Chromosome.set(duplicateIndexP2, swap1);
         }
     }
 
