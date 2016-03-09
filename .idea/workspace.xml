@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b212d496-b186-40bb-b151-bcf7918a9e05" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/IntPermutationIndividualMapReduce.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exampletravellingsalesman/exampletravellingsalesman.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exampletravellingsalesman/pom.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exampletravellingsalesman/src/main/assembly/src.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exampletravellingsalesman/src/main/java/main/TravellingSalesmanMain.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exampletravellingsalesman/src/main/java/problemdescription/City.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exampletravellingsalesman/src/main/java/problemdescription/FitnessEval.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/BinaryIndividualMapReduce.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/BinaryIndividualMapReduce.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/GeneticOperationsMapReduce.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/GeneticOperationsMapReduce.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examplegvgai/examplegvgai.iml" afterPath="$PROJECT_DIR$/examplegvgai/examplegvgai.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examplegvgai/src/main/java/gameproblem/GameAgent.java" afterPath="$PROJECT_DIR$/examplegvgai/src/main/java/gameproblem/GameAgent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examplegvgai/src/main/java/gameproblem/GameFitness.java" afterPath="$PROJECT_DIR$/examplegvgai/src/main/java/gameproblem/GameFitness.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examplegvgai/src/main/java/main/MapReduceBinaryGAMain.java" afterPath="$PROJECT_DIR$/examplegvgai/src/main/java/main/MapReduceBinaryGAMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gvgai-master/pom.xml" afterPath="$PROJECT_DIR$/gvgai-master/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gvgai-master/src/main/java/Test.java" afterPath="$PROJECT_DIR$/gvgai-master/src/main/java/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-    </list>
+    <list default="true" id="b212d496-b186-40bb-b151-bcf7918a9e05" name="Default" comment="" />
     <ignored path="mapreducega.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -129,10 +108,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GARunner.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GARunner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.0322034">
+            <state vertical-scroll-proportion="0.0">
               <caret line="55" column="90" selection-start-line="55" selection-start-column="90" selection-end-line="55" selection-end-column="90" />
               <folding>
                 <element signature="e#3208#3209#0" expanded="true" />
@@ -164,6 +143,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.84745765">
+              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="GameFitness.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examplegvgai/src/main/java/gameproblem/GameFitness.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -189,16 +178,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-7.3333335">
               <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArcadeMachine.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gvgai-master/src/main/java/core/ArcadeMachine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="254" column="23" selection-start-line="254" selection-start-column="23" selection-end-line="254" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -2105,12 +2084,12 @@
       <workItem from="1457444964128" duration="702000" />
       <workItem from="1457445699360" duration="467000" />
       <workItem from="1457446187491" duration="5306000" />
-      <workItem from="1457538147619" duration="15481000" />
+      <workItem from="1457538147619" duration="15889000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="339648000" />
+    <option name="totallyTimeSpent" value="340056000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2210,13 +2189,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gvgai-master/src/main/java/core/game/BasicGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="114" column="47" selection-start-line="114" selection-start-column="47" selection-end-line="114" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gvgai-master/src/main/java/core/game/StateObservation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2684,7 +2656,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0322034">
+        <state vertical-scroll-proportion="0.0">
           <caret line="55" column="90" selection-start-line="55" selection-start-column="90" selection-end-line="55" selection-end-column="90" />
           <folding>
             <element signature="e#3208#3209#0" expanded="true" />
@@ -2712,6 +2684,14 @@
             <element signature="e#4685#4686#0" expanded="true" />
             <element signature="e#4739#4740#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84745765">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

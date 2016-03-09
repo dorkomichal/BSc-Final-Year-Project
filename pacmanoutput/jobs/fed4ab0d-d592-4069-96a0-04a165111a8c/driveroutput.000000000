@@ -1,1004 +1,0 @@
- ** Playing game examples/gridphysics/pacman.txt, level examples/gridphysics/pacman_lvl0.txt **
-Controller initialization time: 1 ms.
-16/03/08 22:53:36 INFO akka.event.slf4j.Slf4jLogger: Slf4jLogger started
-16/03/08 22:53:36 INFO Remoting: Starting remoting
-16/03/08 22:53:36 INFO Remoting: Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@10.132.0.3:50812]
-16/03/08 22:53:37 INFO org.spark-project.jetty.server.Server: jetty-8.y.z-SNAPSHOT
-16/03/08 22:53:37 INFO org.spark-project.jetty.server.AbstractConnector: Started SelectChannelConnector@0.0.0.0:4040
-16/03/08 22:53:37 INFO org.spark-project.jetty.server.Server: jetty-8.y.z-SNAPSHOT
-16/03/08 22:53:37 INFO org.spark-project.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:54298
-16/03/08 22:53:38 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at cluster-1-bscfinayearproject-m/10.132.0.3:8032
-16/03/08 22:53:42 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1457023400765_0044
-Generation 1
-[Stage 0:>                                                          (0 + 0) / 2][Stage 0:>                                                          (0 + 1) / 2][Stage 0:>                                                          (0 + 2) / 2]                                                                                Tournament
-Fittest Individual 37
-Generation 2
-Tournament
-[Stage 24:===========================================>              (3 + 1) / 4]                                                                                [Stage 30:>                                                         (0 + 2) / 4][Stage 32:>                                                         (0 + 0) / 6]                                                                                Fittest Individual 40
-Generation 3
-[Stage 37:================================================>         (5 + 1) / 6]                                                                                Tournament
-Fittest Individual 46
-Generation 4
-Tournament
-Fittest Individual 55
-Generation 5
-Tournament
-Fittest Individual 55
-Generation 6
-Tournament
-Fittest Individual 55
-Generation 7
-Tournament
-Fittest Individual 55
-Generation 8
-Tournament
-Fittest Individual 55
-Generation 9
-Tournament
-Fittest Individual 55
-Generation 10
-Tournament
-Fittest Individual 55
-Generation 11
-Tournament
-Fittest Individual 55
-Generation 12
-Tournament
-Fittest Individual 55
-Generation 13
-Tournament
-Fittest Individual 55
-Generation 14
-Tournament
-[Stage 1579:===================================================>  (25 + 1) / 26]                                                                                Fittest Individual 55
-Generation 15
-Tournament
-Fittest Individual 55
-Generation 16
-Tournament
-[Stage 2162:=========>    (20 + 2) / 30][Stage 2163:>               (0 + 0) / 2]                                                                                Fittest Individual 55
-Generation 17
-Tournament
-[Stage 2443:===========>  (27 + 2) / 32][Stage 2444:>               (0 + 0) / 2]                                                                                Fittest Individual 55
-Generation 18
-Tournament
-[Stage 2676:======================================>               (24 + 2) / 34]                                                                                [Stage 2742:===========>  (28 + 2) / 34][Stage 2743:>               (0 + 0) / 2]                                                                                Fittest Individual 55
-Generation 19
-Tournament
-[Stage 3059:=============>(34 + 2) / 36][Stage 3060:>               (0 + 0) / 2]                                                                                Fittest Individual 55
-Generation 20
-[Stage 3098:==============================================>       (33 + 2) / 38]                                                                                Tournament
-[Stage 3320:====================================================> (37 + 1) / 38]                                                                                [Stage 3394:===========>  (30 + 2) / 38][Stage 3395:>               (0 + 0) / 2]                                                                                Fittest Individual 55
-Generation 21
-Tournament
-[Stage 3747:=========>    (27 + 2) / 40][Stage 3748:>               (0 + 0) / 2]                                                                                Fittest Individual 55
-Generation 22
-[Stage 3790:====================================================> (41 + 1) / 42]                                                                                Tournament
-[Stage 4200:==========>   (30 + 2) / 42][Stage 4201:>               (0 + 0) / 2]                                                                                Fittest Individual 55
-Generation 23
-[Stage 4245:=============================================>        (37 + 2) / 44]                                                                                Tournament
-[Stage 4503:=================================================>    (40 + 2) / 44]                                                                                [Stage 4589:============> (38 + 2) / 44][Stage 4590:>               (0 + 0) / 2]                                                                                Fittest Individual 55
-Generation 24
-[Stage 4636:==============================================>       (40 + 2) / 46]                                                                                Tournament
-[Stage 4906:=====================================>                (32 + 2) / 46]                                                                                [Stage 4996:=======>      (26 + 2) / 46][Stage 4997:>               (0 + 0) / 2][Stage 4996:===========>  (37 + 2) / 46][Stage 4997:>               (0 + 0) / 2]                                                                                Fittest Individual 55
-Generation 25
-[Stage 5045:==========================================>           (38 + 2) / 48]                                                                                Tournament
-[Stage 5374:===============================================>      (42 + 3) / 48]                                                                                [Stage 5515:===========>  (39 + 2) / 48][Stage 5516:>               (0 + 0) / 2][Stage 5516:============================>                           (1 + 1) / 2]                                                                                Fittest Individual 55
-Generation 26
-[Stage 5566:=============================================>        (42 + 2) / 50]                                                                                Tournament
-[Stage 5860:=============================================>        (42 + 2) / 50]                                                                                [Stage 5958:========>     (31 + 2) / 50][Stage 5959:>               (0 + 0) / 2][Stage 5958:===========>  (41 + 2) / 50][Stage 5959:>               (0 + 0) / 2][Stage 5958:=============>(49 + 1) / 50][Stage 5959:>               (0 + 0) / 2]                                                                                Fittest Individual 55
-Generation 27
-[Stage 6011:================================>                     (31 + 2) / 52][Stage 6011:=========================================>            (40 + 2) / 52]                                                                                Tournament
-[Stage 6317:==========================================>           (41 + 2) / 52]                                                                                [Stage 6419:=========>    (35 + 2) / 52][Stage 6420:>               (0 + 0) / 2][Stage 6419:============> (47 + 2) / 52][Stage 6420:>               (0 + 0) / 2]                                                                                Fittest Individual 55
-Generation 28
-[Stage 6474:===========================================>          (43 + 2) / 54]                                                                                Tournament
-[Stage 6792:==========================================>           (42 + 2) / 54]                                                                                [Stage 6898:===============================>                      (31 + 2) / 54][Stage 6898:==========>   (42 + 2) / 54][Stage 6899:>               (0 + 0) / 2][Stage 6898:=============>(53 + 1) / 54][Stage 6899:>               (0 + 1) / 2]                                                                                Fittest Individual 55
-Generation 29
-[Stage 6955:=================================>                    (35 + 2) / 56][Stage 6955:===============================================>      (49 + 2) / 56]                                                                                Tournament
-[Stage 7285:=========================================>            (43 + 2) / 56]                                                                                [Stage 7395:=======>      (31 + 2) / 56][Stage 7396:>               (0 + 0) / 2][Stage 7395:==========>   (43 + 2) / 56][Stage 7396:>               (0 + 0) / 2][Stage 7396:========================================================(2 + 0) / 2]                                                                                Fittest Individual 55
-Generation 30
-[Stage 7454:=================================>                    (36 + 2) / 58][Stage 7454:=====================================================>(57 + 1) / 58]                                                                                Tournament
-[Stage 7796:==============================================>       (50 + 2) / 58]                                                                                [Stage 7910:========>     (34 + 2) / 58][Stage 7911:>               (0 + 0) / 2][Stage 7910:============> (50 + 2) / 58][Stage 7911:>               (0 + 0) / 2]                                                                                Fittest Individual 55
-[Stage 7971:===========================================>          (48 + 2) / 60]                                                                                [Stage 8030:=======================================>              (44 + 2) / 60]                                                                                rrrrrdddll
-Generation 1
-Tournament
-Fittest Individual 46
-Generation 2
-Tournament
-Fittest Individual 46
-Generation 3
-Tournament
-Fittest Individual 46
-Generation 4
-Tournament
-Fittest Individual 49
-Generation 5
-Tournament
-Fittest Individual 54
-Generation 6
-Tournament
-Fittest Individual 54
-Generation 7
-Tournament
-Fittest Individual 54
-Generation 8
-Tournament
-Fittest Individual 54
-Generation 9
-Tournament
-Fittest Individual 54
-Generation 10
-Tournament
-Fittest Individual 54
-Generation 11
-Tournament
-Fittest Individual 54
-Generation 12
-Tournament
-Fittest Individual 54
-Generation 13
-Tournament
-Fittest Individual 54
-Generation 14
-Tournament
-Fittest Individual 54
-Generation 15
-Tournament
-Fittest Individual 54
-Generation 16
-Tournament
-Fittest Individual 54
-Generation 17
-Tournament
-[Stage 10753:===========> (31 + 2) / 34][Stage 10754:>              (0 + 0) / 2]                                                                                Fittest Individual 54
-Generation 18
-Tournament
-[Stage 11070:==========>  (30 + 2) / 36][Stage 11071:>              (0 + 0) / 2]                                                                                Fittest Individual 54
-Generation 19
-Tournament
-[Stage 11331:===========================================>         (31 + 2) / 38]                                                                                Fittest Individual 54
-Generation 20
-[Stage 11446:=============================================>       (34 + 2) / 40]                                                                                Tournament
-[Stage 11719:===========================================>         (33 + 2) / 40]                                                                                [Stage 11836:==========>  (32 + 2) / 40][Stage 11837:>              (0 + 0) / 2]                                                                                Fittest Individual 54
-Generation 21
-[Stage 11879:===============================================>     (38 + 2) / 42]                                                                                Tournament
-[Stage 12289:========>    (28 + 2) / 42][Stage 12290:>              (0 + 0) / 2][Stage 12289:============>(39 + 2) / 42][Stage 12290:>              (0 + 0) / 2]                                                                                Fittest Individual 54
-Generation 22
-[Stage 12334:========================================>            (34 + 2) / 44]                                                                                Tournament
-[Stage 12678:==========>  (36 + 2) / 44][Stage 12679:>              (0 + 0) / 2]                                                                                Fittest Individual 54
-Generation 23
-Tournament
-[Stage 13085:=========>   (35 + 2) / 46][Stage 13086:>              (0 + 0) / 2]                                                                                Fittest Individual 54
-Generation 24
-[Stage 13134:==============================================>      (42 + 2) / 48]                                                                                Tournament
-[Stage 13463:===============================================>     (43 + 2) / 48]                                                                                [Stage 13557:===========> (42 + 2) / 48][Stage 13558:>              (0 + 0) / 2]                                                                                Fittest Individual 54
-Generation 25
-[Stage 13608:=============================================>       (43 + 2) / 50]                                                                                Tournament
-[Stage 13951:===========================================>         (41 + 2) / 50]                                                                                [Stage 14098:=========>   (37 + 2) / 50][Stage 14099:>              (0 + 0) / 2]                                                                                Fittest Individual 54
-Generation 26
-[Stage 14151:=============================================>       (45 + 2) / 52]                                                                                Tournament
-[Stage 14508:==============================================>      (46 + 2) / 52]                                                                                [Stage 14661:=========>   (37 + 2) / 52][Stage 14662:>              (0 + 0) / 2][Stage 14661:============>(49 + 2) / 52][Stage 14662:>              (0 + 0) / 2]                                                                                Fittest Individual 54
-Generation 27
-[Stage 14716:============================================>        (45 + 2) / 54]                                                                                Tournament
-[Stage 15087:============================================>        (45 + 2) / 54]                                                                                [Stage 15246:===========> (48 + 2) / 54][Stage 15247:>              (0 + 0) / 2]                                                                                Fittest Individual 54
-Generation 28
-[Stage 15303:=============================================>       (48 + 2) / 56]                                                                                Tournament
-[Stage 15633:========================================>            (43 + 2) / 56]                                                                                [Stage 15743:========>    (38 + 2) / 56][Stage 15744:>              (0 + 0) / 2][Stage 15743:===========> (51 + 2) / 56][Stage 15744:>              (0 + 0) / 2]                                                                                Fittest Individual 54
-Generation 29
-[Stage 15802:=========================================>           (45 + 2) / 58]                                                                                Tournament
-[Stage 16144:=====================================>               (41 + 2) / 58]                                                                                [Stage 16258:======>      (31 + 2) / 58][Stage 16259:>              (0 + 0) / 2][Stage 16258:==========>  (45 + 2) / 58][Stage 16259:>              (0 + 0) / 2]                                                                                Fittest Individual 54
-Generation 30
-[Stage 16319:=============================================>       (52 + 2) / 60]                                                                                Tournament
-[Stage 16673:======================================>              (44 + 2) / 60]                                                                                [Stage 16791:=======>     (33 + 2) / 60][Stage 16792:>              (0 + 0) / 2][Stage 16791:=========>   (46 + 2) / 60][Stage 16792:>              (0 + 0) / 2][Stage 16791:============>(59 + 1) / 60][Stage 16792:=======>       (1 + 1) / 2]                                                                                Fittest Individual 54
-[Stage 16854:==========================================>          (50 + 2) / 62]                                                                                [Stage 16915:================================================>    (57 + 2) / 62]                                                                                lllldddrrl
-Generation 1
-Tournament
-Fittest Individual 47
-Generation 2
-Tournament
-Fittest Individual 49
-Generation 3
-Tournament
-Fittest Individual 49
-Generation 4
-Tournament
-Fittest Individual 49
-Generation 5
-Tournament
-Fittest Individual 49
-Generation 6
-Tournament
-Fittest Individual 49
-Generation 7
-Tournament
-Fittest Individual 50
-Generation 8
-Tournament
-Fittest Individual 50
-Generation 9
-Tournament
-Fittest Individual 50
-Generation 10
-Tournament
-Fittest Individual 50
-Generation 11
-Tournament
-Fittest Individual 50
-Generation 12
-Tournament
-Fittest Individual 50
-Generation 13
-Tournament
-Fittest Individual 50
-Generation 14
-Tournament
-Fittest Individual 50
-Generation 15
-Tournament
-Fittest Individual 50
-Generation 16
-Tournament
-Fittest Individual 50
-Generation 17
-Tournament
-Fittest Individual 50
-Generation 18
-Tournament
-Fittest Individual 50
-Generation 19
-Tournament
-Fittest Individual 50
-Generation 20
-Tournament
-[Stage 20064:===========================>                           (1 + 1) / 2]                                                                                Fittest Individual 50
-Generation 21
-Tournament
-[Stage 20473:===========================>                           (1 + 1) / 2]                                                                                Fittest Individual 50
-Generation 22
-Tournament
-[Stage 20747:======================================>              (29 + 2) / 40]                                                                                [Stage 20825:============>(37 + 2) / 40][Stage 20826:>              (0 + 0) / 2]                                                                                Fittest Individual 50
-Generation 23
-[Stage 20868:===============================================>     (38 + 2) / 42]                                                                                Tournament
-[Stage 21278:==========>  (34 + 2) / 42][Stage 21279:>              (0 + 0) / 2]                                                                                Fittest Individual 50
-Generation 24
-Tournament
-[Stage 21667:==========>  (34 + 2) / 44][Stage 21668:>              (0 + 0) / 2]                                                                                Fittest Individual 50
-Generation 25
-[Stage 21714:=========================================>           (36 + 2) / 46]                                                                                Tournament
-[Stage 22029:============================================>        (39 + 2) / 46]                                                                                [Stage 22164:==========>  (37 + 2) / 46][Stage 22165:>              (0 + 0) / 2]                                                                                Fittest Individual 50
-Generation 26
-[Stage 22213:==============================================>      (42 + 2) / 48]                                                                                Tournament
-[Stage 22495:===================================================> (47 + 1) / 48]                                                                                Fittest Individual 50
-Generation 27
-[Stage 22640:=========================================>           (39 + 2) / 50]                                                                                Tournament
-[Stage 22934:=============================================>       (43 + 2) / 50]                                                                                [Stage 23032:=========>   (37 + 2) / 50][Stage 23033:>              (0 + 0) / 2]                                                                                Fittest Individual 50
-Generation 28
-[Stage 23085:===========================================>         (43 + 2) / 52]                                                                                Tournament
-[Stage 23493:=========>   (37 + 2) / 52][Stage 23494:>              (0 + 0) / 2][Stage 23493:============>(51 + 1) / 52][Stage 23494:>              (0 + 1) / 2]                                                                                Fittest Individual 50
-Generation 29
-Tournament
-[Stage 23919:=====================================>               (38 + 2) / 54]                                                                                [Stage 24078:========>    (34 + 2) / 54][Stage 24079:>              (0 + 0) / 2][Stage 24078:===========> (46 + 2) / 54][Stage 24079:>              (0 + 0) / 2]                                                                                Fittest Individual 50
-Generation 30
-[Stage 24135:=======================================>             (42 + 2) / 56][Stage 24135:==================================================>  (53 + 2) / 56]                                                                                Tournament
-[Stage 24520:=============================================>       (48 + 2) / 56]                                                                                [Stage 24685:=======>     (33 + 2) / 56][Stage 24686:>              (0 + 0) / 2][Stage 24685:==========>  (46 + 2) / 56][Stage 24686:>              (0 + 0) / 2]                                                                                Fittest Individual 50
-[Stage 24744:==================================================>  (55 + 2) / 58]                                                                                [Stage 24801:===========================================>         (48 + 2) / 58]                                                                                lllllulluu
-Generation 1
-Tournament
-Fittest Individual 39
-Generation 2
-Tournament
-Fittest Individual 39
-Generation 3
-Tournament
-Fittest Individual 42
-Generation 4
-Tournament
-Fittest Individual 45
-Generation 5
-Tournament
-Fittest Individual 46
-Generation 6
-[Stage 25036:==================>                                    (2 + 2) / 6]                                                                                Tournament
-Fittest Individual 45
-Generation 7
-[Stage 25081:====================================>                  (4 + 2) / 6]                                                                                Tournament
-[Stage 25111:====================================>                  (4 + 2) / 6]                                                                                [Stage 25121:=============================================>         (5 + 1) / 6]                                                                                Fittest Individual 45
-Generation 8
-Tournament
-Fittest Individual 45
-Generation 9
-Tournament
-Fittest Individual 45
-Generation 10
-Tournament
-Fittest Individual 45
-Generation 11
-Tournament
-Fittest Individual 45
-Generation 12
-Tournament
-Fittest Individual 45
-Generation 13
-Tournament
-Fittest Individual 45
-Generation 14
-Tournament
-Fittest Individual 45
-Generation 15
-Tournament
-Fittest Individual 45
-Generation 16
-Tournament
-Fittest Individual 45
-Generation 17
-Tournament
-Fittest Individual 45
-Generation 18
-Tournament
-Fittest Individual 45
-Generation 19
-Tournament
-Fittest Individual 45
-Generation 20
-Tournament
-Fittest Individual 45
-Generation 21
-Tournament
-Fittest Individual 45
-Generation 22
-Tournament
-Fittest Individual 45
-Generation 23
-Tournament
-Fittest Individual 45
-Generation 24
-Tournament
-[Stage 28635:===========> (35 + 2) / 40][Stage 28636:>              (0 + 0) / 2]                                                                                Fittest Individual 45
-Generation 25
-Tournament
-[Stage 29006:===========> (36 + 2) / 42][Stage 29007:>              (0 + 0) / 2]                                                                                Fittest Individual 45
-Generation 26
-Tournament
-[Stage 29396:>                                                      (0 + 2) / 2]                                                                                Fittest Individual 45
-Generation 27
-Tournament
-[Stage 29802:==========>  (37 + 2) / 46][Stage 29803:>              (0 + 0) / 2]                                                                                Fittest Individual 45
-Generation 28
-Tournament
-[Stage 30227:============>(46 + 2) / 48][Stage 30228:>              (0 + 0) / 2]                                                                                Fittest Individual 45
-Generation 29
-[Stage 30278:============================================>        (42 + 2) / 50]                                                                                Tournament
-[Stage 30670:==========>  (42 + 2) / 50][Stage 30671:>              (0 + 0) / 2]                                                                                Fittest Individual 45
-Generation 30
-[Stage 30723:================================================>    (48 + 2) / 52]                                                                                Tournament
-[Stage 31029:===========================================>         (43 + 2) / 52]                                                                                [Stage 31131:=========>   (39 + 2) / 52][Stage 31132:>              (0 + 0) / 2]                                                                                Fittest Individual 45
-[Stage 31186:================================================>    (49 + 2) / 54]                                                                                [Stage 31239:============================================>        (45 + 2) / 54]                                                                                rrrurrdldd
-Generation 1
-Tournament
-Fittest Individual 33
-Generation 2
-Tournament
-Fittest Individual 43
-Generation 3
-Tournament
-Fittest Individual 42
-Generation 4
-Tournament
-Fittest Individual 42
-Generation 5
-[Stage 31375:====================================>                  (2 + 1) / 3]                                                                                Tournament
-[Stage 31381:=========================================>             (3 + 1) / 4]                                                                                Fittest Individual 42
-Generation 6
-Tournament
-Fittest Individual 49
-Generation 7
-Tournament
-Fittest Individual 49
-Generation 8
-Tournament
-Fittest Individual 49
-Generation 9
-Tournament
-Fittest Individual 51
-Generation 10
-Tournament
-Fittest Individual 54
-Generation 11
-Tournament
-Fittest Individual 55
-Generation 12
-[Stage 31895:====================================>                 (8 + 2) / 12]                                                                                Tournament
-[Stage 31972:=========>    (8 + 2) / 12][Stage 31973:>              (0 + 0) / 2]                                                                                Fittest Individual 55
-Generation 13
-Tournament
-Fittest Individual 55
-Generation 14
-Tournament
-Fittest Individual 55
-Generation 15
-Tournament
-Fittest Individual 55
-Generation 16
-Tournament
-Fittest Individual 55
-Generation 17
-Tournament
-Fittest Individual 55
-Generation 18
-Tournament
-Fittest Individual 55
-Generation 19
-Tournament
-Fittest Individual 55
-Generation 20
-Tournament
-Fittest Individual 55
-Generation 21
-Tournament
-Fittest Individual 55
-Generation 22
-Tournament
-Fittest Individual 55
-Generation 23
-Tournament
-Fittest Individual 55
-Generation 24
-Tournament
-Fittest Individual 55
-Generation 25
-[Stage 34624:=======================================>             (28 + 2) / 38]                                                                                Tournament
-Fittest Individual 55
-Generation 26
-[Stage 34961:==================================================>  (38 + 2) / 40]                                                                                Tournament
-[Stage 35273:=======>     (24 + 2) / 40][Stage 35274:>              (0 + 0) / 2][Stage 35273:===========> (36 + 2) / 40][Stage 35274:>              (0 + 0) / 2]                                                                                Fittest Individual 55
-Generation 27
-Tournament
-[Stage 35603:==============================================>      (37 + 2) / 42]                                                                                [Stage 35726:=========>   (32 + 2) / 42][Stage 35727:>              (0 + 0) / 2]                                                                                Fittest Individual 55
-Generation 28
-Tournament
-[Stage 36029:===================================================> (43 + 1) / 44]                                                                                [Stage 36115:=======>     (27 + 2) / 44][Stage 36116:>              (0 + 0) / 2][Stage 36115:===========> (40 + 2) / 44][Stage 36116:>              (0 + 0) / 2]                                                                                Fittest Individual 55
-Generation 29
-Tournament
-[Stage 36522:=========>   (32 + 2) / 46][Stage 36523:>              (0 + 0) / 2][Stage 36522:============>(44 + 2) / 46][Stage 36523:>              (0 + 0) / 2]                                                                                Fittest Individual 55
-Generation 30
-[Stage 36571:====================================>                (33 + 2) / 48]                                                                                Tournament
-[Stage 37041:===========> (41 + 2) / 48][Stage 37042:>              (0 + 0) / 2]                                                                                Fittest Individual 55
-luuullllll
-Generation 1
-Tournament
-Fittest Individual 43
-Generation 2
-Tournament
-Fittest Individual 46
-Generation 3
-Tournament
-Fittest Individual 43
-Generation 4
-Tournament
-Fittest Individual 43
-Generation 5
-Tournament
-Fittest Individual 48
-Generation 6
-Tournament
-Fittest Individual 49
-Generation 7
-Tournament
-Fittest Individual 50
-Generation 8
-Tournament
-Fittest Individual 50
-Generation 9
-Tournament
-Fittest Individual 50
-Generation 10
-Tournament
-Fittest Individual 50
-Generation 11
-Tournament
-Fittest Individual 50
-Generation 12
-Tournament
-Fittest Individual 50
-Generation 13
-Tournament
-Fittest Individual 50
-Generation 14
-Tournament
-Fittest Individual 50
-Generation 15
-Tournament
-Fittest Individual 50
-Generation 16
-Tournament
-Fittest Individual 50
-Generation 17
-Tournament
-Fittest Individual 50
-Generation 18
-Tournament
-Fittest Individual 50
-Generation 19
-Tournament
-Fittest Individual 50
-Generation 20
-Tournament
-Fittest Individual 50
-Generation 21
-Tournament
-[Stage 41052:============>(38 + 2) / 40][Stage 41053:>              (0 + 0) / 2]                                                                                Fittest Individual 50
-Generation 22
-Tournament
-[Stage 41382:===================================================> (41 + 1) / 42]                                                                                Fittest Individual 50
-Generation 23
-Tournament
-Fittest Individual 50
-Generation 24
-Tournament
-[Stage 42387:===========> (42 + 2) / 46][Stage 42388:>              (0 + 0) / 2]                                                                                Fittest Individual 50
-Generation 25
-[Stage 42436:============================================>        (40 + 2) / 48]                                                                                Tournament
-[Stage 42812:=========>   (36 + 2) / 48][Stage 42813:>              (0 + 0) / 2]                                                                                Fittest Individual 50
-Generation 26
-[Stage 42863:==============================================>      (44 + 2) / 50]                                                                                Tournament
-[Stage 43255:=========>   (36 + 2) / 50][Stage 43256:>              (0 + 0) / 2][Stage 43257:>                                                     (0 + 0) / 52]                                                                                Fittest Individual 50
-Generation 27
-[Stage 43308:==================================================>  (50 + 2) / 52]                                                                                Tournament
-[Stage 43614:=============================================>       (45 + 2) / 52]                                                                                [Stage 43716:===========> (44 + 2) / 52][Stage 43717:>              (0 + 0) / 2]                                                                                Fittest Individual 50
-Generation 28
-[Stage 43771:============================================>        (45 + 2) / 54]                                                                                Tournament
-[Stage 44089:=========================================>           (42 + 2) / 54]                                                                                [Stage 44195:=======>     (30 + 2) / 54][Stage 44196:>              (0 + 0) / 2][Stage 44195:==========>  (45 + 2) / 54][Stage 44196:>              (0 + 0) / 2]                                                                                Fittest Individual 50
-Generation 29
-[Stage 44252:===================================>                 (38 + 2) / 56][Stage 44252:===================================================> (54 + 2) / 56]                                                                                Tournament
-[Stage 44637:====================================>                (39 + 2) / 56]                                                                                [Stage 44802:==========>  (44 + 2) / 56][Stage 44803:>              (0 + 0) / 2]                                                                                Fittest Individual 50
-Generation 30
-[Stage 44861:========================================>            (44 + 2) / 58]                                                                                Tournament
-[Stage 45260:===========================================>         (48 + 2) / 58]                                                                                [Stage 45431:========>    (37 + 2) / 58][Stage 45432:>              (0 + 0) / 2][Stage 45431:==========>  (46 + 2) / 58][Stage 45432:>              (0 + 0) / 2]                                                                                Fittest Individual 50
-[Stage 45492:=================================================>   (56 + 2) / 60]                                                                                [Stage 45551:========================================>            (46 + 2) / 60]                                                                                lllllldlur
-Generation 1
-Tournament
-Fittest Individual 36
-Generation 2
-Tournament
-Fittest Individual 39
-Generation 3
-Tournament
-Fittest Individual 37
-Generation 4
-Tournament
-Fittest Individual 48
-Generation 5
-Tournament
-Fittest Individual 48
-Generation 6
-Tournament
-Fittest Individual 48
-Generation 7
-Tournament
-Fittest Individual 48
-Generation 8
-Tournament
-Fittest Individual 48
-Generation 9
-Tournament
-Fittest Individual 48
-Generation 10
-Tournament
-Fittest Individual 48
-Generation 11
-Tournament
-Fittest Individual 48
-Generation 12
-Tournament
-Fittest Individual 48
-Generation 13
-Tournament
-Fittest Individual 48
-Generation 14
-Tournament
-Fittest Individual 48
-Generation 15
-Tournament
-Fittest Individual 48
-Generation 16
-Tournament
-Fittest Individual 48
-Generation 17
-Tournament
-[Stage 47849:===========> (28 + 2) / 32][Stage 47850:>              (0 + 0) / 2]                                                                                Fittest Individual 48
-Generation 18
-Tournament
-Fittest Individual 48
-Generation 19
-Tournament
-[Stage 48465:===========> (33 + 2) / 36][Stage 48466:>              (0 + 0) / 2]                                                                                Fittest Individual 48
-Generation 20
-[Stage 48504:==============================================>      (33 + 2) / 38]                                                                                Tournament
-Fittest Individual 48
-Generation 21
-Tournament
-Fittest Individual 48
-Generation 22
-Tournament
-[Stage 49606:===========> (36 + 2) / 42][Stage 49607:>              (0 + 0) / 2]                                                                                Fittest Individual 48
-Generation 23
-Tournament
-[Stage 49952:==================================================>  (42 + 2) / 44]                                                                                [Stage 50081:==========>  (37 + 2) / 44][Stage 50082:>              (0 + 0) / 2]                                                                                Fittest Individual 48
-Generation 24
-Tournament
-[Stage 50398:=================================================>   (43 + 2) / 46]                                                                                [Stage 50488:=========>   (33 + 2) / 46][Stage 50489:>              (0 + 0) / 2][Stage 50488:===========> (42 + 2) / 46][Stage 50489:>              (0 + 0) / 2]                                                                                Fittest Individual 48
-Generation 25
-[Stage 50537:=======================================>             (36 + 2) / 48]                                                                                Tournament
-[Stage 50819:===================================================> (47 + 1) / 48]                                                                                [Stage 50913:========>    (32 + 2) / 48][Stage 50914:>              (0 + 0) / 2][Stage 50913:============>(47 + 1) / 48][Stage 50914:>              (0 + 1) / 2]                                                                                Fittest Individual 48
-Generation 26
-[Stage 50964:=======================================>             (37 + 2) / 50]                                                                                Tournament
-[Stage 51454:=========>   (36 + 2) / 50][Stage 51455:>              (0 + 0) / 2][Stage 51455:>                                                      (0 + 2) / 2]                                                                                Fittest Individual 48
-Generation 27
-Tournament
-[Stage 51864:=====================================>               (37 + 2) / 52]                                                                                [Stage 52017:==========>  (43 + 2) / 52][Stage 52018:>              (0 + 0) / 2]                                                                                Fittest Individual 48
-Generation 28
-[Stage 52072:============================================>        (45 + 2) / 54]                                                                                Tournament
-[Stage 52443:==============================================>      (47 + 2) / 54]                                                                                [Stage 52602:=========>   (40 + 2) / 54][Stage 52603:>              (0 + 0) / 2][Stage 52602:===========> (49 + 2) / 54][Stage 52603:>              (0 + 0) / 2]                                                                                Fittest Individual 48
-Generation 29
-[Stage 52659:================================================>    (51 + 2) / 56]                                                                                Tournament
-[Stage 53044:====================================>                (39 + 2) / 56][Stage 53044:==================================================>  (53 + 2) / 56]                                                                                [Stage 53209:=========>   (42 + 2) / 56][Stage 53210:>              (0 + 0) / 2][Stage 53209:============>(52 + 2) / 56][Stage 53210:>              (0 + 0) / 2]                                                                                Fittest Individual 48
-Generation 30
-[Stage 53268:=========================================>           (45 + 2) / 58]                                                                                Tournament
-[Stage 53610:=======================================>             (43 + 2) / 58]                                                                                [Stage 53724:=======>     (34 + 2) / 58][Stage 53725:>              (0 + 0) / 2][Stage 53724:==========>  (46 + 2) / 58][Stage 53725:>              (0 + 0) / 2]                                                                                Fittest Individual 48
-[Stage 53844:=============================================>       (51 + 2) / 60]                                                                                llldlllldd
-Generation 1
-Tournament
-Fittest Individual 37
-Generation 2
-Tournament
-Fittest Individual 37
-Generation 3
-Tournament
-Fittest Individual 40
-Generation 4
-Tournament
-Fittest Individual 42
-Generation 5
-Tournament
-Fittest Individual 45
-Generation 6
-Tournament
-Fittest Individual 40
-Generation 7
-Tournament
-Fittest Individual 41
-Generation 8
-Tournament
-Fittest Individual 47
-Generation 9
-Tournament
-Fittest Individual 47
-Generation 10
-Tournament
-Fittest Individual 47
-Generation 11
-Tournament
-Fittest Individual 47
-Generation 12
-Tournament
-Fittest Individual 47
-Generation 13
-Tournament
-Fittest Individual 47
-Generation 14
-Tournament
-Fittest Individual 47
-Generation 15
-Tournament
-Fittest Individual 47
-Generation 16
-Tournament
-Fittest Individual 47
-Generation 17
-Tournament
-Fittest Individual 47
-Generation 18
-Tournament
-Fittest Individual 47
-Generation 19
-Tournament
-Fittest Individual 47
-Generation 20
-Tournament
-Fittest Individual 47
-Generation 21
-Tournament
-Fittest Individual 47
-Generation 22
-Tournament
-Fittest Individual 47
-Generation 23
-Tournament
-[Stage 58014:============>(41 + 1) / 42][Stage 58015:=======>       (1 + 1) / 2]                                                                                Fittest Individual 47
-Generation 24
-[Stage 58059:========================================>            (34 + 2) / 44]                                                                                Tournament
-[Stage 58490:>                                                      (0 + 2) / 2]                                                                                Fittest Individual 47
-Generation 25
-Tournament
-[Stage 58896:=========>   (34 + 2) / 46][Stage 58897:>              (0 + 0) / 2]                                                                                Fittest Individual 47
-Generation 26
-[Stage 58945:============================================>        (40 + 2) / 48]                                                                                Tournament
-[Stage 59321:========>    (33 + 2) / 48][Stage 59322:>              (0 + 0) / 2][Stage 59321:===========> (44 + 2) / 48][Stage 59322:>              (0 + 0) / 2]                                                                                Fittest Individual 47
-Generation 27
-[Stage 59372:==================================================>  (48 + 2) / 50]                                                                                Tournament
-[Stage 59764:=========>   (35 + 2) / 50][Stage 59765:>              (0 + 0) / 2][Stage 59764:============>(48 + 2) / 50][Stage 59765:>              (0 + 0) / 2]                                                                                Fittest Individual 47
-Generation 28
-Tournament
-[Stage 60174:==============================================>      (46 + 2) / 52]                                                                                [Stage 60327:========>    (33 + 2) / 52][Stage 60328:>              (0 + 0) / 2][Stage 60327:===========> (44 + 2) / 52][Stage 60328:>              (0 + 0) / 2]                                                                                Fittest Individual 47
-Generation 29
-[Stage 60382:========================================>            (41 + 2) / 54]                                                                                Tournament
-[Stage 60700:================================================>    (49 + 2) / 54]                                                                                [Stage 60806:=========>   (41 + 2) / 54][Stage 60807:>              (0 + 0) / 2][Stage 60806:============>(53 + 1) / 54][Stage 60807:=======>       (1 + 1) / 2]                                                                                Fittest Individual 47
-Generation 30
-[Stage 60863:============================================>        (47 + 2) / 56]                                                                                Tournament
-[Stage 61248:================================================>    (51 + 2) / 56]                                                                                [Stage 61413:========>    (36 + 2) / 56][Stage 61414:>              (0 + 0) / 2][Stage 61413:===========> (50 + 2) / 56][Stage 61414:>              (0 + 0) / 2]                                                                                Fittest Individual 47
-[Stage 61472:============================================>        (49 + 2) / 58]                                                                                [Stage 61529:=================================================>   (54 + 2) / 58]                                                                                lllllluulr
-Generation 1
-Tournament
-Fittest Individual 44
-Generation 2
-Tournament
-Fittest Individual 44
-Generation 3
-Tournament
-Fittest Individual 49
-Generation 4
-Tournament
-Fittest Individual 48
-Generation 5
-Tournament
-Fittest Individual 49
-Generation 6
-Tournament
-Fittest Individual 50
-Generation 7
-Tournament
-Fittest Individual 51
-Generation 8
-Tournament
-Fittest Individual 52
-Generation 9
-Tournament
-Fittest Individual 52
-Generation 10
-Tournament
-Fittest Individual 54
-Generation 11
-Tournament
-Fittest Individual 52
-Generation 12
-Tournament
-Fittest Individual 52
-Generation 13
-Tournament
-Fittest Individual 52
-Generation 14
-Tournament
-Fittest Individual 52
-Generation 15
-Tournament
-Fittest Individual 52
-Generation 16
-Tournament
-Fittest Individual 52
-Generation 17
-Tournament
-Fittest Individual 52
-Generation 18
-Tournament
-Fittest Individual 52
-Generation 19
-Tournament
-Fittest Individual 52
-Generation 20
-Tournament
-[Stage 64720:===========> (32 + 2) / 36][Stage 64721:>              (0 + 0) / 2]                                                                                Fittest Individual 52
-Generation 21
-[Stage 64759:================================================>    (35 + 2) / 38]                                                                                Tournament
-[Stage 65055:===========> (34 + 2) / 38][Stage 65056:>              (0 + 0) / 2]                                                                                Fittest Individual 52
-Generation 22
-Tournament
-Fittest Individual 52
-Generation 23
-Tournament
-[Stage 65779:===========> (38 + 2) / 42][Stage 65780:>              (0 + 0) / 2]                                                                                Fittest Individual 52
-Generation 24
-[Stage 65824:================================================>    (40 + 2) / 44]                                                                                Tournament
-[Stage 66168:============>(41 + 2) / 44][Stage 66169:>              (0 + 0) / 2]                                                                                Fittest Individual 52
-Generation 25
-[Stage 66215:================================================>    (42 + 2) / 46]                                                                                Tournament
-[Stage 66665:=========>   (34 + 2) / 46][Stage 66666:>              (0 + 0) / 2]                                                                                Fittest Individual 52
-Generation 26
-[Stage 66714:===================================================> (47 + 1) / 48]                                                                                Tournament
-[Stage 67090:=======>     (26 + 2) / 48][Stage 67091:>              (0 + 0) / 2][Stage 67090:===========> (41 + 2) / 48][Stage 67091:>              (0 + 0) / 2]                                                                                Fittest Individual 52
-Generation 27
-Tournament
-[Stage 67533:========>    (33 + 2) / 50][Stage 67534:>              (0 + 0) / 2][Stage 67533:============>(49 + 1) / 50][Stage 67534:=======>       (1 + 1) / 2]                                                                                Fittest Individual 52
-Generation 28
-Tournament
-[Stage 67892:===================================================> (51 + 1) / 52]                                                                                [Stage 67994:=========>   (37 + 2) / 52][Stage 67995:>              (0 + 0) / 2][Stage 67994:============>(51 + 1) / 52][Stage 67995:=======>       (1 + 1) / 2]                                                                                Fittest Individual 52
-Generation 29
-[Stage 68049:=========================================>           (42 + 2) / 54]                                                                                Tournament
-[Stage 68473:========>    (37 + 2) / 54][Stage 68474:>              (0 + 0) / 2][Stage 68473:============>(53 + 1) / 54][Stage 68474:>              (0 + 1) / 2]                                                                                Fittest Individual 52
-Generation 30
-Tournament
-[Stage 68860:===========================================>         (46 + 2) / 56]                                                                                [Stage 68970:=========>   (42 + 2) / 56][Stage 68971:>              (0 + 0) / 2][Stage 68972:>                                                     (0 + 0) / 58]                                                                                Fittest Individual 52
-[Stage 69086:===============================================>     (52 + 2) / 58]                                                                                lllllllurr
-Generation 1
-Tournament
-Fittest Individual 29
-Generation 2
-Tournament
-Fittest Individual 38
-Generation 3
-Tournament
-Fittest Individual 44
-Generation 4
-Tournament
-Fittest Individual 39
-Generation 5
-Tournament
-Fittest Individual 45
-Generation 6
-Tournament
-Fittest Individual 47
-Generation 7
-Tournament
-Fittest Individual 47
-Generation 8
-Tournament
-Fittest Individual 47
-Generation 9
-Tournament
-Fittest Individual 48
-Generation 10
-Tournament
-Fittest Individual 47
-Generation 11
-Tournament
-Fittest Individual 47
-Generation 12
-Tournament
-Fittest Individual 47
-Generation 13
-Tournament
-Fittest Individual 47
-Generation 14
-Tournament
-Fittest Individual 47
-Generation 15
-Tournament
-Fittest Individual 47
-Generation 16
-Tournament
-Fittest Individual 47
-Generation 17
-Tournament
-Fittest Individual 47
-Generation 18
-Tournament
-Fittest Individual 47
-Generation 19
-Tournament
-[Stage 71935:===========> (31 + 2) / 34][Stage 71936:>              (0 + 0) / 2]                                                                                Fittest Individual 47
-Generation 20
-Tournament
-Fittest Individual 47
-Generation 21
-Tournament
-[Stage 72587:===========> (33 + 2) / 38][Stage 72588:>              (0 + 0) / 2]                                                                                Fittest Individual 47
-Generation 22
-[Stage 72628:===================================================> (39 + 1) / 40]                                                                                Tournament
-[Stage 72862:===================================================> (39 + 1) / 40]                                                                                [Stage 72940:==========>  (32 + 2) / 40][Stage 72941:>              (0 + 0) / 2]                                                                                Fittest Individual 47
-Generation 23
-Tournament
-Fittest Individual 47
-Generation 24
-Tournament
-[Stage 73614:============================================>        (37 + 2) / 44]                                                                                Fittest Individual 47
-Generation 25
-Tournament
-[Stage 74107:==========>  (36 + 2) / 46][Stage 74108:>              (0 + 0) / 2]                                                                                Fittest Individual 47
-Generation 26
-Tournament
-[Stage 74438:================================================>    (44 + 2) / 48]                                                                                [Stage 74532:============>(45 + 2) / 48][Stage 74533:>              (0 + 0) / 2]                                                                                Fittest Individual 47
-Generation 27
-[Stage 74583:=========================================>           (39 + 2) / 50]                                                                                Tournament
-[Stage 74877:===============================================>     (45 + 2) / 50]                                                                                [Stage 74975:==========>  (39 + 2) / 50][Stage 74976:>              (0 + 0) / 2]                                                                                Fittest Individual 47
-Generation 28
-[Stage 75028:========================================>            (40 + 2) / 52]                                                                                Tournament
-[Stage 75334:=========================================>           (41 + 2) / 52]                                                                                [Stage 75436:=========>   (37 + 2) / 52][Stage 75437:>              (0 + 0) / 2]                                                                                Fittest Individual 47
-Generation 29
-[Stage 75491:===================================================> (52 + 2) / 54]                                                                                Tournament
-[Stage 75809:==========================================>          (43 + 2) / 54]                                                                                [Stage 75915:========>    (34 + 2) / 54][Stage 75916:>              (0 + 0) / 2][Stage 75915:===========> (48 + 2) / 54][Stage 75916:>              (0 + 0) / 2]                                                                                Fittest Individual 47
-Generation 30
-[Stage 75972:=============================================>       (48 + 2) / 56]                                                                                Tournament
-[Stage 76357:============================================>        (47 + 2) / 56]                                                                                [Stage 76522:======>      (30 + 2) / 56][Stage 76523:>              (0 + 0) / 2][Stage 76522:==========>  (44 + 2) / 56][Stage 76523:>              (0 + 0) / 2][Stage 76523:===========================>                           (1 + 1) / 2]                                                                                Fittest Individual 47
-[Stage 76581:==========================================>          (47 + 2) / 58]                                                                                luurullllu
-Generation 1
-Tournament
-Fittest Individual 40
-Generation 2
-Tournament
-Fittest Individual 40
-Generation 3
-Tournament
-Fittest Individual 41
-Generation 4
-Tournament
-Fittest Individual 48
-Generation 5
-Tournament
-Fittest Individual 48
-Generation 6
-[Stage 76964:===============================================>       (6 + 1) / 7]                                                                                Tournament
-Fittest Individual 48
-Generation 7
-Tournament
-Fittest Individual 51
-Generation 8
-Tournament
-Fittest Individual 51
-Generation 9
-Tournament
-Fittest Individual 51
-Generation 10
-Tournament
-Fittest Individual 51
-Generation 11
-Tournament
-Fittest Individual 51
-Generation 12
-Tournament
-Fittest Individual 51
-Generation 13
-Tournament
-Fittest Individual 51
-Generation 14
-Tournament
-Fittest Individual 51
-Generation 15
-Tournament
-Fittest Individual 51
-Generation 16
-Tournament
-Fittest Individual 51
-Generation 17
-Tournament
-[Stage 79242:===========> (31 + 2) / 34][Stage 79243:>              (0 + 0) / 2]                                                                                Fittest Individual 51
-Generation 18
-Tournament
-Fittest Individual 51
-Generation 19
-Tournament
-Fittest Individual 51
-Generation 20
-Tournament
-Fittest Individual 51
-Generation 21
-Tournament
-Fittest Individual 51
-Generation 22
-Tournament
-[Stage 81093:============>(41 + 2) / 44][Stage 81094:>              (0 + 0) / 2]                                                                                Fittest Individual 51
-Generation 23
-[Stage 81140:===============================================>     (41 + 2) / 46]                                                                                Tournament
-[Stage 81590:============>(45 + 1) / 46][Stage 81591:=======>       (1 + 1) / 2]                                                                                Fittest Individual 51
-Generation 24
-Tournament
-[Stage 82015:==========>  (40 + 2) / 48][Stage 82016:>              (0 + 0) / 2]                                                                                Fittest Individual 51
-Generation 25
-[Stage 82066:=================================================>   (47 + 2) / 50]                                                                                Tournament
-[Stage 82360:========================================>            (38 + 2) / 50]                                                                                [Stage 82458:=========>   (38 + 2) / 50][Stage 82459:>              (0 + 0) / 2]                                                                                Fittest Individual 51
-Generation 26
-[Stage 82511:==========================================>          (42 + 2) / 52]                                                                                Tournament
-[Stage 82817:===============================================>     (47 + 2) / 52]                                                                                [Stage 82919:==========>  (41 + 2) / 52][Stage 82920:>              (0 + 0) / 2]                                                                                Fittest Individual 51
-Generation 27
-[Stage 82974:========================================>            (41 + 2) / 54]                                                                                Tournament
-[Stage 83345:===========================================>         (44 + 2) / 54]                                                                                [Stage 83504:==========>  (45 + 2) / 54][Stage 83505:>              (0 + 0) / 2]                                                                                Fittest Individual 51
-Generation 28
-[Stage 83561:========================================>            (43 + 2) / 56]                               
