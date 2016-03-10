@@ -40,6 +40,14 @@ public class Population {
         }
     }
 
+    public void initializePopulationIntegerPermutation(Integer chromosomeLength) {
+        for (int i = 0; i < sizeOfPopulation; i++) {
+            IntPermutationIndividualMapReduce individual = new IntPermutationIndividualMapReduce(chromosomeLength);
+            individual.generateRandomIndividual();
+            this.individualMapReduces[i] = individual;
+        }
+    }
+
 
     public IndividualMapReduce[] getIndividualMapReduces() {
         return individualMapReduces;

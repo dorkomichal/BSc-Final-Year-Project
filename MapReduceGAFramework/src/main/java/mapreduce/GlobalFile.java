@@ -22,7 +22,6 @@ public class GlobalFile {
     private static IndividualMapReduce fittestIndividual;
     private static int maxFitness;
     private static int currentMaxFitness;
-    private static int maxNotChanged = 0;
     private static boolean solutionFound;
 
 
@@ -41,16 +40,6 @@ public class GlobalFile {
     public static void setFittestIndividual(IndividualMapReduce fittestIndividual) {
         GlobalFile.fittestIndividual = fittestIndividual;
     }
-
-    public static int getMaxNotChanged() {
-        return maxNotChanged;
-    }
-
-    public static void incrementMaxNotChanged() {
-        maxNotChanged ++;
-    }
-
-    public static void resetMaxNotChanged() { maxNotChanged = 0;}
 
     public static void resetCurrentMax() {
         GlobalFile.currentMaxFitness = 0;

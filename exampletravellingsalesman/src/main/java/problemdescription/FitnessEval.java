@@ -35,14 +35,18 @@ public class FitnessEval implements FitnessFunction {
     @Override
     public int calculateFitness(Object[] chromosome, IndividualMapReduce individualMapReduce) {
         double cost = 0.0;
-        for(int i = 0; i < chromosome.length - 1; i++) {
-            City c1 = cities.get((Integer) chromosome[i]);
-            City c2 = cities.get((Integer) chromosome[i+1]);
+        for(int i = 1; i < chromosome.length; i++) {
+            City c1 = cities.get((Integer) chromosome[i-1]);
+            City c2 = cities.get((Integer) chromosome[i]);
             int xdiff = c1.getPosx() - c2.getPosx();
             int ydiff = c1.getPosy() - c2.getPosy();
             double euclideanDistance = Math.sqrt(xdiff*xdiff + ydiff*ydiff );
             cost -= euclideanDistance;
         }
         return (int) cost;
+    }
+
+    public List<City> getCities() {
+        return this.cities;
     }
 }

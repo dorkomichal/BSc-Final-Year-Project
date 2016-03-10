@@ -1,9 +1,10 @@
 package main;
 
+import geneticClasses.IndividualType;
 import geneticClasses.SelectionMethod;
 import problemdescription.FitnessEval;
 
-import java.util.List;
+import java.util.Arrays;
 
 /**
  * Created by Michal Dorko on 09/03/16.
@@ -15,19 +16,32 @@ import java.util.List;
 public class TravellingSalesmanMain {
 
     public static void main(String[] args) {
-        int numberOfTheCities = 1000;
-        FitnessEval fitnessEval = new FitnessEval(numberOfTheCities, 90000);
+        int numberOfTheCities = 10;
+        FitnessEval fitnessEval = new FitnessEval(numberOfTheCities, 900);
         int chromosomeLength = numberOfTheCities;
-        int populationSize = 100;
+        int populationSize = 20;
         int maxFit = 0;
-        int numberOfTheGenerations = 1000;
+        int numberOfTheGenerations = 30;
         SelectionMethod selectionMethod = SelectionMethod.tournament;
         boolean multipoint = false;
         int numberOfCrossPoints = 0;
 
-        GARunner gaRunner = GARunner.getGARunner(fitnessEval, null, chromosomeLength, populationSize, maxFit, numberOfTheGenerations,
+        GARunner.setEnableStatistics(true);
+        GARunner gaRunner = GARunner.getGARunner(fitnessEval, IndividualType.IntegerPermutation, null, chromosomeLength, populationSize, maxFit, numberOfTheGenerations,
                 selectionMethod, multipoint, numberOfCrossPoints);
         Integer[] bestSolutionCities = (Integer[]) gaRunner.runGA();
+        fitnessEval.getCities().stream().forEach(System.out::println);
+        System.out.println("Solution: " + Arrays.toString(bestSolutionCities));
+        System.out.println("Mean");
+        gaRunner.getMean().stream().forEach(System.out::println);
+        System.out.println("Standard Deviation");
+        gaRunner.getStd().stream().forEach(System.out::println);
+        System.out.println("Standard Error");
+        gaRunner.getStandardError().stream().forEach(System.out::println);
+        System.out.println("AverageFitness over runs: " + gaRunner.getAverageFitnessOverGenerations());
+        System.out.println("Number of individuals in final population with optimal fitness: " + gaRunner.getLastGenerationMaxFitness());
+
+
     }
 
 }

@@ -28,14 +28,12 @@ public class Mapper implements Serializable {
 
     public JavaPairRDD<IndividualMapReduce, Integer> mapCalculateFitness(JavaRDD<IndividualMapReduce> parallelizedPopulation, FitnessCalculator fitnessCalculator) {
         JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness = parallelizedPopulation.mapToPair(ind -> new Tuple2<IndividualMapReduce, Integer>(ind, ind.calculateFitness(fitnessCalculator)));
-        int currentMaxFitness = populationWithFitness.values().reduce((a,b) -> Math.max(a,b));
+        int currentMaxFitness = populationWithFitness.values().reduce(Math::max);
         GlobalFile.submitMaxFitness(currentMaxFitness);
         int maxFitness = GlobalFile.getMaxFitness();
         JavaRDD<Integer> terminate = populationWithFitness.values().filter(v -> (v >= maxFitness));
         if (!terminate.isEmpty()) {
             GlobalFile.setSolutionFound(true);
-        } else {
-            GlobalFile.incrementMaxNotChanged();
         }
         return populationWithFitness;
     }

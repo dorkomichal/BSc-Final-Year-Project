@@ -45,8 +45,10 @@ public class Driver {
         Population population = new Population(sizeOfPopulation);
         if (type.equals(IndividualType.Binary)) {
             population.initializePopulationBinary(chromosomeLength);
-        } else {
+        } else if (type.equals(IndividualType.String)) {
             population.initializePopulationString(chromosomeLength, source);
+        } else {
+            population.initializePopulationIntegerPermutation(chromosomeLength);
         }
         fc.calculateFitnessOfPopulation(population);
         GlobalFile.setPopulation(population);

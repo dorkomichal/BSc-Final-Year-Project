@@ -87,13 +87,13 @@ public class GameAgent extends AbstractPlayer {
         GameFitness gameFitness = new GameFitness(copy);
         String[] source = stringEncodedActions.toArray(new String[stringEncodedActions.size()]);
         int chromosomeLength = 10;
-        int populationSize = 100;
+        int populationSize = 50;
         int maxFitness = 1000;
-        int maxGeneration = 100;
+        int maxGeneration = 30;
         SelectionMethod method = SelectionMethod.tournament;
-        boolean multipoint = false;
+        boolean multipoint = true;
         int numberOfMultipoints = 2;
-        GARunner gaRunner = GARunner.getGARunner(gameFitness, source, chromosomeLength, populationSize, maxFitness, maxGeneration, method, multipoint, numberOfMultipoints);
+        GARunner gaRunner = GARunner.getGARunner(gameFitness,IndividualType.String, source, chromosomeLength, populationSize, maxFitness, maxGeneration, method, multipoint, numberOfMultipoints);
         String[] solution = (String[]) gaRunner.runGA();
         return GameFitness.actionDecoder(solution);
     }

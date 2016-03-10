@@ -1,5 +1,7 @@
 package problemdescription;
 
+import java.io.Serializable;
+
 /**
  * Created by Michal Dorko on 09/03/16.
  * BSc Final Year project
@@ -7,7 +9,7 @@ package problemdescription;
  * Map-Reduce library for Genetic Algorithms
  * Licensed under the Academic Free License version 3.0
  */
-public class City {
+public class City implements Serializable{
 
     private int posx;
     private int posy;
@@ -31,5 +33,10 @@ public class City {
 
     public void setPosy(int posy) {
         this.posy = posy;
+    }
+
+    @Override
+    public String toString() {
+        return "Position X: " + posx + " Position Y: " + posy;
     }
 }

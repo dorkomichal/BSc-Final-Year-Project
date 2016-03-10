@@ -4,10 +4,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by Michal Dorko on 30/10/15.
@@ -81,6 +78,8 @@ public final class GeneticOperationsMapReduce implements Serializable {
 
         IndividualMapReduce child1;
         IndividualMapReduce child2;
+        Object[] child1Chromosome = ArrayUtils.addAll(parent1ChromosomePart1, parent2ChromosomePart2);
+        Object[] child2Chromosome = ArrayUtils.addAll(parent2ChromosomePart1, parent1ChromosomePart2);
         if (parent1 instanceof BinaryIndividualMapReduce) {
             child1 = new BinaryIndividualMapReduce(chromosomeLength);
             child2 = new BinaryIndividualMapReduce(chromosomeLength);
@@ -88,12 +87,13 @@ public final class GeneticOperationsMapReduce implements Serializable {
             child1 = new StringIndividualMapReduce(chromosomeLength);
             child2 = new StringIndividualMapReduce(chromosomeLength);
         } else {
+            swapDuplicates((Integer[]) child1Chromosome, (Integer[]) child2Chromosome);
             child1 = new IntPermutationIndividualMapReduce(chromosomeLength);
             child2 = new IntPermutationIndividualMapReduce(chromosomeLength);
         }
 
-        child1.setChromosome(ArrayUtils.addAll(parent1ChromosomePart1, parent2ChromosomePart2));
-        child2.setChromosome(ArrayUtils.addAll(parent2ChromosomePart1, parent1ChromosomePart2));
+        child1.setChromosome(child1Chromosome);
+        child2.setChromosome(child2Chromosome);
         mutate(child1);
         mutate(child2);
         child1.calculateFitness(fc);
@@ -147,6 +147,7 @@ public final class GeneticOperationsMapReduce implements Serializable {
             child1 = new StringIndividualMapReduce(chromosomeLength);
             child2 = new StringIndividualMapReduce(chromosomeLength);
         } else {
+            swapDuplicates((Integer[]) child1Chromosome, (Integer[]) child2Chromosome);
             child1 = new IntPermutationIndividualMapReduce(chromosomeLength);
             child2 = new IntPermutationIndividualMapReduce(chromosomeLength);
         }
@@ -202,33 +203,34 @@ public final class GeneticOperationsMapReduce implements Serializable {
                      */
                     int pos2 = random.nextInt(chromosome.length);
                     Integer genePos2 = chromosome[pos2];
-                    individual.setGene(pos2, chromosome[i]);
-                    individual.setGene(i, genePos2);
+                    individual.setGene(chromosome[i], pos2);
+                    individual.setGene(genePos2, i);
                 }
             }
         }
     }
 
-    private void swapDuplicates(List<Integer> parent1Chromosome, List<Integer> parent2Chromosome) {
+    private void swapDuplicates(Object[] parent1Chromosome, Object[] parent2Chromosome) {
         List<Integer> duplicateIndexParent1 = new ArrayList<>();
         List<Integer> duplicateIndexParent2 = new ArrayList<>();
-        for(int i = 0; i < parent1Chromosome.size(); i++) {
-            for (int j = i; j < parent1Chromosome.size(); j++) {
-                if (parent1Chromosome.get(i).equals(parent1Chromosome.get(j))) {
-                    duplicateIndexParent1.add(i);
-                }
-                if (parent2Chromosome.get(i).equals(parent2Chromosome.get(j))) {
-                    duplicateIndexParent2.add(i);
-                }
+        HashSet<Object> hashParent1 = new HashSet<>();
+        HashSet<Object> hashParent2 = new HashSet<>();
+
+        for(int i = 0; i< parent1Chromosome.length; i++) {
+            if(!hashParent1.add(parent1Chromosome[i])) {
+               duplicateIndexParent1.add(i);
+            }
+            if(!hashParent2.add(parent2Chromosome[i])) {
+                duplicateIndexParent2.add(i);
             }
         }
         for (int i = 0; i < duplicateIndexParent1.size(); i++) {
             int duplicateIndexP1 = duplicateIndexParent1.get(i);
             int duplicateIndexP2 = duplicateIndexParent2.get(i);
-            Integer swap1 = parent1Chromosome.get(duplicateIndexP1);
-            Integer swap2 = parent2Chromosome.get(duplicateIndexP2);
-            parent1Chromosome.set(duplicateIndexP1, swap2);
-            parent2Chromosome.set(duplicateIndexP2, swap1);
+            Object swap1 = parent1Chromosome[duplicateIndexP1];
+            Object swap2 = parent2Chromosome[duplicateIndexP2];
+            parent1Chromosome[duplicateIndexP1] =  swap2;
+            parent2Chromosome[duplicateIndexP2] = swap1;
         }
     }
 
