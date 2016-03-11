@@ -367,7 +367,7 @@ public class GARunner {
 
             IndividualMapReduce elite = mapper.getElite(populationWithFitness);
             JavaRDD<CrossoverPair> selectedIndividuals = mapper.mapSelection(populationWithFitness, elite, selectionMethod, geneticOperations);
-
+            System.out.println("Selected individuals " + selectedIndividuals.count());
             newGeneration = reducer.reduceCrossover(selectedIndividuals, multipointCrossover, numberOfCrossoverPoints, geneticOperations);
 
             parallelizedPopulation = newGeneration;
@@ -384,6 +384,7 @@ public class GARunner {
             } else {
                 convergenceCounter = 0;
             }
+            previousFitness = GlobalFile.getCurrentMaxFitness();
             if (GlobalFile.isSolutionFound() || generationCounter >= maxGeneration || convergenceCounter >= convergenceMax) {
                 if (enableStatistics) {
                     lastGenerationStatistics(newGeneration);

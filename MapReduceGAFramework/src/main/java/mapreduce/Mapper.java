@@ -4,10 +4,12 @@ import geneticClasses.*;
 import org.apache.log4j.net.SyslogAppender;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.api.java.function.Function2;
 import scala.Tuple2;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -58,11 +60,9 @@ public class Mapper implements Serializable {
             elitePair.setEliteIndividual(elite);
             eliteList.add(elitePair);
             JavaRDD<CrossoverPair> eliterdd = Driver.getDriver().paralleliseData(eliteList);
-            CrossoverPair replace = selectedIndividuals.first();
-            List<CrossoverPair> replacement = new ArrayList<>();
-            replacement.add(replace);
-            JavaRDD<CrossoverPair> replaceRdd = Driver.getDriver().paralleliseData(replacement);
-            return selectedIndividuals.subtract(replaceRdd).union(eliterdd);
+            JavaPairRDD<CrossoverPair, Long> zipped = selectedIndividuals.zipWithIndex();
+            return zipped.filter(x -> x._2()!= 0).keys().union(eliterdd);
+
         } else {
             return  selectedIndividuals;
         }

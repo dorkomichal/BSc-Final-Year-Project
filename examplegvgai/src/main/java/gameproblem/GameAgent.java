@@ -87,7 +87,7 @@ public class GameAgent extends AbstractPlayer {
         GameFitness gameFitness = new GameFitness(copy);
         String[] source = stringEncodedActions.toArray(new String[stringEncodedActions.size()]);
         int chromosomeLength = 10;
-        int populationSize = 50;
+        int populationSize = 20;
         int maxFitness = 1000;
         int maxGeneration = 30;
         SelectionMethod method = SelectionMethod.tournament;

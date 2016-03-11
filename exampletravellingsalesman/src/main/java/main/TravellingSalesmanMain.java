@@ -33,14 +33,13 @@ public class TravellingSalesmanMain {
         fitnessEval.getCities().stream().forEach(System.out::println);
         System.out.println("Solution: " + Arrays.toString(bestSolutionCities));
         System.out.println("Mean");
-        gaRunner.getMean().stream().forEach(System.out::println);
-        System.out.println("Standard Deviation");
-        gaRunner.getStd().stream().forEach(System.out::println);
-        System.out.println("Standard Error");
-        gaRunner.getStandardError().stream().forEach(System.out::println);
-        System.out.println("AverageFitness over runs: " + gaRunner.getAverageFitnessOverGenerations());
+        gaRunner.getMean().stream().forEach(x -> System.out.print( x+ ","));
+        System.out.println("\nStandard Deviation");
+        gaRunner.getStd().stream().forEach(x -> System.out.print(x + ","));
+        System.out.println("\nStandard Error");
+        gaRunner.getStandardError().stream().forEach(x -> System.out.print(x + ","));
+        System.out.println("\nAverageFitness over runs: " + gaRunner.getAverageFitnessOverGenerations());
         System.out.println("Number of individuals in final population with optimal fitness: " + gaRunner.getLastGenerationMaxFitness());
-
 
     }
 
