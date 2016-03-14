@@ -259,8 +259,8 @@ public final class GeneticOperationsMapReduce implements Serializable {
      * @return IndividualMapReduce fitter of the two individuals
      */
     private static IndividualMapReduce fitterFromTwo(IndividualMapReduce individual1, IndividualMapReduce individual2) {
-        int fitness1 = individual1.getFitness();
-        int fitness2 = individual2.getFitness();
+        long fitness1 = individual1.getFitness();
+        long fitness2 = individual2.getFitness();
         if (fitness1 <= fitness2) {
             return individual2;
         } else {

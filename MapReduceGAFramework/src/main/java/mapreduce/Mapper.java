@@ -1,15 +1,12 @@
 package mapreduce;
 
 import geneticClasses.*;
-import org.apache.log4j.net.SyslogAppender;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
-import org.apache.spark.api.java.function.Function2;
 import scala.Tuple2;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -28,19 +25,19 @@ public class Mapper implements Serializable {
         return mapper;
     }
 
-    public JavaPairRDD<IndividualMapReduce, Integer> mapCalculateFitness(JavaRDD<IndividualMapReduce> parallelizedPopulation, FitnessCalculator fitnessCalculator) {
-        JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness = parallelizedPopulation.mapToPair(ind -> new Tuple2<IndividualMapReduce, Integer>(ind, ind.calculateFitness(fitnessCalculator)));
-        int currentMaxFitness = populationWithFitness.values().reduce(Math::max);
+    public JavaPairRDD<IndividualMapReduce, Long> mapCalculateFitness(JavaRDD<IndividualMapReduce> parallelizedPopulation, FitnessCalculator fitnessCalculator) {
+        JavaPairRDD<IndividualMapReduce, Long> populationWithFitness = parallelizedPopulation.mapToPair(ind -> new Tuple2<IndividualMapReduce, Long>(ind, ind.calculateFitness(fitnessCalculator)));
+        long currentMaxFitness = populationWithFitness.values().reduce(Math::max);
         GlobalFile.submitMaxFitness(currentMaxFitness);
-        int maxFitness = GlobalFile.getMaxFitness();
-        JavaRDD<Integer> terminate = populationWithFitness.values().filter(v -> (v >= maxFitness));
+        long maxFitness = GlobalFile.getMaxFitness();
+        JavaRDD<Long> terminate = populationWithFitness.values().filter(v -> (v >= maxFitness));
         if (!terminate.isEmpty()) {
             GlobalFile.setSolutionFound(true);
         }
         return populationWithFitness;
     }
 
-    public JavaRDD<CrossoverPair> mapSelection(JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness, IndividualMapReduce elite, SelectionMethod method, GeneticOperationsMapReduce operations) {
+    public JavaRDD<CrossoverPair> mapSelection(JavaPairRDD<IndividualMapReduce, Long> populationWithFitness, IndividualMapReduce elite, SelectionMethod method, GeneticOperationsMapReduce operations) {
         JavaRDD<IndividualMapReduce> keys = populationWithFitness.keys();
         JavaRDD<CrossoverPair> selectedIndividuals;
         if(method.equals(SelectionMethod.rouletteWheel)) {
@@ -80,16 +77,16 @@ public class Mapper implements Serializable {
             return crossoverPair;
         }
 
-    public IndividualMapReduce getElite(JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness) {
-        int currentMaxFitness = GlobalFile.getCurrentMaxFitness();
-        JavaPairRDD<IndividualMapReduce, Integer> eliteInd = populationWithFitness.filter(pair -> pair._2() >= currentMaxFitness);
+    public IndividualMapReduce getElite(JavaPairRDD<IndividualMapReduce, Long> populationWithFitness) {
+        long currentMaxFitness = GlobalFile.getCurrentMaxFitness();
+        JavaPairRDD<IndividualMapReduce, Long> eliteInd = populationWithFitness.filter(pair -> pair._2() >= currentMaxFitness);
         /*
          * Strange behaviour observed for next block of code. Sometimes the first if statement
          * returned false (RDD is not empty) however during the execution of else statement
          * runtime error occurred that collection was in fact empty. Therefore I collect RDD
          * first and check on driver size of the list
          */
-        List<Tuple2<IndividualMapReduce,Integer>> elites = eliteInd.take(1);
+        List<Tuple2<IndividualMapReduce,Long>> elites = eliteInd.take(1);
         if(elites.isEmpty()) {
            return null;
         } else {

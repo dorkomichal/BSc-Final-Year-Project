@@ -72,7 +72,7 @@ public class Population {
 
     public IndividualMapReduce getFittestIndividual() {
         IndividualMapReduce fittestIndividual = null;
-        int maxFitness = 0;
+        long maxFitness = 0;
         for (IndividualMapReduce bi : individualMapReduces) {
             if (bi.getFitness() > maxFitness) {
                 fittestIndividual = bi;

@@ -1,7 +1,5 @@
 package mapreduce;
 
-import geneticClasses.BinaryIndividualMapReduce;
-import geneticClasses.FitnessCalculator;
 import geneticClasses.IndividualMapReduce;
 import geneticClasses.Population;
 
@@ -20,16 +18,16 @@ public class GlobalFile {
     private static Population newGeneration;
     private static List<IndividualMapReduce> individualMapReduces;
     private static IndividualMapReduce fittestIndividual;
-    private static int maxFitness;
-    private static int currentMaxFitness;
+    private static long maxFitness;
+    private static long currentMaxFitness;
     private static boolean solutionFound;
 
 
-    public static int getCurrentMaxFitness() {
+    public static long getCurrentMaxFitness() {
         return currentMaxFitness;
     }
 
-    public static void submitMaxFitness(int fitness) {
+    public static void submitMaxFitness(long fitness) {
         currentMaxFitness = fitness;
     }
 
@@ -58,7 +56,7 @@ public class GlobalFile {
         GlobalFile.solutionFound = solutionFound;
     }
 
-    public static int getMaxFitness() {
+    public static long getMaxFitness() {
         return maxFitness;
     }
 

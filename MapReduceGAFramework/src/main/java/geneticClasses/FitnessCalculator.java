@@ -24,8 +24,8 @@ public final class FitnessCalculator implements Serializable {
         }
     }
 
-    public Integer calculateFitness(Object[] individualChromosome, IndividualMapReduce individualMapReduce) {
-        int fitness;
+    public Long calculateFitness(Object[] individualChromosome, IndividualMapReduce individualMapReduce) {
+        long fitness;
         fitness = fitnessFunctionInstance.calculateFitness(individualChromosome, individualMapReduce);
         return fitness;
     }

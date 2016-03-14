@@ -19,7 +19,7 @@ public class BinaryIndividualMapReduce implements Serializable, IndividualMapRed
      */
     private Integer chromosomeLength = 16;
     private Byte[] chromosome;
-    private int fitness;
+    private long fitness;
     private double probabilityOfSelection;
     private Random random = new Random();
     private CrossoverPair crossoverPair;
@@ -29,17 +29,17 @@ public class BinaryIndividualMapReduce implements Serializable, IndividualMapRed
         this.chromosome = new Byte[chromosomeLength];
         this.fitness = 0;
     }
-
+    @Override
     public CrossoverPair getCrossoverPair() {
         return crossoverPair;
     }
-
+    @Override
     public void setCrossoverPair(CrossoverPair crossoverPair) {
         this.crossoverPair = crossoverPair;
     }
-
+    @Override
     public void generateRandomIndividual() {
-        for(int i = 0; i < chromosome.length; i++) {
+        for(int i = 0; i < chromosomeLength; i++) {
             byte gene = (byte) (random.nextBoolean() ? 1 : 0);
             chromosome[i] = gene;
         }
@@ -53,40 +53,40 @@ public class BinaryIndividualMapReduce implements Serializable, IndividualMapRed
     public void setChromosomeLength(Integer chromosomeLength) {
         this.chromosomeLength = chromosomeLength;
     }
-
+    @Override
     public Byte[] getChromosome() {
         return chromosome;
     }
-
+    @Override
     public void setGene(Object gene, int index) {
         this.chromosome[index] = (Byte) gene;
     }
-
-    public int getFitness() {
+    @Override
+    public long getFitness() {
         return fitness;
     }
-
+    @Override
     public int lengthOfChromosome() {
-        return this.chromosome.length;
+        return this.chromosomeLength;
     }
-
+    @Override
     public void setChromosome(Object[] chromosome) {
         this.chromosome = (Byte[]) chromosome;
     }
-
-    public Integer calculateFitness(FitnessCalculator fitnessCalculator) {
+    @Override
+    public long calculateFitness(FitnessCalculator fitnessCalculator) {
         this.fitness = fitnessCalculator.calculateFitness(chromosome, this);
         return fitness;
     }
-
-    public void setFitness(int fitness) {
+    @Override
+    public void setFitness(long fitness) {
         this.fitness = fitness;
     }
-
+    @Override
     public double getProbabilityOfSelection() {
         return probabilityOfSelection;
     }
-
+    @Override
     public void setProbabilityOfSelection(double probabilityOfSelection) {
         this.probabilityOfSelection = probabilityOfSelection;
     }

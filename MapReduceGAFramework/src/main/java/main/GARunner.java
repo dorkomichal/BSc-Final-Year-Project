@@ -8,11 +8,9 @@ import mapreduce.Reducer;
 import org.apache.spark.api.java.JavaDoubleRDD;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
-import org.apache.spark.util.SystemClock;
 import scala.Tuple2;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -365,7 +363,7 @@ public class GARunner {
 
         JavaRDD<IndividualMapReduce> parallelizedPopulation = driver.getPopulationParallelized();
         JavaRDD<IndividualMapReduce> newGeneration;
-        int previousFitness = 0;
+        long previousFitness = 0;
         int convergenceCounter = 0;
         long start = 0;
         if(enableStatistics) {
@@ -378,7 +376,7 @@ public class GARunner {
                 start = System.currentTimeMillis();
             }
             System.out.println("Generation " + generationCounter);
-            JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness = mapper.mapCalculateFitness(parallelizedPopulation, fitnessCalculator);
+            JavaPairRDD<IndividualMapReduce, Long> populationWithFitness = mapper.mapCalculateFitness(parallelizedPopulation, fitnessCalculator);
 
             IndividualMapReduce elite = mapper.getElite(populationWithFitness);
             JavaRDD<CrossoverPair> selectedIndividuals = mapper.mapSelection(populationWithFitness, elite, selectionMethod, geneticOperations);
@@ -408,7 +406,7 @@ public class GARunner {
                 if (enableStatistics) {
                     lastGenerationStatistics(newGeneration);
                 }
-                JavaPairRDD<Integer, IndividualMapReduce> finalGeneration = newGeneration.mapToPair(bi -> new Tuple2<Integer, IndividualMapReduce>(bi.getFitness(),bi)).sortByKey(false);
+                JavaPairRDD<Long, IndividualMapReduce> finalGeneration = newGeneration.mapToPair(bi -> new Tuple2<Long, IndividualMapReduce>(bi.getFitness(),bi)).sortByKey(false);
                 IndividualMapReduce fittestInd = finalGeneration.first()._2;
                 GlobalFile.setFittestIndividual(fittestInd);
                 break; //if solution is found or generation has converged to max and didn't change for some generations
@@ -430,7 +428,7 @@ public class GARunner {
 
     private void lastGenerationStatistics(JavaRDD<IndividualMapReduce> population) {
         averageFitnessOverGenerations = mean.stream().reduce((a,b) -> (a+b)).get()/mean.size();
-        int maxFitnessLastGen = GlobalFile.getCurrentMaxFitness();
+        long maxFitnessLastGen = GlobalFile.getCurrentMaxFitness();
         lastGenerationMaxFitness = population.filter(ind -> ind.getFitness() >= maxFitnessLastGen).count();
     }
 }

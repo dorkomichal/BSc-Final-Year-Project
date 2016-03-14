@@ -1,6 +1,5 @@
 package geneticClasses;
 
-import mapreduce.GlobalFile;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.io.Serializable;
@@ -17,7 +16,7 @@ public class StringIndividualMapReduce implements Serializable, IndividualMapRed
 
     private Integer chromosomeLength = 16;
     private String[] chromosome;
-    private int fitness;
+    private long fitness;
     private double probabilityOfSelection;
     private CrossoverPair crossoverPair;
     private String[] source;
@@ -73,7 +72,7 @@ public class StringIndividualMapReduce implements Serializable, IndividualMapRed
     }
 
     @Override
-    public int getFitness() {
+    public long getFitness() {
         return this.fitness;
     }
 
@@ -88,13 +87,13 @@ public class StringIndividualMapReduce implements Serializable, IndividualMapRed
     }
 
     @Override
-    public Integer calculateFitness(FitnessCalculator fitnessCalculator) {
+    public long calculateFitness(FitnessCalculator fitnessCalculator) {
         this.fitness = fitnessCalculator.calculateFitness(chromosome, this);
         return fitness;
     }
 
     @Override
-    public void setFitness(int fitness) {
+    public void setFitness(long fitness) {
         this.fitness = fitness;
     }
 

@@ -16,7 +16,7 @@ public class IntPermutationIndividualMapReduce implements IndividualMapReduce {
 
     private Integer chromosomeLength;
     private Integer[] chromosome;
-    private int fitness;
+    private long fitness;
     private double probabilityOfSelection;
     private CrossoverPair crossoverPair;
     private Random random = new Random();
@@ -76,7 +76,7 @@ public class IntPermutationIndividualMapReduce implements IndividualMapReduce {
     }
 
     @Override
-    public int getFitness() {
+    public long getFitness() {
         return this.fitness;
     }
 
@@ -91,13 +91,13 @@ public class IntPermutationIndividualMapReduce implements IndividualMapReduce {
     }
 
     @Override
-    public Integer calculateFitness(FitnessCalculator fitnessCalculator) {
+    public long calculateFitness(FitnessCalculator fitnessCalculator) {
         this.fitness = fitnessCalculator.calculateFitness(chromosome, this);
         return this.fitness;
     }
 
     @Override
-    public void setFitness(int fitness) {
+    public void setFitness(long fitness) {
         this.fitness = fitness;
     }
 

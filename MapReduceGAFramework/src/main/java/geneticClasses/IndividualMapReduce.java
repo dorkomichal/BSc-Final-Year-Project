@@ -49,7 +49,7 @@ public interface IndividualMapReduce<E> extends Serializable {
      * Getter for fitness value
      * @return fitness value
      */
-    int getFitness();
+    long getFitness();
 
     /**
      * Getter for chromosome length
@@ -67,13 +67,13 @@ public interface IndividualMapReduce<E> extends Serializable {
      * Calculates fitness of this individual and returns it
      * @return fitness of the individual
      */
-    Integer calculateFitness(FitnessCalculator fitnessCalculator);
+    long calculateFitness(FitnessCalculator fitnessCalculator);
 
     /**
      * Setter for fitness
      * @param fitness value of the fitness
      */
-    void setFitness(int fitness);
+    void setFitness(long fitness);
 
     /**
      * Getter for probability of selection (RWS selection)
