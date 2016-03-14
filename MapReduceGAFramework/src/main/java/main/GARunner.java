@@ -8,6 +8,7 @@ import mapreduce.Reducer;
 import org.apache.spark.api.java.JavaDoubleRDD;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.util.SystemClock;
 import scala.Tuple2;
 
 import java.util.ArrayList;
@@ -117,6 +118,8 @@ public class GARunner {
     private double averageFitnessOverGenerations;
 
     private long lastGenerationMaxFitness;
+
+    private long oneIterationRunningTime;
 
     /**
      * Private empty constructor
@@ -342,6 +345,14 @@ public class GARunner {
         return mean;
     }
 
+    /**
+     * Getter for running time of one iteration
+     * @return running time
+     */
+    public long getOneIterationRunningTime() {
+        return oneIterationRunningTime;
+    }
+
     public Object[] runGA() {
         Driver driver = Driver.getDriver();
         FitnessCalculator fitnessCalculator = new FitnessCalculator(fitnessFunction);
@@ -356,12 +367,16 @@ public class GARunner {
         JavaRDD<IndividualMapReduce> newGeneration;
         int previousFitness = 0;
         int convergenceCounter = 0;
+        long start = 0;
         if(enableStatistics) {
             mean = new ArrayList<>();
             standardError = new ArrayList<>();
             std = new ArrayList<>();
         }
         while (true) {
+            if(generationCounter == 5) {
+                start = System.currentTimeMillis();
+            }
             System.out.println("Generation " + generationCounter);
             JavaPairRDD<IndividualMapReduce, Integer> populationWithFitness = mapper.mapCalculateFitness(parallelizedPopulation, fitnessCalculator);
 
@@ -371,6 +386,10 @@ public class GARunner {
             newGeneration = reducer.reduceCrossover(selectedIndividuals, multipointCrossover, numberOfCrossoverPoints, geneticOperations);
 
             parallelizedPopulation = newGeneration;
+            if(generationCounter == 5) {
+                long stop = System.currentTimeMillis();
+                oneIterationRunningTime = start - stop;
+            }
             if(enableStatistics) {
                 generationStatistics(newGeneration);
             }

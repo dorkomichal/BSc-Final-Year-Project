@@ -38,9 +38,10 @@ public class FitnessEval implements FitnessFunction {
         for(int i = 1; i < chromosome.length; i++) {
             City c1 = cities.get((Integer) chromosome[i-1]);
             City c2 = cities.get((Integer) chromosome[i]);
-            int xdiff = c1.getPosx() - c2.getPosx();
-            int ydiff = c1.getPosy() - c2.getPosy();
-            double euclideanDistance = Math.sqrt(xdiff*xdiff + ydiff*ydiff);
+            long xdiff = c1.getPosx() - c2.getPosx();
+            long ydiff = c1.getPosy() - c2.getPosy();
+            long xydiffsum = (xdiff*xdiff) + (ydiff*ydiff);
+            double euclideanDistance = Math.sqrt(xydiffsum);
             cost -= euclideanDistance;
         }
         return (int) cost;

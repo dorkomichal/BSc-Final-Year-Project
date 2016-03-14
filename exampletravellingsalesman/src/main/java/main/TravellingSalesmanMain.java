@@ -17,11 +17,11 @@ public class TravellingSalesmanMain {
 
     public static void main(String[] args) {
         int numberOfTheCities = 10;
-        FitnessEval fitnessEval = new FitnessEval(numberOfTheCities, 900);
+        FitnessEval fitnessEval = new FitnessEval(numberOfTheCities, 90000);
         int chromosomeLength = numberOfTheCities;
-        int populationSize = 20;
-        int maxFit = 0;
-        int numberOfTheGenerations = 30;
+        int populationSize = 10;
+        int maxFit = Integer.MAX_VALUE;
+        int numberOfTheGenerations = 100;
         SelectionMethod selectionMethod = SelectionMethod.tournament;
         boolean multipoint = false;
         int numberOfCrossPoints = 0;
@@ -29,8 +29,9 @@ public class TravellingSalesmanMain {
         GARunner.setEnableStatistics(true);
         GARunner gaRunner = GARunner.getGARunner(fitnessEval, IndividualType.IntegerPermutation, null, chromosomeLength, populationSize, maxFit, numberOfTheGenerations,
                 selectionMethod, multipoint, numberOfCrossPoints);
+        gaRunner.setConvergenceMax(10);
         Integer[] bestSolutionCities = (Integer[]) gaRunner.runGA();
-        fitnessEval.getCities().stream().forEach(System.out::println);
+        //fitnessEval.getCities().stream().forEach(System.out::println);
         System.out.println("Solution: " + Arrays.toString(bestSolutionCities));
         System.out.println("Mean");
         gaRunner.getMean().stream().forEach(x -> System.out.print( x+ ","));
