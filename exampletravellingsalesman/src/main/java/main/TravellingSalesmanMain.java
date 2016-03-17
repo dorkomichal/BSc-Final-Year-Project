@@ -16,22 +16,28 @@ import java.util.Arrays;
 public class TravellingSalesmanMain {
 
     public static void main(String[] args) {
-        int numberOfTheCities = 10;
-        FitnessEval fitnessEval = new FitnessEval(numberOfTheCities, 90000);
+        int numberOfTheCities = 100;
+        FitnessEval fitnessEval = new FitnessEval(numberOfTheCities, 900000);
         int chromosomeLength = numberOfTheCities;
-        int populationSize = 10;
+        int populationSize = 100;
         int maxFit = Integer.MAX_VALUE;
         int numberOfTheGenerations = 100;
-        SelectionMethod selectionMethod = SelectionMethod.tournament;
-        boolean multipoint = false;
-        int numberOfCrossPoints = 0;
-
+        SelectionMethod selectionMethod = SelectionMethod.rouletteWheel;
+        boolean multipoint = true;
+        int numberOfCrossPoints = 3;
+        int convergence = 10;
         GARunner.setEnableStatistics(true);
         GARunner gaRunner = GARunner.getGARunner(fitnessEval, IndividualType.IntegerPermutation, null, chromosomeLength, populationSize, maxFit, numberOfTheGenerations,
                 selectionMethod, multipoint, numberOfCrossPoints);
-        gaRunner.setConvergenceMax(10);
+        gaRunner.setConvergenceMax(convergence);
         Integer[] bestSolutionCities = (Integer[]) gaRunner.runGA();
-        //fitnessEval.getCities().stream().forEach(System.out::println);
+        System.out.println("Number of the variables " + numberOfTheCities);
+        System.out.println("Number of the generations " + numberOfTheGenerations);
+        System.out.println("Population Size " + populationSize);
+        System.out.println("Convergence " + convergence);
+        System.out.println("Multipoint crossover " + multipoint);
+        System.out.println("Number of crossover points " + numberOfCrossPoints);
+        System.out.println("Selection method: " + selectionMethod);
         System.out.println("Solution: " + Arrays.toString(bestSolutionCities));
         System.out.println("Mean");
         gaRunner.getMean().stream().forEach(x -> System.out.print( x+ ","));
@@ -41,6 +47,7 @@ public class TravellingSalesmanMain {
         gaRunner.getStandardError().stream().forEach(x -> System.out.print(x + ","));
         System.out.println("\nAverageFitness over runs: " + gaRunner.getAverageFitnessOverGenerations());
         System.out.println("Number of individuals in final population with optimal fitness: " + gaRunner.getLastGenerationMaxFitness());
+        System.out.println("One iteration running time: " + gaRunner.getOneIterationRunningTime());
 
     }
 

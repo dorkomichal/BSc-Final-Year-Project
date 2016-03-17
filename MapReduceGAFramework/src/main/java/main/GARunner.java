@@ -380,13 +380,12 @@ public class GARunner {
 
             IndividualMapReduce elite = mapper.getElite(populationWithFitness);
             JavaRDD<CrossoverPair> selectedIndividuals = mapper.mapSelection(populationWithFitness, elite, selectionMethod, geneticOperations);
-            System.out.println("Selected individuals " + selectedIndividuals.count());
             newGeneration = reducer.reduceCrossover(selectedIndividuals, multipointCrossover, numberOfCrossoverPoints, geneticOperations);
 
             parallelizedPopulation = newGeneration;
             if(generationCounter == 5) {
                 long stop = System.currentTimeMillis();
-                oneIterationRunningTime = start - stop;
+                oneIterationRunningTime = stop - start;
             }
             if(enableStatistics) {
                 generationStatistics(newGeneration);

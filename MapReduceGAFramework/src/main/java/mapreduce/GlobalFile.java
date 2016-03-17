@@ -73,7 +73,8 @@ public class GlobalFile {
         return newGeneration;
     }
 
-    public static int getSumOfFitnesses() {
+    public static int getSumOfFitnesses(List<IndividualMapReduce> population) {
+        newGeneration.setIndividualMapReduces(population.toArray(new IndividualMapReduce[population.size()]));
         newGeneration.calculateSumOfFitnesses();
         return newGeneration.getSumOfFitnesses();
     }

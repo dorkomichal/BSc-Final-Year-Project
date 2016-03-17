@@ -284,7 +284,7 @@ public final class GeneticOperationsMapReduce implements Serializable {
         return population.get(0);
     }
 
-    public static IndividualMapReduce rwsSelectionProbabilityCalculation(IndividualMapReduce ind, double sumOfFitnesses) {
+    public IndividualMapReduce rwsSelectionProbabilityCalculation(IndividualMapReduce ind, double sumOfFitnesses) {
             double probability = ind.getFitness() / sumOfFitnesses;
             ind.setProbabilityOfSelection(probability);
             return ind;

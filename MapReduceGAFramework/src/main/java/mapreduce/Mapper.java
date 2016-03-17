@@ -7,6 +7,7 @@ import scala.Tuple2;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -39,16 +40,25 @@ public class Mapper implements Serializable {
 
     public JavaRDD<CrossoverPair> mapSelection(JavaPairRDD<IndividualMapReduce, Long> populationWithFitness, IndividualMapReduce elite, SelectionMethod method, GeneticOperationsMapReduce operations) {
         JavaRDD<IndividualMapReduce> keys = populationWithFitness.keys();
+
         JavaRDD<CrossoverPair> selectedIndividuals;
         if(method.equals(SelectionMethod.rouletteWheel)) {
             System.out.println("RWS");
-            System.out.println("Sum of fitness: " + GlobalFile.getSumOfFitnesses());
-            JavaRDD<IndividualMapReduce> populationWithProbability = keys.map(bi -> GeneticOperationsMapReduce.rwsSelectionProbabilityCalculation(bi, GlobalFile.getSumOfFitnesses()));
-            List<IndividualMapReduce> population = populationWithProbability.collect();
+            Iterator<IndividualMapReduce> populationIterator = keys.toLocalIterator();
+            List<IndividualMapReduce> population = new ArrayList<>();
+            while(populationIterator.hasNext()) {
+                population.add(populationIterator.next());
+            }
+            long sumOfFitnesses = GlobalFile.getSumOfFitnesses(population);
+            JavaRDD<IndividualMapReduce> populationWithProbability = keys.map(bi -> operations.rwsSelectionProbabilityCalculation(bi, sumOfFitnesses));
             selectedIndividuals = populationWithFitness.map(ind -> rwsSelection(population, operations));
         } else {
             System.out.println("Tournament");
-            List<IndividualMapReduce> population = keys.collect();
+            Iterator<IndividualMapReduce> populationIterator = keys.toLocalIterator();
+            List<IndividualMapReduce> population = new ArrayList<>();
+            while(populationIterator.hasNext()) {
+                population.add(populationIterator.next());
+            }
             selectedIndividuals = populationWithFitness.map(ind -> tournamentSelection(population, operations));
         }
         if (operations.isElitism() && elite != null) {
