@@ -16,21 +16,21 @@ import java.util.Arrays;
 public class TravellingSalesmanMain {
 
     public static void main(String[] args) {
-        int numberOfTheCities = 100;
+        int numberOfTheCities = 10;
         FitnessEval fitnessEval = new FitnessEval(numberOfTheCities, 900000);
         int chromosomeLength = numberOfTheCities;
-        int populationSize = 100;
+        int populationSize = 20;
         int maxFit = Integer.MAX_VALUE;
         int numberOfTheGenerations = 100;
-        SelectionMethod selectionMethod = SelectionMethod.rouletteWheel;
-        boolean multipoint = true;
+        SelectionMethod selectionMethod = SelectionMethod.tournament;
+        boolean multipoint = false;
         int numberOfCrossPoints = 3;
         int convergence = 10;
         GARunner.setEnableStatistics(true);
         GARunner gaRunner = GARunner.getGARunner(fitnessEval, IndividualType.IntegerPermutation, null, chromosomeLength, populationSize, maxFit, numberOfTheGenerations,
                 selectionMethod, multipoint, numberOfCrossPoints);
         gaRunner.setConvergenceMax(convergence);
-        Integer[] bestSolutionCities = (Integer[]) gaRunner.runGA();
+        Integer[] bestSolutionCities = (Integer[]) gaRunner.runIslandGA(5);
         System.out.println("Number of the variables " + numberOfTheCities);
         System.out.println("Number of the generations " + numberOfTheGenerations);
         System.out.println("Population Size " + populationSize);

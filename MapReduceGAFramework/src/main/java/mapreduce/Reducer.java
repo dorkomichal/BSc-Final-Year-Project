@@ -37,7 +37,6 @@ public class Reducer implements Serializable {
      * @return new generations as RDD
      */
     public JavaRDD<IndividualMapReduce> reduceCrossover(JavaRDD<CrossoverPair> selectedIndividuals, boolean multipoint, int numberOfCrossPoints, GeneticOperationsMapReduce geneticOperations) {
-        GlobalFile.createNewPopulation((int) selectedIndividuals.count());
         JavaRDD<IndividualMapReduce> newGen;
         if (multipoint) {
              newGen = selectedIndividuals.map(crossoverPair -> multiPointCrossover(crossoverPair, numberOfCrossPoints, geneticOperations));

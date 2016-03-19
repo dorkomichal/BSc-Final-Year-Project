@@ -1,5 +1,7 @@
 package geneticClasses;
 
+import java.io.Serializable;
+
 /**
  * Created by Michal Dorko on 30/10/15.
  * BSc Final Year project
@@ -7,11 +9,11 @@ package geneticClasses;
  * Map-Reduce library for Genetic Algorithms
  * Licensed under the Academic Free License version 3.0
  */
-public class Population {
+public class Population implements Serializable {
 
     private IndividualMapReduce[] individualMapReduces;
     private int sizeOfPopulation;
-    private int sumOfFitnesses;
+    private long sumOfFitnesses;
 
     public Population(int sizeOfPopulation) {
         this.sizeOfPopulation = sizeOfPopulation;
@@ -86,7 +88,7 @@ public class Population {
         return fittestIndividual;
     }
 
-    public int getSumOfFitnesses() {
+    public long getSumOfFitnesses() {
         return sumOfFitnesses;
     }
 

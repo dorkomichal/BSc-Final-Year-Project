@@ -1,6 +1,7 @@
 package mapreduce;
 
 import geneticClasses.*;
+import islandmodel.Island;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
@@ -21,6 +22,7 @@ public class Driver {
     private static SparkConf conf;
     private static JavaSparkContext jsc;
     private JavaRDD<IndividualMapReduce> populationParallelized;
+    private JavaRDD<Island> populationIsland;
 
     public static Driver getDriver() {
         if (driver != null) {
@@ -41,6 +43,10 @@ public class Driver {
         return populationParallelized;
     }
 
+    public JavaRDD<Island> getPopulationIsland() {
+        return populationIsland;
+    }
+
     public void initializePopulation(FitnessCalculator fc, Integer chromosomeLength, int sizeOfPopulation, IndividualType type, String[] source) {
         Population population = new Population(sizeOfPopulation);
         if (type.equals(IndividualType.Binary)) {
@@ -53,7 +59,28 @@ public class Driver {
         fc.calculateFitnessOfPopulation(population);
         GlobalFile.setPopulation(population);
         List data = Arrays.asList(population.getIndividualMapReduces());
-        populationParallelized = jsc.parallelize(data);
+        this.populationParallelized = jsc.parallelize(data);
     }
+
+    public void initializePopulationIsland(FitnessCalculator fc, Integer chromosomeLength, int sizeOfPopulation, int sizeOfIsland, IndividualType type, String[] source) {
+        int numberOfIslands = Math.floorDiv(sizeOfPopulation, sizeOfIsland);
+        Island[] islands = new Island[numberOfIslands];
+        for(int i = 0; i < islands.length; i++) {
+            Island isl = new Island(sizeOfIsland);
+            if (type.equals(IndividualType.Binary)) {
+                isl.getPopulation().initializePopulationBinary(chromosomeLength);
+            } else if (type.equals(IndividualType.String)) {
+                isl.getPopulation().initializePopulationString(chromosomeLength, source);
+            } else {
+                isl.getPopulation().initializePopulationIntegerPermutation(chromosomeLength);
+            }
+            fc.calculateFitnessOfPopulation(isl.getPopulation());
+            islands[i] = isl;
+        }
+        List data = Arrays.asList(islands);
+        this.populationIsland = jsc.parallelize(data);
+    }
+
+
 
 }

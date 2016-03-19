@@ -24,33 +24,15 @@
         <processorPath useClasspath="true" />
         <module name="mapreducebinaryga" />
       </profile>
-      <profile default="false" name="Annotation profile for gvgai-master" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="gvgai-master" />
-      </profile>
-      <profile default="false" name="Annotation profile for examplegvgai" enabled="true">
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="examplegvgai" />
-      </profile>
-      <profile default="false" name="Annotation profile for MapReduceGAFramework" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="MapReduceGAFramework" />
-      </profile>
-      <profile default="false" name="Annotation profile for exampletravellingsalesman" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
         <module name="exampletravellingsalesman" />
+        <module name="gvgai-master" />
+        <module name="MapReduceGAFramework" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

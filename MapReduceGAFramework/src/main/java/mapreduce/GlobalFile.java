@@ -64,16 +64,13 @@ public class GlobalFile {
         GlobalFile.maxFitness = maxFitness;
     }
 
-    public static void createNewPopulation(int sizeOfPopulation) {
-        newGeneration = new Population(sizeOfPopulation);
-        individualMapReduces = new ArrayList<>();
-    }
-
     public static Population getNewGeneration() {
         return newGeneration;
     }
 
-    public static int getSumOfFitnesses(List<IndividualMapReduce> population) {
+    public static long getSumOfFitnesses(List<IndividualMapReduce> population) {
+        newGeneration = new Population(population.size());
+        individualMapReduces = new ArrayList<>();
         newGeneration.setIndividualMapReduces(population.toArray(new IndividualMapReduce[population.size()]));
         newGeneration.calculateSumOfFitnesses();
         return newGeneration.getSumOfFitnesses();
