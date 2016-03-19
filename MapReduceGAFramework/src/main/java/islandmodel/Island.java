@@ -1,7 +1,6 @@
 package islandmodel;
 
 import geneticClasses.CrossoverPair;
-import geneticClasses.IndividualMapReduce;
 import geneticClasses.Population;
 
 import java.io.Serializable;
@@ -18,6 +17,7 @@ public class Island implements Serializable {
     private Population population;
     private int sizeOfIsland;
     private CrossoverPair[] crossoverPairs;
+    private int emigrantIndex;
 
     public Island(int sizeOfIsland) {
         this.sizeOfIsland = sizeOfIsland;
@@ -53,4 +53,11 @@ public class Island implements Serializable {
         this.sizeOfIsland = sizeOfIsland;
     }
 
+    public int getEmigrantIndex() {
+        return emigrantIndex;
+    }
+
+    public void setEmigrantIndex(int emigrantIndex) {
+        this.emigrantIndex = emigrantIndex;
+    }
 }

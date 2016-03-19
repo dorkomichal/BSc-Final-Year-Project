@@ -21,7 +21,7 @@ public class TravellingSalesmanMain {
         int chromosomeLength = numberOfTheCities;
         int populationSize = 20;
         int maxFit = Integer.MAX_VALUE;
-        int numberOfTheGenerations = 100;
+        int numberOfTheGenerations = 30;
         SelectionMethod selectionMethod = SelectionMethod.tournament;
         boolean multipoint = false;
         int numberOfCrossPoints = 3;
@@ -30,7 +30,7 @@ public class TravellingSalesmanMain {
         GARunner gaRunner = GARunner.getGARunner(fitnessEval, IndividualType.IntegerPermutation, null, chromosomeLength, populationSize, maxFit, numberOfTheGenerations,
                 selectionMethod, multipoint, numberOfCrossPoints);
         gaRunner.setConvergenceMax(convergence);
-        Integer[] bestSolutionCities = (Integer[]) gaRunner.runIslandGA(5);
+        Integer[] bestSolutionCities = (Integer[]) gaRunner.runIslandGA(5, 10);
         System.out.println("Number of the variables " + numberOfTheCities);
         System.out.println("Number of the generations " + numberOfTheGenerations);
         System.out.println("Population Size " + populationSize);

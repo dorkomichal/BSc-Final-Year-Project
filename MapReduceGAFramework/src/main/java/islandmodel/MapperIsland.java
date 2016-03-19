@@ -32,7 +32,9 @@ public class MapperIsland implements Serializable {
 
     public JavaPairRDD<Island, Long> mapCalculateFitness(JavaRDD<Island> parallelizedIslandPop, FitnessCalculator fitnessCalculator) {
         JavaPairRDD<Island, Long> populationWithFitness = parallelizedIslandPop.mapToPair(isl -> evaluateFitness(isl, fitnessCalculator));
+        System.out.println(populationWithFitness.values().collect().toString());
         long currentMaxFitness = populationWithFitness.values().reduce(Math::max);
+        System.out.println("After Reduce: " + currentMaxFitness);
         GlobalFile.submitMaxFitness(currentMaxFitness);
         long maxFitness = GlobalFile.getMaxFitness();
         JavaRDD<Long> terminate = populationWithFitness.values().filter(v -> (v >= maxFitness));

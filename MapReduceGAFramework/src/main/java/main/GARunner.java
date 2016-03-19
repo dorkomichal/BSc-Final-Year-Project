@@ -3,6 +3,7 @@ package main;
 import geneticClasses.*;
 import islandmodel.Island;
 import islandmodel.MapperIsland;
+import islandmodel.Migrator;
 import islandmodel.ReducerIsland;
 import mapreduce.Driver;
 import mapreduce.GlobalFile;
@@ -15,6 +16,7 @@ import scala.Tuple2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -408,9 +410,9 @@ public class GARunner {
             std = new ArrayList<>();
         }
         while (true) {
-            if (generationCounter == 5) {
+            
                 start = System.currentTimeMillis();
-            }
+
             System.out.println("Generation " + generationCounter);
             JavaPairRDD<IndividualMapReduce, Long> populationWithFitness = mapper.mapCalculateFitness(parallelizedPopulation, fitnessCalculator);
 
@@ -437,10 +439,10 @@ public class GARunner {
             newGeneration = reducer.reduceCrossover(selectedIndividuals, multipointCrossover, numberOfCrossoverPoints, geneticOperations);
 
             parallelizedPopulation = newGeneration;
-            if (generationCounter == 5) {
+
                 long stop = System.currentTimeMillis();
                 oneIterationRunningTime = stop - start;
-            }
+
             if (enableStatistics) {
                 generationStatistics(newGeneration);
             }
@@ -479,7 +481,7 @@ public class GARunner {
         lastGenerationMaxFitness = population.filter(ind -> ind.getFitness() >= maxFitnessLastGen).count();
     }
 
-    public Object[] runIslandGA(int islandSize) {
+    public Object[] runIslandGA(int islandSize, int migrationRate) {
         Driver driver = Driver.getDriver();
         FitnessCalculator fitnessCalculator = new FitnessCalculator(fitnessFunction);
         driver.initializePopulationIsland(fitnessCalculator, chromosomeLength, populationSize, islandSize, individualType, source);
@@ -501,9 +503,9 @@ public class GARunner {
         }
 
         while (true) {
-            if (generationCounter == 5) {
-                start = System.currentTimeMillis();
-            }
+
+            start = System.currentTimeMillis();
+
             System.out.println("Generation " + generationCounter);
             JavaPairRDD<Island, Long> populationWithFitness = mapper.mapCalculateFitness(parallelizedPopulation, fitnessCalculator);
             System.out.println("Fittest Individual " + GlobalFile.getCurrentMaxFitness());
@@ -529,12 +531,23 @@ public class GARunner {
             newGeneration = reducer.reduceCrossover(selectedIndividuals, multipointCrossover, numberOfCrossoverPoints, geneticOperations);
 
             parallelizedPopulation = newGeneration;
-            if (generationCounter == 5) {
-                long stop = System.currentTimeMillis();
-                oneIterationRunningTime = stop - start;
-            }
+
+            long stop = System.currentTimeMillis();
+            oneIterationRunningTime = stop - start;
+
             if (enableStatistics) {
                 generationStatisticsIsland(newGeneration);
+            }
+
+            if(generationCounter % migrationRate == 0) {
+                Migrator migrator = new Migrator();
+                JavaRDD<IndividualMapReduce> emigrants = newGeneration.map(island -> migrator.getEmigrant(island));
+                int originalPartitionSize = emigrants.partitions().size();
+                //Shuffling the data
+                emigrants.repartition(originalPartitionSize * 2);
+                emigrants.coalesce(originalPartitionSize);
+                JavaPairRDD<Island, IndividualMapReduce> emigrationReady = newGeneration.zip(emigrants);
+                parallelizedPopulation = emigrationReady.map((islIndTuple -> migrator.applyMigration(islIndTuple._1(), islIndTuple._2())));
             }
 
             //Important step for RWS selection is to reset max fitness of current generation
