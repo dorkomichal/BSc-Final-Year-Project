@@ -463,9 +463,6 @@ public class GARunner {
     private void generationStatistics(JavaRDD<IndividualMapReduce> population) {
         JavaDoubleRDD elements = population.mapToDouble(IndividualMapReduce::getFitness);
         long numberOfElements = elements.count();
-        double maxFitness = elements.max();
-        GlobalFile.setCurrentMaxFitness((long) maxFitness);
-        System.out.println("Max fitness in statistics: " + maxFitness);
         mean.add(elements.mean());
         std.add(elements.stdev());
         standardError.add(elements.sampleStdev() / Math.sqrt(numberOfElements));

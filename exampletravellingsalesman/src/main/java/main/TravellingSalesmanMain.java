@@ -20,21 +20,23 @@ import java.util.Random;
 public class TravellingSalesmanMain {
 
     public static void main(String[] args) {
-        int numberOfTheCities = 10;
-        FitnessEval fitnessEval = new FitnessEval(numberOfTheCities, 900);
+        int numberOfTheCities = 10000;
+        FitnessEval fitnessEval = new FitnessEval(numberOfTheCities, 900000);
         int chromosomeLength = numberOfTheCities;
-        int populationSize = 20;
+        int populationSize = (int) (numberOfTheCities * Math.log(numberOfTheCities));
         int maxFit = Integer.MAX_VALUE;
-        int numberOfTheGenerations = 30;
+        int numberOfTheGenerations = 100;
         SelectionMethod selectionMethod = SelectionMethod.tournament;
         boolean multipoint = false;
-        int numberOfCrossPoints = 3;
+        int numberOfCrossPoints = 0;
         int convergence = 10;
+        int sizeOfIsland = (int) (numberOfTheCities / Math.log(numberOfTheCities));
+        int migrationRate = 10;
         GARunner.setEnableStatistics(true);
         GARunner gaRunner = GARunner.getGARunner(fitnessEval, IndividualType.IntegerPermutation, null, chromosomeLength, populationSize, maxFit, numberOfTheGenerations,
                 selectionMethod, multipoint, numberOfCrossPoints);
         gaRunner.setConvergenceMax(convergence);
-        Integer[] bestSolutionCities = (Integer[]) gaRunner.runIslandGA(5, 20);
+        Integer[] bestSolutionCities = (Integer[]) gaRunner.runIslandGA(sizeOfIsland, migrationRate); // first param is size of island, second migration time rate
         System.out.println("Number of the variables " + numberOfTheCities);
         System.out.println("Number of the generations " + numberOfTheGenerations);
         System.out.println("Population Size " + populationSize);
@@ -42,6 +44,8 @@ public class TravellingSalesmanMain {
         System.out.println("Multipoint crossover " + multipoint);
         System.out.println("Number of crossover points " + numberOfCrossPoints);
         System.out.println("Selection method: " + selectionMethod);
+        System.out.println("Size of island: " + sizeOfIsland);
+        System.out.println("Migration rate: " + migrationRate);
         System.out.println("Solution: " + Arrays.toString(bestSolutionCities));
         System.out.println("Mean");
         gaRunner.getMean().stream().forEach(x -> System.out.print( x+ ","));
@@ -52,17 +56,6 @@ public class TravellingSalesmanMain {
         System.out.println("\nAverageFitness over runs: " + gaRunner.getAverageFitnessOverGenerations());
         System.out.println("Number of individuals in final population with optimal fitness: " + gaRunner.getLastGenerationMaxFitness());
         System.out.println("One iteration running time: " + gaRunner.getOneIterationRunningTime());
-
-    /*    Integer[] vals = new Integer[]{-78,-23,42,10,-11};
-        mapreduce.Driver driver = mapreduce.Driver.getDriver();
-        JavaRDD<Integer> rddExample = driver.paralleliseData(Arrays.asList(vals));
-        for (int i = 0; i < 40; i++) {
-            Random random = new Random();
-            JavaRDD<Integer> rddValues = rddExample.map(val -> random.nextInt(100) / 7);
-            System.out.println(rddValues.collect().toString());
-            long currentMaxFitness = rddValues.reduce(Math::max);
-            System.out.println("After Reduce: " + currentMaxFitness);
-        }*/
 
     }
 
