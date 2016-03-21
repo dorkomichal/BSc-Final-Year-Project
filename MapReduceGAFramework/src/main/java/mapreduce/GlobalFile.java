@@ -27,7 +27,7 @@ public class GlobalFile {
         return currentMaxFitness;
     }
 
-    public static void submitMaxFitness(long fitness) {
+    public static void setCurrentMaxFitness(long fitness) {
         currentMaxFitness = fitness;
     }
 

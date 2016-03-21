@@ -74,16 +74,12 @@ public class Population implements Serializable {
 
     public IndividualMapReduce getFittestIndividual() {
         IndividualMapReduce fittestIndividual = null;
-        long maxFitness = 0;
+        long maxFitness = Long.MIN_VALUE;
         for (IndividualMapReduce bi : individualMapReduces) {
-            if (bi.getFitness() > maxFitness) {
+            if (bi.getFitness() >= maxFitness) {
                 fittestIndividual = bi;
                 maxFitness = bi.getFitness();
             }
-        }
-        // If whole population has fitness 0 then return first individual
-        if (fittestIndividual == null) {
-            fittestIndividual = individualMapReduces[0];
         }
         return fittestIndividual;
     }

@@ -3,7 +3,10 @@ package islandmodel;
 import geneticClasses.CrossoverPair;
 import geneticClasses.GeneticOperationsMapReduce;
 import geneticClasses.IndividualMapReduce;
+import geneticClasses.Population;
 import org.apache.spark.api.java.JavaRDD;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
 
@@ -17,6 +20,7 @@ import java.io.Serializable;
 public class ReducerIsland implements Serializable {
 
     private static ReducerIsland reducerIsland;
+    private final static Logger LOGGER = LoggerFactory.getLogger(ReducerIsland.class);
 
     public static ReducerIsland getReducerIsland() {
         if (reducerIsland == null) {
@@ -48,8 +52,10 @@ public class ReducerIsland implements Serializable {
             }
             i++;
         }
-        isl.getPopulation().setIndividualMapReduces(newGeneration);
-        return isl;
+        Population newPopulation = new Population(isl.getSizeOfIsland());
+        newPopulation.setIndividualMapReduces(newGeneration);
+        return new Island(newPopulation, isl.getSizeOfIsland());
+
     }
 
     private Island multipointCrossover(Island isl, int numOfCrossPoints, GeneticOperationsMapReduce geneticOperationsMapReduce) {
@@ -63,8 +69,9 @@ public class ReducerIsland implements Serializable {
             }
             i++;
         }
-        isl.getPopulation().setIndividualMapReduces(newGeneration);
-        return isl;
+        Population newPopulation = new Population(isl.getSizeOfIsland());
+        newPopulation.setIndividualMapReduces(newGeneration);
+        return new Island(newPopulation, isl.getSizeOfIsland());
     }
 
 }

@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b212d496-b186-40bb-b151-bcf7918a9e05" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/Migrator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/Island.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/Island.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/Population.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/Population.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIsland.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIsland.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ReducerIsland.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ReducerIsland.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/GlobalFile.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/GlobalFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Mapper.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Mapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exampletravellingsalesman/src/main/java/main/TravellingSalesmanMain.java" afterPath="$PROJECT_DIR$/exampletravellingsalesman/src/main/java/main/TravellingSalesmanMain.java" />
     </list>
     <ignored path="mapreducega.iws" />
@@ -51,9 +53,65 @@
       <file leaf-file-name="TravellingSalesmanMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exampletravellingsalesman/src/main/java/main/TravellingSalesmanMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
+            <state relative-caret-position="420">
+              <caret line="36" column="76" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="76" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GlobalFile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/GlobalFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="38" column="57" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#716#717#0" expanded="false" />
+                <element signature="e#756#757#0" expanded="false" />
+                <element signature="e#817#818#0" expanded="false" />
+                <element signature="e#860#861#0" expanded="false" />
+                <element signature="e#924#925#0" expanded="false" />
+                <element signature="e#964#965#0" expanded="false" />
+                <element signature="e#1158#1159#0" expanded="false" />
+                <element signature="e#1206#1207#0" expanded="false" />
+                <element signature="e#1253#1254#0" expanded="false" />
+                <element signature="e#1289#1290#0" expanded="false" />
+                <element signature="e#1524#1525#0" expanded="false" />
+                <element signature="e#1580#1581#0" expanded="false" />
+                <element signature="e#1622#1623#0" expanded="false" />
+                <element signature="e#1655#1656#0" expanded="false" />
+                <element signature="e#1711#1712#0" expanded="false" />
+                <element signature="e#1761#1762#0" expanded="false" />
+                <element signature="e#1812#1813#0" expanded="false" />
+                <element signature="e#1848#1849#0" expanded="false" />
+                <element signature="e#2306#2307#0" expanded="false" />
+                <element signature="e#2350#2351#0" expanded="false" />
+                <element signature="e#2404#2405#0" expanded="false" />
+                <element signature="e#2448#2449#0" expanded="false" />
+                <element signature="e#2521#2522#0" expanded="false" />
+                <element signature="e#2564#2565#0" expanded="false" />
+                <element signature="e#2608#2609#0" expanded="false" />
+                <element signature="e#2669#2670#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Driver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1005">
+              <caret line="80" column="54" selection-start-line="80" selection-start-column="54" selection-end-line="80" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1058#1059#0" expanded="false" />
+                <element signature="e#1102#1103#0" expanded="false" />
+                <element signature="e#1173#1174#0" expanded="false" />
+                <element signature="e#1218#1219#0" expanded="false" />
+                <element signature="e#1270#1271#0" expanded="false" />
+                <element signature="e#1309#1310#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,8 +119,8 @@
       <file leaf-file-name="Population.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/Population.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+            <state relative-caret-position="1140">
+              <caret line="82" column="9" selection-start-line="76" selection-start-column="8" selection-end-line="82" selection-end-column="9" />
               <folding>
                 <element signature="e#1893#1894#0" expanded="false" />
                 <element signature="e#1936#1937#0" expanded="false" />
@@ -70,34 +128,8 @@
                 <element signature="e#2015#2016#0" expanded="false" />
                 <element signature="e#2225#2226#0" expanded="false" />
                 <element signature="e#2275#2276#0" expanded="false" />
-                <element signature="e#3053#3054#0" expanded="false" />
-                <element signature="e#3090#3091#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Mapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Mapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="32" column="53" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#628#629#0" expanded="false" />
-                <element signature="e#657#658#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapperIsland.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIsland.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="37" column="55" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2885#2886#0" expanded="false" />
+                <element signature="e#2922#2923#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -125,11 +157,57 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="MapperIsland.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIsland.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1017">
+              <caret line="37" column="82" selection-start-line="37" selection-start-column="82" selection-end-line="37" selection-end-column="82" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IntPermutationIndividualMapReduce.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/IntPermutationIndividualMapReduce.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1140">
+              <caret line="95" column="28" selection-start-line="95" selection-start-column="28" selection-end-line="95" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#913#914#0" expanded="false" />
+                <element signature="e#954#955#0" expanded="false" />
+                <element signature="e#1033#1034#0" expanded="false" />
+                <element signature="e#1083#1084#0" expanded="false" />
+                <element signature="e#1820#1821#0" expanded="false" />
+                <element signature="e#1867#1868#0" expanded="false" />
+                <element signature="e#1920#1921#0" expanded="false" />
+                <element signature="e#1958#1959#0" expanded="false" />
+                <element signature="e#2023#2024#0" expanded="false" />
+                <element signature="e#2078#2079#0" expanded="false" />
+                <element signature="e#2124#2125#0" expanded="false" />
+                <element signature="e#2159#2160#0" expanded="false" />
+                <element signature="e#2212#2213#0" expanded="false" />
+                <element signature="e#2256#2257#0" expanded="false" />
+                <element signature="e#2324#2325#0" expanded="false" />
+                <element signature="e#2381#2382#0" expanded="false" />
+                <element signature="e#2638#2639#0" expanded="false" />
+                <element signature="e#2676#2677#0" expanded="false" />
+                <element signature="e#2739#2740#0" expanded="false" />
+                <element signature="e#2789#2790#0" expanded="false" />
+                <element signature="e#2993#2994#0" expanded="false" />
+                <element signature="e#3048#3049#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ReducerIsland.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ReducerIsland.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+            <state relative-caret-position="585">
+              <caret line="47" column="49" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -137,24 +215,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GARunner.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GARunner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1264">
-              <caret line="412" column="12" selection-start-line="412" selection-start-column="12" selection-end-line="412" selection-end-column="12" />
+            <state relative-caret-position="96">
+              <caret line="520" column="69" selection-start-line="520" selection-start-column="69" selection-end-line="520" selection-end-column="69" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Migrator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/Migrator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -162,27 +228,11 @@
       <file leaf-file-name="Island.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/Island.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
+            <state relative-caret-position="600">
               <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#841#842#0" expanded="true" />
-                <element signature="e#874#875#0" expanded="true" />
                 <element signature="e#1427#1428#0" expanded="true" />
-                <element signature="e#1482#1483#0" expanded="true" />
-                <element signature="e#1532#1533#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SerializableStatistics.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/SerializableStatistics.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -250,18 +300,18 @@
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/IntPermutationIndividualMapReduce.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/BinaryIndividualMapReduce.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/GeneticOperationsMapReduce.java" />
-        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/GlobalFile.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Reducer.java" />
-        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ReducerIsland.java" />
-        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/Population.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Driver.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/SerializableStatistics.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Mapper.java" />
-        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIsland.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/Island.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/Migrator.java" />
+        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ReducerIsland.java" />
+        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/Population.java" />
         <option value="$PROJECT_DIR$/exampletravellingsalesman/src/main/java/main/TravellingSalesmanMain.java" />
+        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/GlobalFile.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java" />
+        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIsland.java" />
       </list>
     </option>
   </component>
@@ -283,12 +333,67 @@
     </option>
   </component>
   <component name="MavenProjectNavigator">
-    <treeState />
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="mapreducegaframework" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="mapreducegaframework" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="exampletravellingsalesman" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="exampletravellingsalesman" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="24" />
+    <option name="y" value="-4" />
     <option name="width" value="1366" />
-    <option name="height" value="744" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -315,6 +420,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -737,9 +843,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1412,12 +1517,14 @@
       <workItem from="1458308731518" duration="274000" />
       <workItem from="1458309135293" duration="149000" />
       <workItem from="1458309306938" duration="17530000" />
-      <workItem from="1458420040708" duration="8019000" />
+      <workItem from="1458420040708" duration="8618000" />
+      <workItem from="1458507433911" duration="10889000" />
+      <workItem from="1458563835512" duration="1008000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="431080000" />
+    <option name="totallyTimeSpent" value="443576000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1429,7 +1536,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1366" height="744" extended-state="6" />
+    <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1499,15 +1606,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/Population.java</url>
-          <line>70</line>
-          <properties class="geneticClasses.Population" method="saveIndividual" />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="7" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1794,13 +1893,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="43" column="60" selection-start-line="43" selection-start-column="60" selection-end-line="43" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#863#864#0" expanded="false" />
-            <element signature="e#899#900#0" expanded="false" />
-            <element signature="e#1557#1558#0" expanded="false" />
-            <element signature="e#1591#1592#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1808,44 +1900,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/GlobalFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/FitnessCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="77" column="29" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
-          <folding>
-            <element signature="e#1270#1271#0" expanded="false" />
-            <element signature="e#1309#1310#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/IntPermutationIndividualMapReduce.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="95" column="28" selection-start-line="95" selection-start-column="28" selection-end-line="95" selection-end-column="28" />
-          <folding>
-            <element signature="e#2638#2639#0" expanded="false" />
-            <element signature="e#2676#2677#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1863,10 +1917,60 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="32" column="53" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/Migrator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/SerializableStatistics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/FitnessCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/IntPermutationIndividualMapReduce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="95" column="28" selection-start-line="95" selection-start-column="28" selection-end-line="95" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#628#629#0" expanded="false" />
-            <element signature="e#657#658#0" expanded="false" />
+            <element signature="e#913#914#0" expanded="false" />
+            <element signature="e#954#955#0" expanded="false" />
+            <element signature="e#1033#1034#0" expanded="false" />
+            <element signature="e#1083#1084#0" expanded="false" />
+            <element signature="e#1820#1821#0" expanded="false" />
+            <element signature="e#1867#1868#0" expanded="false" />
+            <element signature="e#1920#1921#0" expanded="false" />
+            <element signature="e#1958#1959#0" expanded="false" />
+            <element signature="e#2023#2024#0" expanded="false" />
+            <element signature="e#2078#2079#0" expanded="false" />
+            <element signature="e#2124#2125#0" expanded="false" />
+            <element signature="e#2159#2160#0" expanded="false" />
+            <element signature="e#2212#2213#0" expanded="false" />
+            <element signature="e#2256#2257#0" expanded="false" />
+            <element signature="e#2324#2325#0" expanded="false" />
+            <element signature="e#2381#2382#0" expanded="false" />
+            <element signature="e#2638#2639#0" expanded="false" />
+            <element signature="e#2676#2677#0" expanded="false" />
+            <element signature="e#2739#2740#0" expanded="false" />
+            <element signature="e#2789#2790#0" expanded="false" />
+            <element signature="e#2993#2994#0" expanded="false" />
+            <element signature="e#3048#3049#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1891,10 +1995,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ReducerIsland.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="47" column="49" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="80" column="54" selection-start-line="80" selection-start-column="54" selection-end-line="80" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1058#1059#0" expanded="false" />
+            <element signature="e#1102#1103#0" expanded="false" />
+            <element signature="e#1173#1174#0" expanded="false" />
+            <element signature="e#1218#1219#0" expanded="false" />
+            <element signature="e#1270#1271#0" expanded="false" />
+            <element signature="e#1309#1310#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/Island.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1427#1428#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/Population.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+        <state relative-caret-position="1140">
+          <caret line="82" column="9" selection-start-line="76" selection-start-column="8" selection-end-line="82" selection-end-column="9" />
           <folding>
             <element signature="e#1893#1894#0" expanded="false" />
             <element signature="e#1936#1937#0" expanded="false" />
@@ -1902,80 +2043,71 @@
             <element signature="e#2015#2016#0" expanded="false" />
             <element signature="e#2225#2226#0" expanded="false" />
             <element signature="e#2275#2276#0" expanded="false" />
-            <element signature="e#3053#3054#0" expanded="false" />
-            <element signature="e#3090#3091#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ReducerIsland.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIsland.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="37" column="55" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/Island.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#841#842#0" expanded="true" />
-            <element signature="e#874#875#0" expanded="true" />
-            <element signature="e#1427#1428#0" expanded="true" />
-            <element signature="e#1482#1483#0" expanded="true" />
-            <element signature="e#1532#1533#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/Migrator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2885#2886#0" expanded="false" />
+            <element signature="e#2922#2923#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/exampletravellingsalesman/src/main/java/main/TravellingSalesmanMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
+        <state relative-caret-position="420">
+          <caret line="36" column="76" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="76" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/SerializableStatistics.java">
+    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/GlobalFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+        <state relative-caret-position="420">
+          <caret line="38" column="57" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#716#717#0" expanded="false" />
+            <element signature="e#756#757#0" expanded="false" />
+            <element signature="e#817#818#0" expanded="false" />
+            <element signature="e#860#861#0" expanded="false" />
+            <element signature="e#924#925#0" expanded="false" />
+            <element signature="e#964#965#0" expanded="false" />
+            <element signature="e#1158#1159#0" expanded="false" />
+            <element signature="e#1206#1207#0" expanded="false" />
+            <element signature="e#1253#1254#0" expanded="false" />
+            <element signature="e#1289#1290#0" expanded="false" />
+            <element signature="e#1524#1525#0" expanded="false" />
+            <element signature="e#1580#1581#0" expanded="false" />
+            <element signature="e#1622#1623#0" expanded="false" />
+            <element signature="e#1655#1656#0" expanded="false" />
+            <element signature="e#1711#1712#0" expanded="false" />
+            <element signature="e#1761#1762#0" expanded="false" />
+            <element signature="e#1812#1813#0" expanded="false" />
+            <element signature="e#1848#1849#0" expanded="false" />
+            <element signature="e#2306#2307#0" expanded="false" />
+            <element signature="e#2350#2351#0" expanded="false" />
+            <element signature="e#2404#2405#0" expanded="false" />
+            <element signature="e#2448#2449#0" expanded="false" />
+            <element signature="e#2521#2522#0" expanded="false" />
+            <element signature="e#2564#2565#0" expanded="false" />
+            <element signature="e#2608#2609#0" expanded="false" />
+            <element signature="e#2669#2670#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1264">
-          <caret line="412" column="12" selection-start-line="412" selection-start-column="12" selection-end-line="412" selection-end-column="12" />
+        <state relative-caret-position="96">
+          <caret line="520" column="69" selection-start-line="520" selection-start-column="69" selection-end-line="520" selection-end-column="69" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIsland.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1017">
+          <caret line="37" column="82" selection-start-line="37" selection-start-column="82" selection-end-line="37" selection-end-column="82" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

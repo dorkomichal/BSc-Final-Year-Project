@@ -4,6 +4,8 @@ import geneticClasses.*;
 import mapreduce.GlobalFile;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import scala.Tuple2;
 
 import java.io.Serializable;
@@ -20,6 +22,7 @@ import java.util.Random;
 public class MapperIsland implements Serializable {
 
     private static MapperIsland mapperIsland;
+    private final static Logger LOGGER = LoggerFactory.getLogger(MapperIsland.class);
 
     public static MapperIsland getMapperIsland() {
         if (mapperIsland == null) {
@@ -32,10 +35,8 @@ public class MapperIsland implements Serializable {
 
     public JavaPairRDD<Island, Long> mapCalculateFitness(JavaRDD<Island> parallelizedIslandPop, FitnessCalculator fitnessCalculator) {
         JavaPairRDD<Island, Long> populationWithFitness = parallelizedIslandPop.mapToPair(isl -> evaluateFitness(isl, fitnessCalculator));
-        System.out.println(populationWithFitness.values().collect().toString());
         long currentMaxFitness = populationWithFitness.values().reduce(Math::max);
-        System.out.println("After Reduce: " + currentMaxFitness);
-        GlobalFile.submitMaxFitness(currentMaxFitness);
+        GlobalFile.setCurrentMaxFitness(currentMaxFitness);
         long maxFitness = GlobalFile.getMaxFitness();
         JavaRDD<Long> terminate = populationWithFitness.values().filter(v -> (v >= maxFitness));
         if (!terminate.isEmpty()) {
@@ -54,8 +55,10 @@ public class MapperIsland implements Serializable {
                 maxFitness = fitness;
             }
         }
-        isl.getPopulation().setIndividualMapReduces(individuals);
-        return new Tuple2<>(isl, maxFitness);
+        Population evaluatedPopulation = new Population(isl.getSizeOfIsland());
+        evaluatedPopulation.setIndividualMapReduces(individuals);
+        Island evaluatedIsland = new Island(evaluatedPopulation, isl.getSizeOfIsland());
+        return new Tuple2<>(evaluatedIsland, maxFitness);
     }
 
     public JavaRDD<Island> mapSelection(JavaPairRDD<Island,Long> populationWithFitness, SelectionMethod method, GeneticOperationsMapReduce operations) {
@@ -86,8 +89,11 @@ public class MapperIsland implements Serializable {
             pair.setParent2(parent2);
             pairs[i] = pair;
         }
-      isl.setCrossoverPairs(pairs);
-      return isl;
+        Population pairedPopulation = new Population(isl.getSizeOfIsland());
+        pairedPopulation.setIndividualMapReduces(ind);
+        Island pairedIsland = new Island(pairedPopulation, isl.getSizeOfIsland());
+        pairedIsland.setCrossoverPairs(pairs);
+      return pairedIsland;
     }
 
     private Island rwsSelection(Island isl, GeneticOperationsMapReduce geneticOperationsMapReduce) {
@@ -111,8 +117,11 @@ public class MapperIsland implements Serializable {
             pair.setParent2(parent2);
             pairs[i] = pair;
         }
-        isl.setCrossoverPairs(pairs);
-        return isl;
+        Population pairedPopulation = new Population(isl.getSizeOfIsland());
+        pairedPopulation.setIndividualMapReduces(ind);
+        Island pairedIsland = new Island(pairedPopulation, isl.getSizeOfIsland());
+        pairedIsland.setCrossoverPairs(pairs);
+        return pairedIsland;
     }
 
     private CrossoverPair getElite(Island isl) {
