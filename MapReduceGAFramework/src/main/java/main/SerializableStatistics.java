@@ -17,7 +17,7 @@ public class SerializableStatistics implements Serializable {
     public Island finalReduce(Island island1, Island island2) {
         IndividualMapReduce fittest1 = island1.getPopulation().getFittestIndividual();
         IndividualMapReduce fittest2 = island2.getPopulation().getFittestIndividual();
-        if(fittest1.getFitness() >= fittest2.getFitness()) {
+        if (fittest1.getFitness() >= fittest2.getFitness()) {
             return island1;
         } else {
             return island2;

@@ -386,6 +386,7 @@ public class GARunner {
      * It uses Fitness Evaluation Parallelization (Global Level Parallelization) which collects population after each
      * generation in order to perform genetic operations in next generation. It is suitable for small populations and
      * small number of variables where fitness evaluation is very expensive
+     *
      * @return chromosome of best solution
      */
     public Object[] runGA() {
@@ -410,7 +411,7 @@ public class GARunner {
         }
         while (true) {
 
-                start = System.currentTimeMillis();
+            start = System.currentTimeMillis();
 
             System.out.println("Generation " + generationCounter);
             JavaPairRDD<IndividualMapReduce, Long> populationWithFitness = mapper.mapCalculateFitness(parallelizedPopulation, fitnessCalculator);
@@ -439,8 +440,8 @@ public class GARunner {
 
             parallelizedPopulation = newGeneration.cache();
 
-                long stop = System.currentTimeMillis();
-                oneIterationRunningTime = stop - start;
+            long stop = System.currentTimeMillis();
+            oneIterationRunningTime = stop - start;
 
             if (enableStatistics) {
                 generationStatistics(newGeneration);
@@ -458,6 +459,7 @@ public class GARunner {
      * For Global Parallelization model
      * Private method that analyses population after each generation and collects analytical data
      * standard deviation, mean and standard error
+     *
      * @param population population to be analysed
      */
     private void generationStatistics(JavaRDD<IndividualMapReduce> population) {
@@ -472,6 +474,7 @@ public class GARunner {
      * For Global Parallelization model
      * Performs analysis on final population to get average fitness over whole run and number of individuals
      * in final population with optimal solution
+     *
      * @param population population to be analysed
      */
     private void lastGenerationStatistics(JavaRDD<IndividualMapReduce> population) {
@@ -517,7 +520,7 @@ public class GARunner {
             if (GlobalFile.isSolutionFound() || generationCounter >= maxGeneration || convergenceCounter >= convergenceMax) {
                 newGeneration = populationWithFitness.keys().cache();
                 SerializableStatistics statistics = new SerializableStatistics();
-                IndividualMapReduce fittestInd = newGeneration.reduce((island, island2) -> statistics.finalReduce(island,island2)).getPopulation().getFittestIndividual();
+                IndividualMapReduce fittestInd = newGeneration.reduce((island, island2) -> statistics.finalReduce(island, island2)).getPopulation().getFittestIndividual();
                 GlobalFile.setFittestIndividual(fittestInd);
                 GlobalFile.setCurrentMaxFitness(fittestInd.getFitness());
                 if (enableStatistics) {
@@ -537,7 +540,7 @@ public class GARunner {
                 generationStatisticsIsland(newGeneration);
             }
 
-            if(generationCounter % migrationRate == 0) {
+            if (generationCounter % migrationRate == 0) {
                 System.out.println("Migrating");
                 Migrator migrator = new Migrator();
                 JavaRDD<IndividualMapReduce> emigrants = newGeneration.map(island -> migrator.getEmigrant(island));
@@ -561,6 +564,7 @@ public class GARunner {
      * For Island Model - need to map islands into one population
      * Private method that analyses population after each generation and collects analytical data
      * standard deviation, mean and standard error
+     *
      * @param population population to be analysed
      */
     private void generationStatisticsIsland(JavaRDD<Island> population) {
@@ -572,6 +576,7 @@ public class GARunner {
      * For Island Model
      * Performs analysis on final population to get average fitness over whole run and number of individuals
      * in final population with optimal solution
+     *
      * @param population population to be analysed
      */
     private void lastGenerationStatisticsIsland(JavaRDD<Island> population) {

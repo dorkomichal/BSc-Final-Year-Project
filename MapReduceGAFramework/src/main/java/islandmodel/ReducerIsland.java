@@ -33,7 +33,7 @@ public class ReducerIsland implements Serializable {
 
     public JavaRDD<Island> reduceCrossover(JavaRDD<Island> population, boolean multipoint, int numberOfCrossPoints, GeneticOperationsMapReduce geneticOperations) {
         JavaRDD<Island> newGeneration;
-        if(!multipoint) {
+        if (!multipoint) {
             newGeneration = population.map(island -> singlePointCrossover(island, geneticOperations));
         } else {
             newGeneration = population.map(island -> multipointCrossover(island, numberOfCrossPoints, geneticOperations));
@@ -44,8 +44,8 @@ public class ReducerIsland implements Serializable {
     private Island singlePointCrossover(Island isl, GeneticOperationsMapReduce geneticOperationsMapReduce) {
         IndividualMapReduce[] newGeneration = new IndividualMapReduce[isl.getSizeOfIsland()];
         int i = 0;
-        for(CrossoverPair cp: isl.getCrossoverPairs()) {
-            if(cp.getEliteIndividual() != null) {
+        for (CrossoverPair cp : isl.getCrossoverPairs()) {
+            if (cp.getEliteIndividual() != null) {
                 newGeneration[i] = cp.getEliteIndividual();
             } else {
                 newGeneration[i] = geneticOperationsMapReduce.singlePointCrossover(cp.getParent1(), cp.getParent2());
@@ -61,8 +61,8 @@ public class ReducerIsland implements Serializable {
     private Island multipointCrossover(Island isl, int numOfCrossPoints, GeneticOperationsMapReduce geneticOperationsMapReduce) {
         IndividualMapReduce[] newGeneration = new IndividualMapReduce[isl.getSizeOfIsland()];
         int i = 0;
-        for(CrossoverPair cp: isl.getCrossoverPairs()) {
-            if(cp.getEliteIndividual() != null) {
+        for (CrossoverPair cp : isl.getCrossoverPairs()) {
+            if (cp.getEliteIndividual() != null) {
                 newGeneration[i] = cp.getEliteIndividual();
             } else {
                 newGeneration[i] = geneticOperationsMapReduce.multiPointCrossover(cp.getParent1(), cp.getParent2(), numOfCrossPoints);

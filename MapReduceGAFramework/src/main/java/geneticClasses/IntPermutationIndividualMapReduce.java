@@ -1,8 +1,6 @@
 package geneticClasses;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -50,8 +48,7 @@ public class IntPermutationIndividualMapReduce implements IndividualMapReduce {
         /*
          * Fisher–Yates shuffle of the array of possible values
          */
-        for (int i = chromosome.length - 1; i > 0; i--)
-        {
+        for (int i = chromosome.length - 1; i > 0; i--) {
             int index = random.nextInt(i + 1);
             // Simple swap
             int a = chromosome[index];
@@ -87,7 +84,7 @@ public class IntPermutationIndividualMapReduce implements IndividualMapReduce {
 
     @Override
     public void setChromosome(Object[] chromosome) {
-        this.chromosome = (Integer []) chromosome;
+        this.chromosome = (Integer[]) chromosome;
     }
 
     @Override

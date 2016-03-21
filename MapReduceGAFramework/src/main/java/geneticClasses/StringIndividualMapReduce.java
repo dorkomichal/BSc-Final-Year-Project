@@ -31,25 +31,33 @@ public class StringIndividualMapReduce implements Serializable, IndividualMapRed
         return source;
     }
 
-    public void setChromosomeLength(Integer chromosomeLength) {
-        this.chromosomeLength = chromosomeLength;
-    }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public CrossoverPair getCrossoverPair() {
         return this.crossoverPair;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setCrossoverPair(CrossoverPair crossoverPair) {
         this.crossoverPair = crossoverPair;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void generateRandomIndividual() {
         this.chromosome = RandomStringUtils.randomAlphabetic(chromosomeLength).toUpperCase().split("");
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void generateRandomIndividual(Object[] source) {
         this.source = (String[]) source;
@@ -61,47 +69,74 @@ public class StringIndividualMapReduce implements Serializable, IndividualMapRed
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Object[] getChromosome() {
         return this.chromosome;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setGene(Object gene, int index) {
         this.chromosome[index] = (String) gene;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public long getFitness() {
         return this.fitness;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int lengthOfChromosome() {
         return chromosomeLength;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setChromosome(Object[] chromosome) {
         this.chromosome = (String[]) chromosome;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public long calculateFitness(FitnessCalculator fitnessCalculator) {
         this.fitness = fitnessCalculator.calculateFitness(chromosome, this);
         return fitness;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setFitness(long fitness) {
         this.fitness = fitness;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public double getProbabilityOfSelection() {
         return this.probabilityOfSelection;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setProbabilityOfSelection(double probabilityOfSelection) {
         this.probabilityOfSelection = probabilityOfSelection;

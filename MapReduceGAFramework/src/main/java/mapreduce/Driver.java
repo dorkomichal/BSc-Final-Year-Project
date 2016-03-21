@@ -1,6 +1,9 @@
 package mapreduce;
 
-import geneticClasses.*;
+import geneticClasses.FitnessCalculator;
+import geneticClasses.IndividualMapReduce;
+import geneticClasses.IndividualType;
+import geneticClasses.Population;
 import islandmodel.Island;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
@@ -65,7 +68,7 @@ public class Driver {
     public void initializePopulationIsland(FitnessCalculator fc, Integer chromosomeLength, int sizeOfPopulation, int sizeOfIsland, IndividualType type, String[] source) {
         int numberOfIslands = Math.floorDiv(sizeOfPopulation, sizeOfIsland);
         Island[] islands = new Island[numberOfIslands];
-        for(int i = 0; i < islands.length; i++) {
+        for (int i = 0; i < islands.length; i++) {
             Island isl = new Island(sizeOfIsland);
             if (type.equals(IndividualType.Binary)) {
                 isl.getPopulation().initializePopulationBinary(chromosomeLength);
@@ -80,7 +83,6 @@ public class Driver {
         List data = Arrays.asList(islands);
         this.populationIsland = jsc.parallelize(data);
     }
-
 
 
 }

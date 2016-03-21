@@ -42,11 +42,11 @@ public class Mapper implements Serializable {
         JavaRDD<IndividualMapReduce> keys = populationWithFitness.keys();
 
         JavaRDD<CrossoverPair> selectedIndividuals;
-        if(method.equals(SelectionMethod.rouletteWheel)) {
+        if (method.equals(SelectionMethod.rouletteWheel)) {
             System.out.println("RWS");
             Iterator<IndividualMapReduce> populationIterator = keys.toLocalIterator();
             List<IndividualMapReduce> population = new ArrayList<>();
-            while(populationIterator.hasNext()) {
+            while (populationIterator.hasNext()) {
                 population.add(populationIterator.next());
             }
             long sumOfFitnesses = GlobalFile.getSumOfFitnesses(population);
@@ -56,7 +56,7 @@ public class Mapper implements Serializable {
             System.out.println("Tournament");
             Iterator<IndividualMapReduce> populationIterator = keys.toLocalIterator();
             List<IndividualMapReduce> population = new ArrayList<>();
-            while(populationIterator.hasNext()) {
+            while (populationIterator.hasNext()) {
                 population.add(populationIterator.next());
             }
             selectedIndividuals = populationWithFitness.map(ind -> tournamentSelection(population, operations));
@@ -68,24 +68,24 @@ public class Mapper implements Serializable {
             eliteList.add(elitePair);
             JavaRDD<CrossoverPair> eliterdd = Driver.getDriver().paralleliseData(eliteList);
             JavaPairRDD<CrossoverPair, Long> zipped = selectedIndividuals.zipWithIndex();
-            return zipped.filter(x -> x._2()!= 0).keys().union(eliterdd);
+            return zipped.filter(x -> x._2() != 0).keys().union(eliterdd);
 
         } else {
-            return  selectedIndividuals;
+            return selectedIndividuals;
         }
     }
 
     private CrossoverPair tournamentSelection(List<IndividualMapReduce> population, GeneticOperationsMapReduce geneticOperations) {
-            int[] randoms = new Random().ints(0, population.size()).distinct().limit(4).toArray();
-            CrossoverPair crossoverPair = new CrossoverPair();
-            IndividualMapReduce firstParent = geneticOperations.tournamentSelection(population.get(randoms[0]), population.get(randoms[1]));
-            firstParent.setCrossoverPair(crossoverPair);
-            crossoverPair.setParent1(firstParent);
-            IndividualMapReduce secondParent = geneticOperations.tournamentSelection(population.get(randoms[2]), population.get(randoms[3]));
-            secondParent.setCrossoverPair(crossoverPair);
-            crossoverPair.setParent2(secondParent);
-            return crossoverPair;
-        }
+        int[] randoms = new Random().ints(0, population.size()).distinct().limit(4).toArray();
+        CrossoverPair crossoverPair = new CrossoverPair();
+        IndividualMapReduce firstParent = geneticOperations.tournamentSelection(population.get(randoms[0]), population.get(randoms[1]));
+        firstParent.setCrossoverPair(crossoverPair);
+        crossoverPair.setParent1(firstParent);
+        IndividualMapReduce secondParent = geneticOperations.tournamentSelection(population.get(randoms[2]), population.get(randoms[3]));
+        secondParent.setCrossoverPair(crossoverPair);
+        crossoverPair.setParent2(secondParent);
+        return crossoverPair;
+    }
 
     public IndividualMapReduce getElite(JavaPairRDD<IndividualMapReduce, Long> populationWithFitness) {
         long currentMaxFitness = GlobalFile.getCurrentMaxFitness();
@@ -96,9 +96,9 @@ public class Mapper implements Serializable {
          * runtime error occurred that collection was in fact empty. Therefore I collect RDD
          * first and check on driver size of the list
          */
-        List<Tuple2<IndividualMapReduce,Long>> elites = eliteInd.take(1);
-        if(elites.isEmpty()) {
-           return null;
+        List<Tuple2<IndividualMapReduce, Long>> elites = eliteInd.take(1);
+        if (elites.isEmpty()) {
+            return null;
         } else {
             return elites.get(0)._1();
         }

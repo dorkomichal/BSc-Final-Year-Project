@@ -49,7 +49,7 @@ public class MapperIsland implements Serializable {
         long maxFitness = Long.MIN_VALUE;
         Population population = isl.getPopulation();
         IndividualMapReduce[] individuals = population.getIndividualMapReduces();
-        for(IndividualMapReduce ind : individuals) {
+        for (IndividualMapReduce ind : individuals) {
             long fitness = ind.calculateFitness(fitnessCalculator);
             if (fitness >= maxFitness) {
                 maxFitness = fitness;
@@ -61,10 +61,10 @@ public class MapperIsland implements Serializable {
         return new Tuple2<>(evaluatedIsland, maxFitness);
     }
 
-    public JavaRDD<Island> mapSelection(JavaPairRDD<Island,Long> populationWithFitness, SelectionMethod method, GeneticOperationsMapReduce operations) {
+    public JavaRDD<Island> mapSelection(JavaPairRDD<Island, Long> populationWithFitness, SelectionMethod method, GeneticOperationsMapReduce operations) {
         JavaRDD<Island> islands = populationWithFitness.keys();
         JavaRDD<Island> islandsWithPairs;
-        if(method.equals(SelectionMethod.tournament)) {
+        if (method.equals(SelectionMethod.tournament)) {
             islandsWithPairs = islands.map(island -> tournamentSelection(island, operations));
         } else {
             islandsWithPairs = islands.map(island -> rwsSelection(island, operations));
@@ -93,7 +93,7 @@ public class MapperIsland implements Serializable {
         pairedPopulation.setIndividualMapReduces(ind);
         Island pairedIsland = new Island(pairedPopulation, isl.getSizeOfIsland());
         pairedIsland.setCrossoverPairs(pairs);
-      return pairedIsland;
+        return pairedIsland;
     }
 
     private Island rwsSelection(Island isl, GeneticOperationsMapReduce geneticOperationsMapReduce) {
@@ -101,7 +101,7 @@ public class MapperIsland implements Serializable {
         IndividualMapReduce[] ind = isl.getPopulation().getIndividualMapReduces();
         isl.getPopulation().calculateSumOfFitnesses();
         double sumOfFitnesses = isl.getPopulation().getSumOfFitnesses();
-        for (IndividualMapReduce individual: ind) {
+        for (IndividualMapReduce individual : ind) {
             geneticOperationsMapReduce.rwsSelectionProbabilityCalculation(individual, sumOfFitnesses);
         }
         int head = 0;

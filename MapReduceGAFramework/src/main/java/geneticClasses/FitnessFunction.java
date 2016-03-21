@@ -11,5 +11,13 @@ import java.io.Serializable;
  */
 public interface FitnessFunction extends Serializable, Cloneable {
 
+    /**
+     * Implementation of the fitness function which is problem dependent therefore user has to
+     * implement this interface and provide implementation of this method. This ensures flexibility of
+     * the framework to solve various kind of problems without changing base of the code
+     * @param chromosome chromosome of the individual
+     * @param individualMapReduce instance of the individual itself
+     * @return fitness of the individual
+     */
     int calculateFitness(Object[] chromosome, IndividualMapReduce individualMapReduce);
 }

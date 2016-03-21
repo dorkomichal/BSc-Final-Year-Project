@@ -1,7 +1,5 @@
 package geneticClasses;
 
-import mapreduce.GlobalFile;
-
 import java.io.Serializable;
 import java.util.Random;
 
@@ -15,77 +13,142 @@ import java.util.Random;
 public class BinaryIndividualMapReduce implements Serializable, IndividualMapReduce {
 
     /**
-     * Default size of the chromosome. Can be changed using @setChromosomeLength
+     * Chromosome length
      */
-    private Integer chromosomeLength = 16;
+    private Integer chromosomeLength;
+    /**
+     * Actual representation of the chromosome
+     */
     private Byte[] chromosome;
+    /**
+     * Fitness of the individual
+     */
     private long fitness;
+    /**
+     * Probability of the selection used in RWS selection
+     */
     private double probabilityOfSelection;
     private Random random = new Random();
+    /**
+     * Crossover pair this individual is assigned to
+     */
     private CrossoverPair crossoverPair;
 
+    /**
+     * Creates new individual with chromosome length passed as parameter,
+     * sets fitness to 0 and initialises chromosome array
+     *
+     * @param chromosomeLength length of the chromosome
+     */
     public BinaryIndividualMapReduce(Integer chromosomeLength) {
         this.chromosomeLength = chromosomeLength;
         this.chromosome = new Byte[chromosomeLength];
         this.fitness = 0;
     }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public CrossoverPair getCrossoverPair() {
         return crossoverPair;
     }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setCrossoverPair(CrossoverPair crossoverPair) {
         this.crossoverPair = crossoverPair;
     }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void generateRandomIndividual() {
-        for(int i = 0; i < chromosomeLength; i++) {
+        for (int i = 0; i < chromosomeLength; i++) {
             byte gene = (byte) (random.nextBoolean() ? 1 : 0);
             chromosome[i] = gene;
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void generateRandomIndividual(Object[] source) {
         this.generateRandomIndividual();
     }
 
-    public void setChromosomeLength(Integer chromosomeLength) {
-        this.chromosomeLength = chromosomeLength;
-    }
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Byte[] getChromosome() {
         return chromosome;
     }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setGene(Object gene, int index) {
         this.chromosome[index] = (Byte) gene;
     }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public long getFitness() {
         return fitness;
     }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int lengthOfChromosome() {
         return this.chromosomeLength;
     }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setChromosome(Object[] chromosome) {
         this.chromosome = (Byte[]) chromosome;
     }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public long calculateFitness(FitnessCalculator fitnessCalculator) {
         this.fitness = fitnessCalculator.calculateFitness(chromosome, this);
         return fitness;
     }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setFitness(long fitness) {
         this.fitness = fitness;
     }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public double getProbabilityOfSelection() {
         return probabilityOfSelection;
     }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setProbabilityOfSelection(double probabilityOfSelection) {
         this.probabilityOfSelection = probabilityOfSelection;

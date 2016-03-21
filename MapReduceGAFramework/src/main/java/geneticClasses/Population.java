@@ -31,7 +31,7 @@ public class Population implements Serializable {
 
 
     public void initializePopulationString(Integer chromosomeLength, String[] source) {
-        for(int i = 0; i < sizeOfPopulation; i++) {
+        for (int i = 0; i < sizeOfPopulation; i++) {
             StringIndividualMapReduce individual = new StringIndividualMapReduce(chromosomeLength);
             if (source == null) {
                 individual.generateRandomIndividual();
