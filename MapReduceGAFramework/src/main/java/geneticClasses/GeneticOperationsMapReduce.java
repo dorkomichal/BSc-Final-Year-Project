@@ -286,7 +286,8 @@ public final class GeneticOperationsMapReduce implements Serializable {
         List<Integer> duplicateIndexParent2 = new ArrayList<>();
         HashSet<Object> hashParent1 = new HashSet<>();
         HashSet<Object> hashParent2 = new HashSet<>();
-
+        //adding genes to the hash set and if there's a duplicate hash set add method will return false
+        //and index of this gene is added to duplicate index list
         for (int i = 0; i < parent1Chromosome.length; i++) {
             if (!hashParent1.add(parent1Chromosome[i])) {
                 duplicateIndexParent1.add(i);
@@ -295,6 +296,7 @@ public final class GeneticOperationsMapReduce implements Serializable {
                 duplicateIndexParent2.add(i);
             }
         }
+        //simple gene swap based on indices in the duplicate list
         for (int i = 0; i < duplicateIndexParent1.size(); i++) {
             int duplicateIndexP1 = duplicateIndexParent1.get(i);
             int duplicateIndexP2 = duplicateIndexParent2.get(i);
@@ -341,7 +343,10 @@ public final class GeneticOperationsMapReduce implements Serializable {
     }
 
     /**
-     * Roulette Wheel Selection (RWS) selection method for selecting parent
+     * Roulette Wheel Selection (RWS) selection method for selecting parent. Generates random number
+     * and then loops through the generation adding probability of the selection of each individual
+     * until this sum of probabilities is equal or larger than the generated random number and select current
+     * individual
      * @return IndividualMapReduce parent
      */
     public IndividualMapReduce rwsSelection(List<IndividualMapReduce> population) {

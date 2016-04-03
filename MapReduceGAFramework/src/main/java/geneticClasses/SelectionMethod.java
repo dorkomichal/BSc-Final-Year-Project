@@ -8,5 +8,8 @@ package geneticClasses;
  * Licensed under the Academic Free License version 3.0
  */
 public enum SelectionMethod {
+    /**
+     * Available selection methods
+     */
     tournament, rouletteWheel;
 }

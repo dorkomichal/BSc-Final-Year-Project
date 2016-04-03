@@ -8,5 +8,8 @@ package geneticClasses;
  * Licensed under the Academic Free License version 3.0
  */
 public enum IndividualType {
+    /**
+     * Defines 3 different types of individual encoding available
+     */
     Binary, String, IntegerPermutation;
 }

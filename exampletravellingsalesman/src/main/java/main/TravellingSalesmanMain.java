@@ -20,13 +20,13 @@ import java.util.Random;
 public class TravellingSalesmanMain {
 
     public static void main(String[] args) {
-        int numberOfTheCities = 10000;
+        int numberOfTheCities = 10;
         FitnessEval fitnessEval = new FitnessEval(numberOfTheCities, 900000);
         int chromosomeLength = numberOfTheCities;
         int populationSize = (int) (numberOfTheCities * Math.log(numberOfTheCities));
         int maxFit = Integer.MAX_VALUE;
-        int numberOfTheGenerations = 100;
-        SelectionMethod selectionMethod = SelectionMethod.tournament;
+        int numberOfTheGenerations = 10;
+        SelectionMethod selectionMethod = SelectionMethod.rouletteWheel;
         boolean multipoint = false;
         int numberOfCrossPoints = 0;
         int convergence = 10;

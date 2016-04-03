@@ -14,13 +14,36 @@ import java.util.Random;
  */
 public class StringIndividualMapReduce implements Serializable, IndividualMapReduce {
 
-    private Integer chromosomeLength = 16;
+    /**
+     * Lenght of the chromosome
+     */
+    private Integer chromosomeLength;
+    /**
+     * Actual representation of the chromosome
+     */
     private String[] chromosome;
+    /**
+     * Fitness of the individual
+     */
     private long fitness;
+    /**
+     * Probability of the selection
+     */
     private double probabilityOfSelection;
+    /**
+     * Crossover pair this individual is assigned to during the selection
+     */
     private CrossoverPair crossoverPair;
+    /**
+     * Set of allowed characters for each gene within chromosome
+     */
     private String[] source;
 
+    /**
+     * Creates new individual with set chromosome length. Chromosome of this individual must
+     * be either initialized by random generation or set with appropriate setter method
+     * @param chromosomeLength length of the chromosome
+     */
     public StringIndividualMapReduce(Integer chromosomeLength) {
         this.chromosomeLength = chromosomeLength;
         this.chromosome = new String[chromosomeLength];

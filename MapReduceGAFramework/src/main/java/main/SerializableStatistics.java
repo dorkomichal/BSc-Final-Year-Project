@@ -14,6 +14,13 @@ import java.io.Serializable;
  */
 public class SerializableStatistics implements Serializable {
 
+    /**
+     * Method for getting fittest individual on each island enclosed within class which
+     * is serializable so this method can be used in reduce() phase
+     * @param island1
+     * @param island2
+     * @return
+     */
     public Island finalReduce(Island island1, Island island2) {
         IndividualMapReduce fittest1 = island1.getPopulation().getFittestIndividual();
         IndividualMapReduce fittest2 = island2.getPopulation().getFittestIndividual();

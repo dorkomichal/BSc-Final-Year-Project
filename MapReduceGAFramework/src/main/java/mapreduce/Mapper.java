@@ -19,13 +19,27 @@ import java.util.Random;
  * Licensed under the Academic Free License version 3.0
  */
 public class Mapper implements Serializable {
-
+    /**
+     * Singleton instance of the Mapper
+     */
     private static final Mapper mapper = new Mapper();
 
+    /**
+     * Static method for getting singleton Mapper object
+     * @return singleton Mapper object
+     */
     public static Mapper getMapper() {
         return mapper;
     }
 
+    /**
+     * Method for evaluating population using Spark map() operation to calculate fitness of each individual in the population.
+     * It also finds fittest individual in the population and checks whether it's fitness is equal or better than goal fitness
+     * set by user.
+     * @param parallelizedPopulation population to be evaluated
+     * @param fitnessCalculator instance of the fitness calculator with implemented fitness function for fitness evaluation
+     * @return RDD of evaluated population
+     */
     public JavaPairRDD<IndividualMapReduce, Long> mapCalculateFitness(JavaRDD<IndividualMapReduce> parallelizedPopulation, FitnessCalculator fitnessCalculator) {
         JavaPairRDD<IndividualMapReduce, Long> populationWithFitness = parallelizedPopulation.mapToPair(ind -> new Tuple2<IndividualMapReduce, Long>(ind, ind.calculateFitness(fitnessCalculator)));
         long currentMaxFitness = populationWithFitness.values().reduce(Math::max);
@@ -38,20 +52,32 @@ public class Mapper implements Serializable {
         return populationWithFitness;
     }
 
+    /**
+     * Method for performing selection on the population using Global Parallelization Model. It performs selection specified by user.
+     * Global Parallelization model requires whole population to be collected and returned to the driver so it can be passed as a parameter
+     * to map() function that performs selection on the whole population. Selection is performed n times where n is number of the individuals
+     * in the current population so we'll end up with n crossover pairs that are later processed to form new generation.
+     * @param populationWithFitness RDD of the population with evaluated fitness
+     * @param elite elite individual
+     * @param method type of selection method
+     * @param operations instance of the genetic operations class with all methods necessary for selection
+     * @return RDD of CrossoverPairs ready for crossover
+     */
     public JavaRDD<CrossoverPair> mapSelection(JavaPairRDD<IndividualMapReduce, Long> populationWithFitness, IndividualMapReduce elite, SelectionMethod method, GeneticOperationsMapReduce operations) {
         JavaRDD<IndividualMapReduce> keys = populationWithFitness.keys();
 
         JavaRDD<CrossoverPair> selectedIndividuals;
         if (method.equals(SelectionMethod.rouletteWheel)) {
             System.out.println("RWS");
+            //collects population
             Iterator<IndividualMapReduce> populationIterator = keys.toLocalIterator();
             List<IndividualMapReduce> population = new ArrayList<>();
             while (populationIterator.hasNext()) {
                 population.add(populationIterator.next());
             }
-            long sumOfFitnesses = GlobalFile.getSumOfFitnesses(population);
-            JavaRDD<IndividualMapReduce> populationWithProbability = keys.map(bi -> operations.rwsSelectionProbabilityCalculation(bi, sumOfFitnesses));
-            selectedIndividuals = populationWithFitness.map(ind -> rwsSelection(population, operations));
+            long sumOfFitness = GlobalFile.getSumOfFitnesses(population);
+            //performes RWS selection
+            selectedIndividuals = populationWithFitness.map(ind -> rwsSelection(population, operations, sumOfFitness));
         } else {
             System.out.println("Tournament");
             Iterator<IndividualMapReduce> populationIterator = keys.toLocalIterator();
@@ -59,8 +85,10 @@ public class Mapper implements Serializable {
             while (populationIterator.hasNext()) {
                 population.add(populationIterator.next());
             }
+            //tournament selection
             selectedIndividuals = populationWithFitness.map(ind -> tournamentSelection(population, operations));
         }
+        //if elitism is used it replaces first crossover pair with the fittest individual from the current generation
         if (operations.isElitism() && elite != null) {
             List<CrossoverPair> eliteList = new ArrayList<>();
             CrossoverPair elitePair = new CrossoverPair();
@@ -75,6 +103,12 @@ public class Mapper implements Serializable {
         }
     }
 
+    /**
+     * Performs Tournament selection optimised for map() phase and returns Crossover pair
+     * @param population population on which selection should be performed
+     * @param geneticOperations instance of the genetic operations class with all methods necessary for selection
+     * @return crossover pair
+     */
     private CrossoverPair tournamentSelection(List<IndividualMapReduce> population, GeneticOperationsMapReduce geneticOperations) {
         int[] randoms = new Random().ints(0, population.size()).distinct().limit(4).toArray();
         CrossoverPair crossoverPair = new CrossoverPair();
@@ -87,15 +121,14 @@ public class Mapper implements Serializable {
         return crossoverPair;
     }
 
+    /**
+     * Method for obtaining elite individual from the population using Spark filter() operation.
+     * @param populationWithFitness population with evaluated fitness
+     * @return elite individual
+     */
     public IndividualMapReduce getElite(JavaPairRDD<IndividualMapReduce, Long> populationWithFitness) {
         long currentMaxFitness = GlobalFile.getCurrentMaxFitness();
         JavaPairRDD<IndividualMapReduce, Long> eliteInd = populationWithFitness.filter(pair -> pair._2() >= currentMaxFitness);
-        /*
-         * Strange behaviour observed for next block of code. Sometimes the first if statement
-         * returned false (RDD is not empty) however during the execution of else statement
-         * runtime error occurred that collection was in fact empty. Therefore I collect RDD
-         * first and check on driver size of the list
-         */
         List<Tuple2<IndividualMapReduce, Long>> elites = eliteInd.take(1);
         if (elites.isEmpty()) {
             return null;
@@ -104,7 +137,15 @@ public class Mapper implements Serializable {
         }
     }
 
-    private CrossoverPair rwsSelection(List<IndividualMapReduce> population, GeneticOperationsMapReduce geneticOperations) {
+    /**
+     * Method for performing Roulette Wheel Selection optimised for map() phase.
+     * @param population population on which selection should be performed
+     * @param geneticOperations instance of the genetic operations class with all methods necessary for selection
+     * @param sumOfFitness sum of fitness values of the population
+     * @return crossover pair
+     */
+    private CrossoverPair rwsSelection(List<IndividualMapReduce> population, GeneticOperationsMapReduce geneticOperations, double sumOfFitness) {
+        population.stream().forEach(ind -> geneticOperations.rwsSelectionProbabilityCalculation(ind, sumOfFitness));
         IndividualMapReduce parent1 = geneticOperations.rwsSelection(population);
         IndividualMapReduce parent2 = geneticOperations.rwsSelection(population);
         CrossoverPair pair = new CrossoverPair();

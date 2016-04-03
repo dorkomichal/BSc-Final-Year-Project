@@ -483,6 +483,17 @@ public class GARunner {
         lastGenerationMaxFitness = population.filter(ind -> ind.getFitness() >= maxFitnessLastGen).count();
     }
 
+    /**
+     * This method runs genetic algorithm using Island (Coarse-Grained) parallelization model. It benefits from the fact
+     * that this implementation doesn't require collecting whole population after each generation in order to perform genetic
+     * operations but this operations are applied on each island individually allowing for larger population size, higher computational
+     * effectivity and allows for more diversity. This method is preferred if size of the population is too big and for problems that require
+     * solution to be calculated much quicker than with Global Parallelization Model.
+     *
+     * @param islandSize size of the island
+     * @param migrationRate rate of migration
+     * @return solution to the problem as an array (chromosome)
+     */
     public Object[] runIslandGA(int islandSize, int migrationRate) {
         Driver driver = Driver.getDriver();
         FitnessCalculator fitnessCalculator = new FitnessCalculator(fitnessFunction);
@@ -541,6 +552,7 @@ public class GARunner {
             }
 
             if (generationCounter % migrationRate == 0) {
+                //migrating the individuals around the islands
                 System.out.println("Migrating");
                 Migrator migrator = new Migrator();
                 JavaRDD<IndividualMapReduce> emigrants = newGeneration.map(island -> migrator.getEmigrant(island));

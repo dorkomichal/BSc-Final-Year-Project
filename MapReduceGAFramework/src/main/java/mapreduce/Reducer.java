@@ -15,9 +15,15 @@ import java.io.Serializable;
  * Licensed under the Academic Free License version 3.0
  */
 public class Reducer implements Serializable {
-
+    /**
+     * Singleton instance of the Reducer
+     */
     private static Reducer reducer;
 
+    /**
+     * Creates and/or returns singleton instance of the Reducer
+     * @return singleton instance of the reducer
+     */
     public static Reducer getReducer() {
         if (reducer == null) {
             reducer = new Reducer();
@@ -30,12 +36,13 @@ public class Reducer implements Serializable {
     /**
      * This reduce crossover function is in fact implemented by another map function however due to
      * conventions I have categorised it as reduce step because we reduce pairs into new offspring
-     * yielding new generation
+     * yielding new generation. It performs single-point or multipoint crossover.
      *
      * @param selectedIndividuals RDD of crossover pairs
-     * @param multipoint          boolean value indicating whether to apply single point or multi point crossover
+     * @param multipoint boolean value indicating whether to apply single point or multi point crossover
      * @param numberOfCrossPoints number of crossover points if multipoint crossover is selected
-     * @return new generations as RDD
+     * @param geneticOperations instance of the class with all operations including crossover provided
+     * @return new generation as RDD
      */
     public JavaRDD<IndividualMapReduce> reduceCrossover(JavaRDD<CrossoverPair> selectedIndividuals, boolean multipoint, int numberOfCrossPoints, GeneticOperationsMapReduce geneticOperations) {
         JavaRDD<IndividualMapReduce> newGen;
@@ -47,6 +54,12 @@ public class Reducer implements Serializable {
         return newGen;
     }
 
+    /**
+     * Method that performs single-point crossover on the crossover pair
+     * @param pair crossover pair
+     * @param geneticOperations instance of the class with all operations including crossover provided
+     * @return new individual created by crossover
+     */
     private IndividualMapReduce singlePointCrossover(CrossoverPair pair, GeneticOperationsMapReduce geneticOperations) {
         if (pair.getEliteIndividual() != null) {
             return pair.getEliteIndividual();
@@ -56,6 +69,13 @@ public class Reducer implements Serializable {
         }
     }
 
+    /**
+     * Method for performing multipoint crossover on the crossover pair
+     * @param pair crossover pair
+     * @param numberOfPoints number of crossover points
+     * @param geneticOperations instance of the class with all operations including crossover provided
+     * @return new individual created by crossover
+     */
     private IndividualMapReduce multiPointCrossover(CrossoverPair pair, int numberOfPoints, GeneticOperationsMapReduce geneticOperations) {
         if (pair.getEliteIndividual() != null) {
             return pair.getEliteIndividual();

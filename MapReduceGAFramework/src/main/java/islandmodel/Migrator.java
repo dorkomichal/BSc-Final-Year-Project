@@ -14,6 +14,12 @@ import java.util.Random;
  */
 public class Migrator implements Serializable {
 
+    /**
+     * Randomly chooses individual for migration and assigns migration index (emigrant index)
+     * for this island
+     * @param isl island on which individual for migration should be selected
+     * @return individual chosen for migration
+     */
     public IndividualMapReduce getEmigrant(Island isl) {
         Random random = new Random();
         IndividualMapReduce[] pop = isl.getPopulation().getIndividualMapReduces();
@@ -22,6 +28,12 @@ public class Migrator implements Serializable {
         return pop[index];
     }
 
+    /**
+     * Migrates individual to the island
+     * @param isl island to which individual should be migrated
+     * @param individual emigrant individual which is migrated to the island
+     * @return island with new emigrant
+     */
     public Island applyMigration(Island isl, IndividualMapReduce individual) {
         IndividualMapReduce[] population = isl.getPopulation().getIndividualMapReduces();
         population[isl.getEmigrantIndex()] = individual;
