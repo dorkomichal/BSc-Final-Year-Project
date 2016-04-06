@@ -2,24 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b212d496-b186-40bb-b151-bcf7918a9e05" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIsland.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIslandFitnessSelection.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ReducerIsland.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ParallelCrossoverIsland.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Driver.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/driver/Driver.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/GlobalFile.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/driver/GlobalFile.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Mapper.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/globalparallelizationmodel/MapperFitnessSelection.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Reducer.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/globalparallelizationmodel/ParallelCrossover.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/GeneticOperationsMapReduce.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/GeneticOperationsMapReduce.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/IndividualType.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/IndividualType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/IntPermutationIndividualMapReduce.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/IntPermutationIndividualMapReduce.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/Population.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/Population.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/SelectionMethod.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/SelectionMethod.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/StringIndividualMapReduce.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/StringIndividualMapReduce.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/Island.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/Island.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIsland.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIsland.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/Migrator.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/Migrator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ReducerIsland.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ReducerIsland.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/SerializableStatistics.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/SerializableStatistics.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Driver.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Driver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/GlobalFile.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/GlobalFile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Mapper.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Mapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Reducer.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Reducer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exampletravellingsalesman/src/main/java/main/TravellingSalesmanMain.java" afterPath="$PROJECT_DIR$/exampletravellingsalesman/src/main/java/main/TravellingSalesmanMain.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examplegvgai/src/main/java/gameproblem/GameAgent.java" afterPath="$PROJECT_DIR$/examplegvgai/src/main/java/gameproblem/GameAgent.java" />
     </list>
     <ignored path="mapreducega.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,68 +54,95 @@
       <file leaf-file-name="TravellingSalesmanMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exampletravellingsalesman/src/main/java/main/TravellingSalesmanMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
+            <state relative-caret-position="450">
               <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Driver.java">
+      <file leaf-file-name="City.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exampletravellingsalesman/src/main/java/problemdescription/City.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
+            <state relative-caret-position="165">
+              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+              <folding>
+                <element signature="e#470#471#0" expanded="false" />
+                <element signature="e#497#498#0" expanded="false" />
+                <element signature="e#534#535#0" expanded="false" />
+                <element signature="e#566#567#0" expanded="false" />
+                <element signature="e#594#595#0" expanded="false" />
+                <element signature="e#621#622#0" expanded="false" />
+                <element signature="e#658#659#0" expanded="false" />
+                <element signature="e#690#691#0" expanded="false" />
+                <element signature="e#736#737#0" expanded="false" />
+                <element signature="e#805#806#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/driver/Driver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1530">
               <caret line="118" column="139" selection-start-line="118" selection-start-column="139" selection-end-line="118" selection-end-column="139" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Mapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1365">
-              <caret line="126" column="31" selection-start-line="126" selection-start-column="31" selection-end-line="126" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Reducer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Reducer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="72" column="71" selection-start-line="72" selection-start-column="71" selection-end-line="72" selection-end-column="71" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapperIsland.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIsland.java">
+      <file leaf-file-name="MapperFitnessSelection.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/globalparallelizationmodel/MapperFitnessSelection.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
+              <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Migrator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/Migrator.java">
+      <file leaf-file-name="ParallelCrossover.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/globalparallelizationmodel/ParallelCrossover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+            <state relative-caret-position="195">
+              <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReducerIsland.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ReducerIsland.java">
+      <file leaf-file-name="MapperIslandFitnessSelection.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIslandFitnessSelection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FitnessEval.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exampletravellingsalesman/src/main/java/problemdescription/FitnessEval.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="43" column="60" selection-start-line="43" selection-start-column="60" selection-end-line="43" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#863#864#0" expanded="false" />
+                <element signature="e#899#900#0" expanded="false" />
+                <element signature="e#1557#1558#0" expanded="false" />
+                <element signature="e#1591#1592#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParallelCrossoverIsland.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ParallelCrossoverIsland.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
-              <caret line="45" column="102" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="102" />
+              <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -133,28 +151,18 @@
       <file leaf-file-name="GARunner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-955">
-              <caret line="491" column="6" selection-start-line="491" selection-start-column="6" selection-end-line="491" selection-end-column="6" />
+            <state relative-caret-position="1545">
+              <caret line="500" column="39" selection-start-line="500" selection-start-column="39" selection-end-line="500" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="GlobalFile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/GlobalFile.java">
+        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/driver/GlobalFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
+            <state relative-caret-position="1695">
               <caret line="133" column="26" selection-start-line="133" selection-start-column="26" selection-end-line="133" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SerializableStatistics.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/SerializableStatistics.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="18" column="67" selection-start-line="18" selection-start-column="67" selection-end-line="18" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -183,10 +191,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/gvgai-master/src/main/java/ontology/avatar/FlakAvatar.java" />
-        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/GlobalFile.java" />
-        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/BinaryIndividualMapReduce.java" />
-        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/IndividualMapReduce.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/StringIndividualMapReduce.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/Population.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/GeneticOperationsMapReduce.java" />
@@ -227,13 +231,17 @@
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/Migrator.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/SerializableStatistics.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Driver.java" />
-        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/GlobalFile.java" />
         <option value="$PROJECT_DIR$/exampletravellingsalesman/src/main/java/main/TravellingSalesmanMain.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Mapper.java" />
-        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ReducerIsland.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIsland.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Reducer.java" />
+        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/ParallelCrossover.java" />
+        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ReducerIsland.java" />
+        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ParallelCrossoverIsland.java" />
+        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java" />
+        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/MapperFitnessSelection.java" />
+        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/globalparallelizationmodel/MapperFitnessSelection.java" />
       </list>
     </option>
   </component>
@@ -255,7 +263,62 @@
     </option>
   </component>
   <component name="MavenProjectNavigator">
-    <treeState />
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="mapreducegaframework" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="mapreducegaframework" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="exampletravellingsalesman" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="exampletravellingsalesman" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="-4" />
@@ -288,6 +351,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -386,36 +450,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mapreduce" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapreducega" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bscproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MapReduceGAFramework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -476,7 +510,67 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="globalparallelizationmodel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapreducega" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bscproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MapReduceGAFramework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="geneticClasses" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapreducega" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bscproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MapReduceGAFramework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="driver" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -596,7 +690,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -612,14 +705,17 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="driver" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/examplegvgai/src/main/java/main" />
       <recent name="$PROJECT_DIR$/examplegvgai/src/main/java" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Pacman/src/main/java" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java" />
     </key>
   </component>
   <component name="RunManager" selected="Application.MapReduceBinaryGAMain">
@@ -1274,12 +1370,13 @@
       <workItem from="1458507433911" duration="10889000" />
       <workItem from="1458563835512" duration="16091000" />
       <workItem from="1459713188377" duration="130000" />
-      <workItem from="1459713387812" duration="9283000" />
+      <workItem from="1459713387812" duration="10292000" />
+      <workItem from="1459948796346" duration="675000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="468072000" />
+    <option name="totallyTimeSpent" value="469756000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1292,7 +1389,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1300,14 +1397,15 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30454546" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30454546" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28225806" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28225806" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2128788" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1319,7 +1417,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1472,13 +1569,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exampletravellingsalesman/src/main/java/problemdescription/City.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/assembly/src.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1598,20 +1688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exampletravellingsalesman/src/main/java/problemdescription/FitnessEval.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="43" column="60" selection-start-line="43" selection-start-column="60" selection-end-line="43" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#863#864#0" expanded="false" />
-            <element signature="e#899#900#0" expanded="false" />
-            <element signature="e#1557#1558#0" expanded="false" />
-            <element signature="e#1591#1592#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/geneticClasses/FitnessCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
@@ -1627,7 +1703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1651,7 +1726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="65" selection-start-line="11" selection-start-column="65" selection-end-line="11" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1659,7 +1733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="48" column="4" selection-start-line="48" selection-start-column="4" selection-end-line="50" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1675,7 +1748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1683,7 +1755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="39" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1691,7 +1762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1711,7 +1781,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
           <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1719,70 +1788,102 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="18" column="67" selection-start-line="18" selection-start-column="67" selection-end-line="18" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/driver/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="118" column="139" selection-start-line="118" selection-start-column="139" selection-end-line="118" selection-end-column="139" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/driver/GlobalFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1695">
+          <caret line="133" column="26" selection-start-line="133" selection-start-column="26" selection-end-line="133" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exampletravellingsalesman/src/main/java/problemdescription/FitnessEval.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="43" column="60" selection-start-line="43" selection-start-column="60" selection-end-line="43" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#863#864#0" expanded="false" />
+            <element signature="e#899#900#0" expanded="false" />
+            <element signature="e#1557#1558#0" expanded="false" />
+            <element signature="e#1591#1592#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exampletravellingsalesman/src/main/java/problemdescription/City.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+          <folding>
+            <element signature="e#470#471#0" expanded="false" />
+            <element signature="e#497#498#0" expanded="false" />
+            <element signature="e#534#535#0" expanded="false" />
+            <element signature="e#566#567#0" expanded="false" />
+            <element signature="e#594#595#0" expanded="false" />
+            <element signature="e#621#622#0" expanded="false" />
+            <element signature="e#658#659#0" expanded="false" />
+            <element signature="e#690#691#0" expanded="false" />
+            <element signature="e#736#737#0" expanded="false" />
+            <element signature="e#805#806#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exampletravellingsalesman/src/main/java/main/TravellingSalesmanMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/globalparallelizationmodel/ParallelCrossover.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ParallelCrossoverIsland.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIslandFitnessSelection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-955">
-          <caret line="491" column="6" selection-start-line="491" selection-start-column="6" selection-end-line="491" selection-end-column="6" />
+        <state relative-caret-position="1545">
+          <caret line="500" column="39" selection-start-line="500" selection-start-column="39" selection-end-line="500" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="118" column="139" selection-start-line="118" selection-start-column="139" selection-end-line="118" selection-end-column="139" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/GlobalFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="133" column="26" selection-start-line="133" selection-start-column="26" selection-end-line="133" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exampletravellingsalesman/src/main/java/main/TravellingSalesmanMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIsland.java">
+    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/globalparallelizationmodel/MapperFitnessSelection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Mapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="126" column="31" selection-start-line="126" selection-start-column="31" selection-end-line="126" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ReducerIsland.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="45" column="102" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="102" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Reducer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="72" column="71" selection-start-line="72" selection-start-column="71" selection-end-line="72" selection-end-column="71" />
+          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
           <folding />
         </state>
       </provider>

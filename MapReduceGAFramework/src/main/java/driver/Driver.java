@@ -1,4 +1,4 @@
-package mapreduce;
+package driver;
 
 import geneticClasses.FitnessCalculator;
 import geneticClasses.IndividualMapReduce;

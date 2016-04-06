@@ -1,4 +1,4 @@
-package mapreduce;
+package driver;
 
 import geneticClasses.IndividualMapReduce;
 import geneticClasses.Population;

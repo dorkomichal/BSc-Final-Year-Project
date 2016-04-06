@@ -1,5 +1,7 @@
-package mapreduce;
+package globalparallelizationmodel;
 
+import driver.Driver;
+import driver.GlobalFile;
 import geneticClasses.*;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -18,18 +20,18 @@ import java.util.Random;
  * Map-Reduce library for Genetic Algorithms
  * Licensed under the Academic Free License version 3.0
  */
-public class Mapper implements Serializable {
+public class MapperFitnessSelection implements Serializable {
     /**
      * Singleton instance of the Mapper
      */
-    private static final Mapper mapper = new Mapper();
+    private static final MapperFitnessSelection MAPPER_FITNESS_SELECTION = new MapperFitnessSelection();
 
     /**
      * Static method for getting singleton Mapper object
      * @return singleton Mapper object
      */
-    public static Mapper getMapper() {
-        return mapper;
+    public static MapperFitnessSelection getMapperFitnessSelection() {
+        return MAPPER_FITNESS_SELECTION;
     }
 
     /**

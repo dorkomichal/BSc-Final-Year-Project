@@ -1,4 +1,4 @@
-package mapreduce;
+package globalparallelizationmodel;
 
 import geneticClasses.CrossoverPair;
 import geneticClasses.GeneticOperationsMapReduce;
@@ -14,28 +14,28 @@ import java.io.Serializable;
  * Map-Reduce library for Genetic Algorithms
  * Licensed under the Academic Free License version 3.0
  */
-public class Reducer implements Serializable {
+public class ParallelCrossover implements Serializable {
     /**
      * Singleton instance of the Reducer
      */
-    private static Reducer reducer;
+    private static ParallelCrossover parallelCrossover;
 
     /**
      * Creates and/or returns singleton instance of the Reducer
      * @return singleton instance of the reducer
      */
-    public static Reducer getReducer() {
-        if (reducer == null) {
-            reducer = new Reducer();
-            return reducer;
+    public static ParallelCrossover getParallelCrossover() {
+        if (parallelCrossover == null) {
+            parallelCrossover = new ParallelCrossover();
+            return parallelCrossover;
         } else {
-            return reducer;
+            return parallelCrossover;
         }
     }
 
     /**
-     * This reduce crossover function is in fact implemented by another map function however due to
-     * conventions I have categorised it as reduce step because we reduce pairs into new offspring
+     * This parallel crossover function is implemented by another map function which combines
+     * pairs into new offspring using crossover method provided in genetic operation class
      * yielding new generation. It performs single-point or multipoint crossover.
      *
      * @param selectedIndividuals RDD of crossover pairs
@@ -44,7 +44,7 @@ public class Reducer implements Serializable {
      * @param geneticOperations instance of the class with all operations including crossover provided
      * @return new generation as RDD
      */
-    public JavaRDD<IndividualMapReduce> reduceCrossover(JavaRDD<CrossoverPair> selectedIndividuals, boolean multipoint, int numberOfCrossPoints, GeneticOperationsMapReduce geneticOperations) {
+    public JavaRDD<IndividualMapReduce> parallelCrossover(JavaRDD<CrossoverPair> selectedIndividuals, boolean multipoint, int numberOfCrossPoints, GeneticOperationsMapReduce geneticOperations) {
         JavaRDD<IndividualMapReduce> newGen;
         if (multipoint) {
             newGen = selectedIndividuals.map(crossoverPair -> multiPointCrossover(crossoverPair, numberOfCrossPoints, geneticOperations));

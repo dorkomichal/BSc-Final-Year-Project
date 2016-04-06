@@ -17,23 +17,23 @@ import java.io.Serializable;
  * Map-Reduce library for Genetic Algorithms
  * Licensed under the Academic Free License version 3.0
  */
-public class ReducerIsland implements Serializable {
+public class ParallelCrossoverIsland implements Serializable {
     /**
      * Singleton of the ReducerIsland
      */
-    private static ReducerIsland reducerIsland;
-    private final static Logger LOGGER = LoggerFactory.getLogger(ReducerIsland.class);
+    private static ParallelCrossoverIsland parallelCrossoverIsland;
+    private final static Logger LOGGER = LoggerFactory.getLogger(ParallelCrossoverIsland.class);
 
     /**
      * Creates and/or returns singleton instance of the ReducerIsland
      * @return singleton instance of the ReducerIsland
      */
-    public static ReducerIsland getReducerIsland() {
-        if (reducerIsland == null) {
-            reducerIsland = new ReducerIsland();
-            return reducerIsland;
+    public static ParallelCrossoverIsland getParallelCrossoverIsland() {
+        if (parallelCrossoverIsland == null) {
+            parallelCrossoverIsland = new ParallelCrossoverIsland();
+            return parallelCrossoverIsland;
         } else {
-            return reducerIsland;
+            return parallelCrossoverIsland;
         }
     }
 
@@ -46,7 +46,7 @@ public class ReducerIsland implements Serializable {
      * @param geneticOperations instance of the class with all operations including crossover provided
      * @return RDD of islands with new generation
      */
-    public JavaRDD<Island> reduceCrossover(JavaRDD<Island> population, boolean multipoint, int numberOfCrossPoints, GeneticOperationsMapReduce geneticOperations) {
+    public JavaRDD<Island> parallelCrossover(JavaRDD<Island> population, boolean multipoint, int numberOfCrossPoints, GeneticOperationsMapReduce geneticOperations) {
         JavaRDD<Island> newGeneration;
         if (!multipoint) {
             newGeneration = population.map(island -> singlePointCrossover(island, geneticOperations));

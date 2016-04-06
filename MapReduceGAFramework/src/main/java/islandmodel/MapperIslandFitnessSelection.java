@@ -1,7 +1,7 @@
 package islandmodel;
 
 import geneticClasses.*;
-import mapreduce.GlobalFile;
+import driver.GlobalFile;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.slf4j.Logger;
@@ -19,23 +19,23 @@ import java.util.Random;
  * Map-Reduce library for Genetic Algorithms
  * Licensed under the Academic Free License version 3.0
  */
-public class MapperIsland implements Serializable {
+public class MapperIslandFitnessSelection implements Serializable {
     /**
      * Singleton instance
      */
-    private static MapperIsland mapperIsland;
-    private final static Logger LOGGER = LoggerFactory.getLogger(MapperIsland.class);
+    private static MapperIslandFitnessSelection mapperIslandFitnessSelection;
+    private final static Logger LOGGER = LoggerFactory.getLogger(MapperIslandFitnessSelection.class);
 
     /**
      * Static method for creating and/or getting singleton of this class
      * @return singleton object of MapperIsland
      */
-    public static MapperIsland getMapperIsland() {
-        if (mapperIsland == null) {
-            mapperIsland = new MapperIsland();
-            return mapperIsland;
+    public static MapperIslandFitnessSelection getMapperIslandFitnessSelection() {
+        if (mapperIslandFitnessSelection == null) {
+            mapperIslandFitnessSelection = new MapperIslandFitnessSelection();
+            return mapperIslandFitnessSelection;
         } else {
-            return mapperIsland;
+            return mapperIslandFitnessSelection;
         }
     }
 

@@ -2,13 +2,13 @@ package main;
 
 import geneticClasses.*;
 import islandmodel.Island;
-import islandmodel.MapperIsland;
+import islandmodel.MapperIslandFitnessSelection;
 import islandmodel.Migrator;
-import islandmodel.ReducerIsland;
-import mapreduce.Driver;
-import mapreduce.GlobalFile;
-import mapreduce.Mapper;
-import mapreduce.Reducer;
+import islandmodel.ParallelCrossoverIsland;
+import driver.Driver;
+import driver.GlobalFile;
+import globalparallelizationmodel.MapperFitnessSelection;
+import globalparallelizationmodel.ParallelCrossover;
 import org.apache.spark.api.java.JavaDoubleRDD;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -393,8 +393,8 @@ public class GARunner {
         Driver driver = Driver.getDriver();
         FitnessCalculator fitnessCalculator = new FitnessCalculator(fitnessFunction);
         driver.initializePopulation(fitnessCalculator, chromosomeLength, populationSize, individualType, source);
-        Mapper mapper = Mapper.getMapper();
-        Reducer reducer = Reducer.getReducer();
+        MapperFitnessSelection mapperFitnessSelection = MapperFitnessSelection.getMapperFitnessSelection();
+        ParallelCrossover parallelCrossover = ParallelCrossover.getParallelCrossover();
         int generationCounter = 1;
         GlobalFile.setMaxFitness(maxFitness);
         geneticOperations = new GeneticOperationsMapReduce(fitnessCalculator, chromosomeLength, tournamentParamK, elitism, mutation, crossoverRate);
@@ -414,7 +414,7 @@ public class GARunner {
             start = System.currentTimeMillis();
 
             System.out.println("Generation " + generationCounter);
-            JavaPairRDD<IndividualMapReduce, Long> populationWithFitness = mapper.mapCalculateFitness(parallelizedPopulation, fitnessCalculator);
+            JavaPairRDD<IndividualMapReduce, Long> populationWithFitness = mapperFitnessSelection.mapCalculateFitness(parallelizedPopulation, fitnessCalculator);
 
             if (GlobalFile.getCurrentMaxFitness() == previousFitness) {
                 convergenceCounter++;
@@ -434,9 +434,9 @@ public class GARunner {
                 break; //if solution is found or generation has converged to max and didn't change for some generations
             }
             //continue to selection and crossover if above conditions weren't matched
-            IndividualMapReduce elite = mapper.getElite(populationWithFitness);
-            JavaRDD<CrossoverPair> selectedIndividuals = mapper.mapSelection(populationWithFitness, elite, selectionMethod, geneticOperations);
-            newGeneration = reducer.reduceCrossover(selectedIndividuals, multipointCrossover, numberOfCrossoverPoints, geneticOperations);
+            IndividualMapReduce elite = mapperFitnessSelection.getElite(populationWithFitness);
+            JavaRDD<CrossoverPair> selectedIndividuals = mapperFitnessSelection.mapSelection(populationWithFitness, elite, selectionMethod, geneticOperations);
+            newGeneration = parallelCrossover.parallelCrossover(selectedIndividuals, multipointCrossover, numberOfCrossoverPoints, geneticOperations);
 
             parallelizedPopulation = newGeneration.cache();
 
@@ -498,8 +498,8 @@ public class GARunner {
         Driver driver = Driver.getDriver();
         FitnessCalculator fitnessCalculator = new FitnessCalculator(fitnessFunction);
         driver.initializePopulationIsland(fitnessCalculator, chromosomeLength, populationSize, islandSize, individualType, source);
-        MapperIsland mapper = MapperIsland.getMapperIsland();
-        ReducerIsland reducer = ReducerIsland.getReducerIsland();
+        MapperIslandFitnessSelection mapper = MapperIslandFitnessSelection.getMapperIslandFitnessSelection();
+        ParallelCrossoverIsland parallelCrossoverIsland = ParallelCrossoverIsland.getParallelCrossoverIsland();
         int generationCounter = 1;
         GlobalFile.setMaxFitness(maxFitness);
         geneticOperations = new GeneticOperationsMapReduce(fitnessCalculator, chromosomeLength, tournamentParamK, elitism, mutation, crossoverRate);
@@ -541,7 +541,7 @@ public class GARunner {
             }
 
             JavaRDD<Island> selectedIndividuals = mapper.mapSelection(populationWithFitness, selectionMethod, geneticOperations);
-            newGeneration = reducer.reduceCrossover(selectedIndividuals, multipointCrossover, numberOfCrossoverPoints, geneticOperations);
+            newGeneration = parallelCrossoverIsland.parallelCrossover(selectedIndividuals, multipointCrossover, numberOfCrossoverPoints, geneticOperations);
             parallelizedPopulation = newGeneration.cache();
 
             long stop = System.currentTimeMillis();

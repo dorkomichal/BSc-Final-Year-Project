@@ -7,10 +7,6 @@ import core.player.AbstractPlayer;
 import geneticClasses.*;
 import main.GARunner;
 import main.MapReduceBinaryGAMain;
-import mapreduce.Driver;
-import mapreduce.GlobalFile;
-import mapreduce.Mapper;
-import mapreduce.Reducer;
 import ontology.Types;
 import tools.ElapsedCpuTimer;
 
