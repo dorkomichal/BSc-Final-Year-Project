@@ -1,0 +1,14 @@
+This is framework developed as a BSc Final Year Project in Computer Science at King's College London (kcl.ac.uk).
+
+Copyright (C) 2016  Michal Dorko. Contact: michal.dorko[at]kcl.ac.uk
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the Academic Free License ("AFL") v. 3.0 as published by
+    the Open Source Initiative, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed WITHOUT ANY WARRANTY.
+    See the Academic Free License ("AFL") v. 3.0 for more details.
+
+    You should have received a copy of the Academic Free License ("AFL") v. 3.0
+    along with this program.  If not, see <https://opensource.org/licenses/AFL-3.0>.
