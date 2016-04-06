@@ -16,13 +16,13 @@ import java.io.Serializable;
  */
 public class ParallelCrossover implements Serializable {
     /**
-     * Singleton instance of the Reducer
+     * Singleton instance of the ParallelCrossover
      */
     private static ParallelCrossover parallelCrossover;
 
     /**
-     * Creates and/or returns singleton instance of the Reducer
-     * @return singleton instance of the reducer
+     * Creates and/or returns singleton instance of the ParallelCrossover
+     * @return singleton instance of the parallelCrossover
      */
     public static ParallelCrossover getParallelCrossover() {
         if (parallelCrossover == null) {

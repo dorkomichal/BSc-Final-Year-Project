@@ -19,14 +19,14 @@ import java.io.Serializable;
  */
 public class ParallelCrossoverIsland implements Serializable {
     /**
-     * Singleton of the ReducerIsland
+     * Singleton of the ParallelCrossoverIsland
      */
     private static ParallelCrossoverIsland parallelCrossoverIsland;
     private final static Logger LOGGER = LoggerFactory.getLogger(ParallelCrossoverIsland.class);
 
     /**
-     * Creates and/or returns singleton instance of the ReducerIsland
-     * @return singleton instance of the ReducerIsland
+     * Creates and/or returns singleton instance of the ParallelCrossoverIsland
+     * @return singleton instance of the ParallelCrossoverIsland
      */
     public static ParallelCrossoverIsland getParallelCrossoverIsland() {
         if (parallelCrossoverIsland == null) {

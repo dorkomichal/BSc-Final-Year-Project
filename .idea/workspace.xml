@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b212d496-b186-40bb-b151-bcf7918a9e05" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIsland.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIslandFitnessSelection.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ReducerIsland.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ParallelCrossoverIsland.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Driver.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/driver/Driver.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/GlobalFile.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/driver/GlobalFile.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Mapper.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/globalparallelizationmodel/MapperFitnessSelection.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Reducer.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/globalparallelizationmodel/ParallelCrossover.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examplegvgai/src/main/java/gameproblem/GameAgent.java" afterPath="$PROJECT_DIR$/examplegvgai/src/main/java/gameproblem/GameAgent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/globalparallelizationmodel/ParallelCrossover.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/globalparallelizationmodel/ParallelCrossover.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ParallelCrossoverIsland.java" afterPath="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ParallelCrossoverIsland.java" />
     </list>
     <ignored path="mapreducega.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -82,17 +76,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/driver/Driver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
-              <caret line="118" column="139" selection-start-line="118" selection-start-column="139" selection-end-line="118" selection-end-column="139" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapperFitnessSelection.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MapperFitnessSelection.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/globalparallelizationmodel/MapperFitnessSelection.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
@@ -105,8 +89,8 @@
       <file leaf-file-name="ParallelCrossover.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/globalparallelizationmodel/ParallelCrossover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+            <state relative-caret-position="285">
+              <caret line="24" column="58" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -141,8 +125,18 @@
       <file leaf-file-name="ParallelCrossoverIsland.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ParallelCrossoverIsland.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+            <state relative-caret-position="-790">
+              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -191,7 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/StringIndividualMapReduce.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/Population.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/geneticClasses/GeneticOperationsMapReduce.java" />
         <option value="$PROJECT_DIR$/MapReduceBinaryGA/src/main/java/mapreduce/Mapper.java" />
@@ -238,10 +231,11 @@
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/Reducer.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/ParallelCrossover.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ReducerIsland.java" />
-        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ParallelCrossoverIsland.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/main/GARunner.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/mapreduce/MapperFitnessSelection.java" />
         <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/globalparallelizationmodel/MapperFitnessSelection.java" />
+        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/globalparallelizationmodel/ParallelCrossover.java" />
+        <option value="$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ParallelCrossoverIsland.java" />
       </list>
     </option>
   </component>
@@ -263,62 +257,7 @@
     </option>
   </component>
   <component name="MavenProjectNavigator">
-    <treeState>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="mapreducegaframework" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="mapreducegaframework" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Lifecycle" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="exampletravellingsalesman" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="exampletravellingsalesman" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Lifecycle" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
-        </PATH_ELEMENT>
-      </PATH>
-    </treeState>
+    <treeState />
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="-4" />
@@ -1371,12 +1310,12 @@
       <workItem from="1458563835512" duration="16091000" />
       <workItem from="1459713188377" duration="130000" />
       <workItem from="1459713387812" duration="10292000" />
-      <workItem from="1459948796346" duration="675000" />
+      <workItem from="1459948796346" duration="1926000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="469756000" />
+    <option name="totallyTimeSpent" value="471007000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1397,9 +1336,9 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30454546" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30454546" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28225806" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28225806" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1559,13 +1498,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -1848,22 +1780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/globalparallelizationmodel/ParallelCrossover.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ParallelCrossoverIsland.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/MapperIslandFitnessSelection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1884,6 +1800,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/globalparallelizationmodel/ParallelCrossover.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="24" column="58" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapReduceGAFramework/src/main/java/islandmodel/ParallelCrossoverIsland.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-790">
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
           <folding />
         </state>
       </provider>
