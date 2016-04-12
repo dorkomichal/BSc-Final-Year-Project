@@ -46,9 +46,8 @@ public class MapperFitnessSelection implements Serializable {
         JavaPairRDD<IndividualMapReduce, Long> populationWithFitness = parallelizedPopulation.mapToPair(ind -> new Tuple2<IndividualMapReduce, Long>(ind, ind.calculateFitness(fitnessCalculator)));
         long currentMaxFitness = populationWithFitness.values().reduce(Math::max);
         GlobalFile.setCurrentMaxFitness(currentMaxFitness);
-        long maxFitness = GlobalFile.getMaxFitness();
-        JavaRDD<Long> terminate = populationWithFitness.values().filter(v -> (v >= maxFitness));
-        if (!terminate.isEmpty()) {
+        long goalFitness = GlobalFile.getMaxFitness();
+        if (currentMaxFitness >= goalFitness) {
             GlobalFile.setSolutionFound(true);
         }
         return populationWithFitness;

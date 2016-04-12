@@ -1,7 +1,7 @@
 package islandmodel;
 
-import geneticClasses.*;
 import driver.GlobalFile;
+import geneticClasses.*;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.slf4j.Logger;
@@ -52,9 +52,8 @@ public class MapperIslandFitnessSelection implements Serializable {
         JavaPairRDD<Island, Long> populationWithFitness = parallelizedIslandPop.mapToPair(isl -> evaluateFitness(isl, fitnessCalculator));
         long currentMaxFitness = populationWithFitness.values().reduce(Math::max);
         GlobalFile.setCurrentMaxFitness(currentMaxFitness);
-        long maxFitness = GlobalFile.getMaxFitness();
-        JavaRDD<Long> terminate = populationWithFitness.values().filter(v -> (v >= maxFitness));
-        if (!terminate.isEmpty()) {
+        long goalFitness = GlobalFile.getMaxFitness();
+        if (currentMaxFitness >= goalFitness) {
             GlobalFile.setSolutionFound(true);
         }
         return populationWithFitness;

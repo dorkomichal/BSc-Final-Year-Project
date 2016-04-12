@@ -1,14 +1,14 @@
 package main;
 
+import driver.Driver;
+import driver.GlobalFile;
 import geneticClasses.*;
+import globalparallelizationmodel.MapperFitnessSelection;
+import globalparallelizationmodel.ParallelCrossover;
 import islandmodel.Island;
 import islandmodel.MapperIslandFitnessSelection;
 import islandmodel.Migrator;
 import islandmodel.ParallelCrossoverIsland;
-import driver.Driver;
-import driver.GlobalFile;
-import globalparallelizationmodel.MapperFitnessSelection;
-import globalparallelizationmodel.ParallelCrossover;
 import org.apache.spark.api.java.JavaDoubleRDD;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;

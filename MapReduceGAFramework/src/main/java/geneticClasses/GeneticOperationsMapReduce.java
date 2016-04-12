@@ -142,7 +142,7 @@ public final class GeneticOperationsMapReduce implements Serializable {
             child1 = new StringIndividualMapReduce(chromosomeLength);
             child2 = new StringIndividualMapReduce(chromosomeLength);
         } else {
-            swapDuplicates((Integer[]) child1Chromosome, (Integer[]) child2Chromosome);
+            swapDuplicates(child1Chromosome, child2Chromosome);
             child1 = new IntPermutationIndividualMapReduce(chromosomeLength);
             child2 = new IntPermutationIndividualMapReduce(chromosomeLength);
         }
@@ -207,7 +207,7 @@ public final class GeneticOperationsMapReduce implements Serializable {
             child1 = new StringIndividualMapReduce(chromosomeLength);
             child2 = new StringIndividualMapReduce(chromosomeLength);
         } else {
-            swapDuplicates((Integer[]) child1Chromosome, (Integer[]) child2Chromosome);
+            swapDuplicates(child1Chromosome, child2Chromosome);
             child1 = new IntPermutationIndividualMapReduce(chromosomeLength);
             child2 = new IntPermutationIndividualMapReduce(chromosomeLength);
         }
@@ -228,7 +228,7 @@ public final class GeneticOperationsMapReduce implements Serializable {
      *
      * @param individual the individual which chromosome will undergo mutation
      */
-    protected void mutate(IndividualMapReduce individual) {
+    private void mutate(IndividualMapReduce individual) {
         // if individual is Binary individual mutation will flip the bit
         if (individual instanceof BinaryIndividualMapReduce) {
             Byte[] chromosome = (Byte[]) individual.getChromosome();
