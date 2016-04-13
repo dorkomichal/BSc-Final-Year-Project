@@ -9,7 +9,7 @@ import java.io.Serializable;
  * Map-Reduce library for Genetic Algorithms
  * Licensed under the Academic Free License version 3.0
  */
-public interface FitnessFunction extends Serializable, Cloneable {
+public interface FitnessFunction extends Serializable {
 
     /**
      * Implementation of the fitness function which is problem dependent therefore user has to
